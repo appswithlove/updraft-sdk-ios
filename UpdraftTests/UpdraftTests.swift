@@ -35,6 +35,7 @@ class UpdraftTests: XCTestCase {
 		
 		//Then
 		XCTAssertEqual(appKey, updraft.appKey)
+		XCTAssertNotNil(updraft.autoUpdateManager)
 	}
 	
 	func testClearConfig() {

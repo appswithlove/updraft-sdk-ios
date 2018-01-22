@@ -14,6 +14,7 @@ public class Updraft {
 	private static let sharedInstance = Updraft()
 	
 	private(set) var appKey = ""
+	private(set) var autoUpdateManager: AutoUpdateManager?
 	
 	/// Returns the shared Updraft instance.
 	open class var shared: Updraft {
@@ -31,5 +32,6 @@ public class Updraft {
 	/// - Parameter appKey: Your application key
 	public func start(with appKey: String) {
 		self.appKey = appKey
+		self.autoUpdateManager =  AutoUpdateManager(appKey: appKey)
 	}
 }
