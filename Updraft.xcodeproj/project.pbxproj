@@ -10,6 +10,8 @@
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
 		F6F5A6812015D70D009AFF2B /* Updraft.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F5A6732015D70D009AFF2B /* Updraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A6C72015EEE6009AFF2B /* Updraft.swift */; };
+		F6FD17BC20160F0E005B9177 /* AutoUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD17BB20160F0E005B9177 /* AutoUpdateInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		F6F5A6792015D70D009AFF2B /* UpdraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpdraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdraftTests.swift; sourceTree = "<group>"; };
 		F6F5A6802015D70D009AFF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F5A6C72015EEE6009AFF2B /* Updraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updraft.swift; sourceTree = "<group>"; };
+		F6FD17BB20160F0E005B9177 /* AutoUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			children = (
 				F6F5A6732015D70D009AFF2B /* Updraft.h */,
 				F6F5A6742015D70D009AFF2B /* Info.plist */,
+				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
 			);
 			path = Updraft;
 			sourceTree = "<group>";
@@ -81,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */,
+				F6FD17BB20160F0E005B9177 /* AutoUpdateInteractorTests.swift */,
 				F6F5A6802015D70D009AFF2B /* Info.plist */,
 			);
 			path = UpdraftTests;
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					F6F5A66F2015D70D009AFF2B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					F6F5A6782015D70D009AFF2B = {
@@ -196,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6FD17BC20160F0E005B9177 /* AutoUpdateInteractorTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +343,7 @@
 		F6F5A6852015D70D009AFF2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Raph.Updraft;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +366,7 @@
 		F6F5A6862015D70D009AFF2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +388,7 @@
 		F6F5A6882015D70D009AFF2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EMM22S2YK;
 				INFOPLIST_FILE = UpdraftTests/Info.plist;
@@ -390,6 +403,7 @@
 		F6F5A6892015D70D009AFF2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EMM22S2YK;
 				INFOPLIST_FILE = UpdraftTests/Info.plist;

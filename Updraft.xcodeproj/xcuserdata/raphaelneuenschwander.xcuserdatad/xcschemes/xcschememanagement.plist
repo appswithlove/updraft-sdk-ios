@@ -7,7 +7,20 @@
 		<key>Updraft.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F6F5A66F2015D70D009AFF2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6F5A6782015D70D009AFF2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
