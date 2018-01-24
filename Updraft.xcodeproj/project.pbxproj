@@ -12,7 +12,6 @@
 		F602F78320175A1400B7487A /* AutoUpdateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F78220175A1400B7487A /* AutoUpdateRepository.swift */; };
 		F602F7852017609F00B7487A /* AutoUpdateDownloadInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* AutoUpdateDownloadInteractor.swift */; };
 		F68088DA20188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift */; };
-		F68088DD2018ABFD008DE368 /* AutoUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088DC2018ABFD008DE368 /* AutoUpdateInteractorTests.swift */; };
 		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
 		F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationMock.swift */; };
 		F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */; };
@@ -44,7 +43,6 @@
 		F602F78220175A1400B7487A /* AutoUpdateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRepository.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* AutoUpdateDownloadInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractor.swift; sourceTree = "<group>"; };
 		F68088D920188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRestInteractorOutputSpy.swift; sourceTree = "<group>"; };
-		F68088DC2018ABFD008DE368 /* AutoUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		F68088E52018B3A3008DE368 /* UIApplicationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationMock.swift; sourceTree = "<group>"; };
 		F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractorTests.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			children = (
 				F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */,
 				F602F77E2017563E00B7487A /* AutoUpdateRestInteractorTests.swift */,
-				F68088DC2018ABFD008DE368 /* AutoUpdateInteractorTests.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -327,7 +324,6 @@
 				F68088EC2018B6B1008DE368 /* AutoUpdateDownloadInteractorOutputSpy.swift in Sources */,
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
-				F68088DD2018ABFD008DE368 /* AutoUpdateInteractorTests.swift in Sources */,
 				F68088DA20188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift in Sources */,
 				F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */,
 				F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */,
