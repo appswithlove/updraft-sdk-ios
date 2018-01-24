@@ -41,7 +41,7 @@ class AutoUpdateManager {
 	}
 	
 	func subscribeToAppDidBecomeActive() {
-		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (notification) in
+		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
 			self?.checkUpdate()
 		})
 	}
@@ -55,7 +55,7 @@ class AutoUpdateManager {
 	}
 }
 
-//MARK: AutoUpdateRestInteractorOutput
+// MARK: - AutoUpdateRestInteractorOutput
 
 extension AutoUpdateManager: AutoUpdateRestInteractorOutput {
 	func autoUpdateRestInteractor(_ sender: AutoUpdateRestInteractor, newUpdateAvailableAt url: URL) {
@@ -63,7 +63,7 @@ extension AutoUpdateManager: AutoUpdateRestInteractorOutput {
 	}
 }
 
-//MARK: AutoUpdateDownloadInteractorOutput
+// MARK: - AutoUpdateDownloadInteractorOutput
 
 extension AutoUpdateManager: AutoUpdateDownloadInteractorOutput {
 	func autoUpdateDownloadInteractor(_ sender: AutoUpdateDownloadInteractor, url: URL, didOpen: Bool) {

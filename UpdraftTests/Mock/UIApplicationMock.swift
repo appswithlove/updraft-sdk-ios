@@ -17,7 +17,7 @@ struct MockUIApplication: URLOpener {
 		return canOpen
 	}
 	
-	func open(_ url: URL, options: [String : Any], completionHandler completion: ((Bool) -> Void)?) {
+	func open(_ url: URL, options: [String: Any], completionHandler completion: ((Bool) -> Void)?) {
 		if canOpen {
 			completion?(true)
 		}

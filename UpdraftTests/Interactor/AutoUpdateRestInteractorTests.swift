@@ -40,7 +40,7 @@ class AutoUpdateRestInteractorTests: XCTestCase {
 		interactor.output = spy
 		
 		let stubUrl = URL(string: "www.apple.ch")!
-		
+	
 		//When
 		interactor.output?.autoUpdateRestInteractor(interactor, newUpdateAvailableAt: stubUrl)
 		

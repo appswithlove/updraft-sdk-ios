@@ -51,7 +51,7 @@ class AutoUpdateDownloadInteractor {
 	}
 }
 
-//MARK: - AutoUpdateDownloadInteractorInput
+// MARK: - AutoUpdateDownloadInteractorInput
 
 extension AutoUpdateDownloadInteractor: AutoUpdateDownloadInteractorInput {
 	func redirectUserForDownload(to url: URL) {

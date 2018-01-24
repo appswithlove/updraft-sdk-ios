@@ -23,8 +23,8 @@ protocol AutoUpdateRestInteractorOutput: class {
 }
 
 /// Handle the logic to check if a new update is available.
-class AutoUpdateRestInteractor  {
-	
+class AutoUpdateRestInteractor {
+
 	private(set) var repository: AutoUpdateRepository
 	weak var output: AutoUpdateRestInteractorOutput?
 	
@@ -33,7 +33,7 @@ class AutoUpdateRestInteractor  {
 	}
 }
 
-//MARK: - AutoUpdateRestInteractorInput
+// MARK: - AutoUpdateRestInteractorInput
 
 extension AutoUpdateRestInteractor: AutoUpdateRestInteractorInput {
 	func checkUpdate() {

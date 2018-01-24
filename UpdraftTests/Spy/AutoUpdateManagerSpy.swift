@@ -13,7 +13,7 @@ class AutoUpdateManagerSpy: AutoUpdateManager {
 	var startWasCalled = false
 	var subscribeToAppDidBecomeActiveWasCalled = false
 	var checkUpdateWasCalled = false
-	
+
 	override func start() {
 		super.start()
 		startWasCalled = true

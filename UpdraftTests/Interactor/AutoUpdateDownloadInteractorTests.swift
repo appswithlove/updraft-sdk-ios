@@ -28,7 +28,7 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 		let mock = MockUIApplication(canOpen: canOpen)
 		let sut = AutoUpdateDownloadInteractor(application: mock)
 		sut.output = outputSpy
-		let url = URL(string:"www.apple.ch")!
+		let url = URL(string: "www.apple.ch")!
 		
 		//When
 		sut.openUrl(url)
@@ -45,7 +45,7 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 		let mock = MockUIApplication(canOpen: canOpen)
 		let sut = AutoUpdateDownloadInteractor(application: mock)
 		sut.output = outputSpy
-		let url = URL(string:"www.apple.ch")!
+		let url = URL(string: "www.apple.ch")!
 		
 		//When
 		sut.openUrl(url)
