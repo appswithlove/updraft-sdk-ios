@@ -3,18 +3,25 @@
 //  Updraft
 //
 //  Created by Raphael Neuenschwander on 22.01.18.
-//  Copyright © 2018 Raphael Neuenschwander. All rights reserved.
+//  Copyright © 2018 Apps with love AG. All rights reserved.
 //
 
 import Foundation
 
 public class Updraft {
 	
-	private init() {}
+	init(autoUpdateManager: AutoUpdateManager) {
+		self.autoUpdateManager = autoUpdateManager
+	}
+	
+	convenience init() {
+		self.init(autoUpdateManager: AutoUpdateManager())
+	}
+	
 	private static let sharedInstance = Updraft()
 	
 	private(set) var appKey = ""
-	private(set) var autoUpdateManager: AutoUpdateManager?
+	private(set) var autoUpdateManager: AutoUpdateManager
 	
 	/// Returns the shared Updraft instance.
 	open class var shared: Updraft {
@@ -32,6 +39,6 @@ public class Updraft {
 	/// - Parameter appKey: Your application key
 	public func start(with appKey: String) {
 		self.appKey = appKey
-		self.autoUpdateManager =  AutoUpdateManager(appKey: appKey)
+		autoUpdateManager.start()
 	}
 }

@@ -7,10 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F602F77F2017563E00B7487A /* AutoUpdateRestInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* AutoUpdateRestInteractorTests.swift */; };
+		F602F7812017596100B7487A /* AutoUpdateRestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* AutoUpdateRestInteractor.swift */; };
+		F602F78320175A1400B7487A /* AutoUpdateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F78220175A1400B7487A /* AutoUpdateRepository.swift */; };
+		F602F7852017609F00B7487A /* AutoUpdateDownloadInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* AutoUpdateDownloadInteractor.swift */; };
+		F68088DA20188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift */; };
+		F68088DD2018ABFD008DE368 /* AutoUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088DC2018ABFD008DE368 /* AutoUpdateInteractorTests.swift */; };
+		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
+		F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationMock.swift */; };
+		F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */; };
+		F68088EC2018B6B1008DE368 /* AutoUpdateDownloadInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088EB2018B6B1008DE368 /* AutoUpdateDownloadInteractorOutputSpy.swift */; };
+		F68088EE2018C208008DE368 /* AutoUpdateDownloadInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088ED2018C208008DE368 /* AutoUpdateDownloadInteractorInputSpy.swift */; };
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
 		F6F5A6812015D70D009AFF2B /* Updraft.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F5A6732015D70D009AFF2B /* Updraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A6C72015EEE6009AFF2B /* Updraft.swift */; };
+		F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6831820185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift */; };
+		F6F6831B2018853C00EF5CE3 /* AutoUpdateRestInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6831A2018853C00EF5CE3 /* AutoUpdateRestInteractorInputSpy.swift */; };
 		F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD17BB20160F0E005B9177 /* AutoUpdateManagerTests.swift */; };
 		F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD17BE20161445005B9177 /* AutoUpdateManager.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +39,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F602F77E2017563E00B7487A /* AutoUpdateRestInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRestInteractorTests.swift; sourceTree = "<group>"; };
+		F602F7802017596100B7487A /* AutoUpdateRestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRestInteractor.swift; sourceTree = "<group>"; };
+		F602F78220175A1400B7487A /* AutoUpdateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRepository.swift; sourceTree = "<group>"; };
+		F602F7842017609F00B7487A /* AutoUpdateDownloadInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractor.swift; sourceTree = "<group>"; };
+		F68088D920188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRestInteractorOutputSpy.swift; sourceTree = "<group>"; };
+		F68088DC2018ABFD008DE368 /* AutoUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateInteractorTests.swift; sourceTree = "<group>"; };
+		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
+		F68088E52018B3A3008DE368 /* UIApplicationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationMock.swift; sourceTree = "<group>"; };
+		F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractorTests.swift; sourceTree = "<group>"; };
+		F68088EB2018B6B1008DE368 /* AutoUpdateDownloadInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractorOutputSpy.swift; sourceTree = "<group>"; };
+		F68088ED2018C208008DE368 /* AutoUpdateDownloadInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F6F5A6702015D70D009AFF2B /* Updraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Updraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A6732015D70D009AFF2B /* Updraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updraft.h; sourceTree = "<group>"; };
 		F6F5A6742015D70D009AFF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +57,8 @@
 		F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdraftTests.swift; sourceTree = "<group>"; };
 		F6F5A6802015D70D009AFF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6F5A6C72015EEE6009AFF2B /* Updraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updraft.swift; sourceTree = "<group>"; };
+		F6F6831820185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateManagerSpy.swift; sourceTree = "<group>"; };
+		F6F6831A2018853C00EF5CE3 /* AutoUpdateRestInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateRestInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F6FD17BB20160F0E005B9177 /* AutoUpdateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateManagerTests.swift; sourceTree = "<group>"; };
 		F6FD17BE20161445005B9177 /* AutoUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +82,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F68088DB20189430008DE368 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F68088E02018B0D8008DE368 /* URLOpener.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F68088E22018B324008DE368 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F68088E52018B3A3008DE368 /* UIApplicationMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		F68088EF2018C9A4008DE368 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F6FD17BB20160F0E005B9177 /* AutoUpdateManagerTests.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F68088F02018C9BF008DE368 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */,
+				F602F77E2017563E00B7487A /* AutoUpdateRestInteractorTests.swift */,
+				F68088DC2018ABFD008DE368 /* AutoUpdateInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		F6F5A6662015D70D009AFF2B = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +137,10 @@
 		F6F5A6722015D70D009AFF2B /* Updraft */ = {
 			isa = PBXGroup;
 			children = (
+				F68088DB20189430008DE368 /* Common */,
 				F6F5A6732015D70D009AFF2B /* Updraft.h */,
+				F6FD17C220164E8E005B9177 /* Rest */,
+				F6FD17C120164E76005B9177 /* Interactor */,
 				F6FD17BD20161241005B9177 /* Manager */,
 				F6F5A6742015D70D009AFF2B /* Info.plist */,
 				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
@@ -88,11 +151,26 @@
 		F6F5A67D2015D70D009AFF2B /* UpdraftTests */ = {
 			isa = PBXGroup;
 			children = (
+				F68088F02018C9BF008DE368 /* Interactor */,
+				F68088EF2018C9A4008DE368 /* Manager */,
+				F68088E22018B324008DE368 /* Mock */,
+				F6F6831720185B9D00EF5CE3 /* Spy */,
 				F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */,
-				F6FD17BB20160F0E005B9177 /* AutoUpdateManagerTests.swift */,
 				F6F5A6802015D70D009AFF2B /* Info.plist */,
 			);
 			path = UpdraftTests;
+			sourceTree = "<group>";
+		};
+		F6F6831720185B9D00EF5CE3 /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				F68088ED2018C208008DE368 /* AutoUpdateDownloadInteractorInputSpy.swift */,
+				F68088EB2018B6B1008DE368 /* AutoUpdateDownloadInteractorOutputSpy.swift */,
+				F6F6831820185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift */,
+				F6F6831A2018853C00EF5CE3 /* AutoUpdateRestInteractorInputSpy.swift */,
+				F68088D920188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift */,
+			);
+			path = Spy;
 			sourceTree = "<group>";
 		};
 		F6FD17BD20161241005B9177 /* Manager */ = {
@@ -101,6 +179,23 @@
 				F6FD17BE20161445005B9177 /* AutoUpdateManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		F6FD17C120164E76005B9177 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F602F7802017596100B7487A /* AutoUpdateRestInteractor.swift */,
+				F602F7842017609F00B7487A /* AutoUpdateDownloadInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F6FD17C220164E8E005B9177 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				F602F78220175A1400B7487A /* AutoUpdateRepository.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +256,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Raphael Neuenschwander";
+				ORGANIZATIONNAME = "Apps with love AG";
 				TargetAttributes = {
 					F6F5A66F2015D70D009AFF2B = {
 						CreatedOnToolsVersion = 9.2;
@@ -214,7 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F602F7852017609F00B7487A /* AutoUpdateDownloadInteractor.swift in Sources */,
+				F602F7812017596100B7487A /* AutoUpdateRestInteractor.swift in Sources */,
+				F602F78320175A1400B7487A /* AutoUpdateRepository.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
+				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F6831B2018853C00EF5CE3 /* AutoUpdateRestInteractorInputSpy.swift in Sources */,
+				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
+				F68088EC2018B6B1008DE368 /* AutoUpdateDownloadInteractorOutputSpy.swift in Sources */,
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
+				F68088DD2018ABFD008DE368 /* AutoUpdateInteractorTests.swift in Sources */,
+				F68088DA20188C0E008DE368 /* AutoUpdateRestInteractorOutputSpy.swift in Sources */,
+				F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */,
+				F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */,
+				F68088EE2018C208008DE368 /* AutoUpdateDownloadInteractorInputSpy.swift in Sources */,
+				F602F77F2017563E00B7487A /* AutoUpdateRestInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +467,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6EMM22S2YK;
+				DEVELOPMENT_TEAM = FHBCXKRNYR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -382,7 +490,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6EMM22S2YK;
+				DEVELOPMENT_TEAM = FHBCXKRNYR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

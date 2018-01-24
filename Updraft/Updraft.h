@@ -3,7 +3,7 @@
 //  Updraft
 //
 //  Created by Raphael Neuenschwander on 22.01.18.
-//  Copyright © 2018 Raphael Neuenschwander. All rights reserved.
+//  Copyright © 2018 Apps with love AG. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
