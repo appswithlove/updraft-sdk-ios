@@ -23,18 +23,18 @@ class AutoUpdateRestInteractorTests: XCTestCase {
 	
 	func testInitialization() {
 		//Given
-		let repository = AutoUpdateRepository()
+		let repository = AutoUpdateNetworkService()
 		
 		//When
 		let interactor = AutoUpdateRestInteractor(repository: repository)
 		
 		//Then
-		XCTAssertNotNil(interactor.repository)
+		XCTAssertNotNil(interactor.networkService)
 	}
 	
 	func testNewUpdateUrl() {
 		//Given
-		let repository = AutoUpdateRepository()
+		let repository = AutoUpdateNetworkService()
 		let interactor = AutoUpdateRestInteractor(repository: repository)
 		let spy = AutoUpdateRestInteractorOutputSpy()
 		interactor.output = spy

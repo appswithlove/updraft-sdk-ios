@@ -15,6 +15,8 @@ class AutoUpdateManager {
 	var autoUpdateRestInteractor: AutoUpdateRestInteractorInput
 	var autoUpdateDownloadInteractor: AutoUpdateDownloadInteractorInput
 	
+	// MARK: Lifecycle
+	
 	init(autoUpdateRestInteractor: AutoUpdateRestInteractor, autoUpdateDownloadInteractor: AutoUpdateDownloadInteractor) {
 		self.autoUpdateRestInteractor = autoUpdateRestInteractor
 		self.autoUpdateDownloadInteractor = autoUpdateDownloadInteractor
@@ -23,21 +25,22 @@ class AutoUpdateManager {
 	}
 	
 	convenience init() {
-		let autoUpdateRepository = AutoUpdateRepository()
+		let autoUpdateRepository = AutoUpdateNetworkService()
 		let autoUpdateRestInteractor = AutoUpdateRestInteractor(repository: autoUpdateRepository)
-		let application = UIApplication.shared
-		let autoUpdateDownloadInteractor = AutoUpdateDownloadInteractor(application: application)
+		let autoUpdateDownloadInteractor = AutoUpdateDownloadInteractor()
 		self.init(autoUpdateRestInteractor: autoUpdateRestInteractor, autoUpdateDownloadInteractor: autoUpdateDownloadInteractor)
-	}
-	
-	func start() {
-		self.subscribeToAppDidBecomeActive()
 	}
 	
 	deinit {
 		if let obs = didBecomeActiveObserver {
 			NotificationCenter.default.removeObserver(obs)
 		}
+	}
+	
+	// MARK: Implementation
+	
+	func start() {
+		self.subscribeToAppDidBecomeActive()
 	}
 	
 	func subscribeToAppDidBecomeActive() {

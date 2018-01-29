@@ -25,11 +25,11 @@ protocol AutoUpdateRestInteractorOutput: class {
 /// Handle the logic to check if a new update is available.
 class AutoUpdateRestInteractor {
 
-	private(set) var repository: AutoUpdateRepository
+	private(set) var networkService: AutoUpdateNetworkService
 	weak var output: AutoUpdateRestInteractorOutput?
 	
-	init(repository: AutoUpdateRepository) {
-		self.repository = repository
+	init(repository: AutoUpdateNetworkService) {
+		self.networkService = repository
 	}
 }
 

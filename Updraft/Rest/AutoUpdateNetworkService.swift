@@ -1,5 +1,5 @@
 //
-//  AutoUpdateRepository.swift
+//  AutoUpdateNetworkService.swift
 //  Updraft
 //
 //  Created by Raphael Neuenschwander on 23.01.18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct AutoUpdateRepository {
-
-}
+//struct AutoUpdateNetworkService {
+//
+//}

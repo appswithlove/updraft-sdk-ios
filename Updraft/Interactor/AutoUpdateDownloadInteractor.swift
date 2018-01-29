@@ -33,7 +33,7 @@ class AutoUpdateDownloadInteractor {
 	private let application: URLOpener
 	weak var output: AutoUpdateDownloadInteractorOutput?
 	
-	init(application: URLOpener) {
+	init(application: URLOpener = UIApplication.shared) {
 		self.application = application
 	}
 
