@@ -1,5 +1,5 @@
 //
-//  AutoUpdateRestInteractorInputSpy.swift
+//  CheckUpdateInteractorInputSpy.swift
 //  UpdraftTests
 //
 //  Created by Raphael Neuenschwander on 24.01.18.
@@ -9,7 +9,7 @@
 import Foundation
 @testable import Updraft
 
-class AutoUpdateRestInteractorInputSpy: AutoUpdateRestInteractorInput {
+class CheckUpdateInteractorInputSpy: CheckUpdateInteractorInput {
 	var checkUpdateWasCalled = false
 	
 	func checkUpdate() {

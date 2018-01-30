@@ -9,7 +9,7 @@
 import XCTest
 @testable import Updraft
 
-class AutoUpdateRestInteractorTests: XCTestCase {
+class CheckUpdateInteractorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,31 +21,19 @@ class AutoUpdateRestInteractorTests: XCTestCase {
         super.tearDown()
     }
 	
-	func testInitialization() {
-		//Given
-		let repository = AutoUpdateNetworkService()
-		
-		//When
-		let interactor = AutoUpdateRestInteractor(repository: repository)
-		
-		//Then
-		XCTAssertNotNil(interactor.networkService)
-	}
-	
 	func testNewUpdateUrl() {
 		//Given
-		let repository = AutoUpdateNetworkService()
-		let interactor = AutoUpdateRestInteractor(repository: repository)
-		let spy = AutoUpdateRestInteractorOutputSpy()
+		let interactor = CheckUpdateInteractor()
+		let spy = CheckUpdateInteractorOutputSpy()
 		interactor.output = spy
 		
 		let stubUrl = URL(string: "www.apple.ch")!
 	
 		//When
-		interactor.output?.autoUpdateRestInteractor(interactor, newUpdateAvailableAt: stubUrl)
+		interactor.output?.checkUpdateInteractor(interactor, newUpdateAvailableAt: stubUrl)
 		
 		//Then
-		XCTAssertTrue(spy.autoUpdateRestInteractorWasCalled)
+		XCTAssertTrue(spy.checkUpdateInteractorWasCalled)
 	}
 	
 }

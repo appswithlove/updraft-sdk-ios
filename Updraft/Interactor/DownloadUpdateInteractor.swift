@@ -1,5 +1,5 @@
 //
-//  AutoUpdateDownloadInteractor.swift
+//  DownloadUpdateInteractor.swift
 //  Updraft
 //
 //  Created by Raphael Neuenschwander on 23.01.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AutoUpdateDownloadInteractorInput {
+protocol DownloadUpdateInteractorInput {
 	
 	/// Redirect the user to the given URL to download the new version of the app.
 	///
@@ -16,7 +16,7 @@ protocol AutoUpdateDownloadInteractorInput {
 	func redirectUserForDownload(to url: URL)
 }
 
-protocol AutoUpdateDownloadInteractorOutput: class {
+protocol DownloadUpdateInteractorOutput: class {
 	
 	/// Tells the delegate whether a specified URL was opened successfully.
 	///
@@ -24,14 +24,14 @@ protocol AutoUpdateDownloadInteractorOutput: class {
 	///   - sender: The sender where the event is occuring.
 	///   - url: The URL
 	///   - didOpen: A Boolean indicating wheter the URL was openened successfully
-	func autoUpdateDownloadInteractor(_ sender: AutoUpdateDownloadInteractor, url: URL, didOpen: Bool)
+	func downloadUpdateInteractor(_ sender: DownloadUpdateInteractor, url: URL, didOpen: Bool)
 }
 
 /// Handle the redirection of the user to the app update download page.
-class AutoUpdateDownloadInteractor {
+class DownloadUpdateInteractor {
 	
 	private let application: URLOpener
-	weak var output: AutoUpdateDownloadInteractorOutput?
+	weak var output: DownloadUpdateInteractorOutput?
 	
 	init(application: URLOpener = UIApplication.shared) {
 		self.application = application
@@ -42,18 +42,18 @@ class AutoUpdateDownloadInteractor {
 	/// - Parameter url: The URL to be opened
 	func openUrl(_ url: URL) {
 		guard application.canOpenURL(url) else {
-			output?.autoUpdateDownloadInteractor(self, url: url, didOpen: false)
+			output?.downloadUpdateInteractor(self, url: url, didOpen: false)
 			return
 		}
 		application.open(url, options: [:]) { (success) in
-			self.output?.autoUpdateDownloadInteractor(self, url: url, didOpen: success)
+			self.output?.downloadUpdateInteractor(self, url: url, didOpen: success)
 		}
 	}
 }
 
-// MARK: - AutoUpdateDownloadInteractorInput
+// MARK: - DownloadUpdateInteractorInput
 
-extension AutoUpdateDownloadInteractor: AutoUpdateDownloadInteractorInput {
+extension DownloadUpdateInteractor: DownloadUpdateInteractorInput {
 	func redirectUserForDownload(to url: URL) {
 		self.openUrl(url)
 	}

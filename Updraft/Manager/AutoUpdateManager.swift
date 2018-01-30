@@ -12,23 +12,22 @@ import Foundation
 class AutoUpdateManager {
 	
 	private(set) var didBecomeActiveObserver: NSObjectProtocol?
-	var autoUpdateRestInteractor: AutoUpdateRestInteractorInput
-	var autoUpdateDownloadInteractor: AutoUpdateDownloadInteractorInput
+	var checkUpdateInteractor: CheckUpdateInteractorInput
+	var downloadUpdateInteractor: DownloadUpdateInteractorInput
 	
 	// MARK: Lifecycle
 	
-	init(autoUpdateRestInteractor: AutoUpdateRestInteractor, autoUpdateDownloadInteractor: AutoUpdateDownloadInteractor) {
-		self.autoUpdateRestInteractor = autoUpdateRestInteractor
-		self.autoUpdateDownloadInteractor = autoUpdateDownloadInteractor
-		autoUpdateRestInteractor.output = self
-		autoUpdateDownloadInteractor.output = self
+	init(checkUpdateInteractor: CheckUpdateInteractor, downloadUpdateInteractor: DownloadUpdateInteractor) {
+		self.checkUpdateInteractor = checkUpdateInteractor
+		self.downloadUpdateInteractor = downloadUpdateInteractor
+		checkUpdateInteractor.output = self
+		downloadUpdateInteractor.output = self
 	}
 	
 	convenience init() {
-		let autoUpdateRepository = AutoUpdateNetworkService()
-		let autoUpdateRestInteractor = AutoUpdateRestInteractor(repository: autoUpdateRepository)
-		let autoUpdateDownloadInteractor = AutoUpdateDownloadInteractor()
-		self.init(autoUpdateRestInteractor: autoUpdateRestInteractor, autoUpdateDownloadInteractor: autoUpdateDownloadInteractor)
+		let checkUpdateInteractor = CheckUpdateInteractor()
+		let updateDownloadInteractor = DownloadUpdateInteractor()
+		self.init(checkUpdateInteractor: checkUpdateInteractor, downloadUpdateInteractor: updateDownloadInteractor)
 	}
 	
 	deinit {
@@ -50,26 +49,26 @@ class AutoUpdateManager {
 	}
 	
 	func checkUpdate() {
-		autoUpdateRestInteractor.checkUpdate()
+		checkUpdateInteractor.checkUpdate()
 	}
 	
 	func redirectUserForUpdate(to url: URL) {
-		autoUpdateDownloadInteractor.redirectUserForDownload(to: url)
+		downloadUpdateInteractor.redirectUserForDownload(to: url)
 	}
 }
 
-// MARK: - AutoUpdateRestInteractorOutput
+// MARK: - CheckUpdateInteractorOutput
 
-extension AutoUpdateManager: AutoUpdateRestInteractorOutput {
-	func autoUpdateRestInteractor(_ sender: AutoUpdateRestInteractor, newUpdateAvailableAt url: URL) {
+extension AutoUpdateManager: CheckUpdateInteractorOutput {
+	func checkUpdateInteractor(_ sender: CheckUpdateInteractor, newUpdateAvailableAt url: URL) {
 		redirectUserForUpdate(to: url)
 	}
 }
 
-// MARK: - AutoUpdateDownloadInteractorOutput
+// MARK: - DownloadUpdateInteractorOutput
 
-extension AutoUpdateManager: AutoUpdateDownloadInteractorOutput {
-	func autoUpdateDownloadInteractor(_ sender: AutoUpdateDownloadInteractor, url: URL, didOpen: Bool) {
+extension AutoUpdateManager: DownloadUpdateInteractorOutput {
+	func downloadUpdateInteractor(_ sender: DownloadUpdateInteractor, url: URL, didOpen: Bool) {
 		
 	}
 }

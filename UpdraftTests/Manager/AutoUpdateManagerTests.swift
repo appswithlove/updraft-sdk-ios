@@ -59,9 +59,9 @@ class AutoUpdateManagerTests: XCTestCase {
 	
 	func testCheckUpdateIsCalledWhenAutoUpdateIsCalled() {
 		//Given
-		let spy = AutoUpdateRestInteractorInputSpy()
+		let spy = CheckUpdateInteractorInputSpy()
 		let manager = AutoUpdateManager()
-		manager.autoUpdateRestInteractor = spy
+		manager.checkUpdateInteractor = spy
 		
 		//When
 		manager.checkUpdate()
@@ -72,9 +72,9 @@ class AutoUpdateManagerTests: XCTestCase {
 	
 	func testRedirectUserToUrl() {
 		//Given
-		let spy = AutoUpdateDownloadInteractorInputSpy()
+		let spy = DownloadUpdateInteractorInputSpy()
 		let manager = AutoUpdateManager()
-		manager.autoUpdateDownloadInteractor = spy
+		manager.downloadUpdateInteractor = spy
 		let dumURL = URL(string: "www.apple.ch")!
 		
 		//When

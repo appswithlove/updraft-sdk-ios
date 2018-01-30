@@ -24,9 +24,9 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 	func testCanOpenUrl() {
 		//Given
 		let canOpen = true
-		let outputSpy = AutoUpdateDownloadInteractorOutputSpy()
+		let outputSpy = DownloadUpdateInteractorOutputSpy()
 		let mock = MockUIApplication(canOpen: canOpen)
-		let sut = AutoUpdateDownloadInteractor(application: mock)
+		let sut = DownloadUpdateInteractor(application: mock)
 		sut.output = outputSpy
 		let url = URL(string: "www.apple.ch")!
 		
@@ -41,9 +41,9 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 	func testCannotOpenUrl() {
 		//Given
 		let canOpen = false
-		let outputSpy = AutoUpdateDownloadInteractorOutputSpy()
+		let outputSpy = DownloadUpdateInteractorOutputSpy()
 		let mock = MockUIApplication(canOpen: canOpen)
-		let sut = AutoUpdateDownloadInteractor(application: mock)
+		let sut = DownloadUpdateInteractor(application: mock)
 		sut.output = outputSpy
 		let url = URL(string: "www.apple.ch")!
 		

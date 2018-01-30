@@ -1,5 +1,5 @@
 //
-//  AutoUpdateDownloadInteractorOutputSpy.swift
+//  DownloadUpdateInteractorOutputSpy.swift
 //  UpdraftTests
 //
 //  Created by Raphael Neuenschwander on 24.01.18.
@@ -9,11 +9,11 @@
 import Foundation
 @testable import Updraft
 
-class AutoUpdateDownloadInteractorOutputSpy: AutoUpdateDownloadInteractorOutput {
+class DownloadUpdateInteractorOutputSpy: DownloadUpdateInteractorOutput {
 	var urlDidOpenWasCalled = false
 	var didOpen: Bool?
 	
-	func autoUpdateDownloadInteractor(_ sender: AutoUpdateDownloadInteractor, url: URL, didOpen: Bool) {
+	func downloadUpdateInteractor(_ sender: DownloadUpdateInteractor, url: URL, didOpen: Bool) {
 		urlDidOpenWasCalled = true
 		self.didOpen = didOpen
 	}

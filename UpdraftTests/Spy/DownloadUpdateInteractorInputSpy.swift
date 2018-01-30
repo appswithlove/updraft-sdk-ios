@@ -1,5 +1,5 @@
 //
-//  AutoUpdateDownloadInteractorInputSpy.swift
+//  DownloadUpdateInteractorInputSpy.swift
 //  UpdraftTests
 //
 //  Created by Raphael Neuenschwander on 24.01.18.
@@ -9,7 +9,7 @@
 import Foundation
 @testable import Updraft
 
-class AutoUpdateDownloadInteractorInputSpy: AutoUpdateDownloadInteractorInput {
+class DownloadUpdateInteractorInputSpy: DownloadUpdateInteractorInput {
 	
 	var redirectUserForDownloadWasCalled = false
 	
