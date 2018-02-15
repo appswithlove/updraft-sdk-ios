@@ -11,13 +11,15 @@ import Foundation
 protocol ApiResource {
 	associatedtype Model where Model: Decodable
 	var endPoint: String { get }
+	var method: NetworkMethod { get }
 	
 	func makeModel(data: Data) throws -> Model
 }
 
 extension ApiResource {
+	
 	var url: URL {
-		let baseUrl = "https://api.stackexchange.com/2.2"
+		let baseUrl = "https://u2.mqd.me/api"
 		let url = baseUrl + endPoint
 		return URL(string: url)!
 	}

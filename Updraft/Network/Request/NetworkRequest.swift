@@ -18,6 +18,11 @@ enum NetworkError: Error {
 	case requestDeallocation
 }
 
+enum NetworkMethod {
+	case get
+	case post
+}
+
 protocol NetworkRequest: class {
 	associatedtype Model
 	func load(withCompletion completion: @escaping (NetworkResult<Model>) -> Void)

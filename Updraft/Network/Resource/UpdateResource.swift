@@ -9,9 +9,9 @@
 import Foundation
 
 struct UpdateResource: ApiResource {
+	
 	typealias Model = UpdateModel
 	
-	let endPoint = "/checkUpdate"
-
-	//TODO: Add method
+	let endPoint = "/get_last_version"
+	let method = NetworkMethod.post
 }

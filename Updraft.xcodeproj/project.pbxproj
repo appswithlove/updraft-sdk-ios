@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F601058D2035C601004D8431 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionMock.swift */; };
+		F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105922035E39E004D8431 /* CheckUpdateModel.swift */; };
+		F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105942035E677004D8431 /* CheckUpdateResource.swift */; };
 		F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */; };
 		F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* CheckUpdateInteractor.swift */; };
 		F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		F601058C2035C601004D8431 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
+		F60105922035E39E004D8431 /* CheckUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateModel.swift; sourceTree = "<group>"; };
+		F60105942035E677004D8431 /* CheckUpdateResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateResource.swift; sourceTree = "<group>"; };
 		F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F602F7802017596100B7487A /* CheckUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractor.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractor.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			children = (
 				F6B558AF202061D7006ADB14 /* ApiResource.swift */,
 				F6B558B1202061FE006ADB14 /* UpdateResource.swift */,
+				F60105942035E677004D8431 /* CheckUpdateResource.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				F6B558B320206240006ADB14 /* UpdateModel.swift */,
+				F60105922035E39E004D8431 /* CheckUpdateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,8 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */,
+				F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */,
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
+				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
