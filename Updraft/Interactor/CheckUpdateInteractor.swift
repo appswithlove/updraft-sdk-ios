@@ -36,7 +36,9 @@ extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 	func checkUpdate() {
 		
 		let updateResource = UpdateResource()
-		let updateRequest = ApiRequest(resource: updateResource)
+		let configuration = URLSessionConfiguration.ephemeral
+		let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
+		let updateRequest = ApiRequest(resource: updateResource, session: session)
 		self.request = updateRequest
 		
 		updateRequest.load { [weak self] (result) in

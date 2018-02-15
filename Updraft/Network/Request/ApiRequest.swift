@@ -10,13 +10,16 @@ import Foundation
 
 class ApiRequest<Resource: ApiResource> {
 	let resource: Resource
+	let session: NetworkSession
 	
-	init(resource: Resource) {
+	init(resource: Resource, session: NetworkSession) {
 		self.resource = resource
+		self.session = session
 	}
 }
 
 extension ApiRequest: NetworkRequest {
+
 	typealias Model = Resource.Model
 	
 	func load(withCompletion completion: @escaping (NetworkResult<ApiRequest<Resource>.Model>) -> Void) {

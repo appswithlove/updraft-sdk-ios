@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F601058D2035C601004D8431 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionMock.swift */; };
 		F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */; };
 		F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* CheckUpdateInteractor.swift */; };
 		F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */; };
+		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
+		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
 		F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */; };
 		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
 		F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationMock.swift */; };
@@ -42,9 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F601058C2035C601004D8431 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
 		F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F602F7802017596100B7487A /* CheckUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractor.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractor.swift; sourceTree = "<group>"; };
+		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
+		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		F68088E52018B3A3008DE368 /* UIApplicationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationMock.swift; sourceTree = "<group>"; };
@@ -88,10 +94,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F6587AB62034619A00B1A87F /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F6587AB720346AA800B1A87F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F68088DB20189430008DE368 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				F68088E02018B0D8008DE368 /* URLOpener.swift */,
+				F6632BF5203573970098FA77 /* NetworkSession.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -100,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F68088E52018B3A3008DE368 /* UIApplicationMock.swift */,
+				F601058C2035C601004D8431 /* NetworkSessionMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -192,6 +215,8 @@
 		F6F5A67D2015D70D009AFF2B /* UpdraftTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6587AB720346AA800B1A87F /* Model */,
+				F6587AB62034619A00B1A87F /* API */,
 				F68088F02018C9BF008DE368 /* Interactor */,
 				F68088EF2018C9A4008DE368 /* Manager */,
 				F68088E22018B324008DE368 /* Mock */,
@@ -364,6 +389,7 @@
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
+				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateResource.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
@@ -382,8 +408,10 @@
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
 				F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */,
+				F601058D2035C601004D8431 /* NetworkSessionMock.swift in Sources */,
 				F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */,
 				F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */,
+				F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */,
 				F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */,
 				F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */,
 			);

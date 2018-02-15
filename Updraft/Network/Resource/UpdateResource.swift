@@ -12,4 +12,6 @@ struct UpdateResource: ApiResource {
 	typealias Model = UpdateModel
 	
 	let endPoint = "/checkUpdate"
+
+	//TODO: Add method
 }
