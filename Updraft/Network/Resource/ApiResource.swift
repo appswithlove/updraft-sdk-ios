@@ -24,6 +24,7 @@ extension ApiResource {
 	
 	func makeModel(data: Data) throws -> Model {
 		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = .iso8601
 		
 		do {
 			let models = try decoder.decode(Model.self, from: data)
