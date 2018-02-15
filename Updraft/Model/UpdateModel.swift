@@ -10,4 +10,8 @@ import Foundation
 
 struct UpdateModel: Decodable {
 	let updateUrl: String
+	
+	enum CodingKeys: String, CodingKey {
+		case updateUrl = "update_url"
+	}
 }
