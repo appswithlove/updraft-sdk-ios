@@ -13,7 +13,7 @@ struct CheckUpdateResource: ApiResource {
 	
 	var parameters: [String: Any]?
 	
-	let endPoint = "/check_last_version"
+	let endPoint = "/check_last_version/"
 	let method = NetworkMethod.post
 	
 	init(parameters: [String: Any]? = nil) {

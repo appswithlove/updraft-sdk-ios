@@ -13,10 +13,10 @@ struct UpdateResource: ApiResource {
 	
 	var parameters: [String: Any]?
 	
-	let endPoint = "/get_last_version"
+	let endPoint = "/get_last_version/"
 	let method = NetworkMethod.post
 	
-	init(parameters: [String: Any]? = nil ) {
+	init(parameters: [String: Any]? = nil) {
 		self.parameters = parameters
 	}
 }

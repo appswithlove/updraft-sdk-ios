@@ -10,7 +10,7 @@ import Foundation
 
 struct CheckUpdateModel: Decodable {
 	
-	var lastBuildDate: Date
+	var lastBuildDate: String
 	var releaseNotes: String
 	var updraftVersion: String
 	var onDeviceVersion: String
