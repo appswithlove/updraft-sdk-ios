@@ -11,8 +11,13 @@ import Foundation
 class ApiSessionManager {
 	let session: URLSession
 	
-	init(
-		session: URLSession = URLSession.shared) {
+	init(session: URLSession) {
 		self.session = session
+	}
+	
+	convenience init() {
+		let configuration = URLSessionConfiguration.default
+		let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+		self.init(session: session)
 	}
 }
