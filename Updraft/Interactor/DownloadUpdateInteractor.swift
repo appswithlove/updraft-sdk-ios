@@ -41,12 +41,14 @@ class DownloadUpdateInteractor {
 	///
 	/// - Parameter url: The URL to be opened
 	func openUrl(_ url: URL) {
-		guard application.canOpenURL(url) else {
-			output?.downloadUpdateInteractor(self, url: url, didOpen: false)
-			return
-		}
-		application.open(url, options: [:]) { (success) in
-			self.output?.downloadUpdateInteractor(self, url: url, didOpen: success)
+		DispatchQueue.main.async {
+			guard self.application.canOpenURL(url) else {
+				self.output?.downloadUpdateInteractor(self, url: url, didOpen: false)
+				return
+			}
+			self.application.open(url, options: [:]) { (success) in
+				self.output?.downloadUpdateInteractor(self, url: url, didOpen: success)
+			}
 		}
 	}
 }
