@@ -9,9 +9,14 @@
 import Foundation
 
 struct CheckUpdateResource: ApiResource {
-
 	typealias Model = CheckUpdateModel
+	
+	var parameters: [String: AnyObject]?
 	
 	let endPoint = "/check_last_version"
 	let method = NetworkMethod.post
+	
+	init(parameters: [String: AnyObject]? = nil) {
+		self.parameters = parameters
+	}
 }

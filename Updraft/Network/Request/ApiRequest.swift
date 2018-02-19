@@ -23,7 +23,11 @@ extension ApiRequest: NetworkRequest {
 	typealias Model = Resource.Model
 	
 	func load(withCompletion completion: @escaping (NetworkResult<ApiRequest<Resource>.Model>) -> Void) {
-		self.load(resource.url, withCompletion: completion)
+		if let request = resource.urlRequest {
+			self.load(request, withCompletion: completion)
+		} else {
+			self.load(resource.url, withCompletion: completion)
+		}
 	}
 	
 	func decode(_ data: Data) throws -> ApiRequest<Resource>.Model {

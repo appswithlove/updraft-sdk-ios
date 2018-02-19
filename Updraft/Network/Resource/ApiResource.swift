@@ -12,6 +12,7 @@ protocol ApiResource {
 	associatedtype Model where Model: Decodable
 	var endPoint: String { get }
 	var method: NetworkMethod { get }
+	var parameters: [String: AnyObject]? { get }
 	
 	func makeModel(data: Data) throws -> Model
 }
@@ -22,6 +23,20 @@ extension ApiResource {
 		let baseUrl = "https://u2.mqd.me/api"
 		let url = baseUrl + endPoint
 		return URL(string: url)!
+	}
+	
+	var urlRequest: URLRequest? {
+		guard let params = self.parameters else { return nil }
+		
+		let data = try? JSONSerialization.data(withJSONObject: params, options: [])
+		
+		var request = URLRequest(url: url)
+		request.httpMethod = method.rawValue
+		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		request.addValue("application/json", forHTTPHeaderField: "Accept")
+		request.httpBody = data
+		
+		return request
 	}
 	
 	func makeModel(data: Data) throws -> Model {

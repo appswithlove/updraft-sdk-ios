@@ -15,12 +15,11 @@ enum NetworkResult<T> {
 
 enum NetworkError: Error {
 	case unknown
-	case requestDeallocation
 }
 
-enum NetworkMethod {
-	case get
-	case post
+enum NetworkMethod: String {
+	case get = "GET"
+	case post = "POST"
 }
 
 protocol NetworkRequest: class {
@@ -31,26 +30,31 @@ protocol NetworkRequest: class {
 }
 
 extension NetworkRequest {
+	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void) {
+		session.loadData(from: urlRequest) { [weak self] (data, error) in
+			guard let strongSelf = self else { return }
+			completion(strongSelf.responseHandler(data: data, error: error))
+		}
+	}
+	
 	func load(_ url: URL, withCompletion completion: @escaping (NetworkResult<Model>) -> Void) {
 		session.loadData(from: url) { [weak self] (data, error) in
-			guard let strongSelf = self else {
-				completion(NetworkResult.error(NetworkError.requestDeallocation))
-				return
-			}
-			
-			guard let data = data else {
-				let error = error ?? NetworkError.unknown
-				completion(NetworkResult.error(error))
-				return
-			}
-			
-			do {
-				let model = try strongSelf.decode(data)
-				completion(NetworkResult.success(model))
-				
-			} catch let decodingError {
-				completion(NetworkResult.error(decodingError))
-			}
+			guard let strongSelf = self else { return }
+			completion((strongSelf.responseHandler(data: data, error: error)))
+		}
+	}
+	
+	fileprivate func responseHandler(data: Data?, error: Error?) -> NetworkResult<Model> {
+		guard let data = data else {
+			let error = error ?? NetworkError.unknown
+			return NetworkResult.error(error)
+		}
+		
+		do {
+			let model = try self.decode(data)
+			return NetworkResult.success(model)
+		} catch let decodingError {
+			return NetworkResult.error(decodingError)
 		}
 	}
 }
