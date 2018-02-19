@@ -12,7 +12,7 @@ protocol ApiResource {
 	associatedtype Model where Model: Decodable
 	var endPoint: String { get }
 	var method: NetworkMethod { get }
-	var parameters: [String: AnyObject]? { get }
+	var parameters: [String: Any]? { get }
 	
 	func makeModel(data: Data) throws -> Model
 }

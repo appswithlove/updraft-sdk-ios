@@ -11,12 +11,12 @@ import Foundation
 struct CheckUpdateResource: ApiResource {
 	typealias Model = CheckUpdateModel
 	
-	var parameters: [String: AnyObject]?
+	var parameters: [String: Any]?
 	
 	let endPoint = "/check_last_version"
 	let method = NetworkMethod.post
 	
-	init(parameters: [String: AnyObject]? = nil) {
+	init(parameters: [String: Any]? = nil) {
 		self.parameters = parameters
 	}
 }

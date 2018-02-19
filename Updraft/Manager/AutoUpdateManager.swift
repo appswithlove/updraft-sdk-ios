@@ -14,20 +14,20 @@ class AutoUpdateManager {
 	private(set) var didBecomeActiveObserver: NSObjectProtocol?
 	var checkUpdateInteractor: CheckUpdateInteractorInput
 	var downloadUpdateInteractor: DownloadUpdateInteractorInput
+	var settings: Settings
 	
 	// MARK: Lifecycle
 	
-	init(checkUpdateInteractor: CheckUpdateInteractor, downloadUpdateInteractor: DownloadUpdateInteractor) {
+	init(
+		checkUpdateInteractor: CheckUpdateInteractor = CheckUpdateInteractor(),
+		downloadUpdateInteractor: DownloadUpdateInteractor = DownloadUpdateInteractor(),
+		settings: Settings = Settings()) {
+		
 		self.checkUpdateInteractor = checkUpdateInteractor
 		self.downloadUpdateInteractor = downloadUpdateInteractor
+		self.settings = settings
 		checkUpdateInteractor.output = self
 		downloadUpdateInteractor.output = self
-	}
-	
-	convenience init() {
-		let checkUpdateInteractor = CheckUpdateInteractor()
-		let updateDownloadInteractor = DownloadUpdateInteractor()
-		self.init(checkUpdateInteractor: checkUpdateInteractor, downloadUpdateInteractor: updateDownloadInteractor)
 	}
 	
 	deinit {

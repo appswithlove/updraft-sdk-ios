@@ -10,18 +10,22 @@ import Foundation
 
 public class Updraft {
 	
-	init(autoUpdateManager: AutoUpdateManager) {
-		self.autoUpdateManager = autoUpdateManager
-	}
+	private(set) var settings: Settings
+	private(set) var apiSessionManager: ApiSessionManager
+	private(set) var autoUpdateManager: AutoUpdateManager
 	
-	convenience init() {
-		self.init(autoUpdateManager: AutoUpdateManager())
+	init(
+		autoUpdateManager: AutoUpdateManager = AutoUpdateManager(),
+		apiSessionManager: ApiSessionManager = ApiSessionManager(),
+		settings: Settings = Settings() ) {
+		
+		self.settings = settings
+		self.apiSessionManager = apiSessionManager
+		let checkUpdateInteractor = CheckUpdateInteractor(apiSessionManager: apiSessionManager, settings: settings)
+		self.autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
 	}
 	
 	private static let sharedInstance = Updraft()
-	
-	private(set) var appKey = ""
-	private(set) var autoUpdateManager: AutoUpdateManager
 	
 	/// Returns the shared Updraft instance.
 	open class var shared: Updraft {
@@ -30,15 +34,17 @@ public class Updraft {
 	
 	/// Clears Updraft configs
 	public func clear() {
-		appKey = ""
+		settings.clear()
 	}
 	
 	/// Starts Updraft with your appKey.
 	/// This method should be called after the app is launched and before using Updraft services.
 	///
 	/// - Parameter appKey: Your application key
-	public func start(with appKey: String) {
-		self.appKey = appKey
+	/// - Parameter sdkKey: Your updraft sdk key
+	public func start(with sdkKey: String, appKey: String) {
+		settings.sdkKey = sdkKey
+		settings.appKey = appKey
 		autoUpdateManager.start()
 	}
 }
