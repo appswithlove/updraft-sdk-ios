@@ -25,8 +25,8 @@
 		F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */; };
 		F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088F22018DA4C008DE368 /* NetworkRequest.swift */; };
 		F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558AF202061D7006ADB14 /* ApiResource.swift */; };
-		F6B558B2202061FE006ADB14 /* UpdateResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateResource.swift */; };
-		F6B558B420206240006ADB14 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateModel.swift */; };
+		F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */; };
+		F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateUrlModel.swift */; };
 		F6B558B8202062CA006ADB14 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B7202062CA006ADB14 /* ApiRequest.swift */; };
 		F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */; };
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
@@ -70,8 +70,8 @@
 		F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F68088F22018DA4C008DE368 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		F6B558AF202061D7006ADB14 /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
-		F6B558B1202061FE006ADB14 /* UpdateResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateResource.swift; sourceTree = "<group>"; };
-		F6B558B320206240006ADB14 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
+		F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlResource.swift; sourceTree = "<group>"; };
+		F6B558B320206240006ADB14 /* UpdateUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlModel.swift; sourceTree = "<group>"; };
 		F6B558B7202062CA006ADB14 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionManager.swift; sourceTree = "<group>"; };
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			children = (
 				F6B558AF202061D7006ADB14 /* ApiResource.swift */,
 				F60105942035E677004D8431 /* CheckUpdateResource.swift */,
-				F6B558B1202061FE006ADB14 /* UpdateResource.swift */,
+				F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 		F6B558B520206269006ADB14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F6B558B320206240006ADB14 /* UpdateModel.swift */,
+				F6B558B320206240006ADB14 /* UpdateUrlModel.swift */,
 				F60105922035E39E004D8431 /* CheckUpdateModel.swift */,
 			);
 			path = Model;
@@ -420,12 +420,12 @@
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
 				F600EAD5203ACAE600E7AB93 /* Clearable.swift in Sources */,
-				F6B558B420206240006ADB14 /* UpdateModel.swift in Sources */,
+				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
-				F6B558B2202061FE006ADB14 /* UpdateResource.swift in Sources */,
+				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
 				F6B558B8202062CA006ADB14 /* ApiRequest.swift in Sources */,

@@ -26,7 +26,7 @@ class UpdateModelTests: XCTestCase {
 		let updateUrl = "www.update.com"
 		
 		//When
-		let sut = UpdateModel(updateUrl: updateUrl)
+		let sut = UpdateUrlModel(updateUrl: updateUrl)
 		
 		//Then
 		XCTAssertEqual(sut.updateUrl, updateUrl)

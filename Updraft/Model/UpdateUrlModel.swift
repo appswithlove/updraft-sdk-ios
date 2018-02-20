@@ -1,5 +1,5 @@
 //
-//  UpdateModel.swift
+//  UpdateUrlModel.swift
 //  Updraft
 //
 //  Created by Raphael Neuenschwander on 30.01.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UpdateModel: Decodable {
+struct UpdateUrlModel: Decodable {
 	let updateUrl: String
 	
 	enum CodingKeys: String, CodingKey {

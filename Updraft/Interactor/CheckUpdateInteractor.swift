@@ -30,7 +30,7 @@ class CheckUpdateInteractor: AppUtility {
 	private var settings: Settings
 	private var apiSessionManager: ApiSessionManager
 	private var checkUpdateRequest: ApiRequest<CheckUpdateResource>?
-	private var updateRequest: ApiRequest<UpdateResource>?
+	private var getUpdateUrlRequest: ApiRequest<UpdateUrlResource>?
 	
 	init(
 		apiSessionManager: ApiSessionManager = ApiSessionManager() ,
@@ -50,19 +50,19 @@ class CheckUpdateInteractor: AppUtility {
 		return checkUpdateRequest
 	}
 	
-	func buildUploadRequest(settings: Settings, session: NetworkSession) -> ApiRequest<UpdateResource> {
+	func buildUploadRequest(settings: Settings, session: NetworkSession) -> ApiRequest<UpdateUrlResource> {
 		let parameters = [
 			"sdk_key": settings.sdkKey,
 			"app_key": settings.appKey]
-		let updateResource = UpdateResource(parameters: parameters)
+		let updateResource = UpdateUrlResource(parameters: parameters)
 		let updateRequest = ApiRequest(resource: updateResource, session: apiSessionManager.session)
 		return updateRequest
 	}
 	
 	fileprivate func getUpdateUrl() {
-		updateRequest = buildUploadRequest(settings: self.settings, session: self.apiSessionManager.session)
+		getUpdateUrlRequest = buildUploadRequest(settings: self.settings, session: self.apiSessionManager.session)
 		
-		updateRequest?.load(withCompletion: { [weak self] (result) in
+		getUpdateUrlRequest?.load(withCompletion: { [weak self] (result) in
 			guard let strongSelf = self, let output = strongSelf.output else { return }
 			switch result {
 			case .success(let model):
@@ -70,7 +70,7 @@ class CheckUpdateInteractor: AppUtility {
 					output.checkUpdateInteractor(strongSelf, newUpdateAvailableAt: url)
 				}
 			case .error(let error):
-				print("Getting Update url error: :\(error.localizedDescription)")
+				print("UPDRAFT: Getting Update url error: :\(error.localizedDescription)")
 			}
 		})
 	}
@@ -89,7 +89,7 @@ extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 			case .success(let model) where model.isNewVersionAvailable:
 				strongSelf.getUpdateUrl()
 			case .error(let error):
-				print("Checking Update error: \(error.localizedDescription)")
+				print("UPDRAFT: Checking Update error: \(error.localizedDescription)")
 			case .success:
 				break
 			}

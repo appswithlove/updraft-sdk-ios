@@ -33,7 +33,7 @@ public class Updraft {
 	}
 	
 	/// Clears Updraft configs
-	public func clear() {
+	func clear() {
 		settings.clear()
 	}
 	
@@ -42,7 +42,7 @@ public class Updraft {
 	///
 	/// - Parameter appKey: Your application key
 	/// - Parameter sdkKey: Your updraft sdk key
-	public func start(with sdkKey: String, appKey: String) {
+	public func start(sdkKey: String, appKey: String) {
 		settings.sdkKey = sdkKey
 		settings.appKey = appKey
 		autoUpdateManager.start()

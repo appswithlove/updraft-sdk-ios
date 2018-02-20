@@ -1,5 +1,5 @@
 //
-//  UpdateResource.swift
+//  UpdateUrlResource.swift
 //  Updraft
 //
 //  Created by Raphael Neuenschwander on 30.01.18.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct UpdateResource: ApiResource {
-	typealias Model = UpdateModel
+struct UpdateUrlResource: ApiResource {
+	typealias Model = UpdateUrlModel
 	
 	var parameters: [String: Any]?
 	
