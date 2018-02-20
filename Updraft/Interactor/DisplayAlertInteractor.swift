@@ -22,7 +22,7 @@ protocol DisplayAlertInteractorOuput: class {
 
 class DisplayAlertInteractor: AppUtility {
 	private var isDisplayingAlert = false
-	weak var output: DisplayAlertInteractorOuput!
+	weak var output: DisplayAlertInteractorOuput?
 }
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
@@ -33,7 +33,7 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 		let okAction = 	UIAlertAction(title: "OK", style: .default) { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.isDisplayingAlert = false
-			strongSelf.output.displayAlertInteractorUserDidAcknowledgeAlert(strongSelf)
+			strongSelf.output?.displayAlertInteractorUserDidAcknowledgeAlert(strongSelf)
 		}
 		alert.addAction(okAction)
 		
