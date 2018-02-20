@@ -10,6 +10,7 @@ import Foundation
 
 protocol AppUtility {
 	var buildVersion: String {get}
+	var topMostController: UIViewController? {get}
 }
 
 extension AppUtility {
@@ -17,7 +18,16 @@ extension AppUtility {
 	///Returns the build version
 	var buildVersion: String {
 		let dictionary = Bundle.main.infoDictionary!
-		let buildVersion = dictionary["CFBundleVersion"] as! String
+        let buildVersion = dictionary["CFBundleVersion"] as! String
 		return buildVersion
+	}
+	
+	///Returns the topmost presented UIViewController
+	var topMostController: UIViewController? {
+		var topController = UIApplication.shared.keyWindow?.rootViewController
+		while topController?.presentedViewController != nil {
+			topController = topController?.presentedViewController
+		}
+		return topController
 	}
 }
