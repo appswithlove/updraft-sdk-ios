@@ -31,6 +31,7 @@
 		F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */; };
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
 		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
+		F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */; };
 		F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */; };
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
@@ -77,6 +78,7 @@
 		F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionManager.swift; sourceTree = "<group>"; };
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractor.swift; sourceTree = "<group>"; };
 		F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+updraft.swift"; sourceTree = "<group>"; };
 		F6F5A6702015D70D009AFF2B /* Updraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Updraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A6732015D70D009AFF2B /* Updraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updraft.h; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				F602F7802017596100B7487A /* CheckUpdateInteractor.swift */,
 				F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */,
+				F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				F6D36FA7203BF44000B0643E /* Print.swift in Sources */,
 				F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */,
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
+				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
