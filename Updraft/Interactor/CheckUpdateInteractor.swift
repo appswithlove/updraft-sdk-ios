@@ -40,7 +40,7 @@ class CheckUpdateInteractor: AppUtility {
 		self.settings = settings
 	}
 	
-	func buildCheckRequest(settings: Settings, session: NetworkSession) -> ApiRequest<CheckUpdateResource> {
+	func buildCheckUpdateRequest(settings: Settings, session: NetworkSession) -> ApiRequest<CheckUpdateResource> {
 		let parameters = [
 			"sdk_key": settings.sdkKey,
 			"app_key": settings.appKey,
@@ -50,7 +50,7 @@ class CheckUpdateInteractor: AppUtility {
 		return checkUpdateRequest
 	}
 	
-	func buildUploadRequest(settings: Settings, session: NetworkSession) -> ApiRequest<UpdateUrlResource> {
+	func buildGetUpdateUrlRequest(settings: Settings, session: NetworkSession) -> ApiRequest<UpdateUrlResource> {
 		let parameters = [
 			"sdk_key": settings.sdkKey,
 			"app_key": settings.appKey]
@@ -60,7 +60,7 @@ class CheckUpdateInteractor: AppUtility {
 	}
 	
 	fileprivate func getUpdateUrl() {
-		getUpdateUrlRequest = buildUploadRequest(settings: self.settings, session: self.apiSessionManager.session)
+		getUpdateUrlRequest = buildGetUpdateUrlRequest(settings: self.settings, session: self.apiSessionManager.session)
 		
 		getUpdateUrlRequest?.load(withCompletion: { [weak self] (result) in
 			guard let strongSelf = self, let output = strongSelf.output else { return }
@@ -81,7 +81,7 @@ class CheckUpdateInteractor: AppUtility {
 extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 	
 	func checkUpdate() {
-		checkUpdateRequest = buildCheckRequest(settings: self.settings, session: self.apiSessionManager.session)
+		checkUpdateRequest = buildCheckUpdateRequest(settings: self.settings, session: self.apiSessionManager.session)
 		
 		checkUpdateRequest?.load(withCompletion: { [weak self] (result) in
 			guard let strongSelf = self, strongSelf.output != nil else { return }
