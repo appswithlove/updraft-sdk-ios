@@ -9,7 +9,7 @@
 import Foundation
 @testable import Updraft
 
-struct MockUIApplication: URLOpener {
+struct UIApplicationSpy: URLOpener {
 	
 	var canOpen: Bool
 	

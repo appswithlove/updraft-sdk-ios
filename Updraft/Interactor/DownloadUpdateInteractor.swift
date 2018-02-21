@@ -41,7 +41,7 @@ class DownloadUpdateInteractor {
 	///
 	/// - Parameter url: The URL to be opened
 	func openUrl(_ url: URL) {
-		DispatchQueue.main.async {
+		performUIUpdate {
 			guard self.application.canOpenURL(url) else {
 				self.output?.downloadUpdateInteractor(self, url: url, didOpen: false)
 				return

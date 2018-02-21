@@ -1,5 +1,5 @@
 //
-//  AutoUpdateDownloadInteractorTests.swift
+//  DownloadUpdateInteractorTests.swift
 //  UpdraftTests
 //
 //  Created by Raphael Neuenschwander on 24.01.18.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Updraft
 
-class AutoUpdateDownloadInteractorTests: XCTestCase {
+class DownloadUpdateInteractorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -25,8 +25,8 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 		//Given
 		let canOpen = true
 		let outputSpy = DownloadUpdateInteractorOutputSpy()
-		let mock = MockUIApplication(canOpen: canOpen)
-		let sut = DownloadUpdateInteractor(application: mock)
+		let applicationSpy = UIApplicationSpy(canOpen: canOpen)
+		let sut = DownloadUpdateInteractor(application: applicationSpy)
 		sut.output = outputSpy
 		let url = URL(string: "www.apple.ch")!
 		
@@ -35,15 +35,15 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 		
 		//Then
 		XCTAssertEqual(outputSpy.didOpen, canOpen)
-		XCTAssertTrue(outputSpy.urlDidOpenWasCalled, "urlDidOpen was called")
+		XCTAssertTrue(outputSpy.urlDidOpenWasCalled, "urlDidOpen was not called")
 	}
 	
 	func testCannotOpenUrl() {
 		//Given
 		let canOpen = false
 		let outputSpy = DownloadUpdateInteractorOutputSpy()
-		let mock = MockUIApplication(canOpen: canOpen)
-		let sut = DownloadUpdateInteractor(application: mock)
+		let applicationSpy = UIApplicationSpy(canOpen: canOpen)
+		let sut = DownloadUpdateInteractor(application: applicationSpy)
 		sut.output = outputSpy
 		let url = URL(string: "www.apple.ch")!
 		
@@ -52,6 +52,6 @@ class AutoUpdateDownloadInteractorTests: XCTestCase {
 		
 		//Then
 		XCTAssertEqual(outputSpy.didOpen, canOpen)
-		XCTAssertTrue(outputSpy.urlDidOpenWasCalled, "urlDidOpen was called")
+		XCTAssertTrue(outputSpy.urlDidOpenWasCalled, "urlDidOpen was not called")
 	}
 }
