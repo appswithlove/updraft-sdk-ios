@@ -10,10 +10,15 @@ import Foundation
 @testable import Updraft
 
 class NetworkSessionMock: NetworkSession {
+
 	var data: Data?
 	var error: Error?
 	
 	func loadData(from url: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
+		completionHandler(data, error)
+	}
+	
+	func loadData(from urlRequest: URLRequest, completionHandler: @escaping (Data?, Error?) -> Void) {
 		completionHandler(data, error)
 	}
 }
