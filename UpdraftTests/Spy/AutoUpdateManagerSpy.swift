@@ -12,7 +12,9 @@ import Foundation
 class AutoUpdateManagerSpy: AutoUpdateManager {
 	var startWasCalled = false
 	var subscribeToAppDidBecomeActiveWasCalled = false
+	var informUserOfNewVersionAvailablewasCalled = false
 	var checkUpdateWasCalled = false
+	var redirectUserForUpdateWasCalled = false
 
 	override func start() {
 		super.start()
@@ -25,7 +27,14 @@ class AutoUpdateManagerSpy: AutoUpdateManager {
 	}
 	
 	override func checkUpdate() {
-		super.checkUpdate()
 		checkUpdateWasCalled = true
+	}
+	
+	override func informUserOfNewVersionAvailable() {
+		informUserOfNewVersionAvailablewasCalled = true
+	}
+	
+	override func redirectUserForUpdate(to url: URL) {
+		redirectUserForUpdateWasCalled = true
 	}
 }

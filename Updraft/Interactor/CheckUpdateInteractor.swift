@@ -59,7 +59,7 @@ class CheckUpdateInteractor: AppUtility {
 		return updateRequest
 	}
 	
-	fileprivate func getUpdateUrl() {
+	func getUpdateUrl() {
 		getUpdateUrlRequest = buildGetUpdateUrlRequest(settings: self.settings, session: self.apiSessionManager.session)
 		
 		getUpdateUrlRequest?.load(withCompletion: { [weak self] (result) in

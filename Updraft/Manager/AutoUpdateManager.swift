@@ -17,7 +17,7 @@ class AutoUpdateManager {
 	var displayAlertInteractor: DisplayAlertInteractorInput
 	var settings: Settings
 	
-	private var updateUrl: URL?
+	var updateUrl: URL?
 	
 	// MARK: Lifecycle
 	

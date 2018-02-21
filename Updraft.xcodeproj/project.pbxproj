@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F600EADC203ADC3600E7AB93 /* AppUtility.swift */; };
-		F601058D2035C601004D8431 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionMock.swift */; };
+		F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionSpy.swift */; };
 		F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105922035E39E004D8431 /* CheckUpdateModel.swift */; };
 		F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105942035E677004D8431 /* CheckUpdateResource.swift */; };
 		F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */; };
 		F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* CheckUpdateInteractor.swift */; };
 		F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */; };
+		F6292023203D7D8300EB694C /* PerformUIUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292022203D7D8300EB694C /* PerformUIUpdate.swift */; };
+		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
+		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
+		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
 		F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */; };
 		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
-		F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationMock.swift */; };
-		F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */; };
+		F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */; };
+		F68088EA2018B521008DE368 /* DownloadUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E92018B521008DE368 /* DownloadUpdateInteractorTests.swift */; };
 		F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088EB2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift */; };
 		F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */; };
 		F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088F22018DA4C008DE368 /* NetworkRequest.swift */; };
@@ -54,18 +58,22 @@
 
 /* Begin PBXFileReference section */
 		F600EADC203ADC3600E7AB93 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
-		F601058C2035C601004D8431 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
+		F601058C2035C601004D8431 /* NetworkSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionSpy.swift; sourceTree = "<group>"; };
 		F60105922035E39E004D8431 /* CheckUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateModel.swift; sourceTree = "<group>"; };
 		F60105942035E677004D8431 /* CheckUpdateResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateResource.swift; sourceTree = "<group>"; };
 		F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F602F7802017596100B7487A /* CheckUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractor.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractor.swift; sourceTree = "<group>"; };
+		F6292022203D7D8300EB694C /* PerformUIUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformUIUpdate.swift; sourceTree = "<group>"; };
+		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
+		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
+		F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
-		F68088E52018B3A3008DE368 /* UIApplicationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationMock.swift; sourceTree = "<group>"; };
-		F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateDownloadInteractorTests.swift; sourceTree = "<group>"; };
+		F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationSpy.swift; sourceTree = "<group>"; };
+		F68088E92018B521008DE368 /* DownloadUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F68088EB2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F68088F22018DA4C008DE368 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -132,17 +140,9 @@
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
 				F600EADC203ADC3600E7AB93 /* AppUtility.swift */,
 				F6D36FA6203BF44000B0643E /* Print.swift */,
+				F6292022203D7D8300EB694C /* PerformUIUpdate.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		F68088E22018B324008DE368 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				F68088E52018B3A3008DE368 /* UIApplicationMock.swift */,
-				F601058C2035C601004D8431 /* NetworkSessionMock.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		F68088EF2018C9A4008DE368 /* Manager */ = {
@@ -156,8 +156,9 @@
 		F68088F02018C9BF008DE368 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				F68088E92018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift */,
+				F68088E92018B521008DE368 /* DownloadUpdateInteractorTests.swift */,
 				F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */,
+				F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -246,13 +247,12 @@
 		F6F5A67D2015D70D009AFF2B /* UpdraftTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */,
 				F6587AB720346AA800B1A87F /* Model */,
 				F6587AB62034619A00B1A87F /* API */,
 				F68088F02018C9BF008DE368 /* Interactor */,
 				F68088EF2018C9A4008DE368 /* Manager */,
-				F68088E22018B324008DE368 /* Mock */,
 				F6F6831720185B9D00EF5CE3 /* Spy */,
-				F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */,
 				F6F5A6802015D70D009AFF2B /* Info.plist */,
 			);
 			path = UpdraftTests;
@@ -261,11 +261,15 @@
 		F6F6831720185B9D00EF5CE3 /* Spy */ = {
 			isa = PBXGroup;
 			children = (
+				F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */,
+				F601058C2035C601004D8431 /* NetworkSessionSpy.swift */,
 				F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */,
 				F68088EB2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift */,
 				F6F6831820185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift */,
 				F6F6831A2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift */,
 				F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */,
+				F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */,
+				F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -428,6 +432,7 @@
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
+				F6292023203D7D8300EB694C /* PerformUIUpdate.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,
@@ -442,17 +447,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */,
 				F6F6831B2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift in Sources */,
 				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
+				F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */,
 				F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */,
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
 				F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */,
-				F601058D2035C601004D8431 /* NetworkSessionMock.swift in Sources */,
-				F68088E62018B3A3008DE368 /* UIApplicationMock.swift in Sources */,
-				F68088EA2018B521008DE368 /* AutoUpdateDownloadInteractorTests.swift in Sources */,
+				F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */,
+				F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */,
+				F68088EA2018B521008DE368 /* DownloadUpdateInteractorTests.swift in Sources */,
 				F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */,
 				F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */,
+				F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */,
 				F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

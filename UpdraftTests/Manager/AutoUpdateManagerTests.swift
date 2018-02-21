@@ -21,6 +21,22 @@ class AutoUpdateManagerTests: XCTestCase {
         super.tearDown()
     }
 	
+	func testOutputAreSetOnInit() {
+		//Given
+		let downloadUpdateInteractor = DownloadUpdateInteractor()
+		let checkUpdateInteractor = CheckUpdateInteractor()
+		let displayAlertInteractor = DisplayAlertInteractor()
+		let settings = Settings()
+		
+		//When
+		let manager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, downloadUpdateInteractor: downloadUpdateInteractor, displayAlertInteractor: displayAlertInteractor, settings: settings)
+		
+		//Then
+		XCTAssertTrue(downloadUpdateInteractor.output === manager)
+		XCTAssertTrue(checkUpdateInteractor.output === manager)
+		XCTAssertTrue(displayAlertInteractor.output === manager)
+	}
+	
 	func testSubscribeToAppDidBecomeActiveOnStart() {
 		//Given
 		let spy = AutoUpdateManagerSpy()
@@ -43,7 +59,34 @@ class AutoUpdateManagerTests: XCTestCase {
 		XCTAssertNotNil(manager.didBecomeActiveObserver)
 	}
 	
-	func testCheckAutoUpdateIsCalledWhenDidBecomeActiveNotificationIsReceived() {
+	func testInformUserIsCalledAndUrlSetWhenNewUpdateUrlAvailable() {
+		//Given
+		let checkUpdateInteractor = CheckUpdateInteractor()
+		let spy = AutoUpdateManagerSpy(checkUpdateInteractor: checkUpdateInteractor)
+		let stubUrl = URL(fileURLWithPath: "123")
+		
+		//When
+		checkUpdateInteractor.output?.checkUpdateInteractor(checkUpdateInteractor, newUpdateAvailableAt: stubUrl)
+		
+		//Then
+		XCTAssertEqual(spy.updateUrl, stubUrl)
+		XCTAssertTrue(spy.informUserOfNewVersionAvailablewasCalled)
+	}
+	
+	func testRedirectUserIsCalledWhenUserAcknowledgedAlert() {
+		//Given
+		let displayAlertInteractor = DisplayAlertInteractor()
+		let manager = AutoUpdateManagerSpy(displayAlertInteractor: displayAlertInteractor)
+		manager.updateUrl = URL(fileURLWithPath: "123")
+		
+		//When
+		displayAlertInteractor.output?.displayAlertInteractorUserDidAcknowledgeAlert(displayAlertInteractor)
+		
+		//Then
+		XCTAssertTrue(manager.redirectUserForUpdateWasCalled)
+	}
+	
+	func testCheckUpdateIsCalledWhenDidBecomeActiveNotificationIsReceived() {
 		
 		//Given
 		let manager = AutoUpdateManagerSpy()
@@ -54,10 +97,10 @@ class AutoUpdateManagerTests: XCTestCase {
 		NotificationCenter.default.post(name: didBecomeActiveNotificationName, object: nil)
 		
 		//Then
-		XCTAssertTrue(manager.checkUpdateWasCalled, "checkAutoUpdate method called")
+		XCTAssertTrue(manager.checkUpdateWasCalled, "checkUpdate not called")
 	}
 	
-	func testCheckUpdateIsCalledWhenAutoUpdateIsCalled() {
+	func testCheckUpdateIsCalledWhenUpdateIsCalled() {
 		//Given
 		let spy = CheckUpdateInteractorInputSpy()
 		let manager = AutoUpdateManager()
@@ -67,7 +110,20 @@ class AutoUpdateManagerTests: XCTestCase {
 		manager.checkUpdate()
 		
 		//Then
-		XCTAssertTrue(spy.checkUpdateWasCalled, "checkUpdateWasCalled")
+		XCTAssertTrue(spy.checkUpdateWasCalled, "checkUpdate not called")
+	}
+	
+	func testDisplayAlertIsCalledWhenInformUserOfNewVersionAvailableIsCalled() {
+		//Given
+		let spy = DisplayAlertInteractorInputSpy()
+		let manager = AutoUpdateManager()
+		manager.displayAlertInteractor = spy
+		
+		//When
+		manager.informUserOfNewVersionAvailable()
+		
+		//Then
+		XCTAssertTrue(spy.displayAlertWasCalled)
 	}
 	
 	func testRedirectUserToUrl() {
@@ -81,6 +137,6 @@ class AutoUpdateManagerTests: XCTestCase {
 		manager.redirectUserForUpdate(to: dumURL)
 		
 		//Then
-		XCTAssertTrue(spy.redirectUserForDownloadWasCalled, "Redirect user for download was called")
+		XCTAssertTrue(spy.redirectUserForDownloadWasCalled, "Redirect user for download was not called")
 	}
 }

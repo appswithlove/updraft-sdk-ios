@@ -1,5 +1,5 @@
 //
-//  NetworkSessionMock.swift
+//  NetworkSessionSpy.swift
 //  UpdraftTests
 //
 //  Created by Raphael Neuenschwander on 15.02.18.
@@ -9,7 +9,7 @@
 import Foundation
 @testable import Updraft
 
-class NetworkSessionMock: NetworkSession {
+class NetworkSessionSpy: NetworkSession {
 
 	var data: Data?
 	var error: Error?

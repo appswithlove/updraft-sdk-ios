@@ -10,9 +10,10 @@ import Foundation
 
 protocol DisplayAlertInteractorInput {
 	
-	/// Display prompt to the user
+	/// Display alert to the user
 	///
-	/// - Parameter message: The message displayed to the user
+	/// - Parameter message: The message of the alert
+	/// - Parameter title: The title of the alert
 	func displayAlert(with message: String, title: String)
 }
 
@@ -21,8 +22,14 @@ protocol DisplayAlertInteractorOuput: class {
 }
 
 class DisplayAlertInteractor: AppUtility {
-	private var isDisplayingAlert = false
+	var isDisplayingAlert = false
 	weak var output: DisplayAlertInteractorOuput?
+	
+	func showAlert(alert: UIAlertController) {
+		topMostController?.present(alert, animated: true) { [weak self] in
+			self?.isDisplayingAlert = true
+		}
+	}
 }
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
@@ -36,9 +43,6 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 			strongSelf.output?.displayAlertInteractorUserDidAcknowledgeAlert(strongSelf)
 		}
 		alert.addAction(okAction)
-		
-		topMostController?.present(alert, animated: true) { [weak self] in
-			self?.isDisplayingAlert = true
-		}
+		self.showAlert(alert: alert)
 	}
 }
