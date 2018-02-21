@@ -21,43 +21,64 @@ class UpdraftTests: XCTestCase {
         super.tearDown()
     }
 	
-	func testAppKeyOnStartUpdraft() {
+	func testInit() {
+		
 		//Given
-		let appKey = "123456789"
+		let apiSessionManager = ApiSessionManager()
+		let autoUpdateManager = AutoUpdateManager()
+		let settings = Settings()
+		
+		//When
+		let updraft = Updraft(autoUpdateManager: autoUpdateManager, apiSessionManager: apiSessionManager, settings: settings)
+		
+		//Then
+		XCTAssertTrue(apiSessionManager === updraft.apiSessionManager)
+		XCTAssertTrue(autoUpdateManager === updraft.autoUpdateManager)
+		XCTAssertTrue(settings === updraft.settings)
+	}
+	
+	func testKeysOnStartUpdraft() {
+		
+		//Given
+		let appKey = "1234567890"
+		let sdkKey = "0987654321"
+		let isAppStoreRelease = false
 		let updraft = Updraft()
 		
 		//When
-		updraft.start(with: appKey)
+		updraft.start(sdkKey: sdkKey, appKey: appKey, isAppStoreRelease: isAppStoreRelease)
 		
 		//Then
-		XCTAssertEqual(appKey, updraft.appKey)
-		XCTAssertNotEqual("", updraft.appKey)
+		XCTAssertEqual(appKey, updraft.settings.appKey)
+		XCTAssertEqual(sdkKey, updraft.settings.sdkKey)
+		XCTAssertEqual(isAppStoreRelease, updraft.settings.isAppStoreRelease)
 	}
 	
-	func testStartAutoUpdateManagerOnUpdraftStart() {
+	func testStartAutoUpdateManagerOnUpdraftStartWhenNotAppStoreRelease() {
 		
 		//Given
 		let spy = AutoUpdateManagerSpy()
-		let updraft = Updraft(autoUpdateManager: spy)
+		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), settings: Settings())
+		let isAppStoreRelease = false
 		
 		//When
-		updraft.start(with: "")
+		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
 		
 		//Then
 		XCTAssertTrue(spy.startWasCalled)
 	}
 	
-	func testClearConfig() {
+	func testStartAutoUpdateManagerOnUpdraftStartWhenAppStoreRelease() {
+		
 		//Given
-		let appKey = "123456789"
-		let updraft = Updraft()
-		updraft.start(with: appKey)
+		let spy = AutoUpdateManagerSpy()
+		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), settings: Settings())
+		let isAppStoreRelease = true
 		
 		//When
-		updraft.clear()
+		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
 		
 		//Then
-		XCTAssertEqual(updraft.appKey, "")
-		XCTAssertNotEqual(updraft.appKey, appKey)
+		XCTAssertFalse(spy.startWasCalled)
 	}
 }

@@ -15,14 +15,21 @@ public class Updraft {
 	private(set) var autoUpdateManager: AutoUpdateManager
 	
 	init(
-        autoUpdateManager: AutoUpdateManager = AutoUpdateManager(),
-        apiSessionManager: ApiSessionManager = ApiSessionManager(),
-        settings: Settings = Settings() ) {
+		autoUpdateManager: AutoUpdateManager,
+		apiSessionManager: ApiSessionManager,
+		settings: Settings) {
 		
 		self.settings = settings
 		self.apiSessionManager = apiSessionManager
-        let checkUpdateInteractor = CheckUpdateInteractor(apiSessionManager: apiSessionManager, settings: settings)
-        self.autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
+		self.autoUpdateManager = autoUpdateManager
+	}
+	
+	convenience init() {
+		let settings = Settings()
+		let apiManager = ApiSessionManager()
+		let checkUpdateInteractor = CheckUpdateInteractor(apiSessionManager: apiManager, settings: settings)
+		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
+		self.init(autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, settings: settings)
 	}
 	
 	private static let sharedInstance = Updraft()
