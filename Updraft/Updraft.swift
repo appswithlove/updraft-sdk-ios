@@ -15,14 +15,14 @@ public class Updraft {
 	private(set) var autoUpdateManager: AutoUpdateManager
 	
 	init(
-		autoUpdateManager: AutoUpdateManager = AutoUpdateManager(),
-		apiSessionManager: ApiSessionManager = ApiSessionManager(),
-		settings: Settings = Settings() ) {
+        autoUpdateManager: AutoUpdateManager = AutoUpdateManager(),
+        apiSessionManager: ApiSessionManager = ApiSessionManager(),
+        settings: Settings = Settings() ) {
 		
 		self.settings = settings
 		self.apiSessionManager = apiSessionManager
-		let checkUpdateInteractor = CheckUpdateInteractor(apiSessionManager: apiSessionManager, settings: settings)
-		self.autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
+        let checkUpdateInteractor = CheckUpdateInteractor(apiSessionManager: apiSessionManager, settings: settings)
+        self.autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
 	}
 	
 	private static let sharedInstance = Updraft()
@@ -32,19 +32,14 @@ public class Updraft {
 		return sharedInstance
 	}
 	
-	/// Clears Updraft configs
-	func clear() {
-		settings.clear()
-	}
-	
-	/// Starts Updraft with your appKey.
+	/// Starts Updraft with your sdkKey and appKey.
 	/// This method should be called after the app is launched and before using Updraft services.
 	///
 	/// - Parameter appKey: Your application key
 	/// - Parameter sdkKey: Your updraft sdk key
-	public func start(sdkKey: String, appKey: String) {
+    public func start(sdkKey: String, appKey: String) {
 		settings.sdkKey = sdkKey
 		settings.appKey = appKey
-		autoUpdateManager.start()
+        autoUpdateManager.start()
 	}
 }

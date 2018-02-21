@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F600EAD5203ACAE600E7AB93 /* Clearable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F600EAD4203ACAE600E7AB93 /* Clearable.swift */; };
 		F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F600EADC203ADC3600E7AB93 /* AppUtility.swift */; };
 		F601058D2035C601004D8431 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionMock.swift */; };
 		F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105922035E39E004D8431 /* CheckUpdateModel.swift */; };
@@ -54,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F600EAD4203ACAE600E7AB93 /* Clearable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clearable.swift; sourceTree = "<group>"; };
 		F600EADC203ADC3600E7AB93 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		F601058C2035C601004D8431 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
 		F60105922035E39E004D8431 /* CheckUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateModel.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			children = (
 				F68088E02018B0D8008DE368 /* URLOpener.swift */,
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
-				F600EAD4203ACAE600E7AB93 /* Clearable.swift */,
 				F600EADC203ADC3600E7AB93 /* AppUtility.swift */,
 				F6D36FA6203BF44000B0643E /* Print.swift */,
 			);
@@ -427,7 +424,6 @@
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
-				F600EAD5203ACAE600E7AB93 /* Clearable.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,

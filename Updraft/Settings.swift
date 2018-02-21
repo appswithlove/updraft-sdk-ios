@@ -13,21 +13,12 @@ class Settings {
 	var sdkKey: String
 	var appKey: String
 	
-	init(sdkKey: String, appKey: String) {
+    init(sdkKey: String, appKey: String) {
 		self.sdkKey = sdkKey
 		self.appKey = appKey
 	}
 	
 	convenience init() {
-		self.init(sdkKey: "", appKey: "")
-	}
-}
-
-// MARK: - Clearable
-
-extension Settings: Clearable {
-	func clear() {
-		sdkKey = ""
-		appKey = ""
+		self.init(sdkKey: "", appKey: "", isAppStoreRelease: false)
 	}
 }
