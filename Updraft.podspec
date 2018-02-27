@@ -80,9 +80,8 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://git.appswithlove.net/awl_ios/updraft-sdk_ios/tree/master", :tag =>"#{s.version}" }
+  s.source       = { :git => "https://git.appswithlove.net/awl_ios/updraft-sdk_ios.git", :tag => s.version }
   # s.source       = { :git => "http://EXAMPLE/Updraft.git", :tag => "#{s.version}" }
-
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -93,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "Updraft", "Updraft/**/*", "Updraft/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
