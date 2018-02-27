@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@git.appswithlove.net:awl_ios/updraft-sdk_ios.git", :tag =>"#{s.version}" }
+  s.source       = { :git => "https://git.appswithlove.net/awl_ios/updraft-sdk_ios/tree/master", :tag =>"#{s.version}" }
   # s.source       = { :git => "http://EXAMPLE/Updraft.git", :tag => "#{s.version}" }
 
 
