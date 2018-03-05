@@ -26,8 +26,10 @@ class DisplayAlertInteractor: AppUtility {
 	weak var output: DisplayAlertInteractorOuput?
 	
 	func showAlert(alert: UIAlertController) {
-		topMostController?.present(alert, animated: true) { [weak self] in
-			self?.isDisplayingAlert = true
+		performUIUpdate {
+			self.topMostController?.present(alert, animated: true) { [weak self] in
+				self?.isDisplayingAlert = true
+			}
 		}
 	}
 }
