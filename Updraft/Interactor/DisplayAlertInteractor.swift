@@ -15,6 +15,9 @@ protocol DisplayAlertInteractorInput {
 	/// - Parameter message: The message of the alert
 	/// - Parameter title: The title of the alert
 	func displayAlert(with message: String, title: String)
+	
+	/// Clear any currently displayed message
+	func clearMessages()
 }
 
 protocol DisplayAlertInteractorOuput: class {
@@ -22,29 +25,45 @@ protocol DisplayAlertInteractorOuput: class {
 }
 
 class DisplayAlertInteractor: AppUtility {
-	var isDisplayingAlert = false
+	var displayedAlert: UIAlertController?
 	weak var output: DisplayAlertInteractorOuput?
 	
 	func showAlert(alert: UIAlertController) {
-		performUIUpdate {
-			self.topMostController?.present(alert, animated: true) { [weak self] in
-				self?.isDisplayingAlert = true
+		clear {
+			performUIUpdate {
+				self.topMostController?.present(alert, animated: true) { [weak self] in
+					self?.displayedAlert = alert
+				}
 			}
+		}
+	}
+	
+	func clear(completion: (() -> Void)? = nil) {
+		if let alert = displayedAlert {
+			alert.dismiss(animated: true, completion: { [weak self] in
+				self?.displayedAlert = nil
+				completion?()
+			})
+		} else {
+			completion?()
 		}
 	}
 }
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String) {
-		guard !isDisplayingAlert else {return}
 		
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		let okAction = 	UIAlertAction(title: "OK", style: .default) { [weak self] (_) in
 			guard let strongSelf = self else {return}
-			strongSelf.isDisplayingAlert = false
+			strongSelf.displayedAlert = nil
 			strongSelf.output?.displayAlertInteractorUserDidAcknowledgeAlert(strongSelf)
 		}
 		alert.addAction(okAction)
 		self.showAlert(alert: alert)
+	}
+	
+	func clearMessages() {
+		clear()
 	}
 }

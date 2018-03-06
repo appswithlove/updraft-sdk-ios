@@ -12,6 +12,8 @@ import Foundation
 class AutoUpdateManager {
 	
 	private(set) var didBecomeActiveObserver: NSObjectProtocol?
+	private(set) var willResignActiveObserver: NSObjectProtocol?
+	var updateTimer: Timer?
 	var checkUpdateInteractor: CheckUpdateInteractorInput
 	var downloadUpdateInteractor: DownloadUpdateInteractorInput
 	var displayAlertInteractor: DisplayAlertInteractorInput
@@ -46,16 +48,32 @@ class AutoUpdateManager {
 	
 	func start() {
 		self.subscribeToAppDidBecomeActive()
+		self.subscribeToAppWillResignActive()
 	}
 	
 	func subscribeToAppDidBecomeActive() {
 		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
-			self?.checkUpdate()
+			self?.updateTimer?.invalidate()
+			//Wait a few seconds to check update
+			// - to allow main app to set root view (eg. after splash screen)
+			self?.updateTimer = Timer.scheduledTimer(withTimeInterval: 3.5, repeats: false) { (_) in
+				self?.checkUpdate()
+			}
 		})
 	}
 	
+	func subscribeToAppWillResignActive() {
+		willResignActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil, using: { [weak self] (_) in
+			self?.clearMessages()
+		})
+	}
+	
+	func clearMessages() {
+		self.displayAlertInteractor.clearMessages()
+	}
+	
 	func checkUpdate() {
-		checkUpdateInteractor.checkUpdate()
+		self.checkUpdateInteractor.checkUpdate()
 	}
 	
 	func redirectUserForUpdate(to url: URL) {
