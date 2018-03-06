@@ -18,7 +18,7 @@ extension AppUtility {
 	///Returns the build version
 	var buildVersion: String {
 		let dictionary = Bundle.main.infoDictionary!
-		let buildVersion = dictionary["CFBundleShortVersionString"] as! String //FIXME: Change to bundle version "CFBundleVersion" when implemented on backend !!!!
+		let buildVersion = dictionary["CFBundleVersion"] as! String
 		return buildVersion
 	}
 	
