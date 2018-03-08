@@ -20,6 +20,8 @@
 		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
+		F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */; };
+		F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */; };
 		F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */; };
 		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
 		F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */; };
@@ -30,7 +32,6 @@
 		F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558AF202061D7006ADB14 /* ApiResource.swift */; };
 		F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */; };
 		F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateUrlModel.swift */; };
-		F6B558B8202062CA006ADB14 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B7202062CA006ADB14 /* ApiRequest.swift */; };
 		F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */; };
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
 		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
@@ -71,6 +72,8 @@
 		F636928B204545C50075F080 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequest.swift; sourceTree = "<group>"; };
+		F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequest.swift; sourceTree = "<group>"; };
 		F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationSpy.swift; sourceTree = "<group>"; };
@@ -81,7 +84,6 @@
 		F6B558AF202061D7006ADB14 /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
 		F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlResource.swift; sourceTree = "<group>"; };
 		F6B558B320206240006ADB14 /* UpdateUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlModel.swift; sourceTree = "<group>"; };
-		F6B558B7202062CA006ADB14 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionManager.swift; sourceTree = "<group>"; };
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
@@ -134,6 +136,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F67B09382051645E00FE4B1C /* CheckUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */,
+				F60105942035E677004D8431 /* CheckUpdateResource.swift */,
+			);
+			path = CheckUpdate;
+			sourceTree = "<group>";
+		};
+		F67B09392051646900FE4B1C /* UpdateUrl */ = {
+			isa = PBXGroup;
+			children = (
+				F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */,
+				F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */,
+			);
+			path = UpdateUrl;
+			sourceTree = "<group>";
+		};
 		F68088DB20189430008DE368 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,21 +187,13 @@
 		F6B558AD20204B06006ADB14 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F6B558AE202061CC006ADB14 /* Resource */,
-				F6B558B6202062BA006ADB14 /* Request */,
+				F6B558AF202061D7006ADB14 /* ApiResource.swift */,
 				F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */,
+				F68088F22018DA4C008DE368 /* NetworkRequest.swift */,
+				F67B09382051645E00FE4B1C /* CheckUpdate */,
+				F67B09392051646900FE4B1C /* UpdateUrl */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		F6B558AE202061CC006ADB14 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				F6B558AF202061D7006ADB14 /* ApiResource.swift */,
-				F60105942035E677004D8431 /* CheckUpdateResource.swift */,
-				F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		F6B558B520206269006ADB14 /* Model */ = {
@@ -191,15 +203,6 @@
 				F60105922035E39E004D8431 /* CheckUpdateModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F6B558B6202062BA006ADB14 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				F6B558B7202062CA006ADB14 /* ApiRequest.swift */,
-				F68088F22018DA4C008DE368 /* NetworkRequest.swift */,
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		F6DA9851203B10F20002E4D1 /* Property */ = {
@@ -428,6 +431,7 @@
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
+				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
@@ -438,8 +442,8 @@
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,
+				F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
-				F6B558B8202062CA006ADB14 /* ApiRequest.swift in Sources */,
 				F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */,
 				F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */,
 			);
