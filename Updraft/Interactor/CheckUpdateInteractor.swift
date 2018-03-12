@@ -28,18 +28,17 @@ class CheckUpdateInteractor: AppUtility {
 	weak var output: CheckUpdateInteractorOutput?
 	
 	private var settings: Settings
-	private var apiSessionManager: ApiSessionManager
 	private let checkUpdateRequest: CheckUpdateRequest
 	private let getUpdateUrlRequest: UpdateUrlRequest
 	
 	init(
-		apiSessionManager: ApiSessionManager = ApiSessionManager() ,
-		settings: Settings = Settings()) {
+		settings: Settings = Settings(),
+		checkUpdateRequest: CheckUpdateRequest = CheckUpdateRequest(),
+		getUpdateUrlRequest: UpdateUrlRequest = UpdateUrlRequest()) {
 		
-		self.apiSessionManager = apiSessionManager
 		self.settings = settings
-		checkUpdateRequest = CheckUpdateRequest(session: apiSessionManager.session)
-		getUpdateUrlRequest = UpdateUrlRequest(session: apiSessionManager.session)
+		self.checkUpdateRequest = checkUpdateRequest
+		self.getUpdateUrlRequest = getUpdateUrlRequest
 	}
 
 	func getUpdateUrl() {

@@ -9,8 +9,14 @@
 import Foundation
 
 protocol ApiResource {
+	
+	/// Relative path of the endpoint for the call (eg. `/check_last_version/`).
 	var path: String { get }
+	
+	///HTTP method that should be used to perform the call.
 	var method: NetworkMethod { get }
+	
+	///Parameters to send along the call.
 	var parameters: [String: Any]? { get }
 }
 

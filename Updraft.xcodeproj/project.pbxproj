@@ -14,7 +14,6 @@
 		F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */; };
 		F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* CheckUpdateInteractor.swift */; };
 		F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */; };
-		F6292023203D7D8300EB694C /* PerformUIUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292022203D7D8300EB694C /* PerformUIUpdate.swift */; };
 		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
 		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
 		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
@@ -65,7 +64,6 @@
 		F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F602F7802017596100B7487A /* CheckUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractor.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractor.swift; sourceTree = "<group>"; };
-		F6292022203D7D8300EB694C /* PerformUIUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformUIUpdate.swift; sourceTree = "<group>"; };
 		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
 		F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorInputSpy.swift; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
 				F600EADC203ADC3600E7AB93 /* AppUtility.swift */,
 				F6D36FA6203BF44000B0643E /* Print.swift */,
-				F6292022203D7D8300EB694C /* PerformUIUpdate.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -235,6 +232,8 @@
 		F6F5A6722015D70D009AFF2B /* Updraft */ = {
 			isa = PBXGroup;
 			children = (
+				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
+				F6D03F15203AC58B003FE65B /* Settings.swift */,
 				F6DA9851203B10F20002E4D1 /* Property */,
 				F6B558B520206269006ADB14 /* Model */,
 				F6B558AD20204B06006ADB14 /* Network */,
@@ -243,8 +242,6 @@
 				F6FD17C120164E76005B9177 /* Interactor */,
 				F6FD17BD20161241005B9177 /* Manager */,
 				F6F5A6742015D70D009AFF2B /* Info.plist */,
-				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
-				F6D03F15203AC58B003FE65B /* Settings.swift */,
 			);
 			path = Updraft;
 			sourceTree = "<group>";
@@ -438,7 +435,6 @@
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
-				F6292023203D7D8300EB694C /* PerformUIUpdate.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,

@@ -30,12 +30,17 @@ enum NetworkError: Error {
 	}
 }
 
+/// This defines the type of HTTP method used to perform the request
+///
+/// - get: GET method
+/// - post: POST method
 enum NetworkMethod: String {
 	case get = "GET"
 	case post = "POST"
 }
 
 protocol NetworkRequest: class {
+	///Result Model that must conform to Decodable
 	associatedtype Model where Model: Decodable
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void)
 	func decode(_ data: Data) throws -> Model
@@ -46,7 +51,12 @@ extension NetworkRequest {
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void) {
 		session.loadData(from: urlRequest) { [weak self] (data, response, error) in
 			guard let strongSelf = self else { return }
-			completion(strongSelf.responseHandler(data: data, response: response, error: error))
+			let result = strongSelf.responseHandler(data: data, response: response, error: error)
+			
+			//Dispatch result to main queue
+			DispatchQueue.main.async {
+				completion(result)
+			}
 		}
 	}
 	

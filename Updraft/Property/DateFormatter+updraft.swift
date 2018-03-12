@@ -9,6 +9,7 @@
 import Foundation
 
 extension DateFormatter {
+	/// Convenience date formatter
 	static var updraft: DateFormatter {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"

@@ -27,7 +27,11 @@ public class Updraft {
 	convenience init() {
 		let settings = Settings()
 		let apiManager = ApiSessionManager()
-		let checkUpdateInteractor = CheckUpdateInteractor(apiSessionManager: apiManager, settings: settings)
+		
+		let checkUpdateRequest = CheckUpdateRequest(session: apiManager.session)
+		let getUpdateUrlRequest = UpdateUrlRequest(session: apiManager.session)
+		let checkUpdateInteractor = CheckUpdateInteractor(settings: settings, checkUpdateRequest: checkUpdateRequest, getUpdateUrlRequest: getUpdateUrlRequest)
+		
 		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
 		self.init(autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, settings: settings)
 	}
