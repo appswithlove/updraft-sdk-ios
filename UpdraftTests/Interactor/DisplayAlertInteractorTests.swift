@@ -29,7 +29,6 @@ class DisplayAlertInteractorTests: XCTestCase {
 	func testShowAlert() {
 		//Given
 		let sut = DisplayAlertInteractorSpy()
-		sut.isDisplayingAlert = false
 		let title = "My Title"
 		let message = "My Message"
 		
@@ -40,17 +39,5 @@ class DisplayAlertInteractorTests: XCTestCase {
 		XCTAssertTrue(sut.wasShowAlertCalled)
 		XCTAssertEqual(title, sut.shownAlert?.title)
 		XCTAssertEqual(message, sut.shownAlert?.message)
-	}
-	
-	func testShowAlertNotCalledWhenDisplayingAlert() {
-		//Given
-		let sut = DisplayAlertInteractorSpy()
-		sut.isDisplayingAlert = true
-		
-		//When
-		sut.displayAlert(with: "", title: "")
-		
-		//Then
-		XCTAssertFalse(sut.wasShowAlertCalled)
 	}
 }

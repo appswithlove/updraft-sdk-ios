@@ -36,6 +36,11 @@
 		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
 		F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */; };
 		F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */; };
+		F6E9F55B2056AD0F00206FAE /* CheckUpdateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */; };
+		F6E9F55D2056AD5400206FAE /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */; };
+		F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */; };
+		F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */; };
+		F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */; };
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
 		F6F5A6812015D70D009AFF2B /* Updraft.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F5A6732015D70D009AFF2B /* Updraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,6 +92,11 @@
 		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractor.swift; sourceTree = "<group>"; };
 		F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+updraft.swift"; sourceTree = "<group>"; };
+		F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequestTests.swift; sourceTree = "<group>"; };
+		F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
+		F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestSpy.swift; sourceTree = "<group>"; };
+		F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchToMainThread.swift; sourceTree = "<group>"; };
+		F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequestTests.swift; sourceTree = "<group>"; };
 		F6F5A6702015D70D009AFF2B /* Updraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Updraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A6732015D70D009AFF2B /* Updraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updraft.h; sourceTree = "<group>"; };
 		F6F5A6742015D70D009AFF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,11 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F6587AB62034619A00B1A87F /* API */ = {
+		F6587AB62034619A00B1A87F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */,
+				F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */,
+				F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */,
 			);
-			path = API;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F6587AB720346AA800B1A87F /* Model */ = {
@@ -159,6 +172,7 @@
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
 				F600EADC203ADC3600E7AB93 /* AppUtility.swift */,
 				F6D36FA6203BF44000B0643E /* Print.swift */,
+				F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -251,7 +265,7 @@
 			children = (
 				F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */,
 				F6587AB720346AA800B1A87F /* Model */,
-				F6587AB62034619A00B1A87F /* API */,
+				F6587AB62034619A00B1A87F /* Network */,
 				F68088F02018C9BF008DE368 /* Interactor */,
 				F68088EF2018C9A4008DE368 /* Manager */,
 				F6F6831720185B9D00EF5CE3 /* Spy */,
@@ -272,6 +286,7 @@
 				F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */,
 				F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */,
 				F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */,
+				F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -434,6 +449,7 @@
 				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
+				F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
@@ -454,9 +470,13 @@
 				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
 				F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */,
 				F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */,
+				F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */,
+				F6E9F55B2056AD0F00206FAE /* CheckUpdateRequestTests.swift in Sources */,
+				F6E9F55D2056AD5400206FAE /* NetworkRequestTests.swift in Sources */,
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
 				F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */,
+				F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */,
 				F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */,
 				F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */,
 				F68088EA2018B521008DE368 /* DownloadUpdateInteractorTests.swift in Sources */,

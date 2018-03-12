@@ -54,7 +54,7 @@ extension NetworkRequest {
 			let result = strongSelf.responseHandler(data: data, response: response, error: error)
 			
 			//Dispatch result to main queue
-			DispatchQueue.main.async {
+			dispatchToMainThread {
 				completion(result)
 			}
 		}

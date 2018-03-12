@@ -13,7 +13,7 @@ class UpdateUrlRequest: NetworkRequest {
 	
 	var session: NetworkSession
 	
-	init(session: URLSession = .shared) {
+	init(session: NetworkSession = URLSession.shared) {
 		self.session = session
 	}
 	

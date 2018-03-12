@@ -10,15 +10,12 @@ import Foundation
 @testable import Updraft
 
 class NetworkSessionSpy: NetworkSession {
-
+	
 	var data: Data?
 	var error: Error?
+	var response: URLResponse?
 	
-	func loadData(from url: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
-		completionHandler(data, error)
-	}
-	
-	func loadData(from urlRequest: URLRequest, completionHandler: @escaping (Data?, Error?) -> Void) {
-		completionHandler(data, error)
+	func loadData(from urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+		completionHandler(data, response, error)
 	}
 }

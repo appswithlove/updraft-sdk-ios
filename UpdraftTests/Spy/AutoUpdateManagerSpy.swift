@@ -12,6 +12,7 @@ import Foundation
 class AutoUpdateManagerSpy: AutoUpdateManager {
 	var startWasCalled = false
 	var subscribeToAppDidBecomeActiveWasCalled = false
+	var subscriveToAppWillResignActiveWasCalled = false
 	var informUserOfNewVersionAvailablewasCalled = false
 	var checkUpdateWasCalled = false
 	var redirectUserForUpdateWasCalled = false
@@ -24,6 +25,11 @@ class AutoUpdateManagerSpy: AutoUpdateManager {
 	override func subscribeToAppDidBecomeActive() {
 		super.subscribeToAppDidBecomeActive()
 		subscribeToAppDidBecomeActiveWasCalled = true
+	}
+	
+	override func subscribeToAppWillResignActive() {
+		super.subscribeToAppWillResignActive()
+		subscriveToAppWillResignActiveWasCalled = true
 	}
 	
 	override func checkUpdate() {
