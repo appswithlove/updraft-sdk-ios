@@ -14,12 +14,13 @@
 		F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */; };
 		F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* CheckUpdateInteractor.swift */; };
 		F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */; };
-		F6292023203D7D8300EB694C /* PerformUIUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292022203D7D8300EB694C /* PerformUIUpdate.swift */; };
 		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
 		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
 		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
+		F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */; };
+		F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */; };
 		F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */; };
 		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
 		F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */; };
@@ -30,12 +31,16 @@
 		F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558AF202061D7006ADB14 /* ApiResource.swift */; };
 		F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */; };
 		F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateUrlModel.swift */; };
-		F6B558B8202062CA006ADB14 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B7202062CA006ADB14 /* ApiRequest.swift */; };
 		F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */; };
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
 		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
 		F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */; };
 		F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */; };
+		F6E9F55B2056AD0F00206FAE /* CheckUpdateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */; };
+		F6E9F55D2056AD5400206FAE /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */; };
+		F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */; };
+		F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */; };
+		F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */; };
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
 		F6F5A6812015D70D009AFF2B /* Updraft.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F5A6732015D70D009AFF2B /* Updraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,13 +69,14 @@
 		F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F602F7802017596100B7487A /* CheckUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractor.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractor.swift; sourceTree = "<group>"; };
-		F6292022203D7D8300EB694C /* PerformUIUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformUIUpdate.swift; sourceTree = "<group>"; };
 		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
 		F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F636928B204545C50075F080 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequest.swift; sourceTree = "<group>"; };
+		F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequest.swift; sourceTree = "<group>"; };
 		F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationSpy.swift; sourceTree = "<group>"; };
@@ -81,12 +87,16 @@
 		F6B558AF202061D7006ADB14 /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
 		F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlResource.swift; sourceTree = "<group>"; };
 		F6B558B320206240006ADB14 /* UpdateUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlModel.swift; sourceTree = "<group>"; };
-		F6B558B7202062CA006ADB14 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionManager.swift; sourceTree = "<group>"; };
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractor.swift; sourceTree = "<group>"; };
 		F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+updraft.swift"; sourceTree = "<group>"; };
+		F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequestTests.swift; sourceTree = "<group>"; };
+		F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
+		F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestSpy.swift; sourceTree = "<group>"; };
+		F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchToMainThread.swift; sourceTree = "<group>"; };
+		F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequestTests.swift; sourceTree = "<group>"; };
 		F6F5A6702015D70D009AFF2B /* Updraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Updraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A6732015D70D009AFF2B /* Updraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updraft.h; sourceTree = "<group>"; };
 		F6F5A6742015D70D009AFF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,11 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F6587AB62034619A00B1A87F /* API */ = {
+		F6587AB62034619A00B1A87F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */,
+				F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */,
+				F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */,
 			);
-			path = API;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F6587AB720346AA800B1A87F /* Model */ = {
@@ -134,6 +147,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F67B09382051645E00FE4B1C /* CheckUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */,
+				F60105942035E677004D8431 /* CheckUpdateResource.swift */,
+			);
+			path = CheckUpdate;
+			sourceTree = "<group>";
+		};
+		F67B09392051646900FE4B1C /* UpdateUrl */ = {
+			isa = PBXGroup;
+			children = (
+				F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */,
+				F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */,
+			);
+			path = UpdateUrl;
+			sourceTree = "<group>";
+		};
 		F68088DB20189430008DE368 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +172,7 @@
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
 				F600EADC203ADC3600E7AB93 /* AppUtility.swift */,
 				F6D36FA6203BF44000B0643E /* Print.swift */,
-				F6292022203D7D8300EB694C /* PerformUIUpdate.swift */,
+				F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -167,21 +198,13 @@
 		F6B558AD20204B06006ADB14 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F6B558AE202061CC006ADB14 /* Resource */,
-				F6B558B6202062BA006ADB14 /* Request */,
+				F6B558AF202061D7006ADB14 /* ApiResource.swift */,
 				F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */,
+				F68088F22018DA4C008DE368 /* NetworkRequest.swift */,
+				F67B09382051645E00FE4B1C /* CheckUpdate */,
+				F67B09392051646900FE4B1C /* UpdateUrl */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		F6B558AE202061CC006ADB14 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				F6B558AF202061D7006ADB14 /* ApiResource.swift */,
-				F60105942035E677004D8431 /* CheckUpdateResource.swift */,
-				F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		F6B558B520206269006ADB14 /* Model */ = {
@@ -191,15 +214,6 @@
 				F60105922035E39E004D8431 /* CheckUpdateModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F6B558B6202062BA006ADB14 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				F6B558B7202062CA006ADB14 /* ApiRequest.swift */,
-				F68088F22018DA4C008DE368 /* NetworkRequest.swift */,
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		F6DA9851203B10F20002E4D1 /* Property */ = {
@@ -232,6 +246,8 @@
 		F6F5A6722015D70D009AFF2B /* Updraft */ = {
 			isa = PBXGroup;
 			children = (
+				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
+				F6D03F15203AC58B003FE65B /* Settings.swift */,
 				F6DA9851203B10F20002E4D1 /* Property */,
 				F6B558B520206269006ADB14 /* Model */,
 				F6B558AD20204B06006ADB14 /* Network */,
@@ -240,8 +256,6 @@
 				F6FD17C120164E76005B9177 /* Interactor */,
 				F6FD17BD20161241005B9177 /* Manager */,
 				F6F5A6742015D70D009AFF2B /* Info.plist */,
-				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
-				F6D03F15203AC58B003FE65B /* Settings.swift */,
 			);
 			path = Updraft;
 			sourceTree = "<group>";
@@ -251,7 +265,7 @@
 			children = (
 				F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */,
 				F6587AB720346AA800B1A87F /* Model */,
-				F6587AB62034619A00B1A87F /* API */,
+				F6587AB62034619A00B1A87F /* Network */,
 				F68088F02018C9BF008DE368 /* Interactor */,
 				F68088EF2018C9A4008DE368 /* Manager */,
 				F6F6831720185B9D00EF5CE3 /* Spy */,
@@ -272,6 +286,7 @@
 				F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */,
 				F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */,
 				F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */,
+				F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -428,18 +443,19 @@
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
+				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
+				F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
-				F6292023203D7D8300EB694C /* PerformUIUpdate.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,
+				F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
-				F6B558B8202062CA006ADB14 /* ApiRequest.swift in Sources */,
 				F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */,
 				F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */,
 			);
@@ -454,9 +470,13 @@
 				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
 				F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */,
 				F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */,
+				F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */,
+				F6E9F55B2056AD0F00206FAE /* CheckUpdateRequestTests.swift in Sources */,
+				F6E9F55D2056AD5400206FAE /* NetworkRequestTests.swift in Sources */,
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
 				F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */,
+				F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */,
 				F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */,
 				F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */,
 				F68088EA2018B521008DE368 /* DownloadUpdateInteractorTests.swift in Sources */,

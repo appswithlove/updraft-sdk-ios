@@ -12,7 +12,7 @@ struct CheckUpdateModel: Decodable {
 	
 	var lastBuildDate: String
 	var releaseNotes: String
-	var updraftVersion: String
+	var updraftVersion: String?
 	var onDeviceVersion: String
 	var isNewVersionAvailable: Bool
 	

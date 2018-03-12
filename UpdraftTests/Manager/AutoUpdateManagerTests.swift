@@ -48,6 +48,17 @@ class AutoUpdateManagerTests: XCTestCase {
 		XCTAssertTrue(spy.subscribeToAppDidBecomeActiveWasCalled)
 	}
 	
+	func testSubscribeToAppWillResignActiveOnStart() {
+		//Given
+		let spy = AutoUpdateManagerSpy()
+		
+		//When
+		spy.start()
+		
+		//Then
+		XCTAssertTrue(spy.subscriveToAppWillResignActiveWasCalled)
+	}
+	
 	func testObserveDidBecomeActiveNotification() {
 		//Given
 		let manager = AutoUpdateManager()
@@ -57,6 +68,17 @@ class AutoUpdateManagerTests: XCTestCase {
 		
 		//Then
 		XCTAssertNotNil(manager.didBecomeActiveObserver)
+	}
+	
+	func testObserveWillResignActiveNotification() {
+		//Given
+		let manager = AutoUpdateManager()
+		
+		//When
+		manager.subscribeToAppWillResignActive()
+		
+		//Then
+		XCTAssertNotNil(manager.willResignActiveObserver)
 	}
 	
 	func testInformUserIsCalledAndUrlSetWhenNewUpdateUrlAvailable() {
@@ -86,18 +108,28 @@ class AutoUpdateManagerTests: XCTestCase {
 		XCTAssertTrue(manager.redirectUserForUpdateWasCalled)
 	}
 	
-	func testCheckUpdateIsCalledWhenDidBecomeActiveNotificationIsReceived() {
+	func testSubscribeToAppDidBecomeActive() {
 		
 		//Given
 		let manager = AutoUpdateManagerSpy()
-		manager.subscribeToAppDidBecomeActive()
-		let didBecomeActiveNotificationName = Notification.Name.UIApplicationDidBecomeActive
 		
 		//When
-		NotificationCenter.default.post(name: didBecomeActiveNotificationName, object: nil)
+		manager.subscribeToAppDidBecomeActive()
 		
 		//Then
-		XCTAssertTrue(manager.checkUpdateWasCalled, "checkUpdate not called")
+		XCTAssertNotNil(manager.didBecomeActiveObserver, "checkUpdate not called")
+	}
+	
+	func testSubscribeToAppWillResignActive() {
+		
+		//Given
+		let manager = AutoUpdateManagerSpy()
+		
+		//When
+		manager.subscribeToAppWillResignActive()
+		
+		//Then
+		XCTAssertNotNil(manager.willResignActiveObserver, "checkUpdate not called")
 	}
 	
 	func testCheckUpdateIsCalledWhenUpdateIsCalled() {

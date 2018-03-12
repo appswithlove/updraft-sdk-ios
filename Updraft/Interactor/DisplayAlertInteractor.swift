@@ -30,10 +30,8 @@ class DisplayAlertInteractor: AppUtility {
 	
 	func showAlert(alert: UIAlertController) {
 		clear {
-			performUIUpdate {
-				self.topMostController?.present(alert, animated: true) { [weak self] in
-					self?.displayedAlert = alert
-				}
+			self.topMostController?.present(alert, animated: true) { [weak self] in
+				self?.displayedAlert = alert
 			}
 		}
 	}
@@ -49,6 +47,8 @@ class DisplayAlertInteractor: AppUtility {
 		}
 	}
 }
+
+//MARK: - DisplayAlertInteractorInput
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String) {

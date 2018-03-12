@@ -10,9 +10,12 @@ import Foundation
 @testable import Updraft
 
 class DisplayAlertInteractorInputSpy: DisplayAlertInteractorInput {
+
 	var displayAlertWasCalled = false
 	
 	func displayAlert(with message: String, title: String) {
 		displayAlertWasCalled = true
 	}
+	
+	func clearMessages() {}
 }

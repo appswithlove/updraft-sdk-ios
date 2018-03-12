@@ -1,3 +1,6 @@
+# Updraft SDK
+
+Updraft SDK for iOS
 
 ## Requirements
 
@@ -31,3 +34,22 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+
+## Setup
+
+1. Import Updraft module in AppDelegate
+
+ 	```Swift
+	import Updraft
+	```
+2. Start the SDK with your "SDK Key" and "App Key":
+
+	
+	```Swift
+		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		
+			Updraft.shared.start(sdkKey: "YOUR_SDK_KEY", appKey: "YOUR_APP_KEY", isAppStoreRelease: false)
+			
+			return true
+		}
+	```

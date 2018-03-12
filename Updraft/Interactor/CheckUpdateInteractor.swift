@@ -28,41 +28,25 @@ class CheckUpdateInteractor: AppUtility {
 	weak var output: CheckUpdateInteractorOutput?
 	
 	private var settings: Settings
-	private var apiSessionManager: ApiSessionManager
-	private var checkUpdateRequest: ApiRequest<CheckUpdateResource>?
-	private var getUpdateUrlRequest: ApiRequest<UpdateUrlResource>?
+	private let checkUpdateRequest: CheckUpdateRequest
+	private let getUpdateUrlRequest: UpdateUrlRequest
 	
 	init(
-		apiSessionManager: ApiSessionManager = ApiSessionManager() ,
-		settings: Settings = Settings()) {
+		settings: Settings = Settings(),
+		checkUpdateRequest: CheckUpdateRequest = CheckUpdateRequest(),
+		getUpdateUrlRequest: UpdateUrlRequest = UpdateUrlRequest()) {
 		
-		self.apiSessionManager = apiSessionManager
 		self.settings = settings
+		self.checkUpdateRequest = checkUpdateRequest
+		self.getUpdateUrlRequest = getUpdateUrlRequest
 	}
-	
-	func buildCheckUpdateRequest(settings: Settings, session: NetworkSession) -> ApiRequest<CheckUpdateResource> {
-		let parameters = [
-			"sdk_key": settings.sdkKey,
-			"app_key": settings.appKey,
-			"version": buildVersion]
-		let checkUpdateResource = CheckUpdateResource(parameters: parameters)
-		let checkUpdateRequest = ApiRequest(resource: checkUpdateResource, session: apiSessionManager.session)
-		return checkUpdateRequest
-	}
-	
-	func buildGetUpdateUrlRequest(settings: Settings, session: NetworkSession) -> ApiRequest<UpdateUrlResource> {
+
+	func getUpdateUrl() {
 		let parameters = [
 			"sdk_key": settings.sdkKey,
 			"app_key": settings.appKey]
-		let updateResource = UpdateUrlResource(parameters: parameters)
-		let updateRequest = ApiRequest(resource: updateResource, session: apiSessionManager.session)
-		return updateRequest
-	}
-	
-	func getUpdateUrl() {
-		getUpdateUrlRequest = buildGetUpdateUrlRequest(settings: self.settings, session: self.apiSessionManager.session)
 		
-		getUpdateUrlRequest?.load(withCompletion: { [weak self] (result) in
+		getUpdateUrlRequest.load(with: .getUpdateUrl(params: parameters)) { [weak self] (result) in
 			guard let strongSelf = self, let output = strongSelf.output else { return }
 			switch result {
 			case .success(let model):
@@ -72,7 +56,7 @@ class CheckUpdateInteractor: AppUtility {
 			case .error(let error):
 				print("UPDRAFT: Getting Update url error: :\(error.localizedDescription)")
 			}
-		})
+		}
 	}
 }
 
@@ -81,9 +65,13 @@ class CheckUpdateInteractor: AppUtility {
 extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 	
 	func checkUpdate() {
-		checkUpdateRequest = buildCheckUpdateRequest(settings: self.settings, session: self.apiSessionManager.session)
+		let parameters = [
+			"sdk_key": settings.sdkKey,
+			"app_key": settings.appKey,
+			"version": buildVersion
+			]
 		
-		checkUpdateRequest?.load(withCompletion: { [weak self] (result) in
+		checkUpdateRequest.load(with: .checkUpdate(params: parameters)) { [weak self] (result) in
 			guard let strongSelf = self, strongSelf.output != nil else { return }
 			switch result {
 			case .success(let model) where model.isNewVersionAvailable:
@@ -93,6 +81,6 @@ extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 			case .success:
 				break
 			}
-		})
+		}
 	}
 }

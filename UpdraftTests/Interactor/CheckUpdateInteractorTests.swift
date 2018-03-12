@@ -35,5 +35,4 @@ class CheckUpdateInteractorTests: XCTestCase {
 		//Then
 		XCTAssertTrue(spy.checkUpdateInteractorWasCalled)
 	}
-	
 }

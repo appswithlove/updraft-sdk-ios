@@ -42,6 +42,9 @@ class AutoUpdateManager {
 		if let obs = didBecomeActiveObserver {
 			NotificationCenter.default.removeObserver(obs)
 		}
+		if let obs = willResignActiveObserver {
+			NotificationCenter.default.removeObserver(obs)
+		}
 	}
 	
 	// MARK: Implementation
@@ -55,7 +58,7 @@ class AutoUpdateManager {
 		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
 			self?.updateTimer?.invalidate()
 			//Wait a few seconds to check update
-			// - to allow main app to set root view (eg. after splash screen)
+			//to allow main app to set root view (eg. after splash screen)
 			self?.updateTimer = Timer.scheduledTimer(withTimeInterval: 3.5, repeats: false) { (_) in
 				self?.checkUpdate()
 			}
