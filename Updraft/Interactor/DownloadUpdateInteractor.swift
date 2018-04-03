@@ -28,7 +28,7 @@ protocol DownloadUpdateInteractorOutput: class {
 }
 
 /// Handle the redirection of the user to the app update download page.
-class DownloadUpdateInteractor {
+final class DownloadUpdateInteractor {
 	
 	private let application: URLOpener
 	weak var output: DownloadUpdateInteractorOutput?

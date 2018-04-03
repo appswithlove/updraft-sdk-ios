@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Updraft {
+final public class Updraft {
 	
 	private(set) var settings: Settings
 	private(set) var apiSessionManager: ApiSessionManager

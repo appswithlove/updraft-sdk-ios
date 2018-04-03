@@ -24,7 +24,7 @@ protocol DisplayAlertInteractorOuput: class {
 	func displayAlertInteractorUserDidAcknowledgeAlert(_ sender: DisplayAlertInteractor)
 }
 
-class DisplayAlertInteractor: AppUtility {
+final class DisplayAlertInteractor: AppUtility {
 	var displayedAlert: UIAlertController?
 	weak var output: DisplayAlertInteractorOuput?
 	
