@@ -13,6 +13,7 @@ final public class Updraft {
 	private(set) var settings: Settings
 	private(set) var apiSessionManager: ApiSessionManager
 	private(set) var autoUpdateManager: AutoUpdateManager
+	private(set) var feedbackManager: FeedbackManager
 	
 	init(
 		autoUpdateManager: AutoUpdateManager,
