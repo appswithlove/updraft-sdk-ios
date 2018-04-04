@@ -16,7 +16,7 @@ protocol TakeScreenshotInteractorOutput: class {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage)
 }
 
-final class TakeScreenshotInteractor {
+class TakeScreenshotInteractor {
 	weak var output: TakeScreenshotInteractorOutput?
 }
 
@@ -32,6 +32,7 @@ extension TakeScreenshotInteractor: TakeScreenshotInteractorInput {
 		screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		guard let screenshot = screenshotImage else {return}
+		
 		output?.takeScreenshotInteractor(self, didTakeScreenshot: screenshot)
 	}
 }

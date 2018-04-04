@@ -17,7 +17,7 @@ protocol TriggerFeedbackInteractorOutput: class {
 	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType)
 }
 
-final class TriggerFeedbackInteractor {
+class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	
 	struct Constants {
 		static let shakeAccelerationThresold: Double = 1.75 // in g-force
@@ -40,8 +40,12 @@ final class TriggerFeedbackInteractor {
 		}
 	}
 	
+	func start() {
+		observeUserDidTakeScreenshot()
+		detectShake()
+	}
+	
 	func observeUserDidTakeScreenshot() {
-		//TODO: Test that this is called on START
 		screenshotObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: nil, using: { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.output?.triggerFeedbackInteractor(strongSelf, userDidTriggerFeedbackWith: .screenshot)
@@ -49,7 +53,6 @@ final class TriggerFeedbackInteractor {
 	}
 	
 	func detectShake() {
-		//TODO: Test that this is called on START
 		if motionManager.isAccelerometerAvailable {
 			motionManager.startAccelerometerUpdates(to: queue) { [weak self] (data, _) in
 				guard let data = data, let strongSelf = self else {return}
@@ -63,7 +66,6 @@ final class TriggerFeedbackInteractor {
 	}
 	
 	func isShakeDetected(acceleration: CMAcceleration, thresold: Double) -> Bool {
-		//TODO: Test this method
 		if abs(acceleration.x) > thresold ||
 			abs(acceleration.y) > thresold ||
 			abs(acceleration.z) > thresold {
@@ -79,13 +81,5 @@ final class TriggerFeedbackInteractor {
 	enum TriggerType {
 		case shake
 		case screenshot
-	}
-}
-
-extension TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
-	func start() {
-		//TODO: Test that this is called when FeedbackManager is started
-		observeUserDidTakeScreenshot()
-		detectShake()
 	}
 }

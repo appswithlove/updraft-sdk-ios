@@ -34,6 +34,10 @@
 		F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558AF202061D7006ADB14 /* ApiResource.swift */; };
 		F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */; };
 		F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateUrlModel.swift */; };
+		F6C5B7972074CA740034B38D /* FeedbackManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B7962074CA740034B38D /* FeedbackManagerSpy.swift */; };
+		F6C5B7992074CC980034B38D /* FeedbackManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B7982074CC980034B38D /* FeedbackManagerTests.swift */; };
+		F6C5B79B2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B79A2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift */; };
+		F6C5B79D2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B79C2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift */; };
 		F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */; };
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
 		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
@@ -93,6 +97,10 @@
 		F6B558AF202061D7006ADB14 /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
 		F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlResource.swift; sourceTree = "<group>"; };
 		F6B558B320206240006ADB14 /* UpdateUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlModel.swift; sourceTree = "<group>"; };
+		F6C5B7962074CA740034B38D /* FeedbackManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerSpy.swift; sourceTree = "<group>"; };
+		F6C5B7982074CC980034B38D /* FeedbackManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerTests.swift; sourceTree = "<group>"; };
+		F6C5B79A2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerFeedbackInteractorSpy.swift; sourceTree = "<group>"; };
+		F6C5B79C2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerFeedbackInteractorTests.swift; sourceTree = "<group>"; };
 		F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionManager.swift; sourceTree = "<group>"; };
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
@@ -187,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F6FD17BB20160F0E005B9177 /* AutoUpdateManagerTests.swift */,
+				F6C5B7982074CC980034B38D /* FeedbackManagerTests.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 				F68088E92018B521008DE368 /* DownloadUpdateInteractorTests.swift */,
 				F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */,
 				F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */,
+				F6C5B79C2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -293,6 +303,8 @@
 				F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */,
 				F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */,
 				F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */,
+				F6C5B7962074CA740034B38D /* FeedbackManagerSpy.swift */,
+				F6C5B79A2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -480,6 +492,7 @@
 				F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */,
 				F6F6831B2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift in Sources */,
 				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
+				F6C5B7972074CA740034B38D /* FeedbackManagerSpy.swift in Sources */,
 				F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */,
 				F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */,
 				F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */,
@@ -488,12 +501,15 @@
 				F6FD17BC20160F0E005B9177 /* AutoUpdateManagerTests.swift in Sources */,
 				F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */,
 				F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */,
+				F6C5B7992074CC980034B38D /* FeedbackManagerTests.swift in Sources */,
 				F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */,
 				F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */,
 				F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */,
 				F68088EA2018B521008DE368 /* DownloadUpdateInteractorTests.swift in Sources */,
 				F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */,
 				F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */,
+				F6C5B79D2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift in Sources */,
+				F6C5B79B2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift in Sources */,
 				F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */,
 				F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */,
 			);

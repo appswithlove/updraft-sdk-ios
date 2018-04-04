@@ -9,7 +9,7 @@
 import Foundation
 
 /// Handle the user generated feedback process.
-final class FeedbackManager {
+class FeedbackManager {
 	
 	let takeScreenshotInteractor: TakeScreenshotInteractorInput
 	let triggerFeedbackInteractor: TriggerFeedbackInteractorInput
@@ -27,7 +27,6 @@ final class FeedbackManager {
 	// MARK: Implementation
 	
 	func start() {
-		//TODO: Test it is called
 		triggerFeedbackInteractor.start()
 	}
 

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Handle the autoupdate process.
-final class AutoUpdateManager {
+class AutoUpdateManager {
 	
 	private(set) var didBecomeActiveObserver: NSObjectProtocol?
 	private(set) var willResignActiveObserver: NSObjectProtocol?
