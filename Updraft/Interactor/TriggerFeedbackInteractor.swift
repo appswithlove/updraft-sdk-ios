@@ -13,34 +13,79 @@ protocol TriggerFeedbackInteractorInput {
 	func start()
 }
 
-protocol TriggerFeedbackInteractorOutput {
-	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, didTriggerFeedbackWith type: TriggerFeedbackInteractor.Type)
+protocol TriggerFeedbackInteractorOutput: class {
+	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType)
 }
 
 final class TriggerFeedbackInteractor {
 	
-	private (set) var screenshotObserver: NSObjectProtocol?
+	struct Constants {
+		static let shakeAccelerationThresold: Double = 1.75 // in g-force
+	}
 	
-	func start() {
-		//TODO: Test that this is called when FeedbackManager is started
+	private (set) var screenshotObserver: NSObjectProtocol?
+	weak var output: TriggerFeedbackInteractorOutput?
+	
+	let queue = OperationQueue()
+	
+	lazy var motionManager: CMMotionManager = {
+		let manager = CMMotionManager()
+		manager.accelerometerUpdateInterval = 0.25
+		return manager
+		}()
+	
+	deinit {
+		if let obs = screenshotObserver {
+			NotificationCenter.default.removeObserver(obs)
+		}
 	}
 	
 	func observeUserDidTakeScreenshot() {
 		//TODO: Test that this is called on START
-		// - Observe when the user takes a screenshot
+		screenshotObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: nil, using: { [weak self] (_) in
+			guard let strongSelf = self else {return}
+			strongSelf.output?.triggerFeedbackInteractor(strongSelf, userDidTriggerFeedbackWith: .screenshot)
+		})
 	}
 	
 	func detectShake() {
 		//TODO: Test that this is called on START
-		// - Observe when the user shakes screen, use coremotion =>
+		if motionManager.isAccelerometerAvailable {
+			motionManager.startAccelerometerUpdates(to: queue) { [weak self] (data, _) in
+				guard let data = data, let strongSelf = self else {return}
+				if strongSelf.isShakeDetected(acceleration: data.acceleration, thresold: Constants.shakeAccelerationThresold) {
+					OperationQueue.main.addOperation {
+						strongSelf.output?.triggerFeedbackInteractor(strongSelf, userDidTriggerFeedbackWith: .shake)
+					}
+				}
+			}
+		}
+	}
+	
+	func isShakeDetected(acceleration: CMAcceleration, thresold: Double) -> Bool {
+		//TODO: Test this method
+		if abs(acceleration.x) > thresold ||
+			abs(acceleration.y) > thresold ||
+			abs(acceleration.z) > thresold {
+			return true
+		}
+		return false
 	}
 	
 	/// Types of user actions which triggers a feedback
 	///
 	/// - shake: User shaked his device
-	/// - userDidTakeScreenshot: User took a screenshot manually
-	enum `Type` {
+	/// - screenshot: User took a screenshot manually
+	enum TriggerType {
 		case shake
-		case manualScreenshot
+		case screenshot
+	}
+}
+
+extension TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
+	func start() {
+		//TODO: Test that this is called when FeedbackManager is started
+		observeUserDidTakeScreenshot()
+		detectShake()
 	}
 }

@@ -18,23 +18,26 @@ final public class Updraft {
 	init(
 		autoUpdateManager: AutoUpdateManager,
 		apiSessionManager: ApiSessionManager,
+		feedbackManager: FeedbackManager,
 		settings: Settings) {
 		
 		self.settings = settings
 		self.apiSessionManager = apiSessionManager
 		self.autoUpdateManager = autoUpdateManager
+		self.feedbackManager = feedbackManager
 	}
 	
 	convenience init() {
 		let settings = Settings()
 		let apiManager = ApiSessionManager()
+		let feedbackManager = FeedbackManager()
 		
 		let checkUpdateRequest = CheckUpdateRequest(session: apiManager.session)
 		let getUpdateUrlRequest = UpdateUrlRequest(session: apiManager.session)
 		let checkUpdateInteractor = CheckUpdateInteractor(settings: settings, checkUpdateRequest: checkUpdateRequest, getUpdateUrlRequest: getUpdateUrlRequest)
 		
 		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
-		self.init(autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, settings: settings)
+		self.init(autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, feedbackManager: feedbackManager, settings: settings)
 	}
 	
 	private static let sharedInstance = Updraft()
@@ -58,6 +61,7 @@ final public class Updraft {
 		settings.isAppStoreRelease = isAppStoreRelease
 		if isAppStoreRelease == false {
 			autoUpdateManager.start()
+			feedbackManager.start()
 		}
 	}
 }
