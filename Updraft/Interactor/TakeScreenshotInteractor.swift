@@ -9,6 +9,7 @@
 import Foundation
 
 protocol TakeScreenshotInteractorInput {
+	/// Take a screenshot of the screen as it is currently visible to the user
 	func takeScreenshot()
 }
 
@@ -16,11 +17,15 @@ protocol TakeScreenshotInteractorOutput: class {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage)
 }
 
+/// Object, which purpose is to take screenshots
 class TakeScreenshotInteractor {
 	weak var output: TakeScreenshotInteractorOutput?
 }
 
+// MARK: - TakeScreenshotInteractorInput
+
 extension TakeScreenshotInteractor: TakeScreenshotInteractorInput {
+	
 	func takeScreenshot() {
 		
 		var screenshotImage: UIImage?

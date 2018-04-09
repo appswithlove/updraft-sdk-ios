@@ -10,6 +10,7 @@ import Foundation
 import CoreMotion
 
 protocol TriggerFeedbackInteractorInput {
+	/// Start listening to feedback triggers
 	func start()
 }
 
@@ -17,6 +18,7 @@ protocol TriggerFeedbackInteractorOutput: class {
 	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType)
 }
 
+/// Handle the detection of feedback triggers
 class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	
 	struct Constants {
@@ -45,6 +47,7 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 		detectShake()
 	}
 	
+	/// Observe when the user takes a screenshot, usually by pressing "Home" + "Lock" buttons
 	func observeUserDidTakeScreenshot() {
 		screenshotObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: nil, using: { [weak self] (_) in
 			guard let strongSelf = self else {return}
@@ -52,6 +55,7 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 		})
 	}
 	
+	/// Detect when the user shakes his device
 	func detectShake() {
 		if motionManager.isAccelerometerAvailable {
 			motionManager.startAccelerometerUpdates(to: queue) { [weak self] (data, _) in
@@ -65,6 +69,12 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 		}
 	}
 	
+	/// Determines if the acceleration, given a g-force thresold, is considered a "shake"
+	///
+	/// - Parameters:
+	///   - acceleration: Acceleration vector.
+	///   - thresold: Thresold in g-force.
+	/// - Returns: Boolean value indicating whether a shake is detected.
 	func isShakeDetected(acceleration: CMAcceleration, thresold: Double) -> Bool {
 		if abs(acceleration.x) > thresold ||
 			abs(acceleration.y) > thresold ||
