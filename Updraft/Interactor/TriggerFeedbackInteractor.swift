@@ -28,7 +28,7 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	private (set) var screenshotObserver: NSObjectProtocol?
 	weak var output: TriggerFeedbackInteractorOutput?
 	
-	let queue = OperationQueue()
+	let queue = OperationQueue() // Dedicated operation queue to handle CMMotionManager updates
 	
 	lazy var motionManager: CMMotionManager = {
 		let manager = CMMotionManager()
