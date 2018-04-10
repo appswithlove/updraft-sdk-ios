@@ -27,7 +27,7 @@ class FeedbackViewController: UIViewController {
 		}
 	}
 	
-	//MARK: Lifecycle
+	// MARK: Lifecycle
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class FeedbackViewController: UIViewController {
 		update()
     }
 	
-	//MARK: Init
+	// MARK: Init
 	
 	init(state: FeedbackState) {
 		self.state = state
@@ -46,7 +46,7 @@ class FeedbackViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	//MARK: Actions
+	// MARK: Actions
 	
 	@IBAction func cancel(_ sender: Any) {
 		delegate?.feedbackViewControllerCancelWasTapped(self)
@@ -55,7 +55,7 @@ class FeedbackViewController: UIViewController {
 		delegate?.feedbackViewControllerSendWasTapped(self)
 	}
 	
-	//MARK: Implementation
+	// MARK: Implementation
 	
 	func setup() {
 		imageView?.contentMode = .scaleAspectFit

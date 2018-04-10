@@ -15,13 +15,15 @@ class FeedbackManagerTests: XCTestCase {
 		//Given
 		let takeScreenshotInteractor = TakeScreenshotInteractor()
 		let triggerFeedackInteractor = TriggerFeedbackInteractor()
+		let displayAlertInteractor = DisplayAlertInteractor()
 		
 		//When
-		let manager = FeedbackManager(takeScreenshotInteractor: takeScreenshotInteractor, triggerFeedbackInteractor: triggerFeedackInteractor)
+		let manager = FeedbackManager(takeScreenshotInteractor: takeScreenshotInteractor, triggerFeedbackInteractor: triggerFeedackInteractor, displayAlertInteractor: displayAlertInteractor) 
 		
 		//Then
 		XCTAssertTrue(takeScreenshotInteractor.output === manager)
 		XCTAssertTrue(triggerFeedackInteractor.output === manager)
+		XCTAssertTrue(displayAlertInteractor.output === manager)
 	}
 	
 	func testTriggerFeedbackInteractorStartIsCalledWhenFeedbackManagerStart() {
@@ -50,6 +52,31 @@ class FeedbackManagerTests: XCTestCase {
 		//Then
 		XCTAssertTrue(spy.presentWasCalled)
 		XCTAssertEqual(dumImage, spy.imageToPresent)
+	}
+	
+	func testShowHowToGiveFeedbackWasCalledOnStartWhenWasUserNotYetShown() {
+		//Given
+		let spy = FeedbackManagerSpy()
+		spy.wasUserShown = false
+		
+		//When
+		spy.start()
+		
+		//Then
+		XCTAssertTrue(spy.showHowToGiveFeedbackWasCalled)
+		
+	}
+	
+	func testShowHowToGiveFeedbackWasCalledOnStartWhenWasUserAlreadyShown() {
+		//Given
+		let spy = FeedbackManagerSpy()
+		spy.wasUserShown = true
+		
+		//When
+		spy.start()
+		
+		//Then
+		XCTAssertFalse(spy.showHowToGiveFeedbackWasCalled)
 	}
 	
 	func testTakeScreenshotIsCalledWhenUserDidTriggerScreenshotDelegateIsCalled() {
