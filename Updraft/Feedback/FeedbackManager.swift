@@ -13,13 +13,16 @@ class FeedbackManager {
 	
 	let takeScreenshotInteractor: TakeScreenshotInteractorInput
 	let triggerFeedbackInteractor: TriggerFeedbackInteractorInput
+	let feedbackPresenter: FeedbackPresenterInput
 	
 	init(
 		takeScreenshotInteractor: TakeScreenshotInteractor = TakeScreenshotInteractor(),
-		triggerFeedbackInteractor: TriggerFeedbackInteractor = TriggerFeedbackInteractor()) {
+		triggerFeedbackInteractor: TriggerFeedbackInteractor = TriggerFeedbackInteractor(),
+		feedbackPresenter: FeedbackPresenter = FeedbackPresenter()) {
 		
 		self.takeScreenshotInteractor = takeScreenshotInteractor
 		self.triggerFeedbackInteractor = triggerFeedbackInteractor
+		self.feedbackPresenter = feedbackPresenter
 		takeScreenshotInteractor.output = self
 		triggerFeedbackInteractor.output = self
 	}
@@ -29,27 +32,23 @@ class FeedbackManager {
 	func start() {
 		triggerFeedbackInteractor.start()
 	}
-
 	// - Interactor to display a message to the user that he can shake device to take a screenshot
 		// Reuse displayAlertInteractor
-	// - Interactor to display a feedback
-	// - Interactor to send a feedback
-	
 	// - Interactor to get information about the device, navigation stack etc ?
-	// - What should happen if a user takes a screenshot or shake his device while he is on the view to comment/annotate a feedback
 }
+
+// MARK: - TakeScreenshotInteractorOutput
 
 extension FeedbackManager: TakeScreenshotInteractorOutput {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage) {
-		//TODO: Present the feedback screen , passing along the image to be displayed
-		print(image)
-		//FIXME: What to do if another image arrives when one is already being presented in feedbackView ? ignore it? or present it on top ?
+		feedbackPresenter.present(with: image)
 	}
 }
 
+// MARK: - TriggerFeedbackInteractorOutput
+
 extension FeedbackManager: TriggerFeedbackInteractorOutput {
 	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType) {
-		//TODO: Take a screenshot
 		takeScreenshotInteractor.takeScreenshot()
 	}
 }

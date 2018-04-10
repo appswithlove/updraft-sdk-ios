@@ -35,4 +35,34 @@ class FeedbackManagerTests: XCTestCase {
 		//Then
 		XCTAssertTrue(spy.startWasCalled)
 	}
+	
+	func testPresentFeedbackIsCalledWhenDidTakeScreenshotDelegateIsCalled() {
+		//Given
+		let spy = FeedbackPresenterSpy()
+		let dumImage = UIImage()
+		let takeScreenshotInteractor = TakeScreenshotInteractor()
+		let manager = FeedbackManager(takeScreenshotInteractor: takeScreenshotInteractor, feedbackPresenter: spy)
+		takeScreenshotInteractor.output = manager
+		
+		//When
+		takeScreenshotInteractor.output?.takeScreenshotInteractor(takeScreenshotInteractor, didTakeScreenshot: dumImage)
+		
+		//Then
+		XCTAssertTrue(spy.presentWasCalled)
+		XCTAssertEqual(dumImage, spy.imageToPresent)
+	}
+	
+	func testTakeScreenshotIsCalledWhenUserDidTriggerScreenshotDelegateIsCalled() {
+		//Given
+		let spy = TakeScreenshotInteractorSpy()
+		let triggerScreenshotInteractor = TriggerFeedbackInteractor()
+		let manager = FeedbackManager(takeScreenshotInteractor: spy, triggerFeedbackInteractor: triggerScreenshotInteractor)
+		triggerScreenshotInteractor.output = manager
+		
+		//when
+		triggerScreenshotInteractor.output?.triggerFeedbackInteractor(triggerScreenshotInteractor, userDidTriggerFeedbackWith: .screenshot)
+		
+		//Then
+		XCTAssertTrue(spy.takeScreenshotWasCalled)
+	}
 }

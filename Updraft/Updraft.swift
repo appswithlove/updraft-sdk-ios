@@ -30,12 +30,15 @@ final public class Updraft {
 	convenience init() {
 		let settings = Settings()
 		let apiManager = ApiSessionManager()
-		let feedbackManager = FeedbackManager()
 		
 		let checkUpdateRequest = CheckUpdateRequest(session: apiManager.session)
 		let getUpdateUrlRequest = UpdateUrlRequest(session: apiManager.session)
+		let sendFeedbackRequest = SendFeedbackRequest(session: apiManager.session)
+		let sendFeedbackInteractor = SendFeedbackInteractor(sendFeedbackRequest: sendFeedbackRequest)
+		let feedbackPresenter = FeedbackPresenter(sendFeedbackInteractor: sendFeedbackInteractor)
 		let checkUpdateInteractor = CheckUpdateInteractor(settings: settings, checkUpdateRequest: checkUpdateRequest, getUpdateUrlRequest: getUpdateUrlRequest)
 		
+		let feedbackManager = FeedbackManager(feedbackPresenter: feedbackPresenter)
 		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
 		self.init(autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, feedbackManager: feedbackManager, settings: settings)
 	}

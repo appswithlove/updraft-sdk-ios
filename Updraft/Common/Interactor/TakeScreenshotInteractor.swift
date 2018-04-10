@@ -26,7 +26,7 @@ class TakeScreenshotInteractor {
 
 extension TakeScreenshotInteractor: TakeScreenshotInteractorInput {
 	
-	func takeScreenshot() {
+	@objc func takeScreenshot() {
 		
 		var screenshotImage: UIImage?
 		let layer = UIApplication.shared.keyWindow!.layer
