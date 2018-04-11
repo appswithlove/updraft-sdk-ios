@@ -11,6 +11,10 @@ import Foundation
 protocol AppUtility {
 	var buildVersion: String {get}
 	var topMostController: UIViewController? {get}
+	var controllersStack: String {get}
+	var systemVersion: String {get}
+	var deviceUuid: String? {get}
+	var modelName: String {get}
 }
 
 extension AppUtility {
@@ -29,5 +33,72 @@ extension AppUtility {
 			topController = topController?.presentedViewController
 		}
 		return topController
+	}
+	
+	///Returns the current controllers stack
+	var controllersStack: String {
+		var controllers = [String]()
+		
+		var pointedViewController = UIApplication.shared.keyWindow?.rootViewController
+		
+		while pointedViewController?.presentedViewController != nil {
+			controllers += getCurrentStack(for: pointedViewController)
+			switch pointedViewController?.presentedViewController {
+			case let navagationController as UINavigationController:
+				pointedViewController = navagationController.viewControllers.last
+			case let tabBarController as UITabBarController:
+				pointedViewController = tabBarController.selectedViewController
+			default:
+				pointedViewController = pointedViewController?.presentedViewController
+			}
+		}
+		
+		if pointedViewController?.presentedViewController == nil {
+			controllers += getCurrentStack(for: pointedViewController)
+		}
+
+		return controllers.joined(separator: ", ")
+	}
+	
+	private func getCurrentStack(for viewController: UIViewController?) -> [String] {
+		var controllers = [UIViewController?]()
+		
+		var shownController = viewController
+		
+		while shownController is UITabBarController || shownController is UINavigationController {
+			controllers.append(shownController)
+			switch shownController {
+			case let navigationController as UINavigationController:
+				if navigationController.childViewControllers.count > 1 {
+					navigationController.viewControllers.dropLast().forEach({controllers.append($0)})
+				}
+				shownController = navigationController.viewControllers.last
+			case let tabBarController as UITabBarController:
+				shownController = tabBarController.selectedViewController
+			default:
+				break
+			}
+		}
+		
+		if !(shownController is UITabBarController) && !(shownController is UINavigationController) {
+			controllers.append(shownController)
+		}
+		
+		return controllers.compactMap({$0}).map({String(describing: $0)})
+	}
+	
+	/// Returns the system version of the device
+	var systemVersion: String {
+		return UIDevice.current.systemVersion
+	}
+	
+	/// Returns the unique identifier for vendor
+	var deviceUuid: String? {
+		return UIDevice.current.identifierForVendor?.uuidString
+	}
+	
+	/// Returns the model name , eg. iPhone X, iPad Pro 9.7 Inch
+	var modelName: String {
+		return UIDevice.current.modelName
 	}
 }

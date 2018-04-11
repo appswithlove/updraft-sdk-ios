@@ -29,7 +29,6 @@
 		F644BD27207CD084003126F1 /* FeedbackPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD26207CD084003126F1 /* FeedbackPresenterTests.swift */; };
 		F644BD2A207CD35E003126F1 /* FeedbackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */; };
 		F644BD2C207CD5D3003126F1 /* FeedbackViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */; };
-		F644BD34207CF6D6003126F1 /* GetFeedbackContextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD33207CF6D6003126F1 /* GetFeedbackContextInteractor.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
 		F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */; };
@@ -44,6 +43,7 @@
 		F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088EB2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift */; };
 		F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */; };
 		F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088F22018DA4C008DE368 /* NetworkRequest.swift */; };
+		F6A79D71207E116C00C2AFC2 /* UIDevice+ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A79D70207E116C00C2AFC2 /* UIDevice+ModelName.swift */; };
 		F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558AF202061D7006ADB14 /* ApiResource.swift */; };
 		F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */; };
 		F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateUrlModel.swift */; };
@@ -105,7 +105,6 @@
 		F644BD26207CD084003126F1 /* FeedbackPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackPresenterTests.swift; sourceTree = "<group>"; };
 		F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerTests.swift; sourceTree = "<group>"; };
 		F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerSpy.swift; sourceTree = "<group>"; };
-		F644BD33207CF6D6003126F1 /* GetFeedbackContextInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedbackContextInteractor.swift; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequest.swift; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		F68088EB2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088ED2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractorInputSpy.swift; sourceTree = "<group>"; };
 		F68088F22018DA4C008DE368 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		F6A79D70207E116C00C2AFC2 /* UIDevice+ModelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ModelName.swift"; sourceTree = "<group>"; };
 		F6B558AF202061D7006ADB14 /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
 		F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlResource.swift; sourceTree = "<group>"; };
 		F6B558B320206240006ADB14 /* UpdateUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlModel.swift; sourceTree = "<group>"; };
@@ -219,7 +219,6 @@
 			children = (
 				F644BD18207C8E8B003126F1 /* SendFeedbackInteractor.swift */,
 				F63B136F2073AF9300A96C0A /* TriggerFeedbackInteractor.swift */,
-				F644BD33207CF6D6003126F1 /* GetFeedbackContextInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -240,6 +239,7 @@
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
 				F6D36FA6203BF44000B0643E /* Print.swift */,
 				F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */,
+				F6A79D70207E116C00C2AFC2 /* UIDevice+ModelName.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -577,7 +577,6 @@
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
-				F644BD34207CF6D6003126F1 /* GetFeedbackContextInteractor.swift in Sources */,
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
 				F67B4960207B604000272C09 /* FeedbackViewController.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
@@ -600,6 +599,7 @@
 				F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
 				F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */,
+				F6A79D71207E116C00C2AFC2 /* UIDevice+ModelName.swift in Sources */,
 				F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

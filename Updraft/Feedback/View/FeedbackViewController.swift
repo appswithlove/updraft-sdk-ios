@@ -13,7 +13,7 @@ protocol FeedbackViewControllerDelegate: class {
 	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController)
 }
 
-class FeedbackViewController: UIViewController {
+class FeedbackViewController: UIViewController, AppUtility {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var cancelButton: UIButton!
