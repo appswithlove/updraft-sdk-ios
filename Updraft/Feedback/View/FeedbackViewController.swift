@@ -18,6 +18,7 @@ class FeedbackViewController: UIViewController {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var cancelButton: UIButton!
 	@IBOutlet weak var sendButton: UIButton!
+	@IBOutlet weak var scrollView: UIScrollView!
 	
 	weak var delegate: FeedbackViewControllerDelegate?
 	
@@ -55,10 +56,40 @@ class FeedbackViewController: UIViewController {
 		delegate?.feedbackViewControllerSendWasTapped(self)
 	}
 	
+	// MARK: Keyboard
+	
+	@objc func adjustForKeyboard(notification: Notification) {
+		let userInfo = notification.userInfo!
+		
+		let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+		let keyboardHeight = keyboardViewEndFrame.height
+		
+		if notification.name == Notification.Name.UIKeyboardWillHide {
+			scrollView.contentInset = UIEdgeInsets.zero
+			scrollView.setContentOffset(CGPoint.zero, animated: true)
+		} else {
+			scrollView.contentInset.bottom = keyboardHeight
+			scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
+		}
+		scrollView.scrollIndicatorInsets = scrollView.contentInset
+	}
+	
 	// MARK: Implementation
 	
 	func setup() {
 		imageView?.contentMode = .scaleAspectFit
+		scrollView.alwaysBounceVertical = true
+		
+		let notificationCenter = NotificationCenter.default
+		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+		
+		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
+	}
+	
+	@objc func endEditing() {
+		view.endEditing(true)
 	}
 	
 	func update() {

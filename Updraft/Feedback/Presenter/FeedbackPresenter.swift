@@ -39,7 +39,7 @@ class FeedbackPresenter: AppUtility {
 	}
 }
 
-// MARK: -  FeedbackPresenterInput
+// MARK: - FeedbackPresenterInput
 
 extension FeedbackPresenter: FeedbackPresenterInput {
 	@objc func present(with image: UIImage) {
@@ -62,7 +62,8 @@ extension FeedbackPresenter: FeedbackViewControllerDelegate {
 	
 	@objc func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController) {
 		//TODO: Send... with image , text etc.
-		sendFeedbackInteractor.sendFeedback()
+		//sendFeedbackInteractor.sendFeedback()
+		sender.dismiss(animated: true, completion: nil)
 	}
 }
 

@@ -29,6 +29,7 @@
 		F644BD27207CD084003126F1 /* FeedbackPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD26207CD084003126F1 /* FeedbackPresenterTests.swift */; };
 		F644BD2A207CD35E003126F1 /* FeedbackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */; };
 		F644BD2C207CD5D3003126F1 /* FeedbackViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */; };
+		F644BD34207CF6D6003126F1 /* GetFeedbackContextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD33207CF6D6003126F1 /* GetFeedbackContextInteractor.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
 		F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */; };
@@ -104,6 +105,7 @@
 		F644BD26207CD084003126F1 /* FeedbackPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackPresenterTests.swift; sourceTree = "<group>"; };
 		F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerTests.swift; sourceTree = "<group>"; };
 		F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerSpy.swift; sourceTree = "<group>"; };
+		F644BD33207CF6D6003126F1 /* GetFeedbackContextInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedbackContextInteractor.swift; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequest.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				F644BD18207C8E8B003126F1 /* SendFeedbackInteractor.swift */,
 				F63B136F2073AF9300A96C0A /* TriggerFeedbackInteractor.swift */,
+				F644BD33207CF6D6003126F1 /* GetFeedbackContextInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
+				F644BD34207CF6D6003126F1 /* GetFeedbackContextInteractor.swift in Sources */,
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
 				F67B4960207B604000272C09 /* FeedbackViewController.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
