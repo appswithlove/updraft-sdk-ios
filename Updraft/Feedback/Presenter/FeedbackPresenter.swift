@@ -25,7 +25,7 @@ enum FeedbackState {
 }
 
 /// Handle the presentation of the feedback view
-class FeedbackPresenter: FeedbackPresenterInput, AppUtility {
+class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControllerDelegate {
 	
 	let sendFeedbackInteractor: SendFeedbackInteractorInput
 	var userEmailInteractor: UserEmailInteractorInput
@@ -60,13 +60,10 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility {
 		self.context = context
 		self.topMostController?.present(feedbackViewController!, animated: true, completion: nil)
 	}
-}
-
-// MARK: - FeedbackViewControllerDelegate
-
-extension FeedbackPresenter: FeedbackViewControllerDelegate {
 	
-	@objc func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
+	// MARK: - FeedbackViewControllerDelegate
+	
+	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
 		sender.dismiss(animated: true, completion: nil)
 	}
 	

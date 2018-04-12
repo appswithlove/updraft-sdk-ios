@@ -13,7 +13,7 @@ class FeedbackViewControllerTests: XCTestCase {
 	
 	func testSetupAndUpdateAreCalledWhenViewDidLoad() {
 		//Given
-		let spy = FeedbackViewControllerSpy(state: .edit(nil))
+		let spy = FeedbackViewControllerSpy(state: .edit(UIImage(), email: nil))
 		
 		//When
 		_ = spy.view //Triggers viewDidLoad
@@ -26,7 +26,7 @@ class FeedbackViewControllerTests: XCTestCase {
 	func testDidCancelDelegateIsCalledWhenCancelButtonIsTapped() {
 		//Given
 		let spy = FeedbackPresenterSpy()
-		let feedbackViewController = FeedbackViewController(state: .edit(nil))
+		let feedbackViewController = FeedbackViewController(state: .edit(UIImage(), email: nil))
 		feedbackViewController.delegate = spy
 		
 		//When
@@ -39,7 +39,7 @@ class FeedbackViewControllerTests: XCTestCase {
 	func testDidSendDelegateIsCalledWhenSendButonIsTapped() {
 		//Given
 		let spy = FeedbackPresenterSpy()
-		let feedbackViewController = FeedbackViewController(state: .edit(nil))
+		let feedbackViewController = FeedbackViewController(state: .edit(UIImage(), email: nil))
 		feedbackViewController.delegate = spy
 		
 		//When

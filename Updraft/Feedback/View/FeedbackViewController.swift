@@ -83,7 +83,7 @@ class FeedbackViewController: UIViewController, AppUtility {
 	
 	func setup() {
 		imageView?.contentMode = .scaleAspectFit
-		scrollView.alwaysBounceVertical = true
+		scrollView?.alwaysBounceVertical = true
 		
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
@@ -94,9 +94,9 @@ class FeedbackViewController: UIViewController, AppUtility {
 	
 	func getFeedbackViewModel() -> FeedbackViewModel {
 		let image = getEditedImage()
-		let email = emailTextField.text ?? ""
-		let message = messageTextView.text ?? ""
-		let selectedTagTitle = feedbackTypeControl.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
+		let email = emailTextField?.text ?? ""
+		let message = messageTextView?.text ?? ""
+		let selectedTagTitle = feedbackTypeControl?.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
 		let tag = FeedbackViewModel.Tag(rawValue: selectedTagTitle) ?? .feedback
 		
 		return FeedbackViewModel(image: image, email: email, message: message, tag: tag)

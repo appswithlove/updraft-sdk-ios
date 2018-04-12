@@ -38,7 +38,9 @@ class FeedbackManager: AppUtility {
 	
 	func start() {
 		triggerFeedbackInteractor.start()
-		showUserHowToGiveFeedbackInteractor.showIfNeeded(in: Constants.showFeedbackDelay)
+		if !showUserHowToGiveFeedbackInteractor.wasShown {
+			showUserHowToGiveFeedbackInteractor.show(in: Constants.showFeedbackDelay)
+		}
 	}
 }
 

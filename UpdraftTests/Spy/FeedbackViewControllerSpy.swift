@@ -16,6 +16,9 @@ class FeedbackViewControllerSpy: FeedbackViewController {
 	
 	override func update() {
 		updateWasCalled = true
+	}
+	
+	override func setup() {
 		setupWasCalled = true
 	}
 }

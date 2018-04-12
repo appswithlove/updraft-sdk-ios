@@ -15,14 +15,16 @@ class FeedbackPresenterSpy: FeedbackPresenter {
 	var sendWasTappedWasCalled: Bool = false
 	var cancelWasTappedWasCalled: Bool = false
 	var imageToPresent: UIImage?
+	var feedbackModel: FeedbackViewModel?
 	
-	override func present(with image: UIImage) {
+	override func present(with image: UIImage, context: FeedbackContextModel) {
 		presentWasCalled = true
 		imageToPresent = image
 	}
 	
-	override func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController) {
+	override func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel) {
 		sendWasTappedWasCalled = true
+		feedbackModel = model
 	}
 	
 	override func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {

@@ -28,7 +28,7 @@ class FeedbackPresenterTests: XCTestCase {
 		feedbackPresenter.feedbackViewController = nil
 		
 		//When
-		feedbackPresenter.present(with: UIImage())
+		feedbackPresenter.present(with: UIImage(), context: FeedbackContextModel(navigationStack: "", systemVersion: "", modelName: "", deviceUuid: ""))
 		
 		//Then
 		XCTAssertTrue(feedbackPresenter.feedbackViewController != nil)

@@ -9,7 +9,8 @@
 import Foundation
 
 protocol ShowUserHowToGiveFeedbackInteractorInput {
-	func showIfNeeded(in seconds: Double)
+	var wasShown: Bool {get}
+	func show(in seconds: Double)
 }
 
 class ShowUserHowToGiveFeedbackInteractor {
@@ -41,11 +42,9 @@ class ShowUserHowToGiveFeedbackInteractor {
 // MARK: - ShowUserHowToGiveFeedbackInteractorInput
 
 extension ShowUserHowToGiveFeedbackInteractor: ShowUserHowToGiveFeedbackInteractorInput {
-	func showIfNeeded(in seconds: Double) {
-		if !wasShown {
-			DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-				self.displayAlertInteractor.displayAlert(with: Constants.message, title: Constants.title)
-			}
+	@objc func show(in seconds: Double) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+			self.displayAlertInteractor.displayAlert(with: Constants.message, title: Constants.title)
 		}
 	}
 }
