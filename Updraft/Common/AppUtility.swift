@@ -42,7 +42,7 @@ extension AppUtility {
 		var pointedViewController = UIApplication.shared.keyWindow?.rootViewController
 		
 		while pointedViewController?.presentedViewController != nil {
-			controllers += getCurrentStack(for: pointedViewController)
+			controllers += getShownControllers(for: pointedViewController)
 			switch pointedViewController?.presentedViewController {
 			case let navagationController as UINavigationController:
 				pointedViewController = navagationController.viewControllers.last
@@ -54,13 +54,13 @@ extension AppUtility {
 		}
 		
 		if pointedViewController?.presentedViewController == nil {
-			controllers += getCurrentStack(for: pointedViewController)
+			controllers += getShownControllers(for: pointedViewController)
 		}
 
 		return controllers.joined(separator: ", ")
 	}
 	
-	private func getCurrentStack(for viewController: UIViewController?) -> [String] {
+	private func getShownControllers(for viewController: UIViewController?) -> [String] {
 		var controllers = [UIViewController?]()
 		
 		var shownController = viewController
