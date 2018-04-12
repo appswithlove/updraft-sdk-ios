@@ -11,21 +11,26 @@ import Foundation
 protocol FeedbackPresenterInput {
 	/// Present the feedback overlay with given image
 	///
-	/// - Parameter image: Image to be displayed
-	func present(with image: UIImage)
+	/// - Parameters:
+	///   - image: Image to be displayed
+	///   - context: The context of the feedback
+	func present(with image: UIImage, context: FeedbackContextModel)
 }
 
 enum FeedbackState {
-	case edit(UIImage?) // screenshot
+	case edit(UIImage, email: String?)
 	case sending(Float) // progress
 	case error(String) // error message
 	case success
 }
 
 /// Handle the presentation of the feedback view
-class FeedbackPresenter: AppUtility {
+class FeedbackPresenter: FeedbackPresenterInput, AppUtility {
 	
 	let sendFeedbackInteractor: SendFeedbackInteractorInput
+	var userEmailInteractor: UserEmailInteractorInput
+	
+	var context: FeedbackContextModel!
 
 	var feedbackViewController: FeedbackViewController? {
 		didSet {
@@ -33,22 +38,26 @@ class FeedbackPresenter: AppUtility {
 		}
 	}
 	
-	init(sendFeedbackInteractor: SendFeedbackInteractor = SendFeedbackInteractor()) {
+	init(
+		sendFeedbackInteractor: SendFeedbackInteractor = SendFeedbackInteractor(),
+		userEmailInteractor: UserEmailInteractor = UserEmailInteractor()
+		) {
 		self.sendFeedbackInteractor = sendFeedbackInteractor
+		self.userEmailInteractor = userEmailInteractor
 		sendFeedbackInteractor.output = self
 	}
-}
-
-// MARK: - FeedbackPresenterInput
-
-extension FeedbackPresenter: FeedbackPresenterInput {
-	@objc func present(with image: UIImage) {
+	
+	// MARK: FeedbackPresenterInput
+	
+	func present(with image: UIImage, context: FeedbackContextModel) {
 		
 		if let fbvc = feedbackViewController {
 			guard !fbvc.isBeingDismissed && !fbvc.isBeingPresented && fbvc.viewIfLoaded?.window == nil else {return}
 			feedbackViewController = nil
 		}
-		self.feedbackViewController = FeedbackViewController(state: .edit(image))
+		let email = userEmailInteractor.email
+		self.feedbackViewController = FeedbackViewController(state: .edit(image, email: email))
+		self.context = context
 		self.topMostController?.present(feedbackViewController!, animated: true, completion: nil)
 	}
 }
@@ -56,11 +65,14 @@ extension FeedbackPresenter: FeedbackPresenterInput {
 // MARK: - FeedbackViewControllerDelegate
 
 extension FeedbackPresenter: FeedbackViewControllerDelegate {
+	
 	@objc func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
 		sender.dismiss(animated: true, completion: nil)
 	}
 	
-	@objc func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController) {
+	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel) {
+		userEmailInteractor.email = model.email
+		let feedbackModel = FeedbackModel(context: context, viewModel: model)
 		//TODO: Send... with image , text etc.
 		//sendFeedbackInteractor.sendFeedback()
 		sender.dismiss(animated: true, completion: nil)

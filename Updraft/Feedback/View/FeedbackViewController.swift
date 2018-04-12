@@ -10,7 +10,7 @@ import UIKit
 
 protocol FeedbackViewControllerDelegate: class {
 	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController)
-	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController)
+	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel)
 }
 
 class FeedbackViewController: UIViewController, AppUtility {
@@ -19,6 +19,9 @@ class FeedbackViewController: UIViewController, AppUtility {
 	@IBOutlet weak var cancelButton: UIButton!
 	@IBOutlet weak var sendButton: UIButton!
 	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var emailTextField: UITextField!
+	@IBOutlet weak var messageTextView: UITextView!
+	@IBOutlet weak var feedbackTypeControl: UISegmentedControl!
 	
 	weak var delegate: FeedbackViewControllerDelegate?
 	
@@ -53,7 +56,8 @@ class FeedbackViewController: UIViewController, AppUtility {
 		delegate?.feedbackViewControllerCancelWasTapped(self)
 	}
 	@IBAction func send(_ sender: Any) {
-		delegate?.feedbackViewControllerSendWasTapped(self)
+		let feedbackModel = getFeedbackViewModel()
+		delegate?.feedbackViewControllerSendWasTapped(self, model: feedbackModel)
 	}
 	
 	// MARK: Keyboard
@@ -88,14 +92,30 @@ class FeedbackViewController: UIViewController, AppUtility {
 		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
 	}
 	
+	func getFeedbackViewModel() -> FeedbackViewModel {
+		let image = getEditedImage()
+		let email = emailTextField.text ?? ""
+		let message = messageTextView.text ?? ""
+		let selectedTagTitle = feedbackTypeControl.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
+		let tag = FeedbackViewModel.Tag(rawValue: selectedTagTitle) ?? .feedback
+		
+		return FeedbackViewModel(image: image, email: email, message: message, tag: tag)
+	}
+	
+	func getEditedImage() -> UIImage {
+		//TODO: get the edited image
+		return UIImage()
+	}
+	
 	@objc func endEditing() {
 		view.endEditing(true)
 	}
 	
 	func update() {
 		switch self.state {
-		case .edit(let image):
+		case .edit(let image, let email):
 			self.imageView?.image = image
+			self.emailTextField?.text = email
 		default:
 			break
 		}

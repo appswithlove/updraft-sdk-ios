@@ -14,7 +14,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="e1i-v3-Yie" id="wKu-DM-SUe"/>
+                <outlet property="emailTextField" destination="c8U-G5-6WF" id="LO5-AO-l41"/>
+                <outlet property="feedbackTypeControl" destination="v9k-lQ-DOZ" id="LT2-IJ-tlu"/>
                 <outlet property="imageView" destination="8GS-Sa-LbR" id="EvX-89-Sy5"/>
+                <outlet property="messageTextView" destination="hU0-X3-Epc" id="GL1-dg-lwK"/>
                 <outlet property="scrollView" destination="Mxv-uk-Xt0" id="57w-Rg-Yri"/>
                 <outlet property="sendButton" destination="TJj-vc-UPM" id="ZF0-IW-Cec"/>
                 <outlet property="view" destination="ghf-g2-kEd" id="1hh-7J-aIV"/>
