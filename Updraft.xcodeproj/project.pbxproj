@@ -65,6 +65,10 @@
 		F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */; };
 		F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */; };
 		F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */; };
+		F6EDACE92086360B00FC4F0B /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACE72086360B00FC4F0B /* DrawViewController.swift */; };
+		F6EDACEA2086360B00FC4F0B /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EDACE82086360B00FC4F0B /* DrawViewController.xib */; };
+		F6EDACEC2086364900FC4F0B /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACEB2086364900FC4F0B /* DrawView.swift */; };
+		F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */; };
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
 		F6F5A6812015D70D009AFF2B /* Updraft.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F5A6732015D70D009AFF2B /* Updraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -145,6 +149,10 @@
 		F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestSpy.swift; sourceTree = "<group>"; };
 		F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchToMainThread.swift; sourceTree = "<group>"; };
 		F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequestTests.swift; sourceTree = "<group>"; };
+		F6EDACE72086360B00FC4F0B /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		F6EDACE82086360B00FC4F0B /* DrawViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
+		F6EDACEB2086364900FC4F0B /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+stickToView.swift"; sourceTree = "<group>"; };
 		F6F5A6702015D70D009AFF2B /* Updraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Updraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A6732015D70D009AFF2B /* Updraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updraft.h; sourceTree = "<group>"; };
 		F6F5A6742015D70D009AFF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,6 +308,7 @@
 		F67B495D207B602A00272C09 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6EDACE6208635E400FC4F0B /* Draw */,
 				F67B495E207B604000272C09 /* FeedbackViewController.swift */,
 				F67B495F207B604000272C09 /* FeedbackViewController.xib */,
 			);
@@ -366,8 +375,19 @@
 			isa = PBXGroup;
 			children = (
 				F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */,
+				F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */,
 			);
 			path = Property;
+			sourceTree = "<group>";
+		};
+		F6EDACE6208635E400FC4F0B /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				F6EDACEB2086364900FC4F0B /* DrawView.swift */,
+				F6EDACE72086360B00FC4F0B /* DrawViewController.swift */,
+				F6EDACE82086360B00FC4F0B /* DrawViewController.xib */,
+			);
+			path = Draw;
 			sourceTree = "<group>";
 		};
 		F6F5A6662015D70D009AFF2B = {
@@ -548,6 +568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6EDACEA2086360B00FC4F0B /* DrawViewController.xib in Resources */,
 				F67B4961207B604000272C09 /* FeedbackViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,10 +613,12 @@
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
 				F67B4960207B604000272C09 /* FeedbackViewController.swift in Sources */,
+				F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F63B13702073AF9300A96C0A /* TriggerFeedbackInteractor.swift in Sources */,
 				F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */,
 				F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */,
+				F6EDACEC2086364900FC4F0B /* DrawView.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
 				F63B136C20739C5A00A96C0A /* TakeScreenshotInteractor.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
@@ -614,6 +637,7 @@
 				F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
 				F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */,
+				F6EDACE92086360B00FC4F0B /* DrawViewController.swift in Sources */,
 				F6A79D71207E116C00C2AFC2 /* UIDevice+ModelName.swift in Sources */,
 				F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */,
 			);

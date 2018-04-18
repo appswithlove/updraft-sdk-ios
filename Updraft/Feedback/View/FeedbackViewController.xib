@@ -14,9 +14,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="e1i-v3-Yie" id="wKu-DM-SUe"/>
+                <outlet property="drawContainerView" destination="7wJ-64-DR4" id="ZNg-zV-Dbe"/>
                 <outlet property="emailTextField" destination="c8U-G5-6WF" id="LO5-AO-l41"/>
                 <outlet property="feedbackTypeControl" destination="v9k-lQ-DOZ" id="LT2-IJ-tlu"/>
-                <outlet property="imageView" destination="8GS-Sa-LbR" id="EvX-89-Sy5"/>
                 <outlet property="messageTextView" destination="hU0-X3-Epc" id="GL1-dg-lwK"/>
                 <outlet property="scrollView" destination="Mxv-uk-Xt0" id="57w-Rg-Yri"/>
                 <outlet property="sendButton" destination="TJj-vc-UPM" id="ZF0-IW-Cec"/>
@@ -41,9 +41,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-tn-NOf">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="8GS-Sa-LbR">
+                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="7wJ-64-DR4">
                                     <rect key="frame" x="8" y="0.0" width="359" height="315"/>
-                                </imageView>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v9k-lQ-DOZ">
                                     <rect key="frame" x="8" y="323" width="359" height="29"/>
                                     <segments>
@@ -69,10 +70,9 @@
                                         </textField>
                                     </subviews>
                                 </stackView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-X3-Epc">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description here...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-X3-Epc">
                                     <rect key="frame" x="8" y="397" width="359" height="150"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -87,21 +87,21 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="vkU-m8-6e6" firstAttribute="top" secondItem="v9k-lQ-DOZ" secondAttribute="bottom" constant="8" id="BBX-38-RC9"/>
-                                <constraint firstItem="8GS-Sa-LbR" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="CTy-ve-vZ5"/>
+                                <constraint firstItem="7wJ-64-DR4" firstAttribute="top" secondItem="Rxv-tn-NOf" secondAttribute="top" id="Fw6-Y9-Zya"/>
+                                <constraint firstAttribute="trailing" secondItem="7wJ-64-DR4" secondAttribute="trailing" constant="8" id="GCD-Xc-iEc"/>
                                 <constraint firstItem="hU0-X3-Epc" firstAttribute="top" secondItem="vkU-m8-6e6" secondAttribute="bottom" constant="8" id="JHk-3u-Jzm"/>
                                 <constraint firstItem="v9k-lQ-DOZ" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="N1M-MW-Gps"/>
-                                <constraint firstItem="v9k-lQ-DOZ" firstAttribute="top" secondItem="8GS-Sa-LbR" secondAttribute="bottom" constant="8" id="NiV-Qu-jIK"/>
                                 <constraint firstAttribute="bottom" secondItem="TJj-vc-UPM" secondAttribute="bottom" constant="16" id="TiJ-6F-7N7"/>
                                 <constraint firstItem="TJj-vc-UPM" firstAttribute="centerX" secondItem="Rxv-tn-NOf" secondAttribute="centerX" id="WCt-bT-Mbh"/>
+                                <constraint firstItem="v9k-lQ-DOZ" firstAttribute="top" secondItem="7wJ-64-DR4" secondAttribute="bottom" constant="8" id="bsV-AR-PGe"/>
                                 <constraint firstAttribute="trailing" secondItem="v9k-lQ-DOZ" secondAttribute="trailing" constant="8" id="ijn-n0-JTg"/>
                                 <constraint firstItem="TJj-vc-UPM" firstAttribute="top" secondItem="hU0-X3-Epc" secondAttribute="bottom" constant="8" id="pSq-h6-DXu"/>
                                 <constraint firstAttribute="trailing" secondItem="vkU-m8-6e6" secondAttribute="trailing" constant="8" id="pbf-r1-pdX"/>
                                 <constraint firstItem="hU0-X3-Epc" firstAttribute="height" secondItem="Rxv-tn-NOf" secondAttribute="height" multiplier="0.25" id="qS5-7g-VaQ"/>
+                                <constraint firstItem="7wJ-64-DR4" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="r1f-rJ-tK8"/>
                                 <constraint firstAttribute="trailing" secondItem="hU0-X3-Epc" secondAttribute="trailing" constant="8" id="r2d-YO-3RD"/>
                                 <constraint firstItem="vkU-m8-6e6" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="t7N-VA-JT7"/>
                                 <constraint firstItem="hU0-X3-Epc" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="vAs-xN-dHL"/>
-                                <constraint firstAttribute="trailing" secondItem="8GS-Sa-LbR" secondAttribute="trailing" constant="8" id="ycy-7N-NCk"/>
-                                <constraint firstItem="8GS-Sa-LbR" firstAttribute="top" secondItem="Rxv-tn-NOf" secondAttribute="top" id="zEF-8p-uCu"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -114,12 +114,21 @@
                         <constraint firstItem="Rxv-tn-NOf" firstAttribute="leading" secondItem="Mxv-uk-Xt0" secondAttribute="leading" id="wWl-Da-V42"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0G-6o-lMo">
+                    <rect key="frame" x="320" y="28" width="39" height="30"/>
+                    <state key="normal" title="Reset"/>
+                    <connections>
+                        <action selector="reset:" destination="-1" eventType="touchUpInside" id="tar-ga-jiB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="AoJ-Lq-0Lv" firstAttribute="trailing" secondItem="r0G-6o-lMo" secondAttribute="trailing" constant="16" id="3U7-Ra-RSx"/>
                 <constraint firstItem="Mxv-uk-Xt0" firstAttribute="trailing" secondItem="AoJ-Lq-0Lv" secondAttribute="trailing" id="4J4-nG-duJ"/>
                 <constraint firstItem="Mxv-uk-Xt0" firstAttribute="bottom" secondItem="AoJ-Lq-0Lv" secondAttribute="bottom" id="Ukh-Vj-4OK"/>
                 <constraint firstItem="e1i-v3-Yie" firstAttribute="leading" secondItem="AoJ-Lq-0Lv" secondAttribute="leading" constant="16" id="cLa-o8-gTj"/>
+                <constraint firstItem="r0G-6o-lMo" firstAttribute="centerY" secondItem="e1i-v3-Yie" secondAttribute="centerY" id="dBr-9p-ykg"/>
                 <constraint firstItem="e1i-v3-Yie" firstAttribute="top" secondItem="AoJ-Lq-0Lv" secondAttribute="top" constant="8" id="exN-T6-fJZ"/>
                 <constraint firstItem="Mxv-uk-Xt0" firstAttribute="top" secondItem="e1i-v3-Yie" secondAttribute="bottom" constant="8" id="i2t-nh-fLT"/>
                 <constraint firstItem="Mxv-uk-Xt0" firstAttribute="leading" secondItem="AoJ-Lq-0Lv" secondAttribute="leading" id="qwx-bt-Tz5"/>

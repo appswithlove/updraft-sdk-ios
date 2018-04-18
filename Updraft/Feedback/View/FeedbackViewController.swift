@@ -15,7 +15,7 @@ protocol FeedbackViewControllerDelegate: class {
 
 class FeedbackViewController: UIViewController, AppUtility {
 	
-	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var drawContainerView: UIView!
 	@IBOutlet weak var cancelButton: UIButton!
 	@IBOutlet weak var sendButton: UIButton!
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -24,6 +24,8 @@ class FeedbackViewController: UIViewController, AppUtility {
 	@IBOutlet weak var feedbackTypeControl: UISegmentedControl!
 	
 	weak var delegate: FeedbackViewControllerDelegate?
+	
+	var drawViewController: DrawViewController?
 	
 	var state: FeedbackState {
 		didSet {
@@ -52,6 +54,9 @@ class FeedbackViewController: UIViewController, AppUtility {
 	
 	// MARK: Actions
 	
+	@IBAction func reset(_ sender: UIButton) {
+		drawViewController?.reset()
+	}
 	@IBAction func cancel(_ sender: Any) {
 		delegate?.feedbackViewControllerCancelWasTapped(self)
 	}
@@ -76,35 +81,35 @@ class FeedbackViewController: UIViewController, AppUtility {
 			scrollView.contentInset.bottom = keyboardHeight
 			scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
 		}
-		scrollView.scrollIndicatorInsets = scrollView.contentInset
+		scrollView.scrocd lIndicatorInsets = scrollView.contentInset
 	}
 	
 	// MARK: Implementation
 	
 	func setup() {
-		imageView?.contentMode = .scaleAspectFit
-		scrollView?.alwaysBounceVertical = true
+		scrollView?.isScrollEnabled = false
 		
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
 		
 		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
+		
+		drawViewController = DrawViewController()
+		addChildViewController(drawViewController!)
+		drawContainerView.addSubview(drawViewController!.view)
+		drawViewController!.view.stickToView(drawContainerView)
+		drawViewController!.didMove(toParentViewController: self)
 	}
 	
 	func getFeedbackViewModel() -> FeedbackViewModel {
-		let image = getEditedImage()
+		let image = drawViewController?.editedImage ?? UIImage()
 		let email = emailTextField?.text ?? ""
 		let message = messageTextView?.text ?? ""
 		let selectedTagTitle = feedbackTypeControl?.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
 		let tag = FeedbackViewModel.Tag(rawValue: selectedTagTitle) ?? .feedback
 		
 		return FeedbackViewModel(image: image, email: email, message: message, tag: tag)
-	}
-	
-	func getEditedImage() -> UIImage {
-		//TODO: get the edited image
-		return UIImage()
 	}
 	
 	@objc func endEditing() {
@@ -114,7 +119,7 @@ class FeedbackViewController: UIViewController, AppUtility {
 	func update() {
 		switch self.state {
 		case .edit(let image, let email):
-			self.imageView?.image = image
+			self.drawViewController?.backgroundImage = image
 			self.emailTextField?.text = email
 		default:
 			break
