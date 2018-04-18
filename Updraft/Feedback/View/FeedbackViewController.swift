@@ -81,7 +81,7 @@ class FeedbackViewController: UIViewController, AppUtility {
 			scrollView.contentInset.bottom = keyboardHeight
 			scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
 		}
-		scrollView.scrocd lIndicatorInsets = scrollView.contentInset
+		scrollView.scrollIndicatorInsets = scrollView.contentInset
 	}
 	
 	// MARK: Implementation
