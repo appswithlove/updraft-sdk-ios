@@ -46,7 +46,6 @@ $ pod install
 	```
 2. Start the SDK with your "SDK Key" and "App Key":
 
-	
 	```Swift
 		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
@@ -55,6 +54,7 @@ $ pod install
 			return true
 		}
 	```
+	
 ### Objective-C
 
 1. Import Updraft module in AppDelegate
@@ -72,3 +72,16 @@ $ pod install
 			return YES;
 		}
 	```
+	
+#### Parameters
+- <b>sdkKey</b>: Your sdk key obtained on getupdraft
+- <b>appKey</b>: You app key obtained on getupdraft
+- <b>isAppStoreRelease</b>: Set to true to disable sdk functionalities when released to the appstore, to prevent unwanted behavior like feedback overlay and auto update.
+
+## AutoUpdate
+
+add doc here
+
+## Feedback
+
+add doc here
