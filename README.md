@@ -37,6 +37,8 @@ $ pod install
 
 ## Setup
 
+### Swift
+
 1. Import Updraft module in AppDelegate
 
  	```Swift
@@ -51,5 +53,22 @@ $ pod install
 			Updraft.shared.start(sdkKey: "YOUR_SDK_KEY", appKey: "YOUR_APP_KEY", isAppStoreRelease: false)
 			
 			return true
+		}
+	```
+### Objective-C
+
+1. Import Updraft module in AppDelegate
+
+	```Objective-C
+	@import Updraft;
+	```
+2. Start the SDK with your "SDK Key" and "App Key":
+
+	```Objective-C
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+			[[Updraft shared] startWithSdkKey:@"YOUR_SDK_KEY" appKey:@"YOUR_APP_KEY" isAppStoreRelease: false];
+
+			return YES;
 		}
 	```
