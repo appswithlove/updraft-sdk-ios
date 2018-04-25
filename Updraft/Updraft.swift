@@ -8,7 +8,7 @@
 
 import Foundation
 
-final public class Updraft {
+final public class Updraft: NSObject {
 	
 	private(set) var settings: Settings
 	private(set) var apiSessionManager: ApiSessionManager
@@ -27,7 +27,7 @@ final public class Updraft {
 		self.feedbackManager = feedbackManager
 	}
 	
-	convenience init() {
+	convenience override init() {
 		let settings = Settings()
 		let apiManager = ApiSessionManager()
 		
@@ -46,7 +46,7 @@ final public class Updraft {
 	private static let sharedInstance = Updraft()
 	
 	/// Returns the shared Updraft instance.
-	open class var shared: Updraft {
+	@objc open class var shared: Updraft {
 		return sharedInstance
 	}
 	
@@ -58,7 +58,7 @@ final public class Updraft {
 	/// - Parameter appKey: Your application key
 	/// - Parameter sdkKey: Your updraft sdk key
 	/// - Parameter isAppStoreRelease: Boolean indicating if the app will be released on the AppStore
-	public func start(sdkKey: String, appKey: String, isAppStoreRelease: Bool) {
+	@objc public func start(sdkKey: String, appKey: String, isAppStoreRelease: Bool) {
 		settings.sdkKey = sdkKey
 		settings.appKey = appKey
 		settings.isAppStoreRelease = isAppStoreRelease
