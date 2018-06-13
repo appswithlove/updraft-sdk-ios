@@ -25,7 +25,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-pod 'Updraft', :git => 'https://git.appswithlove.net/awl_ios/updraft-sdk_ios.git'
+pod 'Updraft', :git => 'http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git'
 end
 ```
 
