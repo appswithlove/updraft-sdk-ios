@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Updraft"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "Updraft SDK for iOS"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://git.appswithlove.net/awl_ios/updraft-sdk_ios.git", :tag => s.version }
+  s.source       = { :git => "http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git", :tag => s.version }
   # s.source       = { :git => "http://EXAMPLE/Updraft.git", :tag => "#{s.version}" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
