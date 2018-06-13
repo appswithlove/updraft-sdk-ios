@@ -64,7 +64,7 @@ final public class Updraft: NSObject {
 		settings.isAppStoreRelease = isAppStoreRelease
 		if isAppStoreRelease == false {
 			autoUpdateManager.start()
-			feedbackManager.start()
+			//feedbackManager.start()
 		}
 	}
 }
