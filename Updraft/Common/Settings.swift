@@ -9,7 +9,7 @@
 import Foundation
 
 /// Settings of the sdk
-class Settings {
+final class Settings {
 	var sdkKey: String
 	var appKey: String
 	var isAppStoreRelease: Bool

@@ -26,14 +26,16 @@ class UpdraftTests: XCTestCase {
 		//Given
 		let apiSessionManager = ApiSessionManager()
 		let autoUpdateManager = AutoUpdateManager()
+		let feedbackManager = FeedbackManager()
 		let settings = Settings()
 		
 		//When
-		let updraft = Updraft(autoUpdateManager: autoUpdateManager, apiSessionManager: apiSessionManager, settings: settings)
+		let updraft = Updraft(autoUpdateManager: autoUpdateManager, apiSessionManager: apiSessionManager, feedbackManager: feedbackManager, settings: settings)
 		
 		//Then
 		XCTAssertTrue(apiSessionManager === updraft.apiSessionManager)
 		XCTAssertTrue(autoUpdateManager === updraft.autoUpdateManager)
+		XCTAssertTrue(feedbackManager === updraft.feedbackManager)
 		XCTAssertTrue(settings === updraft.settings)
 	}
 	
@@ -54,11 +56,39 @@ class UpdraftTests: XCTestCase {
 		XCTAssertEqual(isAppStoreRelease, updraft.settings.isAppStoreRelease)
 	}
 	
+	func testStartFeedbackManagerOnUpdraftStartWhenNotAppStoreRelease() {
+		
+		//Given
+		let spy = FeedbackManagerSpy()
+		let updraft = Updraft(autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
+		let isAppStoreRelease = false
+		
+		//When
+		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		
+		//Then
+		XCTAssertTrue(spy.startWasCalled)
+	}
+	
+	func testStartFeedbackManagerOnUpdraftStartWhenAppStoreRelease() {
+		
+		//Given
+		let spy = FeedbackManagerSpy()
+		let updraft = Updraft(autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
+		let isAppStoreRelease = true
+		
+		//When
+		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		
+		//Then
+		XCTAssertFalse(spy.startWasCalled)
+	}
+	
 	func testStartAutoUpdateManagerOnUpdraftStartWhenNotAppStoreRelease() {
 		
 		//Given
 		let spy = AutoUpdateManagerSpy()
-		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), settings: Settings())
+		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		let isAppStoreRelease = false
 		
 		//When
@@ -72,7 +102,7 @@ class UpdraftTests: XCTestCase {
 		
 		//Given
 		let spy = AutoUpdateManagerSpy()
-		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), settings: Settings())
+		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		let isAppStoreRelease = true
 		
 		//When

@@ -37,6 +37,8 @@ $ pod install
 
 ## Setup
 
+### Swift
+
 1. Import Updraft module in AppDelegate
 
  	```Swift
@@ -44,7 +46,6 @@ $ pod install
 	```
 2. Start the SDK with your "SDK Key" and "App Key":
 
-	
 	```Swift
 		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
@@ -53,3 +54,35 @@ $ pod install
 			return true
 		}
 	```
+	
+### Objective-C
+
+1. Import Updraft module in AppDelegate
+
+	```Objective-C
+	@import Updraft;
+	```
+2. Start the SDK with your "SDK Key" and "App Key":
+
+	```Objective-C
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+			[[Updraft shared] startWithSdkKey:@"YOUR_SDK_KEY" appKey:@"YOUR_APP_KEY" isAppStoreRelease: false];
+
+			return YES;
+		}
+	```
+	
+#### Parameters
+- <b>sdkKey</b>: Your sdk key obtained on getupdraft
+- <b>appKey</b>: You app key obtained on getupdraft
+- <b>isAppStoreRelease</b>: Set to true to disable sdk functionalities when released to the appstore, to prevent unwanted behavior like feedback overlay and auto update.
+
+## AutoUpdate
+
+AutoUpdate work by comparing the build number of the app installed on the user's device and the app uploaded on GetUpdraft.
+Thus, the build number must be incremented for each new build release to trigger the auto-update process.
+
+## Feedback
+
+Currently disabled

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController" customModule="Updraft" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="e1i-v3-Yie" id="wKu-DM-SUe"/>
+                <outlet property="drawContainerView" destination="7wJ-64-DR4" id="ZNg-zV-Dbe"/>
+                <outlet property="emailTextField" destination="c8U-G5-6WF" id="LO5-AO-l41"/>
+                <outlet property="feedbackTypeControl" destination="v9k-lQ-DOZ" id="LT2-IJ-tlu"/>
+                <outlet property="messageTextView" destination="hU0-X3-Epc" id="GL1-dg-lwK"/>
+                <outlet property="scrollView" destination="Mxv-uk-Xt0" id="57w-Rg-Yri"/>
+                <outlet property="sendButton" destination="TJj-vc-UPM" id="ZF0-IW-Cec"/>
+                <outlet property="view" destination="ghf-g2-kEd" id="1hh-7J-aIV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ghf-g2-kEd">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-v3-Yie">
+                    <rect key="frame" x="16" y="28" width="48" height="30"/>
+                    <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="VMo-Me-Ena"/>
+                    </connections>
+                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxv-uk-Xt0">
+                    <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-tn-NOf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="7wJ-64-DR4">
+                                    <rect key="frame" x="8" y="0.0" width="359" height="315"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v9k-lQ-DOZ">
+                                    <rect key="frame" x="8" y="323" width="359" height="29"/>
+                                    <segments>
+                                        <segment title="Feedback"/>
+                                        <segment title="Bug"/>
+                                        <segment title="UX"/>
+                                    </segments>
+                                </segmentedControl>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vkU-m8-6e6">
+                                    <rect key="frame" x="8" y="359" width="359" height="30"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-qG-dcD">
+                                            <rect key="frame" x="0.0" y="5" width="41" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-G5-6WF">
+                                            <rect key="frame" x="49" y="0.0" width="310" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description here...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-X3-Epc">
+                                    <rect key="frame" x="8" y="397" width="359" height="150"/>
+                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-vc-UPM">
+                                    <rect key="frame" x="169" y="555" width="36" height="30"/>
+                                    <state key="normal" title="Send"/>
+                                    <connections>
+                                        <action selector="send:" destination="-1" eventType="touchUpInside" id="HYb-hL-w5n"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="vkU-m8-6e6" firstAttribute="top" secondItem="v9k-lQ-DOZ" secondAttribute="bottom" constant="8" id="BBX-38-RC9"/>
+                                <constraint firstItem="7wJ-64-DR4" firstAttribute="top" secondItem="Rxv-tn-NOf" secondAttribute="top" id="Fw6-Y9-Zya"/>
+                                <constraint firstAttribute="trailing" secondItem="7wJ-64-DR4" secondAttribute="trailing" constant="8" id="GCD-Xc-iEc"/>
+                                <constraint firstItem="hU0-X3-Epc" firstAttribute="top" secondItem="vkU-m8-6e6" secondAttribute="bottom" constant="8" id="JHk-3u-Jzm"/>
+                                <constraint firstItem="v9k-lQ-DOZ" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="N1M-MW-Gps"/>
+                                <constraint firstAttribute="bottom" secondItem="TJj-vc-UPM" secondAttribute="bottom" constant="16" id="TiJ-6F-7N7"/>
+                                <constraint firstItem="TJj-vc-UPM" firstAttribute="centerX" secondItem="Rxv-tn-NOf" secondAttribute="centerX" id="WCt-bT-Mbh"/>
+                                <constraint firstItem="v9k-lQ-DOZ" firstAttribute="top" secondItem="7wJ-64-DR4" secondAttribute="bottom" constant="8" id="bsV-AR-PGe"/>
+                                <constraint firstAttribute="trailing" secondItem="v9k-lQ-DOZ" secondAttribute="trailing" constant="8" id="ijn-n0-JTg"/>
+                                <constraint firstItem="TJj-vc-UPM" firstAttribute="top" secondItem="hU0-X3-Epc" secondAttribute="bottom" constant="8" id="pSq-h6-DXu"/>
+                                <constraint firstAttribute="trailing" secondItem="vkU-m8-6e6" secondAttribute="trailing" constant="8" id="pbf-r1-pdX"/>
+                                <constraint firstItem="hU0-X3-Epc" firstAttribute="height" secondItem="Rxv-tn-NOf" secondAttribute="height" multiplier="0.25" id="qS5-7g-VaQ"/>
+                                <constraint firstItem="7wJ-64-DR4" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="r1f-rJ-tK8"/>
+                                <constraint firstAttribute="trailing" secondItem="hU0-X3-Epc" secondAttribute="trailing" constant="8" id="r2d-YO-3RD"/>
+                                <constraint firstItem="vkU-m8-6e6" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="t7N-VA-JT7"/>
+                                <constraint firstItem="hU0-X3-Epc" firstAttribute="leading" secondItem="Rxv-tn-NOf" secondAttribute="leading" constant="8" id="vAs-xN-dHL"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Rxv-tn-NOf" firstAttribute="top" secondItem="Mxv-uk-Xt0" secondAttribute="top" id="C24-j0-dOL"/>
+                        <constraint firstAttribute="trailing" secondItem="Rxv-tn-NOf" secondAttribute="trailing" id="Lk2-39-Jpr"/>
+                        <constraint firstItem="Rxv-tn-NOf" firstAttribute="centerY" secondItem="Mxv-uk-Xt0" secondAttribute="centerY" id="NFu-nd-dDT"/>
+                        <constraint firstItem="Rxv-tn-NOf" firstAttribute="centerX" secondItem="Mxv-uk-Xt0" secondAttribute="centerX" id="PQt-hw-YRR"/>
+                        <constraint firstAttribute="bottom" secondItem="Rxv-tn-NOf" secondAttribute="bottom" id="iUw-lT-uVh"/>
+                        <constraint firstItem="Rxv-tn-NOf" firstAttribute="leading" secondItem="Mxv-uk-Xt0" secondAttribute="leading" id="wWl-Da-V42"/>
+                    </constraints>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0G-6o-lMo">
+                    <rect key="frame" x="320" y="28" width="39" height="30"/>
+                    <state key="normal" title="Reset"/>
+                    <connections>
+                        <action selector="reset:" destination="-1" eventType="touchUpInside" id="tar-ga-jiB"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="AoJ-Lq-0Lv" firstAttribute="trailing" secondItem="r0G-6o-lMo" secondAttribute="trailing" constant="16" id="3U7-Ra-RSx"/>
+                <constraint firstItem="Mxv-uk-Xt0" firstAttribute="trailing" secondItem="AoJ-Lq-0Lv" secondAttribute="trailing" id="4J4-nG-duJ"/>
+                <constraint firstItem="Mxv-uk-Xt0" firstAttribute="bottom" secondItem="AoJ-Lq-0Lv" secondAttribute="bottom" id="Ukh-Vj-4OK"/>
+                <constraint firstItem="e1i-v3-Yie" firstAttribute="leading" secondItem="AoJ-Lq-0Lv" secondAttribute="leading" constant="16" id="cLa-o8-gTj"/>
+                <constraint firstItem="r0G-6o-lMo" firstAttribute="centerY" secondItem="e1i-v3-Yie" secondAttribute="centerY" id="dBr-9p-ykg"/>
+                <constraint firstItem="e1i-v3-Yie" firstAttribute="top" secondItem="AoJ-Lq-0Lv" secondAttribute="top" constant="8" id="exN-T6-fJZ"/>
+                <constraint firstItem="Mxv-uk-Xt0" firstAttribute="top" secondItem="e1i-v3-Yie" secondAttribute="bottom" constant="8" id="i2t-nh-fLT"/>
+                <constraint firstItem="Mxv-uk-Xt0" firstAttribute="leading" secondItem="AoJ-Lq-0Lv" secondAttribute="leading" id="qwx-bt-Tz5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="AoJ-Lq-0Lv"/>
+            <point key="canvasLocation" x="-386.5" y="60.5"/>
+        </view>
+    </objects>
+</document>

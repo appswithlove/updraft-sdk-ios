@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ApiSessionManager {
+final class ApiSessionManager {
 	let session: URLSession
 	
 	init(session: URLSession) {

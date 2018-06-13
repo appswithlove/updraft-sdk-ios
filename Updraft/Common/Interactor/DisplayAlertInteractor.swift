@@ -48,7 +48,7 @@ class DisplayAlertInteractor: AppUtility {
 	}
 }
 
-//MARK: - DisplayAlertInteractorInput
+// MARK: - DisplayAlertInteractorInput
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String) {
