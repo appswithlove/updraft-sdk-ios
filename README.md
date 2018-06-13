@@ -80,8 +80,9 @@ $ pod install
 
 ## AutoUpdate
 
-add doc here
+AutoUpdate work by comparing the build number of the app installed on the user's device and the app uploaded on GetUpdraft.
+Thus, the build number must be incremented for each new build release to trigger the auto-update process.
 
 ## Feedback
 
-add doc here
+Currently disabled
