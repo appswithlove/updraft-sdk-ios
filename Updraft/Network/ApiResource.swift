@@ -23,7 +23,7 @@ protocol ApiResource {
 extension ApiResource {
 	
 	var base: String {
-		return "https://u2.mqd.me"
+		return "https://getupdraft.com/api"
 	}
 	
 	var basePath: String {
