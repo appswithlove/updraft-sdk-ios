@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawViewController: UIViewController {
+class DrawViewControllerLEGACY: UIViewController {
 	
 	@IBOutlet weak var drawView: DrawView!
 	@IBOutlet weak var drawViewHeightConstraint: NSLayoutConstraint!

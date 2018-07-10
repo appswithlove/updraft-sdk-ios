@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackPaintViewController" customModule="testNavigation" customModuleProvider="target">
+            <connections>
+                <outlet property="brushContainer" destination="MzT-N5-6Fb" id="f2D-rd-rQl"/>
+                <outlet property="drawingContainer" destination="pj3-6U-VEO" id="55Z-Wq-70j"/>
+                <outlet property="nextButton" destination="8TN-QZ-bkC" id="Gof-qg-W8u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzT-N5-6Fb">
+                    <rect key="frame" x="16" y="611" width="247.5" height="40"/>
+                    <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="sJG-nN-q8h"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj3-6U-VEO">
+                    <rect key="frame" x="32" y="0.0" width="311" height="595"/>
+                    <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TN-QZ-bkC" customClass="NavigationButton" customModule="testNavigation" customModuleProvider="target">
+                    <rect key="frame" x="329" y="617.5" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="next"/>
+                    <connections>
+                        <action selector="showNext:" destination="-1" eventType="touchUpInside" id="Pgj-lk-d2z"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MzT-N5-6Fb" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-16" id="CB7-Un-EHl"/>
+                <constraint firstItem="MzT-N5-6Fb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ILR-cs-tgM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8TN-QZ-bkC" secondAttribute="trailing" constant="16" id="MC7-2n-TIp"/>
+                <constraint firstItem="MzT-N5-6Fb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.66" id="Nei-Ug-KzB"/>
+                <constraint firstItem="8TN-QZ-bkC" firstAttribute="centerY" secondItem="MzT-N5-6Fb" secondAttribute="centerY" id="RbX-PG-ZdV"/>
+                <constraint firstItem="pj3-6U-VEO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="UO2-vz-K4D"/>
+                <constraint firstItem="MzT-N5-6Fb" firstAttribute="top" secondItem="pj3-6U-VEO" secondAttribute="bottom" constant="16" id="fC0-i3-vQg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pj3-6U-VEO" secondAttribute="trailing" constant="32" id="nQ2-0a-QnE"/>
+                <constraint firstItem="pj3-6U-VEO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="twr-mR-a0O"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

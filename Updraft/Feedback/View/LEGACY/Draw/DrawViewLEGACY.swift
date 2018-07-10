@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawView: UIView {
+class DrawViewLEGACY: UIView {
 	
 	struct Constants {
 		struct Stroke {

@@ -64,7 +64,7 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 	// MARK: - FeedbackViewControllerDelegate
 	
 	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
-		sender.dismiss(animated: true, completion: nil)
+		//TODO: Cancel upload request
 	}
 	
 	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel) {
@@ -72,6 +72,11 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 		let feedbackModel = FeedbackModel(context: context, viewModel: model)
 		//TODO: Send... with image , text etc.
 		//sendFeedbackInteractor.sendFeedback()
+		sender.dismiss(animated: true, completion: nil)
+	}
+	
+	func feedbackViewControllerDismissWasTapped(_ sender: FeedbackViewController) {
+		//TODO: Cancel any ongoing upload
 		sender.dismiss(animated: true, completion: nil)
 	}
 }

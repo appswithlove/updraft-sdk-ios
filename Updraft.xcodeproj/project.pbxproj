@@ -37,8 +37,8 @@
 		F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */; };
 		F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */; };
 		F67B495C207B601400272C09 /* FeedbackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B495B207B601400272C09 /* FeedbackPresenter.swift */; };
-		F67B4960207B604000272C09 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B495E207B604000272C09 /* FeedbackViewController.swift */; };
-		F67B4961207B604000272C09 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67B495F207B604000272C09 /* FeedbackViewController.xib */; };
+		F67B4960207B604000272C09 /* FeedbackViewControllerLEGACY.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B495E207B604000272C09 /* FeedbackViewControllerLEGACY.swift */; };
+		F67B4961207B604000272C09 /* FeedbackViewControllerLEGACY.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67B495F207B604000272C09 /* FeedbackViewControllerLEGACY.xib */; };
 		F68088DA20188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */; };
 		F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E02018B0D8008DE368 /* URLOpener.swift */; };
 		F68088E62018B3A3008DE368 /* UIApplicationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */; };
@@ -59,15 +59,40 @@
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
 		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
 		F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */; };
+		F6D641AF20F49DDB003AA01D /* FeedbackSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6419920F49DDA003AA01D /* FeedbackSendViewController.swift */; };
+		F6D641B020F49DDB003AA01D /* FeedbackSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D6419A20F49DDA003AA01D /* FeedbackSendViewController.xib */; };
+		F6D641B120F49DDB003AA01D /* FeedbackDescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6419C20F49DDA003AA01D /* FeedbackDescriptionTextView.swift */; };
+		F6D641B220F49DDB003AA01D /* FeedbackEmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6419D20F49DDA003AA01D /* FeedbackEmailTextField.swift */; };
+		F6D641B320F49DDB003AA01D /* FeedbackDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6419E20F49DDA003AA01D /* FeedbackDescriptionViewController.swift */; };
+		F6D641B420F49DDB003AA01D /* FeedbackDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D6419F20F49DDA003AA01D /* FeedbackDescriptionViewController.xib */; };
+		F6D641B520F49DDB003AA01D /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D641A020F49DDA003AA01D /* FeedbackViewController.xib */; };
+		F6D641B620F49DDB003AA01D /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641A120F49DDB003AA01D /* FeedbackViewController.swift */; };
+		F6D641B720F49DDB003AA01D /* FeedbackPaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641A320F49DDB003AA01D /* FeedbackPaintViewController.swift */; };
+		F6D641B820F49DDB003AA01D /* FeedbackPaintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D641A420F49DDB003AA01D /* FeedbackPaintViewController.xib */; };
+		F6D641B920F49DDB003AA01D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641A620F49DDB003AA01D /* DrawView.swift */; };
+		F6D641BA20F49DDB003AA01D /* DimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641A720F49DDB003AA01D /* DimView.swift */; };
+		F6D641BB20F49DDB003AA01D /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641A820F49DDB003AA01D /* DrawViewController.swift */; };
+		F6D641BC20F49DDB003AA01D /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D641A920F49DDB003AA01D /* DrawViewController.xib */; };
+		F6D641BD20F49DDB003AA01D /* BrushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641AB20F49DDB003AA01D /* BrushButton.swift */; };
+		F6D641BE20F49DDB003AA01D /* BrushPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D641AC20F49DDB003AA01D /* BrushPickerViewController.xib */; };
+		F6D641BF20F49DDB003AA01D /* BrushPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641AD20F49DDB003AA01D /* BrushPickerViewController.swift */; };
+		F6D641C020F49DDB003AA01D /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641AE20F49DDB003AA01D /* Brush.swift */; };
+		F6D641C420F49E58003AA01D /* UIFont+Updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641C220F49E58003AA01D /* UIFont+Updraft.swift */; };
+		F6D641C620F49E58003AA01D /* UIColor+Updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641C320F49E58003AA01D /* UIColor+Updraft.swift */; };
+		F6D641C920F49E78003AA01D /* UIViewController+add.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641C820F49E78003AA01D /* UIViewController+add.swift */; };
+		F6D641CE20F49EDE003AA01D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641CC20F49EDE003AA01D /* NavigationButton.swift */; };
+		F6D641CF20F49EDE003AA01D /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D641CD20F49EDE003AA01D /* ActionButton.swift */; };
+		F6D641D420F49F30003AA01D /* CreteRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D641D220F49F30003AA01D /* CreteRound-Regular.ttf */; };
+		F6D641D520F49F30003AA01D /* CreteRound-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D641D320F49F30003AA01D /* CreteRound-Italic.ttf */; };
 		F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */; };
 		F6E9F55B2056AD0F00206FAE /* CheckUpdateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */; };
 		F6E9F55D2056AD5400206FAE /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */; };
 		F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */; };
 		F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */; };
 		F6E9F5632056CC6800206FAE /* UpdateUrlRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */; };
-		F6EDACE92086360B00FC4F0B /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACE72086360B00FC4F0B /* DrawViewController.swift */; };
-		F6EDACEA2086360B00FC4F0B /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EDACE82086360B00FC4F0B /* DrawViewController.xib */; };
-		F6EDACEC2086364900FC4F0B /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACEB2086364900FC4F0B /* DrawView.swift */; };
+		F6EDACE92086360B00FC4F0B /* DrawViewControllerLEGACY.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACE72086360B00FC4F0B /* DrawViewControllerLEGACY.swift */; };
+		F6EDACEA2086360B00FC4F0B /* DrawViewControllerLEGACY.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EDACE82086360B00FC4F0B /* DrawViewControllerLEGACY.xib */; };
+		F6EDACEC2086364900FC4F0B /* DrawViewLEGACY.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACEB2086364900FC4F0B /* DrawViewLEGACY.swift */; };
 		F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */; };
 		F6F5A67A2015D70D009AFF2B /* Updraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5A6702015D70D009AFF2B /* Updraft.framework */; };
 		F6F5A67F2015D70D009AFF2B /* UpdraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A67E2015D70D009AFF2B /* UpdraftTests.swift */; };
@@ -121,8 +146,8 @@
 		F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequest.swift; sourceTree = "<group>"; };
 		F67B09362051639400FE4B1C /* UpdateUrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequest.swift; sourceTree = "<group>"; };
 		F67B495B207B601400272C09 /* FeedbackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackPresenter.swift; sourceTree = "<group>"; };
-		F67B495E207B604000272C09 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		F67B495F207B604000272C09 /* FeedbackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		F67B495E207B604000272C09 /* FeedbackViewControllerLEGACY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerLEGACY.swift; sourceTree = "<group>"; };
+		F67B495F207B604000272C09 /* FeedbackViewControllerLEGACY.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackViewControllerLEGACY.xib; sourceTree = "<group>"; };
 		F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorOutputSpy.swift; sourceTree = "<group>"; };
 		F68088E02018B0D8008DE368 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationSpy.swift; sourceTree = "<group>"; };
@@ -143,15 +168,40 @@
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractor.swift; sourceTree = "<group>"; };
+		F6D6419920F49DDA003AA01D /* FeedbackSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackSendViewController.swift; sourceTree = "<group>"; };
+		F6D6419A20F49DDA003AA01D /* FeedbackSendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackSendViewController.xib; sourceTree = "<group>"; };
+		F6D6419C20F49DDA003AA01D /* FeedbackDescriptionTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackDescriptionTextView.swift; sourceTree = "<group>"; };
+		F6D6419D20F49DDA003AA01D /* FeedbackEmailTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEmailTextField.swift; sourceTree = "<group>"; };
+		F6D6419E20F49DDA003AA01D /* FeedbackDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackDescriptionViewController.swift; sourceTree = "<group>"; };
+		F6D6419F20F49DDA003AA01D /* FeedbackDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackDescriptionViewController.xib; sourceTree = "<group>"; };
+		F6D641A020F49DDA003AA01D /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		F6D641A120F49DDB003AA01D /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		F6D641A320F49DDB003AA01D /* FeedbackPaintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackPaintViewController.swift; sourceTree = "<group>"; };
+		F6D641A420F49DDB003AA01D /* FeedbackPaintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackPaintViewController.xib; sourceTree = "<group>"; };
+		F6D641A620F49DDB003AA01D /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		F6D641A720F49DDB003AA01D /* DimView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimView.swift; sourceTree = "<group>"; };
+		F6D641A820F49DDB003AA01D /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		F6D641A920F49DDB003AA01D /* DrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
+		F6D641AB20F49DDB003AA01D /* BrushButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushButton.swift; sourceTree = "<group>"; };
+		F6D641AC20F49DDB003AA01D /* BrushPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrushPickerViewController.xib; sourceTree = "<group>"; };
+		F6D641AD20F49DDB003AA01D /* BrushPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushPickerViewController.swift; sourceTree = "<group>"; };
+		F6D641AE20F49DDB003AA01D /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
+		F6D641C220F49E58003AA01D /* UIFont+Updraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Updraft.swift"; sourceTree = "<group>"; };
+		F6D641C320F49E58003AA01D /* UIColor+Updraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Updraft.swift"; sourceTree = "<group>"; };
+		F6D641C820F49E78003AA01D /* UIViewController+add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+add.swift"; sourceTree = "<group>"; };
+		F6D641CC20F49EDE003AA01D /* NavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		F6D641CD20F49EDE003AA01D /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		F6D641D220F49F30003AA01D /* CreteRound-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreteRound-Regular.ttf"; sourceTree = "<group>"; };
+		F6D641D320F49F30003AA01D /* CreteRound-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreteRound-Italic.ttf"; sourceTree = "<group>"; };
 		F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+updraft.swift"; sourceTree = "<group>"; };
 		F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequestTests.swift; sourceTree = "<group>"; };
 		F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
 		F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestSpy.swift; sourceTree = "<group>"; };
 		F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchToMainThread.swift; sourceTree = "<group>"; };
 		F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlRequestTests.swift; sourceTree = "<group>"; };
-		F6EDACE72086360B00FC4F0B /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
-		F6EDACE82086360B00FC4F0B /* DrawViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
-		F6EDACEB2086364900FC4F0B /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		F6EDACE72086360B00FC4F0B /* DrawViewControllerLEGACY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewControllerLEGACY.swift; sourceTree = "<group>"; };
+		F6EDACE82086360B00FC4F0B /* DrawViewControllerLEGACY.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawViewControllerLEGACY.xib; sourceTree = "<group>"; };
+		F6EDACEB2086364900FC4F0B /* DrawViewLEGACY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewLEGACY.swift; sourceTree = "<group>"; };
 		F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+stickToView.swift"; sourceTree = "<group>"; };
 		F6F5A6702015D70D009AFF2B /* Updraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Updraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F5A6732015D70D009AFF2B /* Updraft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Updraft.h; sourceTree = "<group>"; };
@@ -308,9 +358,12 @@
 		F67B495D207B602A00272C09 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F6EDACE6208635E400FC4F0B /* Draw */,
-				F67B495E207B604000272C09 /* FeedbackViewController.swift */,
-				F67B495F207B604000272C09 /* FeedbackViewController.xib */,
+				F6D641A120F49DDB003AA01D /* FeedbackViewController.swift */,
+				F6D641A020F49DDA003AA01D /* FeedbackViewController.xib */,
+				F6D6419B20F49DDA003AA01D /* Description */,
+				F6D641A220F49DDB003AA01D /* Paint */,
+				F6D6419820F49DDA003AA01D /* Send */,
+				F6D6419720F49DCA003AA01D /* LEGACY */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +376,7 @@
 				F644BD31207CDE56003126F1 /* Helpers */,
 				F6FD17C120164E76005B9177 /* Interactor */,
 				F6DA9851203B10F20002E4D1 /* Property */,
+				F6D641CA20F49EBC003AA01D /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -371,9 +425,101 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F6D6419720F49DCA003AA01D /* LEGACY */ = {
+			isa = PBXGroup;
+			children = (
+				F6EDACE6208635E400FC4F0B /* Draw */,
+				F67B495E207B604000272C09 /* FeedbackViewControllerLEGACY.swift */,
+				F67B495F207B604000272C09 /* FeedbackViewControllerLEGACY.xib */,
+			);
+			path = LEGACY;
+			sourceTree = "<group>";
+		};
+		F6D6419820F49DDA003AA01D /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				F6D6419920F49DDA003AA01D /* FeedbackSendViewController.swift */,
+				F6D6419A20F49DDA003AA01D /* FeedbackSendViewController.xib */,
+			);
+			path = Send;
+			sourceTree = "<group>";
+		};
+		F6D6419B20F49DDA003AA01D /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				F6D6419C20F49DDA003AA01D /* FeedbackDescriptionTextView.swift */,
+				F6D6419D20F49DDA003AA01D /* FeedbackEmailTextField.swift */,
+				F6D6419E20F49DDA003AA01D /* FeedbackDescriptionViewController.swift */,
+				F6D6419F20F49DDA003AA01D /* FeedbackDescriptionViewController.xib */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
+		F6D641A220F49DDB003AA01D /* Paint */ = {
+			isa = PBXGroup;
+			children = (
+				F6D641A320F49DDB003AA01D /* FeedbackPaintViewController.swift */,
+				F6D641A420F49DDB003AA01D /* FeedbackPaintViewController.xib */,
+				F6D641A520F49DDB003AA01D /* Draw */,
+			);
+			path = Paint;
+			sourceTree = "<group>";
+		};
+		F6D641A520F49DDB003AA01D /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				F6D641A620F49DDB003AA01D /* DrawView.swift */,
+				F6D641A720F49DDB003AA01D /* DimView.swift */,
+				F6D641A820F49DDB003AA01D /* DrawViewController.swift */,
+				F6D641A920F49DDB003AA01D /* DrawViewController.xib */,
+				F6D641AA20F49DDB003AA01D /* Brush */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		F6D641AA20F49DDB003AA01D /* Brush */ = {
+			isa = PBXGroup;
+			children = (
+				F6D641AB20F49DDB003AA01D /* BrushButton.swift */,
+				F6D641AC20F49DDB003AA01D /* BrushPickerViewController.xib */,
+				F6D641AD20F49DDB003AA01D /* BrushPickerViewController.swift */,
+				F6D641AE20F49DDB003AA01D /* Brush.swift */,
+			);
+			path = Brush;
+			sourceTree = "<group>";
+		};
+		F6D641CA20F49EBC003AA01D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6D641CD20F49EDE003AA01D /* ActionButton.swift */,
+				F6D641CC20F49EDE003AA01D /* NavigationButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6D641D020F49EFF003AA01D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F6D641D120F49F26003AA01D /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F6D641D120F49F26003AA01D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F6D641D320F49F30003AA01D /* CreteRound-Italic.ttf */,
+				F6D641D220F49F30003AA01D /* CreteRound-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		F6DA9851203B10F20002E4D1 /* Property */ = {
 			isa = PBXGroup;
 			children = (
+				F6D641C820F49E78003AA01D /* UIViewController+add.swift */,
+				F6D641C320F49E58003AA01D /* UIColor+Updraft.swift */,
+				F6D641C220F49E58003AA01D /* UIFont+Updraft.swift */,
 				F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */,
 				F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */,
 			);
@@ -383,9 +529,9 @@
 		F6EDACE6208635E400FC4F0B /* Draw */ = {
 			isa = PBXGroup;
 			children = (
-				F6EDACEB2086364900FC4F0B /* DrawView.swift */,
-				F6EDACE72086360B00FC4F0B /* DrawViewController.swift */,
-				F6EDACE82086360B00FC4F0B /* DrawViewController.xib */,
+				F6EDACEB2086364900FC4F0B /* DrawViewLEGACY.swift */,
+				F6EDACE72086360B00FC4F0B /* DrawViewControllerLEGACY.swift */,
+				F6EDACE82086360B00FC4F0B /* DrawViewControllerLEGACY.xib */,
 			);
 			path = Draw;
 			sourceTree = "<group>";
@@ -413,11 +559,12 @@
 			isa = PBXGroup;
 			children = (
 				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
-				F68088DB20189430008DE368 /* Common */,
 				F644BD2E207CDAD4003126F1 /* AutoUpdate */,
+				F68088DB20189430008DE368 /* Common */,
 				F644BD2D207CDACE003126F1 /* Feedback */,
 				F6B558B520206269006ADB14 /* Model */,
 				F6B558AD20204B06006ADB14 /* Network */,
+				F6D641D020F49EFF003AA01D /* Resource */,
 				F6F5A6732015D70D009AFF2B /* Updraft.h */,
 				F6F5A6742015D70D009AFF2B /* Info.plist */,
 			);
@@ -568,8 +715,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6EDACEA2086360B00FC4F0B /* DrawViewController.xib in Resources */,
-				F67B4961207B604000272C09 /* FeedbackViewController.xib in Resources */,
+				F6D641BC20F49DDB003AA01D /* DrawViewController.xib in Resources */,
+				F6D641B820F49DDB003AA01D /* FeedbackPaintViewController.xib in Resources */,
+				F6EDACEA2086360B00FC4F0B /* DrawViewControllerLEGACY.xib in Resources */,
+				F6D641D520F49F30003AA01D /* CreteRound-Italic.ttf in Resources */,
+				F6D641B020F49DDB003AA01D /* FeedbackSendViewController.xib in Resources */,
+				F6D641B420F49DDB003AA01D /* FeedbackDescriptionViewController.xib in Resources */,
+				F6D641D420F49F30003AA01D /* CreteRound-Regular.ttf in Resources */,
+				F67B4961207B604000272C09 /* FeedbackViewControllerLEGACY.xib in Resources */,
+				F6D641B520F49DDB003AA01D /* FeedbackViewController.xib in Resources */,
+				F6D641BE20F49DDB003AA01D /* BrushPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,41 +758,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D641AF20F49DDB003AA01D /* FeedbackSendViewController.swift in Sources */,
 				F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */,
+				F6D641B920F49DDB003AA01D /* DrawView.swift in Sources */,
 				F644BD19207C8E8B003126F1 /* SendFeedbackInteractor.swift in Sources */,
 				F6D36FA7203BF44000B0643E /* Print.swift in Sources */,
 				F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */,
 				F6A79D77207E4F8D00C2AFC2 /* FeedbackModel.swift in Sources */,
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
+				F6D641C020F49DDB003AA01D /* Brush.swift in Sources */,
+				F6D641C920F49E78003AA01D /* UIViewController+add.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
-				F67B4960207B604000272C09 /* FeedbackViewController.swift in Sources */,
+				F6D641B320F49DDB003AA01D /* FeedbackDescriptionViewController.swift in Sources */,
+				F67B4960207B604000272C09 /* FeedbackViewControllerLEGACY.swift in Sources */,
 				F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
+				F6D641B220F49DDB003AA01D /* FeedbackEmailTextField.swift in Sources */,
 				F63B13702073AF9300A96C0A /* TriggerFeedbackInteractor.swift in Sources */,
 				F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */,
+				F6D641C620F49E58003AA01D /* UIColor+Updraft.swift in Sources */,
 				F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */,
-				F6EDACEC2086364900FC4F0B /* DrawView.swift in Sources */,
+				F6EDACEC2086364900FC4F0B /* DrawViewLEGACY.swift in Sources */,
 				F6DA9853203B11220002E4D1 /* DateFormatter+updraft.swift in Sources */,
 				F63B136C20739C5A00A96C0A /* TakeScreenshotInteractor.swift in Sources */,
 				F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */,
 				F68088E12018B0D8008DE368 /* URLOpener.swift in Sources */,
+				F6D641C420F49E58003AA01D /* UIFont+Updraft.swift in Sources */,
+				F6D641BA20F49DDB003AA01D /* DimView.swift in Sources */,
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
+				F6D641BB20F49DDB003AA01D /* DrawViewController.swift in Sources */,
 				F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */,
 				F67B495C207B601400272C09 /* FeedbackPresenter.swift in Sources */,
 				F644BD1E207C9169003126F1 /* SendFeedbackResource.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 				F644BD20207C9233003126F1 /* SendFeedbackModel.swift in Sources */,
 				F63B136A2073946400A96C0A /* FeedbackManager.swift in Sources */,
+				F6D641B120F49DDB003AA01D /* FeedbackDescriptionTextView.swift in Sources */,
+				F6D641B620F49DDB003AA01D /* FeedbackViewController.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
+				F6D641CF20F49EDE003AA01D /* ActionButton.swift in Sources */,
+				F6D641CE20F49EDE003AA01D /* NavigationButton.swift in Sources */,
 				F644BD1C207C915B003126F1 /* SendFeedbackRequest.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,
 				F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */,
+				F6D641B720F49DDB003AA01D /* FeedbackPaintViewController.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
 				F68088F32018DA4C008DE368 /* NetworkRequest.swift in Sources */,
-				F6EDACE92086360B00FC4F0B /* DrawViewController.swift in Sources */,
+				F6D641BF20F49DDB003AA01D /* BrushPickerViewController.swift in Sources */,
+				F6EDACE92086360B00FC4F0B /* DrawViewControllerLEGACY.swift in Sources */,
+				F6D641BD20F49DDB003AA01D /* BrushButton.swift in Sources */,
 				F6A79D71207E116C00C2AFC2 /* UIDevice+ModelName.swift in Sources */,
 				F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */,
 			);

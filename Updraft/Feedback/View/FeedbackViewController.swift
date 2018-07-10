@@ -1,47 +1,48 @@
 //
 //  FeedbackViewController.swift
-//  Updraft
+//  testNavigation
 //
-//  Created by Raphael Neuenschwander on 09.04.18.
-//  Copyright © 2018 Apps with love AG. All rights reserved.
+//  Created by Raphael Neuenschwander on 26.06.18.
+//  Copyright © 2018 Raphael Neuenschwander. All rights reserved.
 //
 
 import UIKit
 
 protocol FeedbackViewControllerDelegate: class {
+	func feedbackViewControllerDismissWasTapped(_ sender: FeedbackViewController)
 	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController)
 	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel)
 }
 
-class FeedbackViewController: UIViewController, AppUtility {
-	
-	@IBOutlet weak var drawContainerView: UIView!
-	@IBOutlet weak var cancelButton: UIButton!
-	@IBOutlet weak var sendButton: UIButton!
-	@IBOutlet weak var scrollView: UIScrollView!
-	@IBOutlet weak var emailTextField: UITextField!
-	@IBOutlet weak var messageTextView: UITextView!
-	@IBOutlet weak var feedbackTypeControl: UISegmentedControl!
+class FeedbackViewController: UIViewController {
+
+	@IBOutlet weak var closeButton: UIButton!
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var logoImageView: UIImageView!
+	@IBOutlet weak var containerView: UIView!
+	@IBOutlet weak var topConstraint: NSLayoutConstraint!
 	
 	weak var delegate: FeedbackViewControllerDelegate?
 	
-	var drawViewController: DrawViewController?
+	lazy var feedbackPaintViewController: FeedbackPaintViewController =  {
+		let fpvc = FeedbackPaintViewController()
+		fpvc.delegate = self
+		return fpvc
+	}() //FIXME: Dependency injection
 	
-	var state: FeedbackState {
-		didSet {
-			update()
-		}
-	}
+	lazy var feedbackDescriptionViewController: FeedbackDescriptionViewController = {
+		let fdvc = FeedbackDescriptionViewController()
+		fdvc.delegate = self
+		return fdvc
+	}() //FIXME: Dependency injection
 	
-	// MARK: Lifecycle
+	lazy var navigationViewController: UINavigationController = {
+		let nvc = UINavigationController(rootViewController: feedbackPaintViewController)
+		nvc.isNavigationBarHidden = true
+		return nvc
+	}() //FIXME: Dependency injection
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		setup()
-		update()
-    }
-	
-	// MARK: Init
+	// MARK: - Init
 	
 	init(state: FeedbackState) {
 		self.state = state
@@ -52,77 +53,97 @@ class FeedbackViewController: UIViewController, AppUtility {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	// MARK: Actions
+
+	// MARK: - Lifecycle
 	
-	@IBAction func reset(_ sender: UIButton) {
-		drawViewController?.reset()
+	override func viewDidLoad() {
+        super.viewDidLoad()
+		setupUI()
+		setupConstraints()
+		setupNavigationController()
+    }
+	
+	// MARK: - Setup
+	
+	private func setupUI() {
+		view.backgroundColor = .spaceBlack
+		containerView.backgroundColor = .clear
+		logoImageView.image = UIImage(named: "logoUpdraftSmallWhite")
+		logoImageView.contentMode = .scaleAspectFit
+		titleLabel.text = "Give Feedback"
+		titleLabel.textColor = .white
+		titleLabel.font = UIFont.regularMedium
+		closeButton.setImage(UIImage(named: "buttonClose"), for: .normal)
+		closeButton.setTitle("", for: .normal)
 	}
-	@IBAction func cancel(_ sender: Any) {
+	
+	private func setupConstraints() {
+		// layoutGuide currently not supported in .xib files see https://forums.developer.apple.com/thread/87329
+		topConstraint.isActive = false
+		_ = titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 10).isActive = true
+	}
+	
+	// MARK: - Navigation
+	
+	private func setupNavigationController() {
+		add(navigationViewController, to: containerView)
+		navigationViewController.view.stickToView(containerView)
+	}
+	
+	private func showDescriptionViewController() {
+		navigationViewController.show(feedbackDescriptionViewController, sender: self)
+	}
+	
+	private func showSendViewController() {
+		
+		let feedbackSendViewController = FeedbackSendViewController()
+		feedbackSendViewController.delegate = self
+		navigationViewController.show(feedbackSendViewController, sender: self)
+	}
+	
+	private func pop() {
+		navigationViewController.popViewController(animated: true)
+	}
+	
+	//MARK: - Actions
+	
+	@IBAction func dismiss(_ sender: UIButton) {
+		delegate?.feedbackViewControllerDismissWasTapped(self)
+	}
+	//TODO: Custom fonts ?
+	//TODO: Pass models and retrieve on send
+	//TODO: Transfer Code to SDK
+	//TODO: Add unit tests, doc ?
+}
+
+// MARK: - FeedbackPainViewControllerDelegate
+
+extension FeedbackViewController: FeedbackPaintViewControllerDelegate {
+	func paintViewControllerNextWasTapped(sender _: FeedbackPaintViewController) {
+		//TODO: Retrieve merged image
+		showDescriptionViewController()
+	}
+}
+
+// MARK: - FeedbackDescriptionViewControllerDelegate
+
+extension FeedbackViewController: FeedbackDescriptionViewControllerDelegate {
+	func descriptionViewControllerSendWasTapped(_ sender: FeedbackDescriptionViewController) {
+		//TODO: Start Upload
+		showSendViewController()
+		delegate?.feedbackViewControllerSendWasTapped(self, model: <#T##FeedbackViewModel#>)
+	}
+	
+	func descriptionViewControllerPreviousWasTapped(_ sender: FeedbackDescriptionViewController) {
+		pop()
+	}
+}
+
+// MARK: - FeedbackSendViewControllerDelegate
+
+extension FeedbackViewController: FeedbackSendViewControllerDelegate {
+	func feedbackSendViewControllerCancelWasTapped(_ sender: FeedbackSendViewController) {
+		pop()
 		delegate?.feedbackViewControllerCancelWasTapped(self)
-	}
-	@IBAction func send(_ sender: Any) {
-		let feedbackModel = getFeedbackViewModel()
-		delegate?.feedbackViewControllerSendWasTapped(self, model: feedbackModel)
-	}
-	
-	// MARK: Keyboard
-	
-	@objc func adjustForKeyboard(notification: Notification) {
-		let userInfo = notification.userInfo!
-		
-		let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-		let keyboardHeight = keyboardViewEndFrame.height
-		
-		if notification.name == Notification.Name.UIKeyboardWillHide {
-			scrollView.contentInset = UIEdgeInsets.zero
-			scrollView.setContentOffset(CGPoint.zero, animated: true)
-		} else {
-			scrollView.contentInset.bottom = keyboardHeight
-			scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
-		}
-		scrollView.scrollIndicatorInsets = scrollView.contentInset
-	}
-	
-	// MARK: Implementation
-	
-	func setup() {
-		scrollView?.isScrollEnabled = false
-		
-		let notificationCenter = NotificationCenter.default
-		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-		
-		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
-		
-		drawViewController = DrawViewController()
-		addChildViewController(drawViewController!)
-		drawContainerView.addSubview(drawViewController!.view)
-		drawViewController!.view.stickToView(drawContainerView)
-		drawViewController!.didMove(toParentViewController: self)
-	}
-	
-	func getFeedbackViewModel() -> FeedbackViewModel {
-		let image = drawViewController?.editedImage ?? UIImage()
-		let email = emailTextField?.text ?? ""
-		let message = messageTextView?.text ?? ""
-		let selectedTagTitle = feedbackTypeControl?.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
-		let tag = FeedbackViewModel.Tag(rawValue: selectedTagTitle) ?? .feedback
-		
-		return FeedbackViewModel(image: image, email: email, message: message, tag: tag)
-	}
-	
-	@objc func endEditing() {
-		view.endEditing(true)
-	}
-	
-	func update() {
-		switch self.state {
-		case .edit(let image, let email):
-			self.drawViewController?.backgroundImage = image
-			self.emailTextField?.text = email
-		default:
-			break
-		}
 	}
 }
