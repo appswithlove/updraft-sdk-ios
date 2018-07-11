@@ -24,6 +24,22 @@ class FeedbackViewController: UIViewController {
 	
 	weak var delegate: FeedbackViewControllerDelegate?
 	
+	var state: FeedbackState {
+		didSet {
+//			update()
+		}
+	}
+//
+//	func getFeedbackViewModel() -> FeedbackViewModel {
+//		let image = drawViewController?.editedImage ?? UIImage()
+//		let email = emailTextField?.text ?? ""
+//		let message = messageTextView?.text ?? ""
+//		let selectedTagTitle = feedbackTypeControl?.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
+//		let tag = FeedbackViewModel.Tag(rawValue: selectedTagTitle) ?? .feedback
+//
+//		return FeedbackViewModel(image: image, email: email, message: message, tag: tag)
+//	}
+	
 	lazy var feedbackPaintViewController: FeedbackPaintViewController =  {
 		let fpvc = FeedbackPaintViewController()
 		fpvc.delegate = self
@@ -46,7 +62,7 @@ class FeedbackViewController: UIViewController {
 	
 	init(state: FeedbackState) {
 		self.state = state
-		super.init(nibName: nil, bundle: Bundle(for: FeedbackViewController.self))
+		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -68,12 +84,14 @@ class FeedbackViewController: UIViewController {
 	private func setupUI() {
 		view.backgroundColor = .spaceBlack
 		containerView.backgroundColor = .clear
-		logoImageView.image = UIImage(named: "logoUpdraftSmallWhite")
+		let updraftLogo = UIImage(named: "logoUpdraftSmallWhite", in: Bundle.updraft, compatibleWith: nil)
+		logoImageView.image = updraftLogo
 		logoImageView.contentMode = .scaleAspectFit
 		titleLabel.text = "Give Feedback"
 		titleLabel.textColor = .white
 		titleLabel.font = UIFont.regularMedium
-		closeButton.setImage(UIImage(named: "buttonClose"), for: .normal)
+		let closeImage = UIImage(named: "iconButtonClose", in: Bundle.updraft, compatibleWith: nil)
+		closeButton.setImage(closeImage, for: .normal)
 		closeButton.setTitle("", for: .normal)
 	}
 	
@@ -131,7 +149,7 @@ extension FeedbackViewController: FeedbackDescriptionViewControllerDelegate {
 	func descriptionViewControllerSendWasTapped(_ sender: FeedbackDescriptionViewController) {
 		//TODO: Start Upload
 		showSendViewController()
-		delegate?.feedbackViewControllerSendWasTapped(self, model: <#T##FeedbackViewModel#>)
+//		delegate?.feedbackViewControllerSendWasTapped(self, model: <#T##FeedbackViewModel#>)
 	}
 	
 	func descriptionViewControllerPreviousWasTapped(_ sender: FeedbackDescriptionViewController) {

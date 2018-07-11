@@ -18,7 +18,7 @@ class FeedbackPaintViewController: UIViewController {
 	@IBOutlet weak var brushContainer: UIView!
 	@IBOutlet weak var nextButton: NavigationButton!
 	
-	private lazy var brushPickerViewController: BrushPickerViewController =  {
+	private lazy var brushPickerViewController: BrushPickerViewController = {
 		let bpvc = BrushPickerViewController()
 		bpvc.delegate = self
 		return bpvc
@@ -27,6 +27,16 @@ class FeedbackPaintViewController: UIViewController {
 	private let drawViewController = DrawViewController() //FIXME: pass into init for testing purposes
 	
 	weak var delegate: FeedbackPaintViewControllerDelegate?
+	
+	// MARK: - Init
+	
+	init() {
+		super.init(nibName: nil, bundle: Bundle.updraft)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	// MARK: - Lifecycle
 	
@@ -46,14 +56,13 @@ class FeedbackPaintViewController: UIViewController {
 	private func setup() {
 		view.backgroundColor = .spaceBlack
 		nextButton.title = "next"
-		[drawingContainer, brushContainer].forEach() {
+		[drawingContainer, brushContainer].forEach {
 			$0?.backgroundColor = .clear
 		}
 		add(brushPickerViewController, to: brushContainer)
 		brushPickerViewController.view.stickToView(brushContainer)
 		add(drawViewController, to: drawingContainer)
 		drawViewController.view.stickToView(drawingContainer)
-		drawViewController.backgroundImage = UIImage.init(named: "screenshot")
 		
 		//Set default color
 		brushPickerViewController.macaroniAndCheeseButton.isSelected = true

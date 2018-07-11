@@ -18,7 +18,7 @@ class DrawViewController: UIViewController {
 	// MARK: Init
 	
 	init() {
-		super.init(nibName: nil, bundle: Bundle(for: DrawViewController.self))
+		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

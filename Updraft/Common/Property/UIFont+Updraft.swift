@@ -11,26 +11,31 @@ import UIKit
 
 extension UIFont {
 	
-	private class var creteRegular: String  { return "CreteRound-Regular" }
-	private class var creteItalic: String  { return "CreteRound-Italic" }
+	class var creteRegular: String { return "CreteRound-Regular" }
+	class var creteItalic: String { return "CreteRound-Italic" }
 	
 	class var regularSmall: UIFont {
-		return UIFont(name: creteRegular, size: 14.0)!
+		let size: CGFloat = 14.0
+		return UIFont(name: creteRegular, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 	
 	class var regular: UIFont {
-		return UIFont(name: creteRegular, size: 16.0)!
+		let size: CGFloat = 16.0
+		return UIFont(name: creteRegular, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 	
 	class var regularMedium: UIFont {
-		return UIFont(name: creteRegular, size: 18.0)!
+		let size: CGFloat = 18.0
+		return UIFont(name: creteRegular, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 	
 	class var italic: UIFont {
-		return UIFont(name: creteItalic, size: 16.0)!
+		let size: CGFloat = 16.0
+		return UIFont(name: creteItalic, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 	
 	class var italicBig: UIFont {
-		return UIFont(name: creteItalic, size: 28.0)!
+		let size: CGFloat = 28.0
+		return UIFont(name: creteItalic, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 }

@@ -71,5 +71,4 @@ class TriggerFeedbackInteractorTests: XCTestCase {
 		//Then
 		XCTAssertNotNil(spy.screenshotObserver)
 	}
-	
 }

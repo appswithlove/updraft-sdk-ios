@@ -45,6 +45,9 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 		self.sendFeedbackInteractor = sendFeedbackInteractor
 		self.userEmailInteractor = userEmailInteractor
 		sendFeedbackInteractor.output = self
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+			self.present(with: UIImage(), context: FeedbackContextModel(navigationStack: "", systemVersion: "", modelName: "", deviceUuid: nil))
+		}
 	}
 	
 	// MARK: FeedbackPresenterInput

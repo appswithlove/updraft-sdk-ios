@@ -44,6 +44,16 @@ class FeedbackDescriptionViewController: UIViewController {
 		}
 	}
 	
+	// MARK: - Init
+	
+	init() {
+		super.init(nibName: nil, bundle: Bundle.updraft)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	// MARK: - Lifecycle
 	
 	override func viewDidLoad() {
@@ -65,6 +75,8 @@ class FeedbackDescriptionViewController: UIViewController {
 		feedbackTypeLabel.text = "Type of Feedback"
 		feedbackTypeLabel.font = .italic
 		previousButton.title = "previous"
+		let arrow = UIImage(named: "iconArrowDown", in: Bundle.updraft, compatibleWith: nil)
+		arrowButton.setImage(arrow, for: .normal)
 		
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)

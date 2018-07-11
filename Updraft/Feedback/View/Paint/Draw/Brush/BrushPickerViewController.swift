@@ -26,6 +26,18 @@ class BrushPickerViewController: UIViewController {
 	
 	weak var delegate: BrushPickerViewControllerDelegate?
 	
+	// MARK: - Init
+	
+	init() {
+		super.init(nibName: nil, bundle: Bundle.updraft)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	// MARK: - Lifecycle
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setup()
@@ -43,7 +55,7 @@ class BrushPickerViewController: UIViewController {
 	}
 	
 	private func select(_ button: UIButton) {
-		buttons.forEach() { $0.isSelected = false }
+		buttons.forEach { $0.isSelected = false }
 		button.isSelected = true
 	}
 	
@@ -54,6 +66,7 @@ class BrushPickerViewController: UIViewController {
 		whiteButton.backgroundColor = .white
 		macaroniAndCheeseButton.backgroundColor = .macaroniAndCheese
 		darkPeachButton.backgroundColor = .darkPeach
-		eraserButton.setImage(#imageLiteral(resourceName: "eraserIcn"), for: .normal)
+		let eraser = UIImage(named: "iconEraser", in: Bundle(for: BrushPickerViewController.self), compatibleWith: nil)
+		eraserButton.setImage(eraser, for: .normal)
 	}
 }

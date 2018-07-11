@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackDescriptionViewController" customModule="testNavigation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackDescriptionViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
                 <outlet property="arrowButton" destination="jmA-ej-aC4" id="7qF-KM-Ti4"/>
                 <outlet property="descriptionView" destination="BP9-Qb-BS1" id="dgM-uG-fpq"/>
@@ -32,7 +32,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-Jp-oVS" customClass="FeedbackEmailTextField" customModule="testNavigation" customModuleProvider="target">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-Jp-oVS" customClass="FeedbackEmailTextField" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="16" y="435" width="343" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -42,14 +42,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7z-1R-HMv" customClass="NavigationButton" customModule="testNavigation" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7z-1R-HMv" customClass="NavigationButton" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="16" y="529" width="59" height="30"/>
                     <state key="normal" title="previous"/>
                     <connections>
                         <action selector="showPrevious:" destination="-1" eventType="touchUpInside" id="nql-zb-kk0"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-HS-ZvP" customClass="ActionButton" customModule="testNavigation" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-HS-ZvP" customClass="ActionButton" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="187" y="515" width="172" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="172" id="I2r-5V-zGp"/>
@@ -64,8 +64,7 @@
                     <rect key="frame" x="16" y="74" width="343" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-ej-aC4">
-                            <rect key="frame" x="305" y="9.6666666666666714" width="30" height="30"/>
-                            <state key="normal" image="iconArrowDownOrange"/>
+                            <rect key="frame" x="305" y="7.6666666666666714" width="30" height="34"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZh-RS-C9b">
                             <rect key="frame" x="8" y="14.666666666666671" width="42" height="21"/>
@@ -83,7 +82,7 @@
                         <constraint firstItem="aZh-RS-C9b" firstAttribute="leading" secondItem="gEX-wn-hc9" secondAttribute="leading" constant="8" id="tca-zh-Tkc"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP9-Qb-BS1" customClass="FeedbackDescriptionTextView" customModule="testNavigation" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP9-Qb-BS1" customClass="FeedbackDescriptionTextView" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="16" y="305" width="343" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -132,7 +131,4 @@
             <point key="canvasLocation" x="24.5" y="51"/>
         </view>
     </objects>
-    <resources>
-        <image name="iconArrowDownOrange" width="30" height="30"/>
-    </resources>
 </document>

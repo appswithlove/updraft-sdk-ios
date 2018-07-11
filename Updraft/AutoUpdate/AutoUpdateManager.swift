@@ -101,7 +101,7 @@ extension AutoUpdateManager: CheckUpdateInteractorOutput {
 
 extension AutoUpdateManager: DownloadUpdateInteractorOutput {
 	func downloadUpdateInteractor(_ sender: DownloadUpdateInteractor, url: URL, didOpen: Bool) {
-		print("UPDRAFT: Did open url to download new version at: \(url).")
+		print("Did open url to download new version at: \(url).")
 	}
 }
 

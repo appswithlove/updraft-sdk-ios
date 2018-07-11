@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrushPickerViewController" customModule="testNavigation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrushPickerViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
                 <outlet property="blackButton" destination="LMV-C8-xa9" id="Zut-c9-zDy"/>
                 <outlet property="darkPeachButton" destination="dxy-0b-g98" id="j2i-aA-vkL"/>
@@ -25,7 +29,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1Ur-GT-RO0">
                     <rect key="frame" x="0.0" y="0.0" width="234" height="94"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMV-C8-xa9" customClass="BrushButton" customModule="testNavigation" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMV-C8-xa9" customClass="BrushButton" customModule="Updraft" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="30" width="34" height="34"/>
                             <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -40,7 +44,7 @@
                                 <action selector="selectColor:" destination="-1" eventType="touchUpInside" id="R2q-3h-6RZ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg5-7z-Phh" customClass="BrushButton" customModule="testNavigation" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg5-7z-Phh" customClass="BrushButton" customModule="Updraft" customModuleProvider="target">
                             <rect key="frame" x="50" y="30" width="34" height="34.5"/>
                             <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -54,7 +58,7 @@
                                 <action selector="selectColor:" destination="-1" eventType="touchUpInside" id="EPb-nO-uvW"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDR-tJ-wnZ" customClass="BrushButton" customModule="testNavigation" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDR-tJ-wnZ" customClass="BrushButton" customModule="Updraft" customModuleProvider="target">
                             <rect key="frame" x="100" y="30" width="34" height="34"/>
                             <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -65,7 +69,7 @@
                                 <action selector="selectColor:" destination="-1" eventType="touchUpInside" id="8ZF-1Q-ouz"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-0b-g98" customClass="BrushButton" customModule="testNavigation" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-0b-g98" customClass="BrushButton" customModule="Updraft" customModuleProvider="target">
                             <rect key="frame" x="150" y="30" width="34" height="34.5"/>
                             <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -76,12 +80,11 @@
                                 <action selector="selectColor:" destination="-1" eventType="touchUpInside" id="wht-WZ-0wG"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr4-Yd-gr9" customClass="BrushButton" customModule="testNavigation" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr4-Yd-gr9" customClass="BrushButton" customModule="Updraft" customModuleProvider="target">
                             <rect key="frame" x="200" y="30" width="34" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Rr4-Yd-gr9" secondAttribute="height" multiplier="1:1" id="vLY-cB-of0"/>
                             </constraints>
-                            <state key="normal" image="buttonClose"/>
                             <connections>
                                 <action selector="selectEraser:" destination="-1" eventType="touchUpInside" id="DMX-vs-ahA"/>
                             </connections>
@@ -101,7 +104,4 @@
             <point key="canvasLocation" x="-595" y="14"/>
         </view>
     </objects>
-    <resources>
-        <image name="buttonClose" width="30" height="30"/>
-    </resources>
 </document>

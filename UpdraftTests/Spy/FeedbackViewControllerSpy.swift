@@ -9,16 +9,16 @@
 import Foundation
 @testable import Updraft
 
-class FeedbackViewControllerSpy: FeedbackViewController {
-	
-	var updateWasCalled = false
-	var setupWasCalled = false
-	
-	override func update() {
-		updateWasCalled = true
-	}
-	
-	override func setup() {
-		setupWasCalled = true
-	}
-}
+//class FeedbackViewControllerSpy: FeedbackViewController {
+//	
+//	var updateWasCalled = false
+//	var setupWasCalled = false
+//	
+//	override func update() {
+//		updateWasCalled = true
+//	}
+//	
+//	override func setup() {
+//		setupWasCalled = true
+//	}
+//}

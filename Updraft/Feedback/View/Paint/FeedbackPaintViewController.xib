@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackPaintViewController" customModule="testNavigation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackPaintViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
                 <outlet property="brushContainer" destination="MzT-N5-6Fb" id="f2D-rd-rQl"/>
                 <outlet property="drawingContainer" destination="pj3-6U-VEO" id="55Z-Wq-70j"/>
@@ -35,7 +35,7 @@
                     <rect key="frame" x="32" y="0.0" width="311" height="595"/>
                     <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TN-QZ-bkC" customClass="NavigationButton" customModule="testNavigation" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TN-QZ-bkC" customClass="NavigationButton" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="329" y="617.5" width="30" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="next"/>

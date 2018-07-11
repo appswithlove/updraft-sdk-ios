@@ -11,6 +11,6 @@ import Foundation
 //Print only in DEBUG
 func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
 	#if DEBUG
-		Swift.print(items[0], separator: separator, terminator: terminator)
+		Swift.print("-UPDRAFT- \(items[0])", separator: separator, terminator: terminator)
 	#endif
 }

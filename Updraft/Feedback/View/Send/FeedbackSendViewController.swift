@@ -27,14 +27,24 @@ class FeedbackSendViewController: UIViewController {
 		}
 	}
 	
-	@IBAction func cancel(_ sender: Any) {
-		delegate?.feedbackSendViewControllerCancelWasTapped(self)
+	// MARK: - Init
+	
+	init() {
+		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	// MARK: - Lifecycle
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setup()
     }
+	
+	// MARK: - Setup
 	
 	private func setup() {
 		view.backgroundColor = .spaceBlack
@@ -52,6 +62,14 @@ class FeedbackSendViewController: UIViewController {
 		cancelButton.title = "Cancel"
 		updateProgress(0.0, animated: false)
 	}
+	
+	// MARK: - Actions
+	
+	@IBAction func cancel(_ sender: Any) {
+		delegate?.feedbackSendViewControllerCancelWasTapped(self)
+	}
+	
+	// MARK: - Progress
 	
 	private func updateProgress(_ progress: Float, animated: Bool) {
 		progressView.setProgress(progress, animated: animated)

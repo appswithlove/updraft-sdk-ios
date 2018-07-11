@@ -3,3 +3,4 @@ disabled_rules:
 - trailing_whitespace
 - force_cast
 - nesting
+- identifier_name

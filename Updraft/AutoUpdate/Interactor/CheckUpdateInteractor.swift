@@ -54,7 +54,7 @@ class CheckUpdateInteractor: AppUtility {
 					output.checkUpdateInteractor(strongSelf, newUpdateAvailableAt: url)
 				}
 			case .error(let error):
-				print("UPDRAFT: Getting Update url error: :\(error.localizedDescription)")
+				print("Getting Update url error: :\(error.localizedDescription)")
 			}
 		}
 	}
@@ -77,7 +77,7 @@ extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 			case .success(let model) where model.isNewVersionAvailable:
 				strongSelf.getUpdateUrl()
 			case .error(let error):
-				print("UPDRAFT: Checking Update error: \(error.localizedDescription)")
+				print("Checking Update error: \(error.localizedDescription)")
 			case .success:
 				break
 			}

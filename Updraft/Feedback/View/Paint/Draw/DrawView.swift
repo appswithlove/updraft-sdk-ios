@@ -200,7 +200,6 @@ class DrawView: UIView {
 		path.addPath(subPath)
 		setNeedsDisplay()
 	}
-
 	
 	// MARK: - Convenience
 	

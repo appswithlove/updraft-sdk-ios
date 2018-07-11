@@ -31,6 +31,9 @@ final public class Updraft: NSObject {
 		let settings = Settings()
 		let apiManager = ApiSessionManager()
 		
+		let loadFont = LoadFontsInteractor() //FIXME
+		loadFont.loadAll()
+		
 		let checkUpdateRequest = CheckUpdateRequest(session: apiManager.session)
 		let getUpdateUrlRequest = UpdateUrlRequest(session: apiManager.session)
 		let sendFeedbackRequest = SendFeedbackRequest(session: apiManager.session)
@@ -64,7 +67,7 @@ final public class Updraft: NSObject {
 		settings.isAppStoreRelease = isAppStoreRelease
 		if isAppStoreRelease == false {
 			autoUpdateManager.start()
-			//feedbackManager.start()
+			feedbackManager.start()
 		}
 	}
 }
