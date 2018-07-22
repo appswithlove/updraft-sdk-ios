@@ -13,7 +13,7 @@ import UIKit
 	private let shadowColor = UIColor.shadowBlue.cgColor
 	
 	var borderColor: UIColor? {
-		didSet{
+		didSet {
 			applyBorderColor(borderColor)
 		}
 	}
@@ -48,7 +48,7 @@ import UIKit
 	}
 	
 	private func applyShadow() {
-		let shadowSize : CGFloat = 7.0
+		let shadowSize: CGFloat = 7.0
 		let rect = CGRect(x: -shadowSize / 2,
 						  y: -shadowSize / 2,
 						  width: bounds.size.width + shadowSize,

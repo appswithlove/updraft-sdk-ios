@@ -4,3 +4,4 @@ disabled_rules:
 - force_cast
 - nesting
 - identifier_name
+- weak_delegate

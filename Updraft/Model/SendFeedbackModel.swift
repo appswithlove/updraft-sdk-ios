@@ -8,6 +8,29 @@
 
 import Foundation
 
+/// Success response model
 struct SendFeedbackModel: Decodable {
-	//TODO: Insert API Success Response model here
+	let imagePath: String
+	let timestamp: String
+	let tag: String
+	let description: String
+	let email: String
+	let buildVersion: String
+	let systemVersion: String
+	let deviceName: String
+	let deviceUudid: String
+	let navigationStack: String
+	
+	enum CodingKeys: String, CodingKey {
+		case imagePath = "image"
+		case timestamp = "timestamp"
+		case tag = "tag"
+		case description = "description"
+		case email = "email"
+		case buildVersion = "build_version"
+		case systemVersion = "system_version"
+		case deviceName = "device_name"
+		case deviceUudid = "device_uudid"
+		case navigationStack = "navigation_stack"
+	}
 }

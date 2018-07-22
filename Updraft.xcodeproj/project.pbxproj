@@ -33,6 +33,7 @@
 		F644BD2A207CD35E003126F1 /* FeedbackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */; };
 		F644BD2C207CD5D3003126F1 /* FeedbackViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
+		F65A33F820F61BDD0061E899 /* LoadFontsInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A33F720F61BDD0061E899 /* LoadFontsInteractorSpy.swift */; };
 		F6605E2C20F4C14F00F2B8A5 /* LoadFontsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6605E2B20F4C14F00F2B8A5 /* LoadFontsInteractor.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
 		F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */; };
@@ -140,6 +141,7 @@
 		F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerTests.swift; sourceTree = "<group>"; };
 		F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerSpy.swift; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
+		F65A33F720F61BDD0061E899 /* LoadFontsInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFontsInteractorSpy.swift; sourceTree = "<group>"; };
 		F6605E2B20F4C14F00F2B8A5 /* LoadFontsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFontsInteractor.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		F67B09342051634700FE4B1C /* CheckUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateRequest.swift; sourceTree = "<group>"; };
@@ -364,7 +366,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F68088DB20189430008DE368 /* Common */ = {
+		F68088DB20189430008DE368 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				F6D03F15203AC58B003FE65B /* Settings.swift */,
@@ -374,7 +376,7 @@
 				F6DA9851203B10F20002E4D1 /* Property */,
 				F6D641CA20F49EBC003AA01D /* View */,
 			);
-			path = Common;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		F68088EF2018C9A4008DE368 /* Manager */ = {
@@ -537,7 +539,7 @@
 			children = (
 				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
 				F644BD2E207CDAD4003126F1 /* AutoUpdate */,
-				F68088DB20189430008DE368 /* Common */,
+				F68088DB20189430008DE368 /* Shared */,
 				F644BD2D207CDACE003126F1 /* Feedback */,
 				F6B558B520206269006ADB14 /* Model */,
 				F6B558AD20204B06006ADB14 /* Network */,
@@ -577,6 +579,7 @@
 				F644BD21207CC6EC003126F1 /* FeedbackPresenterSpy.swift */,
 				F6C5B7962074CA740034B38D /* FeedbackManagerSpy.swift */,
 				F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */,
+				F65A33F720F61BDD0061E899 /* LoadFontsInteractorSpy.swift */,
 				F601058C2035C601004D8431 /* NetworkSessionSpy.swift */,
 				F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */,
 				F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */,
@@ -823,6 +826,7 @@
 				F6C5B79B2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift in Sources */,
 				F644BD27207CD084003126F1 /* FeedbackPresenterTests.swift in Sources */,
 				F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */,
+				F65A33F820F61BDD0061E899 /* LoadFontsInteractorSpy.swift in Sources */,
 				F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -887,7 +891,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -941,7 +945,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

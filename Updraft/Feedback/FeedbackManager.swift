@@ -48,7 +48,7 @@ class FeedbackManager: AppUtility {
 
 extension FeedbackManager: TakeScreenshotInteractorOutput {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage) {
-		let feedbackContext = FeedbackContextModel(navigationStack: controllersStack, systemVersion: systemVersion, modelName: modelName, deviceUuid: deviceUuid)
+		let feedbackContext = FeedbackContextModel(buildVersion: buildVersion, navigationStack: controllersStack, systemVersion: systemVersion, modelName: modelName, deviceUuid: deviceUuid)
 		feedbackPresenter.present(with: image, context: feedbackContext)
 	}
 }

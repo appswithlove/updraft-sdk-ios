@@ -9,22 +9,23 @@
 import Foundation
 
 enum SendFeedbackResource {
-	case send(params: [String: Any])
+	case send(params: [String: String], imageData: Data)
 }
 
 extension SendFeedbackResource: ApiResource {
+	
 	var path: String {
-		return "INSERT_PATH_HERE"
+		return "/feedback-mobile/"
 	}
 	
 	var method: NetworkMethod {
 		return .post
 	}
 	
-	var parameters: [String: Any]? {
+	var multiFormParameters: ([String: String]?, Data)? {
 		switch self {
-		case .send(let params):
-			return params
+		case .send(let params, let imageData):
+			return (params, imageData)
 		}
 	}
 }

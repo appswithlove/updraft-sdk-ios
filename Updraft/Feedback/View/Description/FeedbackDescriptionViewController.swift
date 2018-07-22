@@ -36,7 +36,18 @@ class FeedbackDescriptionViewController: UIViewController {
 	
 	weak var delegate: FeedbackDescriptionViewControllerDelegate?
 	
-	var feedbackTypes = ["", "Bug", "Design", "Feedback"] // Get real values
+	private(set) var tags = [FeedbackViewModel.Tag?]()// Get real values
+	private(set) var email: String
+	
+	var text: String {
+		return descriptionView.text
+	}
+	
+	private(set) var selectedTag: FeedbackViewModel.Tag? {
+		didSet {
+			updateSelectedTag(selectedTag)
+		}
+	}
 	
 	private var isTypeSelected = false {
 		didSet {
@@ -46,7 +57,10 @@ class FeedbackDescriptionViewController: UIViewController {
 	
 	// MARK: - Init
 	
-	init() {
+	init(email: String?, tags: [FeedbackViewModel.Tag]) {
+		self.email = email ?? ""
+		self.tags = tags
+		self.tags.insert(nil, at: 0) // First item of the picker is empty
 		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
 	
@@ -69,10 +83,10 @@ class FeedbackDescriptionViewController: UIViewController {
 		pickerContainerView.backgroundColor = .clear
 		view.backgroundColor = .spaceBlack
 		emailTextField.delegate = self
+		emailTextField.text = email
 		feedbackTypePicker.delegate = self
 		feedbackTypePicker.dataSource = self
 		feedbackTypePicker.backgroundColor = .white
-		feedbackTypeLabel.text = "Type of Feedback"
 		feedbackTypeLabel.font = .italic
 		previousButton.title = "previous"
 		let arrow = UIImage(named: "iconArrowDown", in: Bundle.updraft, compatibleWith: nil)
@@ -85,6 +99,8 @@ class FeedbackDescriptionViewController: UIViewController {
 		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
 		feedbackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showPicker)))
 		arrowButton.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
+		
+		updateSelectedTag(selectedTag)
 	}
 	
 	private func update(isTypeSelected selected: Bool, animated: Bool) {
@@ -103,6 +119,10 @@ class FeedbackDescriptionViewController: UIViewController {
 		}
 	}
 	
+	func updateSelectedTag(_ tag: FeedbackViewModel.Tag?) {
+		feedbackTypeLabel.text = tag?.localized ?? "Type of Feedback"
+	}
+	
 	// MARK: - Actions
 	
 	@IBAction func sendFeedback(_ sender: Any) {
@@ -112,6 +132,10 @@ class FeedbackDescriptionViewController: UIViewController {
 	
 	@objc func showPicker() {
 		dismissKeyboard()
+	}
+	
+	@IBAction func emailChanged(_ sender: UITextField) {
+		email = sender.text ?? ""
 	}
 	
 	@IBAction func showPrevious(_ sender: UIButton) {
@@ -178,7 +202,7 @@ extension FeedbackDescriptionViewController: UIPickerViewDataSource {
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return feedbackTypes.count
+		return tags.count
 	}
 }
 
@@ -187,12 +211,13 @@ extension FeedbackDescriptionViewController: UIPickerViewDataSource {
 extension FeedbackDescriptionViewController: UIPickerViewDelegate {
 	
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return feedbackTypes[row]
+		let title = tags[row]?.localized ?? ""
+		return title
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		guard row > 0 else { return }
+		guard let tag = tags[row] else { return }
 		if !isTypeSelected { isTypeSelected = true }
-		feedbackTypeLabel.text = feedbackTypes[row]
+		selectedTag = tag
 	}
 }

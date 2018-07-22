@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Convenience
 extension UIView {
-	func stickToView(_ view: UIView, leading: CGFloat = 0,trailing: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) {
+	func stickToView(_ view: UIView, leading: CGFloat = 0, trailing: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading).isActive = true
 		self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing).isActive = true

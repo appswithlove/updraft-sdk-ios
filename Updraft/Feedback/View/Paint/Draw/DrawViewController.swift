@@ -17,12 +17,13 @@ class DrawViewController: UIViewController {
 	
 	// MARK: Init
 	
-	init() {
+	init(backgroundImage: UIImage) {
+		self.backgroundImage = backgroundImage
 		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
+		fatalError("init(coder:) has not been implemented")
 	}
 	
 	// MARK: Lifecycle
@@ -36,6 +37,7 @@ class DrawViewController: UIViewController {
 			self?.dimView.hide()
 		}
 		addDropOfShadow(to: drawView)
+		drawView.backgroundImage = backgroundImage
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -45,7 +47,7 @@ class DrawViewController: UIViewController {
 	
 	// MARK: Public Interface
 	
-	var backgroundImage: UIImage? {
+	var backgroundImage: UIImage {
 		didSet {
 			update()
 		}
@@ -75,7 +77,9 @@ class DrawViewController: UIViewController {
 	}
 	
 	private var backgroundImageSizeRatio: CGFloat {
-		if let width = backgroundImage?.size.width, let height = backgroundImage?.size.height, width > 0, height > 0 {
+		let width = backgroundImage.size.width
+		let height = backgroundImage.size.height
+		if width > 0, height > 0 {
 			return width / height
 		} else {
 			return 1.0

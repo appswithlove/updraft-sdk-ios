@@ -8,11 +8,15 @@
 
 import UIKit
 
+protocol FeedbackSendViewControllerInterface {
+	var progress: Float { get set }
+}
+
 protocol FeedbackSendViewControllerDelegate: class {
 	func feedbackSendViewControllerCancelWasTapped(_ sender: FeedbackSendViewController)
 }
 
-class FeedbackSendViewController: UIViewController {
+class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerInterface {
 	
 	@IBOutlet weak var progressView: UIProgressView!
 	@IBOutlet weak var progressLabel: UILabel!
@@ -72,7 +76,8 @@ class FeedbackSendViewController: UIViewController {
 	// MARK: - Progress
 	
 	private func updateProgress(_ progress: Float, animated: Bool) {
-		progressView.setProgress(progress, animated: animated)
-		progressLabel.text = "\(progress)%"
+		progressView?.setProgress(progress, animated: animated)
+		let percentProgress = Int(progress * 100)
+		progressLabel?.text = "\(percentProgress)%"
 	}
 }

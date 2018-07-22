@@ -10,8 +10,8 @@ import UIKit
 
 class NavigationButton: UIButton {
 	
-	private let underlinedTitleAttributes: [NSAttributedStringKey : Any] = [
-		NSAttributedStringKey.font : UIFont.regular,
+	private let underlinedTitleAttributes: [NSAttributedStringKey: Any] = [
+		NSAttributedStringKey.font: UIFont.regular,
 		NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue
 	]
 	
@@ -44,7 +44,7 @@ class NavigationButton: UIButton {
 	
 	// MARK: - Private implementation
 	
-	private func setUnderlinedTitle(_ text : String) {
+	private func setUnderlinedTitle(_ text: String) {
 		let attributedString = NSAttributedString(string: text, attributes: underlinedTitleAttributes)
 		setAttributedTitle(attributedString, for: .normal)
 	}

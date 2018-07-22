@@ -10,6 +10,7 @@ import Foundation
 
 class UpdateUrlRequest: NetworkRequest {
 	typealias Model = UpdateUrlModel
+	var currentTask: URLSessionDataTask?
 	
 	var session: NetworkSession
 	

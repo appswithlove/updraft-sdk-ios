@@ -56,7 +56,7 @@ class DrawView: UIView {
 	
 	// MARK: Public Interface
 	
-	var onTouchBegan: () -> () = {}
+	var onTouchBegan: () -> Void = {}
 	var drawBrush: Brush = .brush(UIColor.black.cgColor)
 	var isEraserActive = false
 	
@@ -176,7 +176,7 @@ class DrawView: UIView {
 		let location = touch.location(in: drawImageView)
 		let previousLocation = touch.previousLocation(in: drawImageView)
 		let hitTestPoints = hitPoints(fromPoint: previousLocation, toPoint: location, distance: Constants.Stroke.width)
-		for point in hitTestPoints  {
+		for point in hitTestPoints {
 			//Reverse array to be able to safely remove lines during iteration
 			for (index, line) in lines.enumerated().reversed() {
 				//Create a stroked copy, for hit testing

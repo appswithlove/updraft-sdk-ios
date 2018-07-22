@@ -43,13 +43,17 @@ protocol NetworkRequest: class {
 	///Result Model that must conform to Decodable
 	associatedtype Model where Model: Decodable
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void)
+	func load(_ urlRequest: URLRequest)
+	func cancelCurrentTask()
 	func decode(_ data: Data) throws -> Model
 	var session: NetworkSession {get}
+	var currentTask: URLSessionDataTask? {get set}
 }
 
 extension NetworkRequest {
+	
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void) {
-		session.loadData(from: urlRequest) { [weak self] (data, response, error) in
+		currentTask = session.loadData(from: urlRequest) { [weak self] (data, response, error) in
 			guard let strongSelf = self else { return }
 			let result = strongSelf.responseHandler(data: data, response: response, error: error)
 			
@@ -60,13 +64,21 @@ extension NetworkRequest {
 		}
 	}
 	
-	fileprivate func responseHandler(data: Data?, response: URLResponse?, error: Error?) -> NetworkResult<Model> {
+	func load(_ urlRequest: URLRequest) {
+		currentTask = session.loadData(from: urlRequest)
+	}
+	
+	func cancelCurrentTask() {
+		currentTask?.cancel()
+	}
+	
+	func responseHandler(data: Data?, response: URLResponse?, error: Error?) -> NetworkResult<Model> {
 		
 		guard let httpResponse = response as? HTTPURLResponse else {
 			return NetworkResult.error(error ?? NetworkError.requestFailed)
 		}
-		
-		guard httpResponse.statusCode == 200 else {
+	
+		guard  (200..<300).contains(httpResponse.statusCode) else {
 			return NetworkResult.error(error ?? NetworkError.unsuccessfulResponse(httpResponse.statusCode))
 		}
 		

@@ -33,7 +33,7 @@ class FeedbackDescriptionTextView: UIView {
 	
 	private func setup() {
 		
-		[textView, placeholderTextView].forEach() {
+		[textView, placeholderTextView].forEach {
 			$0.backgroundColor = .clear
 			$0.textContainerInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 			$0.font = .italic

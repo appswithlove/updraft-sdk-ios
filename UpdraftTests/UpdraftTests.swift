@@ -24,15 +24,17 @@ class UpdraftTests: XCTestCase {
 	func testInit() {
 		
 		//Given
+		let loadFontsInteractor = LoadFontsInteractor()
 		let apiSessionManager = ApiSessionManager()
 		let autoUpdateManager = AutoUpdateManager()
 		let feedbackManager = FeedbackManager()
 		let settings = Settings()
 		
 		//When
-		let updraft = Updraft(autoUpdateManager: autoUpdateManager, apiSessionManager: apiSessionManager, feedbackManager: feedbackManager, settings: settings)
+		let updraft = Updraft(loadFontsInteractor: loadFontsInteractor, autoUpdateManager: autoUpdateManager, apiSessionManager: apiSessionManager, feedbackManager: feedbackManager, settings: settings)
 		
 		//Then
+		XCTAssertTrue(loadFontsInteractor === updraft.loadFontsInteractor)
 		XCTAssertTrue(apiSessionManager === updraft.apiSessionManager)
 		XCTAssertTrue(autoUpdateManager === updraft.autoUpdateManager)
 		XCTAssertTrue(feedbackManager === updraft.feedbackManager)
@@ -60,7 +62,7 @@ class UpdraftTests: XCTestCase {
 		
 		//Given
 		let spy = FeedbackManagerSpy()
-		let updraft = Updraft(autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
+		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
 		let isAppStoreRelease = false
 		
 		//When
@@ -74,7 +76,7 @@ class UpdraftTests: XCTestCase {
 		
 		//Given
 		let spy = FeedbackManagerSpy()
-		let updraft = Updraft(autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
+		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
 		let isAppStoreRelease = true
 		
 		//When
@@ -88,7 +90,7 @@ class UpdraftTests: XCTestCase {
 		
 		//Given
 		let spy = AutoUpdateManagerSpy()
-		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		let isAppStoreRelease = false
 		
 		//When
@@ -102,7 +104,7 @@ class UpdraftTests: XCTestCase {
 		
 		//Given
 		let spy = AutoUpdateManagerSpy()
-		let updraft = Updraft(autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		let isAppStoreRelease = true
 		
 		//When
@@ -110,5 +112,33 @@ class UpdraftTests: XCTestCase {
 		
 		//Then
 		XCTAssertFalse(spy.startWasCalled)
+	}
+	
+	func testLoadFontsOnUpdraftStartWhenAppStoreRelease() {
+		
+		//Given
+		let spy = LoadFontsInteractorSpy()
+		let updraft = Updraft(loadFontsInteractor: spy, autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		let isAppStoreRelease = true
+		
+		//When
+		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		
+		//Then
+		XCTAssertFalse(spy.loadAllWasCalled)
+	}
+	
+	func testLoadFontsOnUpdraftStartWhenNotAppStoreRelease() {
+		
+		//Given
+		let spy = LoadFontsInteractorSpy()
+		let updraft = Updraft(loadFontsInteractor: spy, autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		let isAppStoreRelease = false
+		
+		//When
+		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		
+		//Then
+		XCTAssertTrue(spy.loadAllWasCalled)
 	}
 }

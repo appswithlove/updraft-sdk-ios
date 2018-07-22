@@ -15,36 +15,41 @@ protocol LoadFontsInteractorInput {
 
 class LoadFontsInteractor: LoadFontsInteractorInput {
 	
+	private struct Constants {
+		static let creteItalic = "CreteRound-Italic.ttf"
+		static let creteRegular = "CreteRound-Regular.ttf"
+	}
+	
 	func loadAll() {
-		registerFontWith(filenameString: UIFont.creteItalic + ".ttf")
-		registerFontWith(filenameString: UIFont.creteRegular + ".ttf")
+		registerFontWith(filenameString: Constants.creteRegular)
+		registerFontWith(filenameString: Constants.creteItalic)
 	}
 	
 	private func registerFontWith(filenameString: String) {
 		let bundle = Bundle.updraft
 		guard let pathForResourceString = bundle.path(forResource: filenameString, ofType: nil) else {
-			print("UIFont+:  Failed to register font - path for resource not found.")
+			print("UIFont+:  Failed to register font \(filenameString) - path for resource not found.")
 			return
 		}
 		
 		guard let fontData = NSData(contentsOfFile: pathForResourceString) else {
-			print("UIFont+:  Failed to register font - font data could not be loaded.")
+			print("UIFont+:  Failed to register font \(filenameString) - font data could not be loaded.")
 			return
 		}
 		
 		guard let dataProvider = CGDataProvider(data: fontData) else {
-			print("UIFont+:  Failed to register font - data provider could not be loaded.")
+			print("UIFont+:  Failed to register font \(filenameString) - data provider could not be loaded.")
 			return
 		}
 		
 		guard let fontRef = CGFont(dataProvider) else {
-			print("UIFont+:  Failed to register font - font could not be loaded.")
+			print("UIFont+:  Failed to register font \(filenameString) - font could not be loaded.")
 			return
 		}
 		
 		var errorRef: Unmanaged<CFError>? = nil
 		if (CTFontManagerRegisterGraphicsFont(fontRef, &errorRef) == false) {
-			print("UIFont+:  Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.")
+			print("UIFont+:  Failed to register font \(filenameString) - register graphics font failed - this font may have already been registered in the main bundle.")
 		}
 	}
 }

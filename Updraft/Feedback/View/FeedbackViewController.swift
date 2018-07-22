@@ -24,44 +24,46 @@ class FeedbackViewController: UIViewController {
 	
 	weak var delegate: FeedbackViewControllerDelegate?
 	
-	var state: FeedbackState {
-		didSet {
-//			update()
-		}
-	}
-//
-//	func getFeedbackViewModel() -> FeedbackViewModel {
-//		let image = drawViewController?.editedImage ?? UIImage()
-//		let email = emailTextField?.text ?? ""
-//		let message = messageTextView?.text ?? ""
-//		let selectedTagTitle = feedbackTypeControl?.titleForSegment(at: feedbackTypeControl.selectedSegmentIndex) ?? ""
-//		let tag = FeedbackViewModel.Tag(rawValue: selectedTagTitle) ?? .feedback
-//
-//		return FeedbackViewModel(image: image, email: email, message: message, tag: tag)
-//	}
+	private var email: String?
+	private var image: UIImage
 	
-	lazy var feedbackPaintViewController: FeedbackPaintViewController =  {
-		let fpvc = FeedbackPaintViewController()
+	var feedbackSendViewController: FeedbackSendViewControllerInterface?
+	
+	lazy var feedbackPaintViewController: FeedbackPaintViewController = {
+		let fpvc = FeedbackPaintViewController(image: image)
 		fpvc.delegate = self
 		return fpvc
-	}() //FIXME: Dependency injection
+	}()
 	
 	lazy var feedbackDescriptionViewController: FeedbackDescriptionViewController = {
-		let fdvc = FeedbackDescriptionViewController()
+		let fdvc = FeedbackDescriptionViewController(email: email, tags: FeedbackViewModel.Tag.all())
 		fdvc.delegate = self
 		return fdvc
-	}() //FIXME: Dependency injection
+	}()
 	
 	lazy var navigationViewController: UINavigationController = {
 		let nvc = UINavigationController(rootViewController: feedbackPaintViewController)
 		nvc.isNavigationBarHidden = true
 		return nvc
-	}() //FIXME: Dependency injection
+	}()
+	
+	func updateProgress(_ progress: Float) {
+		feedbackSendViewController?.progress = progress
+	}
+	
+	private func feedbackViewModel() -> FeedbackViewModel {
+		let image = feedbackPaintViewController.image
+		let email = feedbackDescriptionViewController.email
+		let message = feedbackDescriptionViewController.text
+		let tag = feedbackDescriptionViewController.selectedTag ?? FeedbackViewModel.Tag.feedback
+		return FeedbackViewModel(image: image, email: email, description: message, tag: tag)
+	}
 	
 	// MARK: - Init
 	
-	init(state: FeedbackState) {
-		self.state = state
+	init(email: String?, image: UIImage) {
+		self.email = email
+		self.image = image
 		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
 	
@@ -69,7 +71,6 @@ class FeedbackViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-
 	// MARK: - Lifecycle
 	
 	override func viewDidLoad() {
@@ -113,32 +114,28 @@ class FeedbackViewController: UIViewController {
 	}
 	
 	private func showSendViewController() {
-		
-		let feedbackSendViewController = FeedbackSendViewController()
-		feedbackSendViewController.delegate = self
-		navigationViewController.show(feedbackSendViewController, sender: self)
+		feedbackSendViewController = nil
+		let fbsvc = FeedbackSendViewController()
+		fbsvc.delegate = self
+		navigationViewController.show(fbsvc, sender: self)
+		feedbackSendViewController = fbsvc
 	}
 	
 	private func pop() {
 		navigationViewController.popViewController(animated: true)
 	}
 	
-	//MARK: - Actions
+	// MARK: - Actions
 	
 	@IBAction func dismiss(_ sender: UIButton) {
 		delegate?.feedbackViewControllerDismissWasTapped(self)
 	}
-	//TODO: Custom fonts ?
-	//TODO: Pass models and retrieve on send
-	//TODO: Transfer Code to SDK
-	//TODO: Add unit tests, doc ?
 }
 
 // MARK: - FeedbackPainViewControllerDelegate
 
 extension FeedbackViewController: FeedbackPaintViewControllerDelegate {
 	func paintViewControllerNextWasTapped(sender _: FeedbackPaintViewController) {
-		//TODO: Retrieve merged image
 		showDescriptionViewController()
 	}
 }
@@ -147,9 +144,8 @@ extension FeedbackViewController: FeedbackPaintViewControllerDelegate {
 
 extension FeedbackViewController: FeedbackDescriptionViewControllerDelegate {
 	func descriptionViewControllerSendWasTapped(_ sender: FeedbackDescriptionViewController) {
-		//TODO: Start Upload
 		showSendViewController()
-//		delegate?.feedbackViewControllerSendWasTapped(self, model: <#T##FeedbackViewModel#>)
+		delegate?.feedbackViewControllerSendWasTapped(self, model: feedbackViewModel())
 	}
 	
 	func descriptionViewControllerPreviousWasTapped(_ sender: FeedbackDescriptionViewController) {

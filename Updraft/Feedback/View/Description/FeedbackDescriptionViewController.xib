@@ -41,6 +41,9 @@
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="emailChanged:" destination="-1" eventType="editingChanged" id="tuy-X9-n2p"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7z-1R-HMv" customClass="NavigationButton" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="16" y="529" width="59" height="30"/>

@@ -14,8 +14,10 @@ final public class Updraft: NSObject {
 	private(set) var apiSessionManager: ApiSessionManager
 	private(set) var autoUpdateManager: AutoUpdateManager
 	private(set) var feedbackManager: FeedbackManager
+	private(set) var loadFontsInteractor: LoadFontsInteractor
 	
 	init(
+		loadFontsInteractor: LoadFontsInteractor,
 		autoUpdateManager: AutoUpdateManager,
 		apiSessionManager: ApiSessionManager,
 		feedbackManager: FeedbackManager,
@@ -25,25 +27,24 @@ final public class Updraft: NSObject {
 		self.apiSessionManager = apiSessionManager
 		self.autoUpdateManager = autoUpdateManager
 		self.feedbackManager = feedbackManager
+		self.loadFontsInteractor = loadFontsInteractor
 	}
 	
 	convenience override init() {
 		let settings = Settings()
 		let apiManager = ApiSessionManager()
 		
-		let loadFont = LoadFontsInteractor() //FIXME
-		loadFont.loadAll()
-		
 		let checkUpdateRequest = CheckUpdateRequest(session: apiManager.session)
 		let getUpdateUrlRequest = UpdateUrlRequest(session: apiManager.session)
-		let sendFeedbackRequest = SendFeedbackRequest(session: apiManager.session)
-		let sendFeedbackInteractor = SendFeedbackInteractor(sendFeedbackRequest: sendFeedbackRequest)
+		let sendFeedbackRequest = SendFeedbackRequest()
+		let sendFeedbackInteractor = SendFeedbackInteractor(settings: settings, sendFeedbackRequest: sendFeedbackRequest)
 		let feedbackPresenter = FeedbackPresenter(sendFeedbackInteractor: sendFeedbackInteractor)
 		let checkUpdateInteractor = CheckUpdateInteractor(settings: settings, checkUpdateRequest: checkUpdateRequest, getUpdateUrlRequest: getUpdateUrlRequest)
+		let loadFontsInteractor = LoadFontsInteractor()
 		
 		let feedbackManager = FeedbackManager(feedbackPresenter: feedbackPresenter)
 		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
-		self.init(autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, feedbackManager: feedbackManager, settings: settings)
+		self.init(loadFontsInteractor: loadFontsInteractor, autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, feedbackManager: feedbackManager, settings: settings)
 	}
 	
 	private static let sharedInstance = Updraft()
@@ -66,6 +67,7 @@ final public class Updraft: NSObject {
 		settings.appKey = appKey
 		settings.isAppStoreRelease = isAppStoreRelease
 		if isAppStoreRelease == false {
+			loadFontsInteractor.loadAll()
 			autoUpdateManager.start()
 			feedbackManager.start()
 		}

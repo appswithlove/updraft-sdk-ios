@@ -16,17 +16,33 @@ struct FeedbackModel {
 struct FeedbackViewModel {
 	let image: UIImage
 	let email: String
-	let message: String
+	let description: String
 	let tag: Tag
 	
 	enum Tag: String {
-		case ux
+		case design
 		case bug
 		case feedback
+		
+		var localized: String {
+			switch self {
+			case .design:
+				return "Design"
+			case .bug:
+				return "Bug"
+			case .feedback:
+				return "Feedback"
+			}
+		}
+		
+		static func all() -> [Tag] {
+			return [Tag.bug, Tag.design, Tag.feedback]
+		}
 	}
 }
 
 struct FeedbackContextModel {
+	let buildVersion: String
 	let navigationStack: String
 	let systemVersion: String
 	let modelName: String

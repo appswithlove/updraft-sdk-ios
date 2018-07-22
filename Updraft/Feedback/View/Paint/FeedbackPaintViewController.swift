@@ -22,15 +22,27 @@ class FeedbackPaintViewController: UIViewController {
 		let bpvc = BrushPickerViewController()
 		bpvc.delegate = self
 		return bpvc
-	}() //FIXME: pass into init for testing purposes
+	}()
 	
-	private let drawViewController = DrawViewController() //FIXME: pass into init for testing purposes
+	private let drawViewController: DrawViewController
 	
 	weak var delegate: FeedbackPaintViewControllerDelegate?
 	
+	// MARK: - Interface
+	
+	private(set) var image: UIImage {
+		get {
+			return drawViewController.editedImage
+		}
+		set {
+			drawViewController.backgroundImage = image
+		}
+	}
+	
 	// MARK: - Init
 	
-	init() {
+	init(image: UIImage) {
+		drawViewController = DrawViewController(backgroundImage: image)
 		super.init(nibName: nil, bundle: Bundle.updraft)
 	}
 	

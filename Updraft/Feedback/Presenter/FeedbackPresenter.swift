@@ -27,6 +27,7 @@ enum FeedbackState {
 /// Handle the presentation of the feedback view
 class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControllerDelegate {
 	
+	private let notification = UINotificationFeedbackGenerator()
 	let sendFeedbackInteractor: SendFeedbackInteractorInput
 	var userEmailInteractor: UserEmailInteractorInput
 	
@@ -45,9 +46,7 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 		self.sendFeedbackInteractor = sendFeedbackInteractor
 		self.userEmailInteractor = userEmailInteractor
 		sendFeedbackInteractor.output = self
-		DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-			self.present(with: UIImage(), context: FeedbackContextModel(navigationStack: "", systemVersion: "", modelName: "", deviceUuid: nil))
-		}
+		self.present(with: UIImage(), context: FeedbackContextModel(buildVersion: "", navigationStack: "", systemVersion: "", modelName: "", deviceUuid: nil))
 	}
 	
 	// MARK: FeedbackPresenterInput
@@ -59,7 +58,7 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 			feedbackViewController = nil
 		}
 		let email = userEmailInteractor.email
-		self.feedbackViewController = FeedbackViewController(state: .edit(image, email: email))
+		self.feedbackViewController = FeedbackViewController(email: email, image: image)
 		self.context = context
 		self.topMostController?.present(feedbackViewController!, animated: true, completion: nil)
 	}
@@ -67,19 +66,17 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 	// MARK: - FeedbackViewControllerDelegate
 	
 	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
-		//TODO: Cancel upload request
+		sendFeedbackInteractor.cancel()
 	}
 	
 	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel) {
 		userEmailInteractor.email = model.email
 		let feedbackModel = FeedbackModel(context: context, viewModel: model)
-		//TODO: Send... with image , text etc.
-		//sendFeedbackInteractor.sendFeedback()
-		sender.dismiss(animated: true, completion: nil)
+		sendFeedbackInteractor.sendFeedback(feedbackModel)
 	}
 	
 	func feedbackViewControllerDismissWasTapped(_ sender: FeedbackViewController) {
-		//TODO: Cancel any ongoing upload
+		sendFeedbackInteractor.cancel()
 		sender.dismiss(animated: true, completion: nil)
 	}
 }
@@ -87,15 +84,25 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 // MARK: - SendFeedbackInteractorOuput
 
 extension FeedbackPresenter: SendFeedbackInteractorOuput {
-	func sendFeedbackInteractorSending(_ sender: SendFeedbackInteractor, progress: CGFloat) {
-		
+	
+	func sendFeedbackInteractorSending(_ sender: SendFeedbackInteractor, progress: Double) {
+		feedbackViewController?.updateProgress(Float(progress))
 	}
 	
 	func sendFeedbackInteractorDidSend(_ sender: SendFeedbackInteractor) {
-		
+		feedbackViewController?.updateProgress(Float(1.0))
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+			self.notification.notificationOccurred(.success)
+			self.feedbackViewController?.dismiss(animated: true, completion: nil)
+		}
 	}
 	
 	func sendFeedbackInteractorDidFail(_ sender: SendFeedbackInteractor, error: Error) {
-		
+		feedbackViewController?.updateProgress(Float(0.0))
+		self.notification.notificationOccurred(.error)
+	}
+	
+	func sendFeedbackInteractorDidCancel(_ sender: SendFeedbackInteractor) {
+		feedbackViewController?.updateProgress(Float(0.0))
 	}
 }
