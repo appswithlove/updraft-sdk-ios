@@ -83,8 +83,7 @@ extension AppUtility {
 		if !(shownController is UITabBarController) && !(shownController is UINavigationController) {
 			controllers.append(shownController)
 		}
-		
-		return controllers.compactMap({$0}).map({String(describing: $0)})
+		return controllers.compactMap({$0}).map({String(describing: type(of: $0))})
 	}
 	
 	/// Returns the system version of the device
