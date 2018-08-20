@@ -29,8 +29,18 @@ extension UIFont {
 		return UIFont(name: creteRegular, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 	
+	class var italicSmall: UIFont {
+		let size: CGFloat = 14.0
+		return UIFont(name: creteRegular, size: size) ?? .systemFont(ofSize: size, weight: .regular)
+	}
+	
 	class var italic: UIFont {
 		let size: CGFloat = 16.0
+		return UIFont(name: creteItalic, size: size) ?? .systemFont(ofSize: size, weight: .regular)
+	}
+	
+	class var italicMedium: UIFont {
+		let size: CGFloat = 20
 		return UIFont(name: creteItalic, size: size) ?? .systemFont(ofSize: size, weight: .regular)
 	}
 	
