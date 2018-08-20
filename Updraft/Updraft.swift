@@ -57,19 +57,14 @@ final public class Updraft: NSObject {
 	/// Starts Updraft with your sdkKey and appKey.
 	/// This method should be called after the app is launched and before using Updraft services.
 	///
-	/// Features such as auto update are disabled when isAppStoreRelease is set to true.
 	///
 	/// - Parameter appKey: Your application key
 	/// - Parameter sdkKey: Your updraft sdk key
-	/// - Parameter isAppStoreRelease: Boolean indicating if the app will be released on the AppStore
-	@objc public func start(sdkKey: String, appKey: String, isAppStoreRelease: Bool) {
+	@objc public func start(sdkKey: String, appKey: String) {
 		settings.sdkKey = sdkKey
 		settings.appKey = appKey
-		settings.isAppStoreRelease = isAppStoreRelease
-		if isAppStoreRelease == false {
-			loadFontsInteractor.loadAll()
-			autoUpdateManager.start()
-			feedbackManager.start()
-		}
+		loadFontsInteractor.loadAll()
+		autoUpdateManager.start()
+		feedbackManager.start()
 	}
 }

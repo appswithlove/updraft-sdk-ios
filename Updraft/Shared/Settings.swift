@@ -12,15 +12,13 @@ import Foundation
 final class Settings {
 	var sdkKey: String
 	var appKey: String
-	var isAppStoreRelease: Bool
 	
-	init(sdkKey: String, appKey: String, isAppStoreRelease: Bool) {
+	init(sdkKey: String, appKey: String) {
 		self.sdkKey = sdkKey
 		self.appKey = appKey
-		self.isAppStoreRelease = isAppStoreRelease
 	}
 	
 	convenience init() {
-		self.init(sdkKey: "", appKey: "", isAppStoreRelease: false)
+		self.init(sdkKey: "", appKey: "")
 	}
 }

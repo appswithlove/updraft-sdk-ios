@@ -46,97 +46,50 @@ class UpdraftTests: XCTestCase {
 		//Given
 		let appKey = "1234567890"
 		let sdkKey = "0987654321"
-		let isAppStoreRelease = false
 		let updraft = Updraft()
 		
 		//When
-		updraft.start(sdkKey: sdkKey, appKey: appKey, isAppStoreRelease: isAppStoreRelease)
+		updraft.start(sdkKey: sdkKey, appKey: appKey)
 		
 		//Then
 		XCTAssertEqual(appKey, updraft.settings.appKey)
 		XCTAssertEqual(sdkKey, updraft.settings.sdkKey)
-		XCTAssertEqual(isAppStoreRelease, updraft.settings.isAppStoreRelease)
 	}
 	
-	func testStartFeedbackManagerOnUpdraftStartWhenNotAppStoreRelease() {
+	func testStartFeedbackManagerOnUpdraftStart() {
 		
 		//Given
 		let spy = FeedbackManagerSpy()
 		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
-		let isAppStoreRelease = false
 		
 		//When
-		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		updraft.start(sdkKey: "", appKey: "")
 		
 		//Then
 		XCTAssertTrue(spy.startWasCalled)
 	}
 	
-	func testStartFeedbackManagerOnUpdraftStartWhenAppStoreRelease() {
-		
-		//Given
-		let spy = FeedbackManagerSpy()
-		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
-		let isAppStoreRelease = true
-		
-		//When
-		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
-		
-		//Then
-		XCTAssertFalse(spy.startWasCalled)
-	}
-	
-	func testStartAutoUpdateManagerOnUpdraftStartWhenNotAppStoreRelease() {
+	func testStartAutoUpdateManagerOnUpdraftStart() {
 		
 		//Given
 		let spy = AutoUpdateManagerSpy()
 		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
-		let isAppStoreRelease = false
 		
 		//When
-		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		updraft.start(sdkKey: "", appKey: "")
 		
 		//Then
 		XCTAssertTrue(spy.startWasCalled)
 	}
-	
-	func testStartAutoUpdateManagerOnUpdraftStartWhenAppStoreRelease() {
-		
-		//Given
-		let spy = AutoUpdateManagerSpy()
-		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
-		let isAppStoreRelease = true
-		
-		//When
-		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
-		
-		//Then
-		XCTAssertFalse(spy.startWasCalled)
-	}
-	
-	func testLoadFontsOnUpdraftStartWhenAppStoreRelease() {
+
+	func testLoadFontsOnUpdraftStart() {
 		
 		//Given
 		let spy = LoadFontsInteractorSpy()
 		let updraft = Updraft(loadFontsInteractor: spy, autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
-		let isAppStoreRelease = true
 		
 		//When
-		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
-		
-		//Then
-		XCTAssertFalse(spy.loadAllWasCalled)
-	}
-	
-	func testLoadFontsOnUpdraftStartWhenNotAppStoreRelease() {
-		
-		//Given
-		let spy = LoadFontsInteractorSpy()
-		let updraft = Updraft(loadFontsInteractor: spy, autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
-		let isAppStoreRelease = false
-		
-		//When
-		updraft.start(sdkKey: "", appKey: "", isAppStoreRelease: isAppStoreRelease)
+		updraft.start(sdkKey: "", appKey: "")
 		
 		//Then
 		XCTAssertTrue(spy.loadAllWasCalled)

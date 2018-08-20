@@ -49,7 +49,7 @@ $ pod install
 	```Swift
 		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-			Updraft.shared.start(sdkKey: "YOUR_SDK_KEY", appKey: "YOUR_APP_KEY", isAppStoreRelease: false)
+			Updraft.shared.start(sdkKey: "YOUR_SDK_KEY", appKey: "YOUR_APP_KEY")
 			
 			return true
 		}
@@ -76,7 +76,6 @@ $ pod install
 #### Parameters
 - <b>sdkKey</b>: Your sdk key obtained on getupdraft
 - <b>appKey</b>: You app key obtained on getupdraft
-- <b>isAppStoreRelease</b>: Set to true to disable sdk functionalities when released to the appstore, to prevent unwanted behavior like feedback overlay and auto update.
 
 ## AutoUpdate
 
