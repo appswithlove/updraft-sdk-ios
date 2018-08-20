@@ -65,7 +65,7 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 	
 	// MARK: - FeedbackViewControllerDelegate
 	
-	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
+	func feedbackViewControllerCancelledSending(_ sender: FeedbackViewController) {
 		sendFeedbackInteractor.cancel()
 	}
 	
@@ -98,8 +98,8 @@ extension FeedbackPresenter: SendFeedbackInteractorOuput {
 	}
 	
 	func sendFeedbackInteractorDidFail(_ sender: SendFeedbackInteractor, error: Error) {
-		feedbackViewController?.updateProgress(Float(0.0))
 		self.notification.notificationOccurred(.error)
+		feedbackViewController?.displayError()
 	}
 	
 	func sendFeedbackInteractorDidCancel(_ sender: SendFeedbackInteractor) {

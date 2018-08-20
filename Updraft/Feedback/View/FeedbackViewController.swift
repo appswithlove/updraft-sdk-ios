@@ -10,7 +10,7 @@ import UIKit
 
 protocol FeedbackViewControllerDelegate: class {
 	func feedbackViewControllerDismissWasTapped(_ sender: FeedbackViewController)
-	func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController)
+	func feedbackViewControllerCancelledSending(_ sender: FeedbackViewController)
 	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel)
 }
 
@@ -49,6 +49,10 @@ class FeedbackViewController: UIViewController {
 	
 	func updateProgress(_ progress: Float) {
 		feedbackSendViewController?.progress = progress
+	}
+	
+	func displayError() {
+		feedbackSendViewController?.showError()
 	}
 	
 	private func feedbackViewModel() -> FeedbackViewModel {
@@ -156,8 +160,8 @@ extension FeedbackViewController: FeedbackDescriptionViewControllerDelegate {
 // MARK: - FeedbackSendViewControllerDelegate
 
 extension FeedbackViewController: FeedbackSendViewControllerDelegate {
-	func feedbackSendViewControllerCancelWasTapped(_ sender: FeedbackSendViewController) {
+	func feedbackSendViewControllerPreviousWasTapped(_ sender: FeedbackSendViewController) {
 		pop()
-		delegate?.feedbackViewControllerCancelWasTapped(self)
+		delegate?.feedbackViewControllerCancelledSending(self)
 	}
 }

@@ -6,17 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackSendViewController" customModule="testNavigation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackSendViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
-                <outlet property="cancelButton" destination="FCN-ig-dVp" id="r11-AJ-haa"/>
-                <outlet property="progressLabel" destination="BaJ-2Y-KAa" id="ulJ-oN-pv2"/>
-                <outlet property="progressView" destination="36C-xk-Z1m" id="O1F-ZS-6w3"/>
-                <outlet property="titleLabel" destination="aik-a8-SX6" id="Vt1-2r-Q0u"/>
+                <outlet property="failureViewContainer" destination="QnR-Q9-V8N" id="H4Q-eP-bF2"/>
+                <outlet property="previousButton" destination="FCN-ig-dVp" id="r11-AJ-haa"/>
+                <outlet property="progressViewContainer" destination="wpP-ZR-sfl" id="GSk-P2-aqC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,52 +23,34 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCN-ig-dVp" customClass="NavigationButton" customModule="testNavigation" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpP-ZR-sfl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnR-Q9-V8N">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCN-ig-dVp" customClass="NavigationButton" customModule="Updraft" customModuleProvider="target">
                     <rect key="frame" x="16" y="617" width="48" height="30"/>
                     <state key="normal" title="Cancel"/>
                     <connections>
-                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="cCq-xb-CMC"/>
+                        <action selector="toPreviousScreen:" destination="-1" eventType="touchUpInside" id="cCq-xb-CMC"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="IfT-y3-soe">
-                    <rect key="frame" x="75" y="238.5" width="225" height="141.5"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aik-a8-SX6">
-                            <rect key="frame" x="0.0" y="0.0" width="225" height="61"/>
-                            <string key="text">Thank you
-for the
-feedback</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qSU-vD-Hxl">
-                            <rect key="frame" x="0.0" y="111" width="225" height="30.5"/>
-                            <subviews>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="36C-xk-Z1m">
-                                    <rect key="frame" x="0.0" y="0.0" width="225" height="10"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="10" id="nYk-ap-j5k"/>
-                                    </constraints>
-                                </progressView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaJ-2Y-KAa">
-                                    <rect key="frame" x="0.0" y="10" width="225" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="IfT-y3-soe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="75" id="Zwm-6y-rNy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QnR-Q9-V8N" secondAttribute="trailing" id="9Cb-sj-Qiy"/>
+                <constraint firstItem="QnR-Q9-V8N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AZU-90-iiz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wpP-ZR-sfl" secondAttribute="trailing" id="LFy-4W-CDt"/>
+                <constraint firstItem="QnR-Q9-V8N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NCA-Qa-wlF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QnR-Q9-V8N" secondAttribute="bottom" id="SPP-EH-gRj"/>
+                <constraint firstItem="wpP-ZR-sfl" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ULX-rg-ggP"/>
+                <constraint firstItem="wpP-ZR-sfl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Uvd-bw-lLy"/>
                 <constraint firstItem="FCN-ig-dVp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="bag-VS-Ref"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IfT-y3-soe" secondAttribute="trailing" constant="75" id="ilZ-ce-ZUh"/>
+                <constraint firstItem="wpP-ZR-sfl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kkS-3k-E3M"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FCN-ig-dVp" secondAttribute="bottom" constant="20" id="lhO-QU-PmE"/>
-                <constraint firstItem="IfT-y3-soe" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.9" id="x8k-VO-g6c"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="43.5" y="95.5"/>

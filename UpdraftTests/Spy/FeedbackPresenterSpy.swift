@@ -27,7 +27,7 @@ class FeedbackPresenterSpy: FeedbackPresenter {
 		feedbackModel = model
 	}
 	
-	override func feedbackViewControllerCancelWasTapped(_ sender: FeedbackViewController) {
+	override func feedbackViewControllerCancelledSending(_ sender: FeedbackViewController) {
 		cancelWasTappedWasCalled = true
 	}
 }

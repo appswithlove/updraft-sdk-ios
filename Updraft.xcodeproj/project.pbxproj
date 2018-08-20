@@ -33,6 +33,10 @@
 		F644BD2A207CD35E003126F1 /* FeedbackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */; };
 		F644BD2C207CD5D3003126F1 /* FeedbackViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */; };
 		F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */; };
+		F65964C6212ACA39008B84AE /* FeedbackSendFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65964C5212ACA39008B84AE /* FeedbackSendFailureView.swift */; };
+		F65964C8212ACA48008B84AE /* FeedbackSendFailureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F65964C7212ACA48008B84AE /* FeedbackSendFailureView.xib */; };
+		F65964EF212ADE31008B84AE /* FeedbackSendProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65964EE212ADE31008B84AE /* FeedbackSendProgressView.swift */; };
+		F65964F1212ADE3F008B84AE /* FeedbackSendProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F65964F0212ADE3F008B84AE /* FeedbackSendProgressView.xib */; };
 		F65A33F820F61BDD0061E899 /* LoadFontsInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A33F720F61BDD0061E899 /* LoadFontsInteractorSpy.swift */; };
 		F6605E2C20F4C14F00F2B8A5 /* LoadFontsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6605E2B20F4C14F00F2B8A5 /* LoadFontsInteractor.swift */; };
 		F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6632BF5203573970098FA77 /* NetworkSession.swift */; };
@@ -143,6 +147,10 @@
 		F644BD29207CD35E003126F1 /* FeedbackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerTests.swift; sourceTree = "<group>"; };
 		F644BD2B207CD5D3003126F1 /* FeedbackViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerSpy.swift; sourceTree = "<group>"; };
 		F6587AB820346ABB00B1A87F /* UpdateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelTests.swift; sourceTree = "<group>"; };
+		F65964C5212ACA39008B84AE /* FeedbackSendFailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSendFailureView.swift; sourceTree = "<group>"; };
+		F65964C7212ACA48008B84AE /* FeedbackSendFailureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackSendFailureView.xib; sourceTree = "<group>"; };
+		F65964EE212ADE31008B84AE /* FeedbackSendProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSendProgressView.swift; sourceTree = "<group>"; };
+		F65964F0212ADE3F008B84AE /* FeedbackSendProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackSendProgressView.xib; sourceTree = "<group>"; };
 		F65A33F720F61BDD0061E899 /* LoadFontsInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFontsInteractorSpy.swift; sourceTree = "<group>"; };
 		F6605E2B20F4C14F00F2B8A5 /* LoadFontsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFontsInteractor.swift; sourceTree = "<group>"; };
 		F6632BF5203573970098FA77 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
@@ -441,6 +449,10 @@
 			children = (
 				F6D6419920F49DDA003AA01D /* FeedbackSendViewController.swift */,
 				F6D6419A20F49DDA003AA01D /* FeedbackSendViewController.xib */,
+				F65964C5212ACA39008B84AE /* FeedbackSendFailureView.swift */,
+				F65964C7212ACA48008B84AE /* FeedbackSendFailureView.xib */,
+				F65964EE212ADE31008B84AE /* FeedbackSendProgressView.swift */,
+				F65964F0212ADE3F008B84AE /* FeedbackSendProgressView.xib */,
 			);
 			path = Send;
 			sourceTree = "<group>";
@@ -710,6 +722,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65964F1212ADE3F008B84AE /* FeedbackSendProgressView.xib in Resources */,
+				F65964C8212ACA48008B84AE /* FeedbackSendFailureView.xib in Resources */,
 				F6D641BC20F49DDB003AA01D /* DrawViewController.xib in Resources */,
 				F6D641B820F49DDB003AA01D /* FeedbackPaintViewController.xib in Resources */,
 				F6D641D720F4A87C003AA01D /* Assets.xcassets in Resources */,
@@ -760,6 +774,7 @@
 				F6D36FA7203BF44000B0643E /* Print.swift in Sources */,
 				F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */,
 				F6A79D77207E4F8D00C2AFC2 /* FeedbackModel.swift in Sources */,
+				F65964C6212ACA39008B84AE /* FeedbackSendFailureView.swift in Sources */,
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
 				F6D641C020F49DDB003AA01D /* Brush.swift in Sources */,
@@ -768,6 +783,7 @@
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
 				F6D641B320F49DDB003AA01D /* FeedbackDescriptionViewController.swift in Sources */,
 				F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */,
+				F65964EF212ADE31008B84AE /* FeedbackSendProgressView.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6C47A3E2129559600F551CE /* String+localized.swift in Sources */,
 				F6D641B220F49DDB003AA01D /* FeedbackEmailTextField.swift in Sources */,

@@ -10,24 +10,52 @@ import UIKit
 
 protocol FeedbackSendViewControllerInterface {
 	var progress: Float { get set }
+	func showError()
 }
 
 protocol FeedbackSendViewControllerDelegate: class {
-	func feedbackSendViewControllerCancelWasTapped(_ sender: FeedbackSendViewController)
+	func feedbackSendViewControllerPreviousWasTapped(_ sender: FeedbackSendViewController)
 }
 
 class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerInterface {
 	
-	@IBOutlet weak var progressView: UIProgressView!
-	@IBOutlet weak var progressLabel: UILabel!
-	@IBOutlet weak var cancelButton: NavigationButton!
-	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet var progressViewContainer: UIView! {
+		didSet {
+			progressViewContainer.backgroundColor = .clear
+			progressViewContainer.addSubview(feedbackSendProgressView)
+			feedbackSendProgressView.stickToView(progressViewContainer)
+		}
+	}
+	@IBOutlet var failureViewContainer: UIView! {
+		didSet {
+			failureViewContainer.backgroundColor = .clear
+			failureViewContainer.addSubview(feedbackSendFailureView)
+			feedbackSendFailureView.stickToView(failureViewContainer)
+		}
+	}
+	
+	lazy var feedbackSendProgressView: FeedbackSendProgressView = {
+		return Bundle.updraft.loadNibNamed("FeedbackSendProgressView", owner: self, options: nil)?.first as! FeedbackSendProgressView
+		}()
+	
+	lazy var feedbackSendFailureView: FeedbackSendFailureView! = {
+		return Bundle.updraft.loadNibNamed("FeedbackSendFailureView", owner: self, options: nil)?.first as! FeedbackSendFailureView
+		}()
+	
+	@IBOutlet weak var previousButton: NavigationButton!
 	
 	weak var delegate: FeedbackSendViewControllerDelegate?
 	
 	var progress: Float = 0.0 {
 		didSet {
 			updateProgress(progress, animated: true)
+		}
+	}
+	
+	func showError() {
+		UIView.animate(withDuration: 0.3) {
+			self.feedbackSendFailureView.alpha = 1.0
+			self.feedbackSendProgressView.alpha = 0.0
 		}
 	}
 	
@@ -52,32 +80,35 @@ class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerIn
 	
 	private func setup() {
 		view.backgroundColor = .spaceBlack
-		titleLabel.font = .italicBig
-		titleLabel.textColor = .macaroniAndCheese
-		titleLabel.text = "feedback.send.success".localized
-		titleLabel.numberOfLines = 0
-		titleLabel.textAlignment = .center
-		progressView.progressTintColor = .macaroniAndCheese
-		progressView.trackTintColor = .clear
-		progressView.layer.borderWidth = 1
-		progressView.layer.borderColor = UIColor.macaroniAndCheese.cgColor
-		progressLabel.font = .regularSmall
-		progressLabel.textColor = .macaroniAndCheese
-		cancelButton.setTitle("feedback.button.cancel-sending".localized, for: .normal)
+		previousButton.setTitle("feedback.button.previous".localized, for: .normal)
 		updateProgress(0.0, animated: false)
+		showProgress()
 	}
 	
 	// MARK: - Actions
 	
-	@IBAction func cancel(_ sender: Any) {
-		delegate?.feedbackSendViewControllerCancelWasTapped(self)
+	@IBAction func toPreviousScreen(_ sender: Any) {
+		delegate?.feedbackSendViewControllerPreviousWasTapped(self)
 	}
-	
+
 	// MARK: - Progress
 	
+	private func showProgress() {
+		feedbackSendFailureView.alpha = 0.0
+		feedbackSendProgressView.alpha = 1.0
+	}
+	
 	private func updateProgress(_ progress: Float, animated: Bool) {
-		progressView?.setProgress(progress, animated: animated)
+		showProgress()
+		feedbackSendProgressView.progressView?.setProgress(progress, animated: animated)
 		let percentProgress = Int(progress * 100)
-		progressLabel?.text = "\(percentProgress)%"
+		feedbackSendProgressView.progressLabel?.text = "\(percentProgress)%"
+		if progress == 1.0 {
+			feedbackSendProgressView.title.text = "feedback.send.success".localized + "  " + "√"
+			previousButton.isHidden = true
+		} else {
+			feedbackSendProgressView.title.text = "feedback.send.in-progress".localized
+			previousButton.isHidden = false
+		}
 	}
 }
