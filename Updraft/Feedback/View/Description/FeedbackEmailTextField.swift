@@ -47,7 +47,10 @@ class FeedbackEmailTextField: UITextField {
 	
 	private func setup() {
 		font = .italic
-		attributedPlaceholder = NSAttributedString(string: "Your Email", attributes: Constants.placeholderAttributes)
+		attributedPlaceholder = NSAttributedString(
+			string: "feedback.text-field.email.placeholder".localized,
+			attributes: Constants.placeholderAttributes
+		)
 		keyboardType = .emailAddress
 		keyboardAppearance = .dark
 	}

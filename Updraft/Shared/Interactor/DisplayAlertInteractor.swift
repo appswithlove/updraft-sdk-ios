@@ -54,7 +54,7 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String) {
 		
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		let okAction = 	UIAlertAction(title: "OK", style: .default) { [weak self] (_) in
+		let okAction = 	UIAlertAction(title: "alert.button.ok".localized, style: .default) { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.displayedAlert = nil
 			strongSelf.output?.displayAlertInteractorUserDidAcknowledgeAlert(strongSelf)

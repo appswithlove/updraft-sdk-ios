@@ -84,7 +84,10 @@ class AutoUpdateManager {
 	}
 	
 	func informUserOfNewVersionAvailable() {
-		displayAlertInteractor.displayAlert(with: "You will be redirected to download the new version", title: "New version available")
+		displayAlertInteractor.displayAlert(
+			with: "auto-update.alert.new-version-available.message".localized,
+			title: "auto-update.alert.new-version-available.title".localized
+		)
 	}
 }
 

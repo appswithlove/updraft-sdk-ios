@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Updraft
+
+  Created by Raphael Neuenschwander on 19.08.18.
+  Copyright © 2018 Apps with love AG. All rights reserved.
+*/
+
+
+// !!!: GENERAL
+"alert.button.cancel" = "Cancel";
+"alert.button.ok" = "Ok";
+
+// !!!: AUTO UPDATE
+"auto-update.alert.new-version-available.title" = "New version available";
+"auto-update.alert.new-version-available.message" = "You will be redirected to download the new version";
+
+// !!!: FEEDBACK
+"feedback.alert.how-to-give-feedback.title" = "Give Feedback";
+"feedback.alert.how-to-give-feedback.message" = "Shake device or take a screenshot to give a feedback";
+
+"feedback.title" = "Give Feedback";
+"feedback.button.next" = "next";
+"feedback.button.previous" = "previous";
+"feedback.button.send-feedback" = "Send Feedback";
+"feedback.button.cancel-sending" = "cancel";
+"feedback.draw-explanation" = "Draw\nsomething\nhere...";
+"feedback.text-field.description.placeholder" = "Describe the issue...\nBrevity is the source of wit";
+"feedback.text-field.email.placeholder" = "Your Email";
+"feedback.picker.feedback-type.title" = "Type of Feedback";
+
+"feedback.type.design" = "Design";
+"feedback.type.bug" = "Bug";
+"feedback.type.feedback" = "Feedback";
+
+"feedback.send.success" = "Thank you \nfor the\nfeedback";
+

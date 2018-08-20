@@ -67,7 +67,7 @@ class FeedbackPaintViewController: UIViewController {
 	
 	private func setup() {
 		view.backgroundColor = .spaceBlack
-		nextButton.title = "next"
+		nextButton.title = "feedback.button.next".localized
 		[drawingContainer, brushContainer].forEach {
 			$0?.backgroundColor = .clear
 		}

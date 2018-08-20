@@ -31,7 +31,7 @@ class DrawViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .clear
-		dimView.title = "Draw\n something\n here..."
+		dimView.title = "feedback.draw-explanation".localized
 		drawView.backgroundImage = backgroundImage
 		drawView.onTouchBegan = { [weak self] in
 			self?.dimView.hide()

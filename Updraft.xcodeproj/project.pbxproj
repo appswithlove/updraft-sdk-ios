@@ -51,6 +51,8 @@
 		F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558AF202061D7006ADB14 /* ApiResource.swift */; };
 		F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */; };
 		F6B558B420206240006ADB14 /* UpdateUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B558B320206240006ADB14 /* UpdateUrlModel.swift */; };
+		F6C47A3E2129559600F551CE /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C47A3D2129559600F551CE /* String+localized.swift */; };
+		F6C47A5B2129593800F551CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6C47A5D2129593800F551CE /* Localizable.strings */; };
 		F6C5B7972074CA740034B38D /* FeedbackManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B7962074CA740034B38D /* FeedbackManagerSpy.swift */; };
 		F6C5B7992074CC980034B38D /* FeedbackManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B7982074CC980034B38D /* FeedbackManagerTests.swift */; };
 		F6C5B79B2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B79A2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift */; };
@@ -159,6 +161,8 @@
 		F6B558AF202061D7006ADB14 /* ApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
 		F6B558B1202061FE006ADB14 /* UpdateUrlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlResource.swift; sourceTree = "<group>"; };
 		F6B558B320206240006ADB14 /* UpdateUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUrlModel.swift; sourceTree = "<group>"; };
+		F6C47A3D2129559600F551CE /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		F6C47A5C2129593800F551CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6C5B7962074CA740034B38D /* FeedbackManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerSpy.swift; sourceTree = "<group>"; };
 		F6C5B7982074CC980034B38D /* FeedbackManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManagerTests.swift; sourceTree = "<group>"; };
 		F6C5B79A2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerFeedbackInteractorSpy.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */,
 				F6A79D70207E116C00C2AFC2 /* UIDevice+ModelName.swift */,
 				F6D641D820F4AC31003AA01D /* Bundle+updraft.swift */,
+				F6C47A3D2129559600F551CE /* String+localized.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -423,6 +428,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F6C47A58212958E500F551CE /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				F6C47A5D2129593800F551CE /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		F6D6419820F49DDA003AA01D /* Send */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +503,7 @@
 			children = (
 				F6D641D620F4A87C003AA01D /* Assets.xcassets */,
 				F6D641D120F49F26003AA01D /* Font */,
+				F6C47A58212958E500F551CE /* Localizable */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -701,6 +715,7 @@
 				F6D641D720F4A87C003AA01D /* Assets.xcassets in Resources */,
 				F6D641D520F49F30003AA01D /* CreteRound-Italic.ttf in Resources */,
 				F6D641B020F49DDB003AA01D /* FeedbackSendViewController.xib in Resources */,
+				F6C47A5B2129593800F551CE /* Localizable.strings in Resources */,
 				F6D641B420F49DDB003AA01D /* FeedbackDescriptionViewController.xib in Resources */,
 				F6D641D420F49F30003AA01D /* CreteRound-Regular.ttf in Resources */,
 				F6D641B520F49DDB003AA01D /* FeedbackViewController.xib in Resources */,
@@ -754,6 +769,7 @@
 				F6D641B320F49DDB003AA01D /* FeedbackDescriptionViewController.swift in Sources */,
 				F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
+				F6C47A3E2129559600F551CE /* String+localized.swift in Sources */,
 				F6D641B220F49DDB003AA01D /* FeedbackEmailTextField.swift in Sources */,
 				F63B13702073AF9300A96C0A /* TriggerFeedbackInteractor.swift in Sources */,
 				F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */,
@@ -840,6 +856,17 @@
 			targetProxy = F6F5A67B2015D70D009AFF2B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F6C47A5D2129593800F551CE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6C47A5C2129593800F551CE /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F6F5A6822015D70D009AFF2B /* Debug */ = {

@@ -54,7 +54,7 @@ class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerIn
 		view.backgroundColor = .spaceBlack
 		titleLabel.font = .italicBig
 		titleLabel.textColor = .macaroniAndCheese
-		titleLabel.text = "Thank you\n for the\n feedback"
+		titleLabel.text = "feedback.send.success".localized
 		titleLabel.numberOfLines = 0
 		titleLabel.textAlignment = .center
 		progressView.progressTintColor = .macaroniAndCheese
@@ -63,7 +63,7 @@ class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerIn
 		progressView.layer.borderColor = UIColor.macaroniAndCheese.cgColor
 		progressLabel.font = .regularSmall
 		progressLabel.textColor = .macaroniAndCheese
-		cancelButton.title = "Cancel"
+		cancelButton.setTitle("feedback.button.cancel-sending".localized, for: .normal)
 		updateProgress(0.0, animated: false)
 	}
 	
