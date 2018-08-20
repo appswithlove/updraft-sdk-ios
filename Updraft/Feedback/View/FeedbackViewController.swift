@@ -85,7 +85,7 @@ class FeedbackViewController: UIViewController {
 	private func setupUI() {
 		view.backgroundColor = .spaceBlack
 		containerView.backgroundColor = .clear
-		let updraftLogo = UIImage(named: "logoUpdraftSmallWhite", in: Bundle.updraft, compatibleWith: nil)
+		let updraftLogo = UIImage(named: "logoUpdraftWhiteSmall", in: Bundle.updraft, compatibleWith: nil)
 		logoImageView.image = updraftLogo
 		logoImageView.contentMode = .scaleAspectFit
 		titleLabel.text = "feedback.title".localized
