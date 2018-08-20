@@ -23,7 +23,6 @@
 "feedback.button.next" = "next";
 "feedback.button.previous" = "previous";
 "feedback.button.send-feedback" = "Send Feedback";
-"feedback.button.cancel-sending" = "cancel";
 "feedback.draw-explanation" = "Draw\nsomething\nhere...";
 "feedback.text-field.description.placeholder" = "Describe the issue...\nBrevity is the source of wit";
 "feedback.text-field.email.placeholder" = "Your Email";
@@ -33,5 +32,9 @@
 "feedback.type.bug" = "Bug";
 "feedback.type.feedback" = "Feedback";
 
-"feedback.send.success" = "Thank you \nfor the\nfeedback";
+"feedback.send.in-progress" = "Sending...";
+"feedback.send.success" = "Thank you for the feedback";
+"feedback.send.failure.title" = "Failed to send feedback";
+"feedback.send.failure.subtitle" = "An error occured while sending the feedback.";
+
 
