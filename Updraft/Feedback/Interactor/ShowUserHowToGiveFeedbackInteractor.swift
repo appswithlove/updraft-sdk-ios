@@ -44,7 +44,7 @@ class ShowUserHowToGiveFeedbackInteractor {
 extension ShowUserHowToGiveFeedbackInteractor: ShowUserHowToGiveFeedbackInteractorInput {
 	@objc func show(in seconds: Double) {
 		DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-			self.displayAlertInteractor.displayAlert(with: Constants.message, title: Constants.title)
+			self.displayAlertInteractor.displayAlert(with: Constants.message, title: Constants.title, cancelButton: false)
 		}
 	}
 }
@@ -52,7 +52,7 @@ extension ShowUserHowToGiveFeedbackInteractor: ShowUserHowToGiveFeedbackInteract
 // MARK: - DisplayAlertInteractorOutput
 
 extension ShowUserHowToGiveFeedbackInteractor: DisplayAlertInteractorOuput {
-	func displayAlertInteractorUserDidAcknowledgeAlert(_ sender: DisplayAlertInteractor) {
+	func displayAlertInteractorUserDidConfirm(_ sender: DisplayAlertInteractor) {
 		wasShown = true
 	}
 }

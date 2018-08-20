@@ -12,16 +12,23 @@ protocol DisplayAlertInteractorInput {
 	
 	/// Display alert to the user
 	///
-	/// - Parameter message: The message of the alert
-	/// - Parameter title: The title of the alert
-	func displayAlert(with message: String, title: String)
+	/// - Parameters:
+	///   - message: The message of the alert
+	///   - title: The title of the alert
+	///   - cancelButton: Boolean indicating if a cancel button should added to the alert
+	func displayAlert(with message: String, title: String, cancelButton: Bool)
 	
 	/// Clear any currently displayed message
 	func clearMessages()
 }
 
 protocol DisplayAlertInteractorOuput: class {
-	func displayAlertInteractorUserDidAcknowledgeAlert(_ sender: DisplayAlertInteractor)
+	func displayAlertInteractorUserDidConfirm(_ sender: DisplayAlertInteractor)
+	func displayAlertInteractorUserDidCancel(_ sender: DisplayAlertInteractor)
+}
+
+extension DisplayAlertInteractorOuput {
+	func displayAlertInteractorUserDidCancel(_ sender: DisplayAlertInteractor) {}
 }
 
 class DisplayAlertInteractor: AppUtility {
@@ -51,15 +58,25 @@ class DisplayAlertInteractor: AppUtility {
 // MARK: - DisplayAlertInteractorInput
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
-	func displayAlert(with message: String, title: String) {
+	func displayAlert(with message: String, title: String, cancelButton: Bool) {
 		
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		let okAction = 	UIAlertAction(title: "alert.button.ok".localized, style: .default) { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.displayedAlert = nil
-			strongSelf.output?.displayAlertInteractorUserDidAcknowledgeAlert(strongSelf)
+			strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
 		}
 		alert.addAction(okAction)
+		
+		if cancelButton {
+			let cancelAction = UIAlertAction(title: "alert.button.cancel".localized, style: .default) { [weak self] (_) in
+				guard let strongSelf = self else {return}
+				strongSelf.displayedAlert = nil
+				strongSelf.output?.displayAlertInteractorUserDidCancel(strongSelf)
+			}
+			alert.addAction(cancelAction)
+		}
+
 		self.showAlert(alert: alert)
 	}
 	

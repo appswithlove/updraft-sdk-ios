@@ -86,7 +86,8 @@ class AutoUpdateManager {
 	func informUserOfNewVersionAvailable() {
 		displayAlertInteractor.displayAlert(
 			with: "auto-update.alert.new-version-available.message".localized,
-			title: "auto-update.alert.new-version-available.title".localized
+			title: "auto-update.alert.new-version-available.title".localized,
+			cancelButton: true
 		)
 	}
 }
@@ -111,7 +112,7 @@ extension AutoUpdateManager: DownloadUpdateInteractorOutput {
 // MARK: - DisplayAlertInteractorOutput
 
 extension AutoUpdateManager: DisplayAlertInteractorOuput {
-	func displayAlertInteractorUserDidAcknowledgeAlert(_ sender: DisplayAlertInteractor) {
+	func displayAlertInteractorUserDidConfirm(_ sender: DisplayAlertInteractor) {
 		guard let url = updateUrl else {return}
 		redirectUserForUpdate(to: url)
 	}
