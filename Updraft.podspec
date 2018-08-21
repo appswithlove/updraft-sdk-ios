@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-    s.resource = "Updraft/**/*.{xib,xcassets,tff}"
+    s.resource = "Updraft/**/*.{xib,xcassets,ttf,strings}"
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
