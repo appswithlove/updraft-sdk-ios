@@ -33,6 +33,7 @@ Then, run the following command:
 
 ```bash
 $ pod install
+$ pod update
 ```
 
 ## Setup
@@ -80,8 +81,14 @@ $ pod install
 ## AutoUpdate
 
 AutoUpdate work by comparing the build number of the app installed on the user's device and the app uploaded on GetUpdraft.
+
+A prompt is displayed to the user if his installed version is lower than the version on Updraft.
 Thus, the build number must be incremented for each new build release to trigger the auto-update process.
+
+Micro version comparison is supported, for example version 1.2.3.2018080**4** is greater than version 1.2.3.2018080**3**
 
 ## Feedback
 
-Currently disabled
+A prompt is displayed to the user after first launch to explain him how he can give feedback. Displayed only once.
+
+User can shake his device ot take a screenshot to give a feedback.
