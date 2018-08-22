@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawViewController" customModule="testNavigation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawViewController" customModule="Updraft" customModuleProvider="target">
             <connections>
                 <outlet property="dimView" destination="wgj-Ui-dqo" id="vXA-xY-zPM"/>
                 <outlet property="drawView" destination="6jM-P7-QJE" id="6K7-fy-o6x"/>
@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jM-P7-QJE" customClass="DrawView" customModule="testNavigation" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jM-P7-QJE" customClass="DrawView" customModule="Updraft">
                     <rect key="frame" x="65" y="196" width="244" height="275"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -32,7 +32,7 @@
                         <constraint firstAttribute="height" constant="275" id="vuK-07-6yf"/>
                     </constraints>
                 </view>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgj-Ui-dqo" customClass="DimView" customModule="testNavigation" customModuleProvider="target">
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgj-Ui-dqo" customClass="DimView" customModule="Updraft">
                     <rect key="frame" x="65" y="196" width="244" height="275"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
