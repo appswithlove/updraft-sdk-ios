@@ -28,28 +28,28 @@ class LoadFontsInteractor: LoadFontsInteractorInput {
 	private func registerFontWith(filenameString: String) {
 		let bundle = Bundle.updraft
 		guard let pathForResourceString = bundle.path(forResource: filenameString, ofType: nil) else {
-			print("UIFont+:  Failed to register font \(filenameString) - path for resource not found.")
+			Logger.log("UIFont+:  Failed to register font \(filenameString) - path for resource not found.", level: .warning)
 			return
 		}
 		
 		guard let fontData = NSData(contentsOfFile: pathForResourceString) else {
-			print("UIFont+:  Failed to register font \(filenameString) - font data could not be loaded.")
+			Logger.log("UIFont+:  Failed to register font \(filenameString) - font data could not be loaded.", level: .warning)
 			return
 		}
 		
 		guard let dataProvider = CGDataProvider(data: fontData) else {
-			print("UIFont+:  Failed to register font \(filenameString) - data provider could not be loaded.")
+			Logger.log("UIFont+:  Failed to register font \(filenameString) - data provider could not be loaded.", level: .warning)
 			return
 		}
 		
 		guard let fontRef = CGFont(dataProvider) else {
-			print("UIFont+:  Failed to register font \(filenameString) - font could not be loaded.")
+			Logger.log("UIFont+:  Failed to register font \(filenameString) - font could not be loaded.", level: .warning)
 			return
 		}
 		
 		var errorRef: Unmanaged<CFError>? = nil
 		if (CTFontManagerRegisterGraphicsFont(fontRef, &errorRef) == false) {
-			print("UIFont+:  Failed to register font \(filenameString) - register graphics font failed - this font may have already been registered in the main bundle.")
+			Logger.log("UIFont+:  Failed to register font \(filenameString) - register graphics font failed - this font may have already been registered in the main bundle.", level: .warning)
 		}
 	}
 }

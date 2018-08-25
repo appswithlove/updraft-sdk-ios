@@ -8,32 +8,55 @@
 
 import Foundation
 
-struct Logger {
+/// Log levels
+///
+/// - debug: Debug level
+/// - Info: Info level
+/// - `warning`: Warning level
+/// - error: Error level
+/// - none: No logs
+@objc public enum LogLevel: Int {
+	case debug = 0, info, warning, error, none
 	
-	//As programmer, I want to log from code with a logLevel,
-	//As user, I want to be able to set different logLevel from the SDK
-	//- Speficying debug, show warning and error. - Warning show error etc. OptionSet could/should be used?
-	//- Show function name, line number, class name (typeOf works ?)
-	//Should system log be used ? os_log ? or simply print?
-	//Debug, warning and error is needed. Is verbose too much ?
-	
-	enum LogLevel {
-		case verbose, debug, warning, error
-	}
-	
-	init(settings: Settings) {
-		self.settings = settings
-	}
-	
-	var logLevel: LogLevel = .warning
-	var settings: Settings
-	
-	func log(_ items: Any..., level: LogLevel) {
-		switch level {
-		case :
-			<#code#>
-		default:
-			<#code#>
+	var textPrefix: String {
+		switch self {
+		case .debug:
+			return "🔨 DEBUG"
+		case .info:
+			return "💡 INFO"
+		case .warning:
+			return "⚠️ WARNING"
+		case .error:
+			return "❗️ERROR"
+		case .none:
+			return ""
 		}
+	}
+}
+
+public struct Logger {
+	
+	static var logLevel: LogLevel = .warning
+	
+	static func log(_ items: Any..., level: LogLevel, function: String = #function, line: Int = #line, filePath: String = #file) {
+		if level.rawValue >= logLevel.rawValue {
+			let message = buildLogMessage(logText: "\(items[0])", level: level, function: function, line: line, filePath: filePath)
+			Swift.print(message, separator: " ", terminator: "\n")
+		}
+	}
+	
+	private static func buildLogMessage(logText: String, level: LogLevel, function: String, line: Int, filePath: String) -> String {
+		var message = "--UPDRAFT--"
+		
+		message.append(" " + level.textPrefix)
+		
+		if level == .warning || level == .error {
+			let fileName = URL(fileURLWithPath: filePath).lastPathComponent
+			message.append(" - \(fileName) \(function):\(line)")
+		}
+		
+		message.append(" " + "-" + " " + logText )
+		
+		return message
 	}
 }

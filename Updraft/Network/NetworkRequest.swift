@@ -46,6 +46,8 @@ protocol NetworkRequest: class {
 	func load(_ urlRequest: URLRequest)
 	func cancelCurrentTask()
 	func decode(_ data: Data) throws -> Model
+	func logRequest(_ request: URLRequest)
+	func logResponse(request: URLRequest?, data: Data?, response: URLResponse?, error: Error?)
 	var session: NetworkSession {get}
 	var currentTask: URLSessionDataTask? {get set}
 }
@@ -53,8 +55,10 @@ protocol NetworkRequest: class {
 extension NetworkRequest {
 	
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void) {
+		logRequest(urlRequest)
 		currentTask = session.loadData(from: urlRequest) { [weak self] (data, response, error) in
 			guard let strongSelf = self else { return }
+			strongSelf.logResponse(request: urlRequest, data: data, response: response, error: error)
 			let result = strongSelf.responseHandler(data: data, response: response, error: error)
 			
 			//Dispatch result to main queue
@@ -65,6 +69,7 @@ extension NetworkRequest {
 	}
 	
 	func load(_ urlRequest: URLRequest) {
+		logRequest(urlRequest)
 		currentTask = session.loadData(from: urlRequest)
 	}
 	
@@ -104,5 +109,46 @@ extension NetworkRequest {
 		} catch {
 			throw error
 		}
+	}
+	
+	func logRequest(_ request: URLRequest) {
+		Logger.log(
+			"""
+			Loading URL request:
+			\(request.logMessage)
+			""",
+			level: .debug)
+	}
+	
+	func logResponse(request: URLRequest?, data: Data?, response: URLResponse?, error: Error?) {
+		guard let request = request else { return }
+		
+		let logResponse: String = {
+			guard let response = response else { return "NO RESPONSE" }
+			return response.debugDescription
+		}()
+		
+		let logData: String = {
+			guard let data = data else { return "NO DATA" }
+			return String(data: data, encoding: .utf8) ?? "DATA NOT .utf8 STRING DECODABLE"
+		}()
+		
+		let logError: String = {
+			guard let error = error else { return "NO ERROR" }
+			return error.localizedDescription
+		}()
+		
+		Logger.log(
+			"""
+			Recieved Response for URL Request:
+			********** REQUEST *********
+			\(request.logMessage)
+			********** RESPONSE *********
+			response: \(logResponse)
+			data: \(logData)
+			error: \(logError)
+			"""
+			,
+			level: .debug)
 	}
 }

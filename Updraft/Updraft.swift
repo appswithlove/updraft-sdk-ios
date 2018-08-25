@@ -28,6 +28,7 @@ final public class Updraft: NSObject {
 		self.autoUpdateManager = autoUpdateManager
 		self.feedbackManager = feedbackManager
 		self.loadFontsInteractor = loadFontsInteractor
+		self.logLevel = .warning
 	}
 	
 	convenience override init() {
@@ -61,10 +62,26 @@ final public class Updraft: NSObject {
 	/// - Parameter appKey: Your application key
 	/// - Parameter sdkKey: Your updraft sdk key
 	@objc public func start(sdkKey: String, appKey: String) {
+		Logger.log("Starting...", level: .info)
 		settings.sdkKey = sdkKey
 		settings.appKey = appKey
 		loadFontsInteractor.loadAll()
 		autoUpdateManager.start()
 		feedbackManager.start()
+	}
+
+	/// Minimum log level. For example, if `warning` is set, warning and error logs will be printed to the console.
+	///
+	/// Default is `warning`
+	///
+	/// - none
+	/// - error
+	/// - `warning`
+	/// - info
+	/// - debug
+	@objc open var logLevel: LogLevel {
+		didSet {
+			Logger.logLevel = logLevel
+		}
 	}
 }

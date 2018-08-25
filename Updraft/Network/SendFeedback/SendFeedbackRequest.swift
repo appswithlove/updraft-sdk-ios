@@ -41,7 +41,7 @@ class SendFeedbackRequest: NSObject, NetworkRequest {
 extension SendFeedbackRequest: URLSessionDelegate, URLSessionDataDelegate {
 	
 	func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-		print("\nSession \(session) upload completed, response \(String(describing: NSString.init(data: responseData, encoding: String.Encoding.utf8.rawValue)))")
+		logResponse(request: task.currentRequest, data: responseData, response: task.response, error: error)
 		let result = responseHandler(data: responseData, response: task.response, error: error)
 		completionHandler?(result)
 	}
@@ -56,7 +56,7 @@ extension SendFeedbackRequest: URLSessionDelegate, URLSessionDataDelegate {
 	
 	func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
 		let uploadProgress = Double(totalBytesSent) / Double(totalBytesExpectedToSend)
-		print("Upload Feedback Progress: \(uploadProgress)")
+		Logger.log("Sending feedback progress: \(uploadProgress)", level: .info)
 		progressHandler?(uploadProgress)
 	}
 }

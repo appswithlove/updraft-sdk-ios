@@ -92,3 +92,21 @@ Micro version comparison is supported, for example version 1.2.3.2018080**4** is
 A prompt is displayed to the user after first launch to explain him how he can give feedback. Displayed only once.
 
 User can shake his device ot take a screenshot to give a feedback.
+
+## Advanced setup:  Logging
+
+To check if data is send properly to Updraft and also see some additional SDK log data in the console, you can set different log levels.
+
+To change the log level, add the following line before starting the SDK:
+
+### Swift
+```Swift
+Updraft.shared.logLevel = .info
+```
+	
+### Objective-C
+```Objective-C
+[Updraft shared].logLevel = LogLevelInfo;
+```
+
+Default level: <b>warning</b> => Only warnings and errors will be printed.

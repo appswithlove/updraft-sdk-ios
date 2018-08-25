@@ -57,8 +57,10 @@ class SendFeedbackInteractor: NSObject {
 	
 	private func interpretError(_ error: Error) {
 		if (error as NSError).code == NSURLErrorCancelled {
+			Logger.log("Feedback sending was cancelled: \(error.localizedDescription)", level: .info)
 			output?.sendFeedbackInteractorDidCancel(self)
 		} else {
+			Logger.log("Failed to send feedback, reason: \(error.localizedDescription)", level: .error)
 			output?.sendFeedbackInteractorDidFail(self, error: error)
 		}
 	}
@@ -75,8 +77,8 @@ extension SendFeedbackInteractor: SendFeedbackInteractorInput {
 		}, completion: { [weak self] result in
 			guard let strongSelf = self else { return }
 			switch result {
-			case .success(let feedbackModel):
-				print(feedbackModel)
+			case .success:
+				Logger.log("Feedack sent with success!", level: .info)
 				strongSelf.output?.sendFeedbackInteractorDidSend(strongSelf)
 			case .error(let error):
 				strongSelf.interpretError(error)

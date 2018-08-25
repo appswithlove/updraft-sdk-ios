@@ -20,6 +20,7 @@
 		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
 		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
 		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
+		F63564CF212FF60C0094200E /* URLRequest+logMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */; };
 		F63B136A2073946400A96C0A /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B13692073946400A96C0A /* FeedbackManager.swift */; };
 		F63B136C20739C5A00A96C0A /* TakeScreenshotInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B136B20739C5A00A96C0A /* TakeScreenshotInteractor.swift */; };
 		F63B13702073AF9300A96C0A /* TriggerFeedbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B136F2073AF9300A96C0A /* TriggerFeedbackInteractor.swift */; };
@@ -64,7 +65,6 @@
 		F6C5B79D2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5B79C2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift */; };
 		F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */; };
 		F6D03F16203AC58B003FE65B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D03F15203AC58B003FE65B /* Settings.swift */; };
-		F6D36FA7203BF44000B0643E /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FA6203BF44000B0643E /* Print.swift */; };
 		F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */; };
 		F6D641AF20F49DDB003AA01D /* FeedbackSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6419920F49DDA003AA01D /* FeedbackSendViewController.swift */; };
 		F6D641B020F49DDB003AA01D /* FeedbackSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D6419A20F49DDA003AA01D /* FeedbackSendViewController.xib */; };
@@ -134,6 +134,7 @@
 		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
 		F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorInputSpy.swift; sourceTree = "<group>"; };
+		F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+logMessage.swift"; sourceTree = "<group>"; };
 		F636928B204545C50075F080 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F63B13692073946400A96C0A /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		F63B136B20739C5A00A96C0A /* TakeScreenshotInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeScreenshotInteractor.swift; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		F6C5B79C2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerFeedbackInteractorTests.swift; sourceTree = "<group>"; };
 		F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSessionManager.swift; sourceTree = "<group>"; };
 		F6D03F15203AC58B003FE65B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		F6D36FA6203BF44000B0643E /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		F6D36FAC203C3C9300B0643E /* DisplayAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractor.swift; sourceTree = "<group>"; };
 		F6D6419920F49DDA003AA01D /* FeedbackSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackSendViewController.swift; sourceTree = "<group>"; };
 		F6D6419A20F49DDA003AA01D /* FeedbackSendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackSendViewController.xib; sourceTree = "<group>"; };
@@ -316,7 +316,6 @@
 			children = (
 				F68088E02018B0D8008DE368 /* URLOpener.swift */,
 				F6632BF5203573970098FA77 /* NetworkSession.swift */,
-				F6D36FA6203BF44000B0643E /* Print.swift */,
 				F6E9F5602056C48900206FAE /* DispatchToMainThread.swift */,
 				F6A79D70207E116C00C2AFC2 /* UIDevice+ModelName.swift */,
 				F6D641D820F4AC31003AA01D /* Bundle+updraft.swift */,
@@ -540,6 +539,7 @@
 				F6D641C220F49E58003AA01D /* UIFont+Updraft.swift */,
 				F6DA9852203B11220002E4D1 /* DateFormatter+updraft.swift */,
 				F6EDACED208638FC00FC4F0B /* UIView+stickToView.swift */,
+				F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */,
 			);
 			path = Property;
 			sourceTree = "<group>";
@@ -774,7 +774,6 @@
 				F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */,
 				F6D641B920F49DDB003AA01D /* DrawView.swift in Sources */,
 				F644BD19207C8E8B003126F1 /* SendFeedbackInteractor.swift in Sources */,
-				F6D36FA7203BF44000B0643E /* Print.swift in Sources */,
 				F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */,
 				F6A79D77207E4F8D00C2AFC2 /* FeedbackModel.swift in Sources */,
 				F65964C6212ACA39008B84AE /* FeedbackSendFailureView.swift in Sources */,
@@ -808,6 +807,7 @@
 				F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */,
 				F67B495C207B601400272C09 /* FeedbackPresenter.swift in Sources */,
 				F644BD1E207C9169003126F1 /* SendFeedbackResource.swift in Sources */,
+				F63564CF212FF60C0094200E /* URLRequest+logMessage.swift in Sources */,
 				F6F5A6C82015EEE6009AFF2B /* Updraft.swift in Sources */,
 				F644BD20207C9233003126F1 /* SendFeedbackModel.swift in Sources */,
 				F63B136A2073946400A96C0A /* FeedbackManager.swift in Sources */,

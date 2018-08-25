@@ -94,4 +94,31 @@ class UpdraftTests: XCTestCase {
 		//Then
 		XCTAssertTrue(spy.loadAllWasCalled)
 	}
+	
+	func testWarningLogLevelOnInit() {
+		
+		//Given
+		let defaultLogLevel = LogLevel.warning
+		
+		//When
+		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		
+		//Then
+		XCTAssert(Logger.logLevel == defaultLogLevel)
+
+	}
+	
+	func testSetLogLevel() {
+		
+		//Given
+		let errorLevel = LogLevel.error
+		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		
+		//When
+		updraft.logLevel = errorLevel
+		
+		//Then
+		XCTAssert(Logger.logLevel == errorLevel)
+		
+	}
 }

@@ -51,10 +51,11 @@ class CheckUpdateInteractor: AppUtility {
 			switch result {
 			case .success(let model):
 				if let url = URL(string: model.updateUrl) {
+					Logger.log("New version can be downloaded at: \(url)", level: .info)
 					output.checkUpdateInteractor(strongSelf, newUpdateAvailableAt: url)
 				}
 			case .error(let error):
-				print("Getting Update url error: :\(error.localizedDescription)")
+				Logger.log("Failed to get update url: :\(error.localizedDescription)", level: .error)
 			}
 		}
 	}
@@ -75,9 +76,10 @@ extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 			guard let strongSelf = self, strongSelf.output != nil else { return }
 			switch result {
 			case .success(let model) where model.isNewVersionAvailable:
+				Logger.log("New Version available: \(model.updraftVersion ?? "")", level: .info)
 				strongSelf.getUpdateUrl()
 			case .error(let error):
-				print("Checking Update error: \(error.localizedDescription)")
+				Logger.log("Checking update failed: \(error.localizedDescription)", level: .error)
 			case .success:
 				break
 			}

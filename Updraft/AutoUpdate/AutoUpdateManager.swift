@@ -50,6 +50,7 @@ class AutoUpdateManager {
 	// MARK: Implementation
 	
 	func start() {
+		Logger.log("Starting Auto Update service...", level: .info)
 		self.subscribeToAppDidBecomeActive()
 		self.subscribeToAppWillResignActive()
 	}
@@ -76,6 +77,7 @@ class AutoUpdateManager {
 	}
 	
 	func checkUpdate() {
+		Logger.log("Checking if a new version is available...", level: .info)
 		self.checkUpdateInteractor.checkUpdate()
 	}
 	
@@ -105,7 +107,7 @@ extension AutoUpdateManager: CheckUpdateInteractorOutput {
 
 extension AutoUpdateManager: DownloadUpdateInteractorOutput {
 	func downloadUpdateInteractor(_ sender: DownloadUpdateInteractor, url: URL, didOpen: Bool) {
-		print("Did open url to download new version at: \(url).")
+		Logger.log("User opened url to download new version at: \(url).", level: .info)
 	}
 }
 

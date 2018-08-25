@@ -37,6 +37,7 @@ class FeedbackManager: AppUtility {
 	// MARK: Implementation
 	
 	func start() {
+		Logger.log("Starting Feedback service...", level: .info)
 		triggerFeedbackInteractor.start()
 		if !showUserHowToGiveFeedbackInteractor.wasShown {
 			showUserHowToGiveFeedbackInteractor.show(in: Constants.showFeedbackDelay)
@@ -57,6 +58,7 @@ extension FeedbackManager: TakeScreenshotInteractorOutput {
 
 extension FeedbackManager: TriggerFeedbackInteractorOutput {
 	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType) {
+		Logger.log("User triggered Feedback overlay with action: \(type)", level: .info)
 		takeScreenshotInteractor.takeScreenshot()
 	}
 }
