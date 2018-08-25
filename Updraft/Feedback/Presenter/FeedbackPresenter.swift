@@ -98,7 +98,7 @@ extension FeedbackPresenter: SendFeedbackInteractorOuput {
 	
 	func sendFeedbackInteractorDidFail(_ sender: SendFeedbackInteractor, error: Error) {
 		self.notification.notificationOccurred(.error)
-		feedbackViewController?.displayError()
+		feedbackViewController?.displayError("updraft_feedback_send_failure_subtitle".localized)
 	}
 	
 	func sendFeedbackInteractorDidCancel(_ sender: SendFeedbackInteractor) {

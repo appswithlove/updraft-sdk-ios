@@ -10,7 +10,7 @@ import UIKit
 
 protocol FeedbackSendViewControllerInterface {
 	var progress: Float { get set }
-	func showError()
+	func showError(_ message: String)
 }
 
 protocol FeedbackSendViewControllerDelegate: class {
@@ -52,7 +52,8 @@ class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerIn
 		}
 	}
 	
-	func showError() {
+	func showError(_ message: String) {
+		feedbackSendFailureView.subtitle.text = message
 		UIView.animate(withDuration: 0.3) {
 			self.feedbackSendFailureView.alpha = 1.0
 			self.feedbackSendProgressView.alpha = 0.0

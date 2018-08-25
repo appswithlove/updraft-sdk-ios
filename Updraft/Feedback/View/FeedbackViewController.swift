@@ -51,8 +51,8 @@ class FeedbackViewController: UIViewController {
 		feedbackSendViewController?.progress = progress
 	}
 	
-	func displayError() {
-		feedbackSendViewController?.showError()
+	func displayError(_ message: String) {
+		feedbackSendViewController?.showError(message)
 	}
 	
 	private func feedbackViewModel() -> FeedbackViewModel {

@@ -18,7 +18,7 @@ class FeedbackSendFailureView: UIView {
 		title.font = .italicBig
 		title.text = "updraft_feedback_send_failure_title".localized
 		subtitle.font = .italicSmall
-		subtitle.text = "updraft_feedback_send_failure_subtitle".localized
+		subtitle.text = ""
 		
 		[title, subtitle].forEach {
 			$0?.textColor = .macaroniAndCheese
