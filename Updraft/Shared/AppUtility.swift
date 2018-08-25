@@ -21,8 +21,10 @@ extension AppUtility {
 	
 	///Returns the build version
 	var buildVersion: String {
-		let dictionary = Bundle.main.infoDictionary!
-		let buildVersion = dictionary["CFBundleVersion"] as! String
+		let dictionary = Bundle.main.infoDictionary
+		guard let buildVersion = dictionary?["CFBundleVersion"] as? String else {
+			return "No Build Version found"
+		}
 		return buildVersion
 	}
 	
