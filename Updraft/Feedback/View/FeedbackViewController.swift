@@ -92,7 +92,7 @@ class FeedbackViewController: UIViewController {
 		let updraftLogo = UIImage(named: "logoUpdraftWhiteSmall", in: Bundle.updraft, compatibleWith: nil)
 		logoImageView.image = updraftLogo
 		logoImageView.contentMode = .scaleAspectFit
-		titleLabel.text = "feedback.title".localized
+		titleLabel.text = "updraft_feedback_title".localized
 		titleLabel.textColor = .white
 		titleLabel.font = UIFont.regularMedium
 		let closeImage = UIImage(named: "iconButtonClose", in: Bundle.updraft, compatibleWith: nil)

@@ -88,8 +88,8 @@ class FeedbackDescriptionViewController: UIViewController {
 		feedbackTypePicker.dataSource = self
 		feedbackTypePicker.backgroundColor = .white
 		feedbackTypeLabel.font = .italic
-		previousButton.title = "feedback.button.previous".localized
-		sendButton.setTitle("feedback.button.send-feedback".localized, for: .normal)
+		previousButton.title = "updraft_feedback_button_previous".localized
+		sendButton.setTitle("updraft_feedback_button_sendFeedback".localized, for: .normal)
 		let arrow = UIImage(named: "iconArrowDown", in: Bundle.updraft, compatibleWith: nil)
 		arrowButton.setImage(arrow, for: .normal)
 		
@@ -121,7 +121,7 @@ class FeedbackDescriptionViewController: UIViewController {
 	}
 	
 	func updateSelectedTag(_ tag: FeedbackViewModel.Tag?) {
-		feedbackTypeLabel.text = tag?.localized ?? "feedback.picker.feedback-type.title".localized
+		feedbackTypeLabel.text = tag?.localized ?? "updraft_feedback_picker_feedbackType_title".localized
 	}
 	
 	// MARK: - Actions

@@ -15,8 +15,8 @@ protocol ShowUserHowToGiveFeedbackInteractorInput {
 
 class ShowUserHowToGiveFeedbackInteractor {
 	struct Constants {
-			static let title = "feedback.alert.how-to-give-feedback.title".localized
-			static let message = "feedback.alert.how-to-give-feedback.message".localized
+			static let title = "updraft_feedback_alert_howToGiveFeedback_title".localized
+			static let message = "updraft_feedback_alert_howToGiveFeedback_message".localized
 			struct UserDefaults {
 				static let wasUserShownHowKey = "Updraft.WasUserShownHowToGiveFeedback"
 			}

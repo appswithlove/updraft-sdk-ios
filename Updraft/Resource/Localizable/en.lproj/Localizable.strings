@@ -8,33 +8,31 @@
 
 
 // !!!: GENERAL
-"alert.button.cancel" = "Cancel";
-"alert.button.ok" = "Ok";
+"updraft_alert_button_cancel" = "Cancel";
+"updraft_alert_button_ok" = "Ok";
 
 // !!!: AUTO UPDATE
-"auto-update.alert.new-version-available.title" = "New version available";
-"auto-update.alert.new-version-available.message" = "You will be redirected to download the new version";
+"updraft_autoUpdate_alert_newVersionAvailable_title" = "New version available";
+"updraft_autoUpdate_alert_newVersionAvailable_message" = "You will be redirected to download the new version";
 
 // !!!: FEEDBACK
-"feedback.alert.how-to-give-feedback.title" = "Give Feedback";
-"feedback.alert.how-to-give-feedback.message" = "Shake device or take a screenshot to give a feedback";
+"updraft_feedback_alert_howToGiveFeedback_title" = "Give Feedback";
+"updraft_feedback_alert_howToGiveFeedback_message" = "Shake device or take a screenshot to give a feedback";
 
-"feedback.title" = "Give Feedback";
-"feedback.button.next" = "next";
-"feedback.button.previous" = "previous";
-"feedback.button.send-feedback" = "Send Feedback";
-"feedback.draw-explanation" = "Draw\nsomething\nhere...";
-"feedback.text-field.description.placeholder" = "Describe the issue...\nBrevity is the source of wit";
-"feedback.text-field.email.placeholder" = "Your Email";
-"feedback.picker.feedback-type.title" = "Type of Feedback";
+"updraft_feedback_title" = "Give Feedback";
+"updraft_feedback_button_next" = "next";
+"updraft_feedback_button_previous" = "previous";
+"updraft_feedback_button_sendFeedback" = "Send Feedback";
+"updraft_feedback_drawExplanation" = "Draw\nsomething\nhere...";
+"updraft_feedback_textField_description_placeholder" = "Describe the issue...\nBrevity is the source of wit";
+"updraft_feedback_textField_email_placeholder" = "Your Email";
+"updraft_feedback_picker_feedbackType_title" = "Type of Feedback";
 
-"feedback.type.design" = "Design";
-"feedback.type.bug" = "Bug";
-"feedback.type.feedback" = "Feedback";
+"updraft_feedback_type_design" = "Design";
+"updraft_feedback_type_bug" = "Bug";
+"updraft_feedback_type_feedback" = "Feedback";
 
-"feedback.send.in-progress" = "Sending...";
-"feedback.send.success" = "Thank you for the feedback";
-"feedback.send.failure.title" = "Failed to send feedback";
-"feedback.send.failure.subtitle" = "An error occured while sending the feedback.";
-
-
+"updraft_feedback_send_inProgress" = "Sending...";
+"updraft_feedback_send_success" = "Thank you for the feedback";
+"updraft_feedback_send_failure_title" = "Failed to send feedback";
+"updraft_feedback_send_failure_subtitle" = "An error occured while sending the feedback.";

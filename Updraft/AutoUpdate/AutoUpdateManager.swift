@@ -87,8 +87,8 @@ class AutoUpdateManager {
 	
 	func informUserOfNewVersionAvailable() {
 		displayAlertInteractor.displayAlert(
-			with: "auto-update.alert.new-version-available.message".localized,
-			title: "auto-update.alert.new-version-available.title".localized,
+			with: "updraft_autoUpdate_alert_newVersionAvailable_message".localized,
+			title: "updraft_autoUpdate_alert_newVersionAvailable_title".localized,
 			cancelButton: true
 		)
 	}

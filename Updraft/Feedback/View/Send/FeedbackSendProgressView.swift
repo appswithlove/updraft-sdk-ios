@@ -18,7 +18,7 @@ class FeedbackSendProgressView: UIView {
 		super.awakeFromNib()
 		title.font = .italicMedium
 		title.textColor = .macaroniAndCheese
-		title.text = "feedback.send.success".localized + "  " + "√"
+		title.text = "updraft_feedback_send_success".localized + "  " + "√"
 		title.numberOfLines = 0
 		title.textAlignment = .center
 		progressView.progressTintColor = .macaroniAndCheese

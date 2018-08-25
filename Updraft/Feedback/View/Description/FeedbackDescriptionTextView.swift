@@ -38,7 +38,7 @@ class FeedbackDescriptionTextView: UIView {
 			$0.textContainerInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 			$0.font = .italic
 		}
-		placeholderTextView.text = "feedback.text-field.description.placeholder".localized
+		placeholderTextView.text = "updraft_feedback_textField_description_placeholder".localized
 		placeholderTextView.textColor = .greyish
 		placeholderTextView.isUserInteractionEnabled = false
 		

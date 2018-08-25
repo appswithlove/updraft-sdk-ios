@@ -80,7 +80,7 @@ class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerIn
 	
 	private func setup() {
 		view.backgroundColor = .spaceBlack
-		previousButton.setTitle("feedback.button.previous".localized, for: .normal)
+		previousButton.setTitle("updraft_feedback_button_previous".localized, for: .normal)
 		updateProgress(0.0, animated: false)
 		showProgress()
 	}
@@ -104,10 +104,10 @@ class FeedbackSendViewController: UIViewController, FeedbackSendViewControllerIn
 		let percentProgress = Int(progress * 100)
 		feedbackSendProgressView.progressLabel?.text = "\(percentProgress)%"
 		if progress == 1.0 {
-			feedbackSendProgressView.title.text = "feedback.send.success".localized + "  " + "√"
+			feedbackSendProgressView.title.text = "updraft_feedback_send_success".localized + "  " + "√"
 			previousButton.isHidden = true
 		} else {
-			feedbackSendProgressView.title.text = "feedback.send.in-progress".localized
+			feedbackSendProgressView.title.text = "updraft_feedback_send_inProgress".localized
 			previousButton.isHidden = false
 		}
 	}

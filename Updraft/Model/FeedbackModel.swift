@@ -27,11 +27,11 @@ struct FeedbackViewModel {
 		var localized: String {
 			switch self {
 			case .design:
-				return "feedback.type.design".localized
+				return "updraft_feedback_type_design".localized
 			case .bug:
-				return "feedback.type.bug".localized
+				return "updraft_feedback_type_bug".localized
 			case .feedback:
-				return "feedback.type.feedback".localized
+				return "updraft_feedback_type_feedback".localized
 			}
 		}
 		

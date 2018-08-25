@@ -16,9 +16,9 @@ class FeedbackSendFailureView: UIView {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		title.font = .italicBig
-		title.text = "feedback.send.failure.title".localized
+		title.text = "updraft_feedback_send_failure_title".localized
 		subtitle.font = .italicSmall
-		subtitle.text = "feedback.send.failure.subtitle".localized
+		subtitle.text = "updraft_feedback_send_failure_subtitle".localized
 		
 		[title, subtitle].forEach {
 			$0?.textColor = .macaroniAndCheese

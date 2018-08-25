@@ -61,7 +61,7 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String, cancelButton: Bool) {
 		
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		let okAction = 	UIAlertAction(title: "alert.button.ok".localized, style: .default) { [weak self] (_) in
+		let okAction = 	UIAlertAction(title: "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.displayedAlert = nil
 			strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
@@ -69,7 +69,7 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 		alert.addAction(okAction)
 		
 		if cancelButton {
-			let cancelAction = UIAlertAction(title: "alert.button.cancel".localized, style: .default) { [weak self] (_) in
+			let cancelAction = UIAlertAction(title: "updraft_alert_button_cancel".localized, style: .default) { [weak self] (_) in
 				guard let strongSelf = self else {return}
 				strongSelf.displayedAlert = nil
 				strongSelf.output?.displayAlertInteractorUserDidCancel(strongSelf)
