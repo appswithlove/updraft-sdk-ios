@@ -90,7 +90,7 @@ extension FeedbackPresenter: SendFeedbackInteractorOuput {
 	
 	func sendFeedbackInteractorDidSend(_ sender: SendFeedbackInteractor) {
 		feedbackViewController?.updateProgress(Float(1.0))
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 			self.notification.notificationOccurred(.success)
 			self.feedbackViewController?.dismiss(animated: true, completion: nil)
 		}
