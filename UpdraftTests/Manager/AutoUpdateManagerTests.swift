@@ -92,7 +92,7 @@ class AutoUpdateManagerTests: XCTestCase {
 		manager.updateUrl = URL(fileURLWithPath: "123")
 		
 		//When
-		displayAlertInteractor.output?.displayAlertInteractorUserDidAcknowledgeAlert(displayAlertInteractor)
+		displayAlertInteractor.output?.displayAlertInteractorUserDidConfirm(displayAlertInteractor)
 		
 		//Then
 		XCTAssertTrue(manager.redirectUserForUpdateWasCalled)

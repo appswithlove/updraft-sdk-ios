@@ -14,6 +14,8 @@ struct DecodableMock: Decodable {
 }
 
 class NetworkRequestSpy: NetworkRequest {
+	var currentTask: URLSessionDataTask?
+	
 	typealias Model = DecodableMock
 	var session: NetworkSession
 	

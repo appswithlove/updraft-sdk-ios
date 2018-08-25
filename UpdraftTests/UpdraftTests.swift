@@ -101,7 +101,7 @@ class UpdraftTests: XCTestCase {
 		let defaultLogLevel = LogLevel.warning
 		
 		//When
-		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
+		_ = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		
 		//Then
 		XCTAssert(Logger.logLevel == defaultLogLevel)

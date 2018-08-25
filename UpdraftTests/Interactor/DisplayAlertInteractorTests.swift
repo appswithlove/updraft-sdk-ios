@@ -31,9 +31,10 @@ class DisplayAlertInteractorTests: XCTestCase {
 		let sut = DisplayAlertInteractorSpy()
 		let title = "My Title"
 		let message = "My Message"
+		let hasCancelButton = true
 		
 		//When
-		sut.displayAlert(with: message, title: title)
+		sut.displayAlert(with: message, title: title, cancelButton: hasCancelButton)
 		
 		//Then
 		XCTAssertTrue(sut.wasShowAlertCalled)
