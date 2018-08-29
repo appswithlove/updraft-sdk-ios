@@ -11,6 +11,8 @@ import Foundation
 /// Handle the user generated feedback process.
 class FeedbackManager: AppUtility {
 	
+	private(set) var didBecomeActiveObserver: NSObjectProtocol?
+	private(set) var willResignActiveObserver: NSObjectProtocol?
 	let takeScreenshotInteractor: TakeScreenshotInteractorInput
 	let triggerFeedbackInteractor: TriggerFeedbackInteractorInput
 	let showUserHowToGiveFeedbackInteractor: ShowUserHowToGiveFeedbackInteractorInput
@@ -34,6 +36,15 @@ class FeedbackManager: AppUtility {
 		triggerFeedbackInteractor.output = self
 	}
 	
+	deinit {
+		if let obs = didBecomeActiveObserver {
+			NotificationCenter.default.removeObserver(obs)
+		}
+		if let obs = willResignActiveObserver {
+			NotificationCenter.default.removeObserver(obs)
+		}
+	}
+	
 	// MARK: Implementation
 	
 	func start() {
@@ -42,6 +53,20 @@ class FeedbackManager: AppUtility {
 		if !showUserHowToGiveFeedbackInteractor.wasShown {
 			showUserHowToGiveFeedbackInteractor.show(in: Constants.showFeedbackDelay)
 		}
+		subscribeToAppDidBecomeActive()
+		subscribeToAppWillResignActive()
+	}
+	
+	func subscribeToAppDidBecomeActive() {
+		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
+			self?.triggerFeedbackInteractor.start()
+		})
+	}
+		
+	func subscribeToAppWillResignActive() {
+		willResignActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil, using: { [weak self] (_) in
+			self?.triggerFeedbackInteractor.stop()
+		})
 	}
 }
 
@@ -58,6 +83,7 @@ extension FeedbackManager: TakeScreenshotInteractorOutput {
 
 extension FeedbackManager: TriggerFeedbackInteractorOutput {
 	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType) {
+		guard UIApplication.shared.applicationState == .active else {return}
 		Logger.log("User triggered Feedback overlay with action: \(type)", level: .info)
 		takeScreenshotInteractor.takeScreenshot()
 	}

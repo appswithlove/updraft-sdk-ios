@@ -12,6 +12,9 @@ import CoreMotion
 protocol TriggerFeedbackInteractorInput {
 	/// Start listening to feedback triggers
 	func start()
+	
+	/// Stop listening to feedback triggers
+	func stop()
 }
 
 protocol TriggerFeedbackInteractorOutput: class {
@@ -37,14 +40,23 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 		}()
 	
 	deinit {
-		if let obs = screenshotObserver {
-			NotificationCenter.default.removeObserver(obs)
-		}
+		stop()
 	}
-	
+
 	func start() {
 		observeUserDidTakeScreenshot()
 		detectShake()
+	}
+	
+	func stop() {
+		removeScreenshotObserver()
+		stopDetectingShake()
+	}
+	
+	func removeScreenshotObserver() {
+		if let obs = screenshotObserver {
+			NotificationCenter.default.removeObserver(obs)
+		}
 	}
 	
 	/// Observe when the user takes a screenshot, usually by pressing "Home" + "Lock" buttons
@@ -67,6 +79,10 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 				}
 			}
 		}
+	}
+	
+	func stopDetectingShake() {
+		motionManager.stopAccelerometerUpdates()
 	}
 	
 	/// Determines if the acceleration, given a g-force thresold, is considered a "shake"
