@@ -12,29 +12,33 @@ Updraft SDK for iOS
 
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+Get [CocoaPods](http://cocoapods.org) and specify Updraft in your Podfile:
 
 ```bash
-$ gem install cocoapods
-```
-
-To integrate Updraft into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-platform :ios, '10.0'
-use_frameworks!
-
-target '<Your Target Name>' do
 pod 'Updraft', :git => 'http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git'
-end
 ```
 
-Then, run the following command:
+Then, run:
 
 ```bash
-$ pod install
-$ pod update
+pod install
 ```
+
+### Carthage
+Get [Carthage](https://github.com/Carthage/Carthage) and specify Updraft in your Cartfile:
+
+```bash
+git "http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git"
+```
+
+Then, run:
+
+```bash
+carthage update
+```
+
+In your application targets “General” tab under the “Linked Frameworks and Libraries” section, drag and drop Updraft.framework from the Carthage/Build/iOS directory that carthage update produced.
+
 
 ## Setup
 
