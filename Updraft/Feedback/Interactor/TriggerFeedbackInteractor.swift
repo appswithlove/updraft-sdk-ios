@@ -93,8 +93,8 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	/// - Returns: Boolean value indicating whether a shake is detected.
 	func isShakeDetected(acceleration: CMAcceleration, thresold: Double) -> Bool {
 		if abs(acceleration.x) > thresold ||
-			abs(acceleration.y) > thresold ||
-			abs(acceleration.z) > thresold {
+			abs(acceleration.y) > thresold {
+			Logger.log("Shake detected with acceleration (x: \(acceleration.x), y: \(acceleration.y))", level: .debug)
 			return true
 		}
 		return false
