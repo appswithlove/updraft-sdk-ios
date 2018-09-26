@@ -105,32 +105,18 @@ class DrawView: UIView {
 	}
 	
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-		guard let touch = touches.first else { return }
+		guard let touch = touches.first,
+			let event = event,
+			let touches = event.coalescedTouches(for: touch)
+			else { return }
+		
 		swiped = true
 		
 		switch drawBrush {
 		case .eraser:
-			erase(for: touch)
+			touches.forEach { erase(for: $0) }
 		case .brush:
-			pointIndex += 1
-			let currentPoint = touch.location(in: drawImageView)
-			points[pointIndex] = currentPoint
-			
-			if pointIndex == 4 {
-				//1. Move the endpoint to the middle of the line joining the second control point of the first Bezier segment
-				// and the first control point of the second Bezier segment
-				points[3] = CGPoint(x: (points[2].x + points[4].x)/2.0, y: (points[2].y + points[4].y) / 2.0)
-				
-				//2. draw
-				if let currentPath = lines.last {
-					addSubPath(to: currentPath.path, fromPoint: points[0], toPoint: points[3], controlPoint1: points[1], controlPoint2: points[2])
-				}
-				
-				//3. replace points and get ready to handle the next segment
-				points[0] = points[3]
-				points[1] = points[4]
-				pointIndex = 1
-			}
+			touches.forEach { draw(for: $0) }
 		}
 	}
 	
@@ -170,6 +156,29 @@ class DrawView: UIView {
 		
 		drawImageView.image = UIGraphicsGetImageFromCurrentImageContext()
 		drawImageView.sizeToFit()
+	}
+	
+	private func draw(for touch: UITouch) {
+		pointIndex += 1
+		let currentPoint = touch.location(in: drawImageView)
+		points[pointIndex] = currentPoint
+		
+		if pointIndex == 4 {
+			//1. Move the endpoint to the middle of the line joining the second control point of the first Bezier segment
+			// and the first control point of the second Bezier segment
+			points[3] = CGPoint(x: (points[2].x + points[4].x)/2.0, y: (points[2].y + points[4].y) / 2.0)
+			
+			//2. draw
+			if let currentPath = lines.last {
+				addSubPath(to: currentPath.path, fromPoint: points[0], toPoint: points[3], controlPoint1: points[1], controlPoint2: points[2])
+			}
+			
+			//3. replace points and get ready to handle the next segment
+			points[0] = points[3]
+			points[1] = points[4]
+			pointIndex = 1
+		}
+
 	}
 	
 	private func erase(for touch: UITouch) {
