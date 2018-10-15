@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = "Updraft"
-  s.version           = "0.3.2"
+  s.version           = "0.3.3"
   s.summary           = "Mobile App Distribution"
   s.homepage          = "https://u2.getupdraft.com"
   s.license           = { :type => "MIT", :file => "LICENSE" }

@@ -95,7 +95,7 @@ Micro version comparison is supported, for example version 1.2.3.2018080**4** is
 
 A prompt is displayed to the user after first launch to explain him how he can give feedback. Displayed only once.
 
-User can shake his device ot take a screenshot to give a feedback.
+User can take a screenshot to give a feedback.
 
 ## Advanced setup:  Logging
 
