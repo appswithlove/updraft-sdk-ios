@@ -12,32 +12,6 @@ import CoreMotion
 
 class TriggerFeedbackInteractorTests: XCTestCase {
 	
-	func testShakeIsDetectedWhenThresoldIsReached() {
-		//Given
-		let thresold: Double = 2.0
-		let acceleration = CMAcceleration(x: 2.1, y: 1.5, z: 1.3)
-		let triggerFeedbackInteractor = TriggerFeedbackInteractor()
-		
-		//When
-		let isDetected = triggerFeedbackInteractor.isShakeDetected(acceleration: acceleration, thresold: thresold)
-		
-		//Then
-		XCTAssertTrue(isDetected)
-	}
-	
-	func testShakeIsNotDetectedWhenThresoldIsNotReached() {
-		//Given
-		let thresold: Double = 2.0
-		let acceleration = CMAcceleration(x: 0.1, y: 1.5, z: 1.3)
-		let triggerFeedbackInteractor = TriggerFeedbackInteractor()
-		
-		//When
-		let isDetected = triggerFeedbackInteractor.isShakeDetected(acceleration: acceleration, thresold: thresold)
-		
-		//Then
-		XCTAssertFalse(isDetected)
-	}
-	
 	func testObserveUserDidTakeScreenshotIsCalledOnStart() {
 		//Given
 		let spy = TriggerFeedbackInteractorSpy()

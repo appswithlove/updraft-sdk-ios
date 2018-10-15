@@ -82,9 +82,8 @@ extension FeedbackManager: TakeScreenshotInteractorOutput {
 // MARK: - TriggerFeedbackInteractorOutput
 
 extension FeedbackManager: TriggerFeedbackInteractorOutput {
-	func triggerFeedbackInteractor(_ sender: TriggerFeedbackInteractor, userDidTriggerFeedbackWith type: TriggerFeedbackInteractor.TriggerType) {
-		guard UIApplication.shared.applicationState == .active else {return}
-		Logger.log("User triggered Feedback overlay with action: \(type)", level: .info)
+	func triggerFeedbackInteractorUserDidTakeScreenshot(_ sender: TriggerFeedbackInteractor) {
+		Logger.log("User triggered Feedback overlay", level: .info)
 		takeScreenshotInteractor.takeScreenshot()
 	}
 }

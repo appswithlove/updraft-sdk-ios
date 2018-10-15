@@ -72,7 +72,7 @@ class FeedbackManagerTests: XCTestCase {
 		triggerScreenshotInteractor.output = manager
 		
 		//when
-		triggerScreenshotInteractor.output?.triggerFeedbackInteractor(triggerScreenshotInteractor, userDidTriggerFeedbackWith: .screenshot)
+		triggerScreenshotInteractor.output?.triggerFeedbackInteractorUserDidTakeScreenshot(triggerScreenshotInteractor)
 		
 		//Then
 		XCTAssertTrue(spy.takeScreenshotWasCalled)
