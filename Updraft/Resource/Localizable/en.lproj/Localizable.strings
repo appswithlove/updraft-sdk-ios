@@ -17,7 +17,7 @@
 
 // !!!: FEEDBACK
 "updraft_feedback_alert_howToGiveFeedback_title" = "Give Feedback";
-"updraft_feedback_alert_howToGiveFeedback_message" = "Shake device or take a screenshot to give a feedback";
+"updraft_feedback_alert_howToGiveFeedback_message" = "Take a screenshot to give a feedback.";
 
 "updraft_feedback_title" = "Give Feedback";
 "updraft_feedback_button_next" = "next";
