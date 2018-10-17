@@ -49,9 +49,10 @@ class CheckUpdateRequestTests: XCTestCase {
 				//Then
 				XCTAssertEqual("2018-03-07T13:41:04.699669Z", model.lastBuildDate)
 				XCTAssertEqual("Bugfixes", model.releaseNotes)
-				XCTAssertEqual("1.4", model.updraftVersion)
-				XCTAssertEqual("1.5", model.onDeviceVersion)
+				XCTAssertEqual("1.5", model.updraftVersion)
+				XCTAssertEqual("1.4", model.onDeviceVersion)
 				XCTAssertEqual(true, model.isNewVersionAvailable)
+				XCTAssertEqual(true, model.isAutoUpdateEnabled)
 			default:
 				XCTAssertTrue(false, "error")
 			}
