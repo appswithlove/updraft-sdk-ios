@@ -15,6 +15,7 @@ struct CheckUpdateModel: Decodable {
 	var updraftVersion: String?
 	var onDeviceVersion: String
 	var isNewVersionAvailable: Bool
+	var isAutoUpdateEnabled: Bool
 	
 	enum CodingKeys: String, CodingKey {
 		case lastBuildDate = "create_at"
@@ -22,5 +23,6 @@ struct CheckUpdateModel: Decodable {
 		case updraftVersion = "version"
 		case onDeviceVersion = "your_version"
 		case isNewVersionAvailable = "is_new_version"
+		case isAutoUpdateEnabled = "is_autoupdate_enabled"
 	}
 }
