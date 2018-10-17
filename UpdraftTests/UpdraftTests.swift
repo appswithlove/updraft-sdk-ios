@@ -110,6 +110,8 @@ class UpdraftTests: XCTestCase {
 	
 	func testSetLogLevel() {
 		
+		let currentLogLevel = Logger.logLevel
+		
 		//Given
 		let errorLevel = LogLevel.error
 		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
@@ -120,5 +122,7 @@ class UpdraftTests: XCTestCase {
 		//Then
 		XCTAssert(Logger.logLevel == errorLevel)
 		
+		//Teardown
+		Logger.logLevel = currentLogLevel
 	}
 }
