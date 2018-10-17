@@ -11,17 +11,11 @@ import Foundation
 
 class TriggerFeedbackInteractorSpy: TriggerFeedbackInteractor {
 	var startWasCalled = false
-	var detectShakeWasCalled = false
 	var observeUserDidTakeScreenshotWasCalled = false
 	
 	override func start() {
 		super.start()
 		startWasCalled = true
-	}
-	
-	override func detectShake() {
-		super.detectShake()
-		detectShakeWasCalled = true
 	}
 	
 	override func observeUserDidTakeScreenshot() {

@@ -23,17 +23,6 @@ class TriggerFeedbackInteractorTests: XCTestCase {
 		XCTAssertTrue(spy.observeUserDidTakeScreenshotWasCalled, "ObserveUserDidTakeScreenshot was not called on start")
 	}
 	
-	func testDetectShakeIsCalledOnStart() {
-		//Given
-		let spy = TriggerFeedbackInteractorSpy()
-		
-		//When
-		spy.start()
-		
-		//Then
-		XCTAssertTrue(spy.detectShakeWasCalled, "DetectShake was not called on start")
-	}
-	
 	func testObserveUserDidTakeScreenshot() {
 		
 		//Given
