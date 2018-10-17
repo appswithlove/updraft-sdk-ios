@@ -76,7 +76,7 @@ extension CheckUpdateInteractor: CheckUpdateInteractorInput {
 			guard let strongSelf = self, strongSelf.output != nil else { return }
 			switch result {
 			case .success(let model) where !model.isNewVersionAvailable:
-				Logger.log("No new version available, your version: \(model.onDeviceVersion), Updraft version: \(model.updraftVersion ?? "NONE")", level: .info)
+				Logger.log("No new version available, your version: \(model.onDeviceVersion), Updraft version: \(model.updraftVersion ?? "NONE"), auto update enabled: \(model.isAutoUpdateEnabled)", level: .info)
 			case .success(let model) where model.isNewVersionAvailable:
 				Logger.log("New Version available: \(model.updraftVersion ?? "")", level: .info)
 				strongSelf.getUpdateUrl()
