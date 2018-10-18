@@ -18,6 +18,7 @@
 		F60541D62178849A00DA16F6 /* FeedbackEnabledResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D52178849A00DA16F6 /* FeedbackEnabledResource.swift */; };
 		F60541D82178863E00DA16F6 /* FeedbackEnabledModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D72178863E00DA16F6 /* FeedbackEnabledModel.swift */; };
 		F60541DA2178879100DA16F6 /* FeedbackEnabledRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */; };
+		F60541DC21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */; };
 		F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BB207F46F4006593AA /* UserEmailInteractor.swift */; };
 		F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */; };
 		F61B90C2207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */; };
@@ -136,6 +137,7 @@
 		F60541D52178849A00DA16F6 /* FeedbackEnabledResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledResource.swift; sourceTree = "<group>"; };
 		F60541D72178863E00DA16F6 /* FeedbackEnabledModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledModel.swift; sourceTree = "<group>"; };
 		F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledRequestTests.swift; sourceTree = "<group>"; };
+		F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFeedbackEnabledInteractor.swift; sourceTree = "<group>"; };
 		F61B90BB207F46F4006593AA /* UserEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEmailInteractor.swift; sourceTree = "<group>"; };
 		F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUserHowToGiveFeedbackInteractor.swift; sourceTree = "<group>"; };
 		F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUserHowToGiveFeedbackInteractorSpy.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				F644BD18207C8E8B003126F1 /* SendFeedbackInteractor.swift */,
+				F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */,
 				F63B136F2073AF9300A96C0A /* TriggerFeedbackInteractor.swift */,
 				F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */,
 			);
@@ -804,6 +807,7 @@
 				F6D641C920F49E78003AA01D /* UIViewController+add.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
+				F60541DC21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift in Sources */,
 				F6D641B320F49DDB003AA01D /* FeedbackDescriptionViewController.swift in Sources */,
 				F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */,
 				F65964EF212ADE31008B84AE /* FeedbackSendProgressView.swift in Sources */,
