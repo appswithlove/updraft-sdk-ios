@@ -29,7 +29,7 @@ class NetworkRequestTests: XCTestCase {
 		let jsonString =
 		"""
 		{
-		\"identifier\": 1
+		"identifier": 1
 		}
 		"""
 		

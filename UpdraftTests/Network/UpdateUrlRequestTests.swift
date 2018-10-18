@@ -28,7 +28,7 @@ class UpdateUrlRequestTests: XCTestCase {
 		let jsonString =
 		"""
 		{
-		\"update_url\": \"www.updraft.com\"
+		"update_url": "www.updraft.com"
 		}
 		"""
 		

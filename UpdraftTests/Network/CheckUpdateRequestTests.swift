@@ -28,11 +28,11 @@ class CheckUpdateRequestTests: XCTestCase {
 		let jsonString =
 		"""
 		{
-		\"create_at\": \"2018-03-07T13:41:04.699669Z\",
-		\"whats_new\": \"Bugfixes\",
-		\"version\": \"1.4\",
-		\"your_version\": \"1.5\",
-		\"is_new_version\": true
+		"create_at": "2018-03-07T13:41:04.699669Z",
+		"whats_new": "Bugfixes",
+		"version": "1.4",
+		"your_version": "1.5",
+		"is_new_version": true
 		}
 		"""
 		
