@@ -10,6 +10,10 @@ import Foundation
 import CoreMotion
 
 protocol TriggerFeedbackInteractorInput {
+	
+	/// Boolean indicating if the trigger is active
+	var isActive: Bool { get }
+	
 	/// Start listening to feedback triggers
 	func start()
 	
@@ -26,31 +30,36 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	
 	private (set) var screenshotObserver: NSObjectProtocol?
 	weak var output: TriggerFeedbackInteractorOutput?
+	var isActive: Bool = false
 	
 	deinit {
 		stop()
 	}
 
 	func start() {
+		Logger.log("Starting Feedback Trigger service...", level: .info)
 		observeUserDidTakeScreenshot()
 	}
 	
 	func stop() {
+		Logger.log("Stopping Feedback Trigger service...", level: .info)
 		removeScreenshotObserver()
 	}
 	
 	func removeScreenshotObserver() {
 		if let obs = screenshotObserver {
 			NotificationCenter.default.removeObserver(obs)
+			isActive = false
 		}
 	}
 	
-	/// Observe when the user takes a screenshot, usually by pressing "Home" + "Lock" buttons
+	/// Observe when the user takes a screenshot
 	func observeUserDidTakeScreenshot() {
 		removeScreenshotObserver()
 		screenshotObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: nil, using: { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.output?.triggerFeedbackInteractorUserDidTakeScreenshot(strongSelf)
 		})
+		isActive = true
 	}
 }

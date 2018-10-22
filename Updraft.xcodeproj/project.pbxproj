@@ -20,7 +20,7 @@
 		F60541DA2178879100DA16F6 /* FeedbackEnabledRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */; };
 		F60541DC21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */; };
 		F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BB207F46F4006593AA /* UserEmailInteractor.swift */; };
-		F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */; };
+		F61B90BE207F495D006593AA /* ShowFeedbackStatusInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BD207F495D006593AA /* ShowFeedbackStatusInteractor.swift */; };
 		F61B90C2207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */; };
 		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
 		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
@@ -139,7 +139,7 @@
 		F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledRequestTests.swift; sourceTree = "<group>"; };
 		F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFeedbackEnabledInteractor.swift; sourceTree = "<group>"; };
 		F61B90BB207F46F4006593AA /* UserEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEmailInteractor.swift; sourceTree = "<group>"; };
-		F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUserHowToGiveFeedbackInteractor.swift; sourceTree = "<group>"; };
+		F61B90BD207F495D006593AA /* ShowFeedbackStatusInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFeedbackStatusInteractor.swift; sourceTree = "<group>"; };
 		F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUserHowToGiveFeedbackInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 				F644BD18207C8E8B003126F1 /* SendFeedbackInteractor.swift */,
 				F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */,
 				F63B136F2073AF9300A96C0A /* TriggerFeedbackInteractor.swift */,
-				F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */,
+				F61B90BD207F495D006593AA /* ShowFeedbackStatusInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -817,7 +817,7 @@
 				F664809E212C396100C32B43 /* Logger.swift in Sources */,
 				F6D641B220F49DDB003AA01D /* FeedbackEmailTextField.swift in Sources */,
 				F63B13702073AF9300A96C0A /* TriggerFeedbackInteractor.swift in Sources */,
-				F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */,
+				F61B90BE207F495D006593AA /* ShowFeedbackStatusInteractor.swift in Sources */,
 				F6D641C620F49E58003AA01D /* UIColor+Updraft.swift in Sources */,
 				F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */,
 				F6605E2C20F4C14F00F2B8A5 /* LoadFontsInteractor.swift in Sources */,
