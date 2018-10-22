@@ -10,13 +10,13 @@ import Foundation
 
 protocol ShowFeedbackStatusInteractorInput {
 	/// Last status shown to the user
-	var lastShown: ShowFeedbackStatusInteractor.FeedbackStatusType? {get}
+	var lastShown: ShowFeedbackStatusInteractor.FeedbackStatusType? {get set}
 	
 	/// Show status to the user
 	func show(for status: ShowFeedbackStatusInteractor.FeedbackStatusType, in seconds: TimeInterval)
 }
 
-class ShowFeedbackStatusInteractor {
+class ShowFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput {
 	
 	enum FeedbackStatusType: Int {
 		case enabled = 1
@@ -66,11 +66,9 @@ class ShowFeedbackStatusInteractor {
 		self.displayAlertInteractor = displayAlertInteractor
 		displayAlertInteractor.output = self
 	}
-}
-
+	
 // MARK: - ShowFeedbackStatusInteractorInput
-
-extension ShowFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput {
+	
 	func show(for status: FeedbackStatusType, in seconds: TimeInterval) {
 		timer?.invalidate()
 		timer = nil

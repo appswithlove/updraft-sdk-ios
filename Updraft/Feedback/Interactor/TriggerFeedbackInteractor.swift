@@ -49,8 +49,8 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	func removeScreenshotObserver() {
 		if let obs = screenshotObserver {
 			NotificationCenter.default.removeObserver(obs)
-			isActive = false
 		}
+		isActive = false
 	}
 	
 	/// Observe when the user takes a screenshot
