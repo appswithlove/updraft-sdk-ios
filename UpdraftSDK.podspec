@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name              = "Updraft"
+  s.name              = "UpdraftSDK"
   s.version           = "0.3.3"
   s.summary           = "Mobile App Distribution"
   s.homepage          = "https://u2.getupdraft.com"
