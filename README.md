@@ -44,11 +44,17 @@ In your application targets “General” tab under the “Linked Frameworks and
 
 ### Swift
 
-1. Import Updraft module in AppDelegate
+1. Import Updraft module in AppDelegate:
 
  	```Swift
 	import Updraft
 	```
+	If using Cocoapods:
+	
+	```Swift
+	import UpdraftSDK
+	```
+	
 2. Start the SDK with your "SDK Key" and "App Key":
 
 	```Swift
@@ -67,6 +73,12 @@ In your application targets “General” tab under the “Linked Frameworks and
 	```Objective-C
 	@import Updraft;
 	```
+	If using Cocoapods:
+	
+	```Objective-C
+	@import UpdraftSDK;
+	```
+	
 2. Start the SDK with your "SDK Key" and "App Key":
 
 	```Objective-C
