@@ -12,10 +12,10 @@ Updraft SDK for iOS
 
 ### CocoaPods
 
-Get [CocoaPods](http://cocoapods.org) and specify Updraft in your Podfile:
+Get [CocoaPods](http://cocoapods.org) and specify UpdraftSDK in your Podfile:
 
 ```bash
-pod 'UpdraftSDK', :git => 'http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git'
+pod 'UpdraftSDK'
 ```
 
 Then, run:
@@ -28,7 +28,7 @@ pod install
 Get [Carthage](https://github.com/Carthage/Carthage) and specify Updraft in your Cartfile:
 
 ```bash
-git "http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git"
+github "appswithlove/updraft-sdk-ios"
 ```
 
 Then, run:
@@ -52,12 +52,12 @@ In your application targets “General” tab under the “Linked Frameworks and
 2. Start the SDK with your "SDK Key" and "App Key":
 
 	```Swift
-		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-			Updraft.shared.start(sdkKey: "YOUR_SDK_KEY", appKey: "YOUR_APP_KEY")
+		Updraft.shared.start(sdkKey: "YOUR_SDK_KEY", appKey: "YOUR_APP_KEY")
 			
-			return true
-		}
+		return true
+	}
 	```
 	
 ### Objective-C
@@ -79,8 +79,8 @@ In your application targets “General” tab under the “Linked Frameworks and
 	```
 	
 #### Parameters
-- <b>sdkKey</b>: Your sdk key obtained on getupdraft
-- <b>appKey</b>: You app key obtained on getupdraft
+- <b>sdkKey</b>: Your sdk key obtained on [Updraft](https://getupdraft.com)
+- <b>appKey</b>: You app key obtained on [Updraft](https://getupdraft.com)
 
 ## AutoUpdate
 
