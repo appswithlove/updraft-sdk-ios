@@ -15,7 +15,7 @@ Updraft SDK for iOS
 Get [CocoaPods](http://cocoapods.org) and specify Updraft in your Podfile:
 
 ```bash
-pod 'Updraft', :git => 'http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git'
+pod 'UpdraftSDK', :git => 'http://gitlab.appswithlove.net/updraft-projects/updraft-sdk-ios.git'
 ```
 
 Then, run:
