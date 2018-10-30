@@ -1,5 +1,7 @@
 # Updraft SDK
 
+![Updraft: Mobile App Distribution](updraft.png)
+
 Updraft SDK for iOS
 
 ## Requirements
@@ -28,7 +30,7 @@ pod install
 Get [Carthage](https://github.com/Carthage/Carthage) and specify Updraft in your Cartfile:
 
 ```bash
-github "appswithlove/updraft-sdk-ios"
+github 'appswithlove/updraft-sdk-ios'
 ```
 
 Then, run:
