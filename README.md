@@ -1,8 +1,18 @@
-# Updraft SDK
-
 ![Updraft: Mobile App Distribution](updraft.png)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/appswithlove/updraft-sdk-ios/master/LICENSE)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/UpdraftSDK.svg)](https://img.shields.io/cocoapods/v/UpdraftSDK.svg)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Twitter](https://img.shields.io/badge/twitter-@GetUpdraft-blue.svg?style=flat)](https://twitter.com/GetUpdraft)
+
+
+# Updraft SDK 
 
 Updraft SDK for iOS
+
+Updraft is a super easy app delivery tool that allows you to simply and quickly distribute your app. It's super useful during beta-testing or if you want to deliver an app without going through the app store review processes. Your users get a link and are guided through the installation process with in a comprehensive web-app. Updraft works with Android and iOS apps and easily integrates with your IDE.
+The SDK adds additional features to apps that are delivered with Updraft: Auto-update for your distributed apps and most importantly the collection of user feedback.
+
+Updraft is built by App Agencies [Apps with love](https://appswithlove.com/) and [Moqod](https://moqod.com/). Learn more at [getupdraft.com](https://getupdraft.com/) or follow the latest news on [twitter](https://twitter.com/GetUpdraft).
 
 ## Requirements
 
@@ -51,7 +61,7 @@ In your application targets “General” tab under the “Linked Frameworks and
  	```Swift
 	import Updraft
 	```
-	If using Cocoapods:
+	If using CocoaPods:
 	
 	```Swift
 	import UpdraftSDK
@@ -75,7 +85,7 @@ In your application targets “General” tab under the “Linked Frameworks and
 	```Objective-C
 	@import Updraft;
 	```
-	If using Cocoapods:
+	If using CocoaPods:
 	
 	```Objective-C
 	@import UpdraftSDK;
