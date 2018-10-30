@@ -51,7 +51,7 @@ final public class Updraft: NSObject {
 	private static let sharedInstance = Updraft()
 	
 	/// Returns the shared Updraft instance.
-	@objc open class var shared: Updraft {
+	@objc public class var shared: Updraft {
 		return sharedInstance
 	}
 	
@@ -61,6 +61,7 @@ final public class Updraft: NSObject {
 	///
 	/// - Parameter appKey: Your application key
 	/// - Parameter sdkKey: Your updraft sdk key
+	/// - Note: Your appKey and sdkKey can be obtained on https://getupdraft.com
 	@objc public func start(sdkKey: String, appKey: String) {
 		Logger.log("Starting...", level: .info)
 		settings.sdkKey = sdkKey
@@ -79,7 +80,7 @@ final public class Updraft: NSObject {
 	/// - `warning`
 	/// - info
 	/// - debug
-	@objc open var logLevel: LogLevel {
+	@objc public var logLevel: LogLevel {
 		didSet {
 			Logger.logLevel = logLevel
 		}
