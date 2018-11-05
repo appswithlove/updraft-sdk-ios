@@ -61,11 +61,6 @@ In your application targets “General” tab under the “Linked Frameworks and
  	```Swift
 	import Updraft
 	```
-	If using CocoaPods:
-	
-	```Swift
-	import UpdraftSDK
-	```
 	
 2. Start the SDK with your "SDK Key" and "App Key":
 
@@ -84,11 +79,6 @@ In your application targets “General” tab under the “Linked Frameworks and
 
 	```Objective-C
 	@import Updraft;
-	```
-	If using CocoaPods:
-	
-	```Objective-C
-	@import UpdraftSDK;
 	```
 	
 2. Start the SDK with your "SDK Key" and "App Key":
