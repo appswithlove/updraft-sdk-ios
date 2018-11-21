@@ -12,7 +12,7 @@ import Foundation
 class ShowFeedbackStatusInteractorSpy: ShowFeedbackStatusInteractor {
 	
 	var showWasCalled = false
-	private var lastShownStatus: ShowFeedbackStatusInteractor.FeedbackStatusType?
+	var lastShownStatus: ShowFeedbackStatusInteractor.FeedbackStatusType?
 	var showForStatus: ShowFeedbackStatusInteractor.FeedbackStatusType?
 	
 	override var lastShown: ShowFeedbackStatusInteractor.FeedbackStatusType? {
