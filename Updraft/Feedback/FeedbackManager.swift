@@ -37,6 +37,7 @@ class FeedbackManager: AppUtility {
 		takeScreenshotInteractor.output = self
 		triggerFeedbackInteractor.output = self
 		checkFeedbackEnabledInteractor.output = self
+		showFeedbackStatusInteractor.output = self
 	}
 	
 	deinit {
@@ -71,7 +72,8 @@ extension FeedbackManager: CheckFeedbackEnabledInteractorOutput {
 		} else {
 			if triggerFeedbackInteractor.isActive { triggerFeedbackInteractor.stop() }
 			guard showFeedbackStatusInteractor.lastShown == .enabled else { return }
-			showFeedbackStatusInteractor.show(for: .disabled, in: Constants.showFeedbackStatusDelay)
+			let delay = feedbackPresenter.isVisible ? 0 : Constants.showFeedbackStatusDelay
+			showFeedbackStatusInteractor.show(for: .disabled, in: delay)
 		}
 	}
 }
@@ -82,6 +84,7 @@ extension FeedbackManager: TakeScreenshotInteractorOutput {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage) {
 		let feedbackContext = FeedbackContextModel(buildVersion: buildVersion, navigationStack: controllersStack, systemVersion: systemVersion, modelName: modelName, deviceUuid: deviceUuid)
 		feedbackPresenter.present(with: image, context: feedbackContext)
+		checkFeedbackEnabledInteractor.checkIfEnabled()
 	}
 }
 
@@ -91,5 +94,14 @@ extension FeedbackManager: TriggerFeedbackInteractorOutput {
 	func triggerFeedbackInteractorUserDidTakeScreenshot(_ sender: TriggerFeedbackInteractor) {
 		Logger.log("User triggered Feedback overlay", level: .info)
 		takeScreenshotInteractor.takeScreenshot()
+	}
+}
+
+// MARK: - ShowFeedbackStatusInteractorOutput
+
+extension FeedbackManager: ShowFeedbackStatusInteractorOutput {
+	func showFeedbackStatusInteractorUserDidConfirm(_ sender: ShowFeedbackStatusInteractor, statusType: ShowFeedbackStatusInteractor.FeedbackStatusType?) {
+		guard statusType == .disabled else { return }
+		if feedbackPresenter.isVisible { feedbackPresenter.dismiss() }
 	}
 }

@@ -16,7 +16,12 @@ protocol ShowFeedbackStatusInteractorInput {
 	func show(for status: ShowFeedbackStatusInteractor.FeedbackStatusType, in seconds: TimeInterval)
 }
 
+protocol ShowFeedbackStatusInteractorOutput: class {
+	func showFeedbackStatusInteractorUserDidConfirm(_ sender: ShowFeedbackStatusInteractor, statusType: ShowFeedbackStatusInteractor.FeedbackStatusType?)
+}
+
 class ShowFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput {
+	weak var output: ShowFeedbackStatusInteractorOutput?
 	
 	enum FeedbackStatusType: Int {
 		case enabled = 1
@@ -84,5 +89,6 @@ class ShowFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput {
 extension ShowFeedbackStatusInteractor: DisplayAlertInteractorOuput {
 	func displayAlertInteractorUserDidConfirm(_ sender: DisplayAlertInteractor) {
 		lastShown = showingStatus
+		output?.showFeedbackStatusInteractorUserDidConfirm(self, statusType: showingStatus)
 	}
 }
