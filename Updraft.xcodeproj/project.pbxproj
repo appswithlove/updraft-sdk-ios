@@ -14,12 +14,18 @@
 		F602F77F2017563E00B7487A /* CheckUpdateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */; };
 		F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7802017596100B7487A /* CheckUpdateInteractor.swift */; };
 		F602F7852017609F00B7487A /* DownloadUpdateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */; };
+		F60541D42178848C00DA16F6 /* FeedbackEnabledRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D32178848C00DA16F6 /* FeedbackEnabledRequest.swift */; };
+		F60541D62178849A00DA16F6 /* FeedbackEnabledResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D52178849A00DA16F6 /* FeedbackEnabledResource.swift */; };
+		F60541D82178863E00DA16F6 /* FeedbackEnabledModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D72178863E00DA16F6 /* FeedbackEnabledModel.swift */; };
+		F60541DA2178879100DA16F6 /* FeedbackEnabledRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */; };
+		F60541DC21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */; };
 		F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BB207F46F4006593AA /* UserEmailInteractor.swift */; };
-		F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */; };
-		F61B90C2207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */; };
+		F61B90BE207F495D006593AA /* ShowFeedbackStatusInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90BD207F495D006593AA /* ShowFeedbackStatusInteractor.swift */; };
+		F61B90C2207F560F006593AA /* ShowFeedbackStatusInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B90C1207F560F006593AA /* ShowFeedbackStatusInteractorSpy.swift */; };
 		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
 		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
 		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
+		F6344A3021A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344A2F21A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift */; };
 		F63564CF212FF60C0094200E /* URLRequest+logMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */; };
 		F63B136A2073946400A96C0A /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B13692073946400A96C0A /* FeedbackManager.swift */; };
 		F63B136C20739C5A00A96C0A /* TakeScreenshotInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B136B20739C5A00A96C0A /* TakeScreenshotInteractor.swift */; };
@@ -128,12 +134,18 @@
 		F602F77E2017563E00B7487A /* CheckUpdateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractorTests.swift; sourceTree = "<group>"; };
 		F602F7802017596100B7487A /* CheckUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateInteractor.swift; sourceTree = "<group>"; };
 		F602F7842017609F00B7487A /* DownloadUpdateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUpdateInteractor.swift; sourceTree = "<group>"; };
+		F60541D32178848C00DA16F6 /* FeedbackEnabledRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledRequest.swift; sourceTree = "<group>"; };
+		F60541D52178849A00DA16F6 /* FeedbackEnabledResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledResource.swift; sourceTree = "<group>"; };
+		F60541D72178863E00DA16F6 /* FeedbackEnabledModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledModel.swift; sourceTree = "<group>"; };
+		F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEnabledRequestTests.swift; sourceTree = "<group>"; };
+		F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFeedbackEnabledInteractor.swift; sourceTree = "<group>"; };
 		F61B90BB207F46F4006593AA /* UserEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEmailInteractor.swift; sourceTree = "<group>"; };
-		F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUserHowToGiveFeedbackInteractor.swift; sourceTree = "<group>"; };
-		F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUserHowToGiveFeedbackInteractorSpy.swift; sourceTree = "<group>"; };
+		F61B90BD207F495D006593AA /* ShowFeedbackStatusInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFeedbackStatusInteractor.swift; sourceTree = "<group>"; };
+		F61B90C1207F560F006593AA /* ShowFeedbackStatusInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFeedbackStatusInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
 		F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorInputSpy.swift; sourceTree = "<group>"; };
+		F6344A2F21A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFeedbackEnabledInteractorSpy.swift; sourceTree = "<group>"; };
 		F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+logMessage.swift"; sourceTree = "<group>"; };
 		F636928B204545C50075F080 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F63B13692073946400A96C0A /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
@@ -247,6 +259,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F60541D22178844A00DA16F6 /* FeedbackEnabled */ = {
+			isa = PBXGroup;
+			children = (
+				F60541D32178848C00DA16F6 /* FeedbackEnabledRequest.swift */,
+				F60541D52178849A00DA16F6 /* FeedbackEnabledResource.swift */,
+			);
+			path = FeedbackEnabled;
+			sourceTree = "<group>";
+		};
 		F644BD1A207C913E003126F1 /* SendFeedback */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,8 +317,9 @@
 			isa = PBXGroup;
 			children = (
 				F644BD18207C8E8B003126F1 /* SendFeedbackInteractor.swift */,
+				F60541DB21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift */,
 				F63B136F2073AF9300A96C0A /* TriggerFeedbackInteractor.swift */,
-				F61B90BD207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift */,
+				F61B90BD207F495D006593AA /* ShowFeedbackStatusInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -328,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				F6E9F55A2056AD0F00206FAE /* CheckUpdateRequestTests.swift */,
+				F60541D92178879100DA16F6 /* FeedbackEnabledRequestTests.swift */,
 				F6E9F5622056CC6800206FAE /* UpdateUrlRequestTests.swift */,
 				F6E9F55C2056AD5400206FAE /* NetworkRequestTests.swift */,
 			);
@@ -421,6 +444,7 @@
 				F6D03F13203AC29E003FE65B /* ApiSessionManager.swift */,
 				F68088F22018DA4C008DE368 /* NetworkRequest.swift */,
 				F67B09382051645E00FE4B1C /* CheckUpdate */,
+				F60541D22178844A00DA16F6 /* FeedbackEnabled */,
 				F67B09392051646900FE4B1C /* UpdateUrl */,
 				F644BD1A207C913E003126F1 /* SendFeedback */,
 			);
@@ -434,6 +458,7 @@
 				F6A79D76207E4F8D00C2AFC2 /* FeedbackModel.swift */,
 				F644BD1F207C9233003126F1 /* SendFeedbackModel.swift */,
 				F6B558B320206240006ADB14 /* UpdateUrlModel.swift */,
+				F60541D72178863E00DA16F6 /* FeedbackEnabledModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -599,6 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F6831820185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift */,
+				F6344A2F21A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift */,
 				F6F6831A2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift */,
 				F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */,
 				F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */,
@@ -611,7 +637,7 @@
 				F65A33F720F61BDD0061E899 /* LoadFontsInteractorSpy.swift */,
 				F601058C2035C601004D8431 /* NetworkSessionSpy.swift */,
 				F6E9F55E2056B0D400206FAE /* NetworkRequestSpy.swift */,
-				F61B90C1207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift */,
+				F61B90C1207F560F006593AA /* ShowFeedbackStatusInteractorSpy.swift */,
 				F6C5B79A2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift */,
 				F644BD23207CCE02003126F1 /* TakeScreenshotInteractorSpy.swift */,
 				F68088E52018B3A3008DE368 /* UIApplicationSpy.swift */,
@@ -776,6 +802,7 @@
 				F644BD19207C8E8B003126F1 /* SendFeedbackInteractor.swift in Sources */,
 				F60105952035E677004D8431 /* CheckUpdateResource.swift in Sources */,
 				F6A79D77207E4F8D00C2AFC2 /* FeedbackModel.swift in Sources */,
+				F60541D82178863E00DA16F6 /* FeedbackEnabledModel.swift in Sources */,
 				F65964C6212ACA39008B84AE /* FeedbackSendFailureView.swift in Sources */,
 				F602F7812017596100B7487A /* CheckUpdateInteractor.swift in Sources */,
 				F6D36FAD203C3C9300B0643E /* DisplayAlertInteractor.swift in Sources */,
@@ -783,15 +810,17 @@
 				F6D641C920F49E78003AA01D /* UIViewController+add.swift in Sources */,
 				F6FD17BF20161445005B9177 /* AutoUpdateManager.swift in Sources */,
 				F67B09352051634700FE4B1C /* CheckUpdateRequest.swift in Sources */,
+				F60541DC21788A8200DA16F6 /* CheckFeedbackEnabledInteractor.swift in Sources */,
 				F6D641B320F49DDB003AA01D /* FeedbackDescriptionViewController.swift in Sources */,
 				F6EDACEE208638FC00FC4F0B /* UIView+stickToView.swift in Sources */,
 				F65964EF212ADE31008B84AE /* FeedbackSendProgressView.swift in Sources */,
+				F60541D62178849A00DA16F6 /* FeedbackEnabledResource.swift in Sources */,
 				F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */,
 				F6C47A3E2129559600F551CE /* String+localized.swift in Sources */,
 				F664809E212C396100C32B43 /* Logger.swift in Sources */,
 				F6D641B220F49DDB003AA01D /* FeedbackEmailTextField.swift in Sources */,
 				F63B13702073AF9300A96C0A /* TriggerFeedbackInteractor.swift in Sources */,
-				F61B90BE207F495D006593AA /* ShowUserHowToGiveFeedbackInteractor.swift in Sources */,
+				F61B90BE207F495D006593AA /* ShowFeedbackStatusInteractor.swift in Sources */,
 				F6D641C620F49E58003AA01D /* UIColor+Updraft.swift in Sources */,
 				F61B90BC207F46F4006593AA /* UserEmailInteractor.swift in Sources */,
 				F6605E2C20F4C14F00F2B8A5 /* LoadFontsInteractor.swift in Sources */,
@@ -814,6 +843,7 @@
 				F6D641B120F49DDB003AA01D /* FeedbackDescriptionTextView.swift in Sources */,
 				F6D641B620F49DDB003AA01D /* FeedbackViewController.swift in Sources */,
 				F6D03F16203AC58B003FE65B /* Settings.swift in Sources */,
+				F60541D42178848C00DA16F6 /* FeedbackEnabledRequest.swift in Sources */,
 				F6B558B2202061FE006ADB14 /* UpdateUrlResource.swift in Sources */,
 				F6D641CF20F49EDE003AA01D /* ActionButton.swift in Sources */,
 				F6D641CE20F49EDE003AA01D /* NavigationButton.swift in Sources */,
@@ -837,11 +867,13 @@
 				F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */,
 				F6F6831B2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift in Sources */,
 				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
+				F6344A3021A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift in Sources */,
 				F6C5B7972074CA740034B38D /* FeedbackManagerSpy.swift in Sources */,
 				F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */,
 				F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */,
 				F644BD22207CC6EC003126F1 /* FeedbackPresenterSpy.swift in Sources */,
 				F644BD24207CCE02003126F1 /* TakeScreenshotInteractorSpy.swift in Sources */,
+				F60541DA2178879100DA16F6 /* FeedbackEnabledRequestTests.swift in Sources */,
 				F6E9F55F2056B0D400206FAE /* NetworkRequestSpy.swift in Sources */,
 				F6E9F55B2056AD0F00206FAE /* CheckUpdateRequestTests.swift in Sources */,
 				F6E9F55D2056AD5400206FAE /* NetworkRequestTests.swift in Sources */,
@@ -857,7 +889,7 @@
 				F68088EA2018B521008DE368 /* DownloadUpdateInteractorTests.swift in Sources */,
 				F6587AB920346ABB00B1A87F /* UpdateModelTests.swift in Sources */,
 				F68088EE2018C208008DE368 /* DownloadUpdateInteractorInputSpy.swift in Sources */,
-				F61B90C2207F560F006593AA /* ShowUserHowToGiveFeedbackInteractorSpy.swift in Sources */,
+				F61B90C2207F560F006593AA /* ShowFeedbackStatusInteractorSpy.swift in Sources */,
 				F6C5B79D2074CF4C0034B38D /* TriggerFeedbackInteractorTests.swift in Sources */,
 				F6C5B79B2074CDCE0034B38D /* TriggerFeedbackInteractorSpy.swift in Sources */,
 				F644BD27207CD084003126F1 /* FeedbackPresenterTests.swift in Sources */,

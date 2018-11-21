@@ -12,35 +12,36 @@ import Foundation
 class FeedbackManager: AppUtility {
 	
 	private(set) var didBecomeActiveObserver: NSObjectProtocol?
-	private(set) var willResignActiveObserver: NSObjectProtocol?
 	let takeScreenshotInteractor: TakeScreenshotInteractorInput
 	let triggerFeedbackInteractor: TriggerFeedbackInteractorInput
-	let showUserHowToGiveFeedbackInteractor: ShowUserHowToGiveFeedbackInteractorInput
+	let showFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput
+	let checkFeedbackEnabledInteractor: CheckFeedbackEnabledInteractorInput
 	let feedbackPresenter: FeedbackPresenterInput
 	
 	struct Constants {
-		static let showFeedbackDelay = 5.0
+		static let showFeedbackStatusDelay = 5.0
 	}
 	
 	init(
 		takeScreenshotInteractor: TakeScreenshotInteractor = TakeScreenshotInteractor(),
 		triggerFeedbackInteractor: TriggerFeedbackInteractor = TriggerFeedbackInteractor(),
-		showUserHowToGiveFeedbackInteractor: ShowUserHowToGiveFeedbackInteractor = ShowUserHowToGiveFeedbackInteractor(),
+		showFeedbackStatusInteractor: ShowFeedbackStatusInteractor = ShowFeedbackStatusInteractor(),
+		checkFeedbackEnabledInteractor: CheckFeedbackEnabledInteractor = CheckFeedbackEnabledInteractor(),
 		feedbackPresenter: FeedbackPresenter = FeedbackPresenter()) {
 		
 		self.takeScreenshotInteractor = takeScreenshotInteractor
 		self.triggerFeedbackInteractor = triggerFeedbackInteractor
 		self.feedbackPresenter = feedbackPresenter
-		self.showUserHowToGiveFeedbackInteractor = showUserHowToGiveFeedbackInteractor
+		self.showFeedbackStatusInteractor = showFeedbackStatusInteractor
+		self.checkFeedbackEnabledInteractor = checkFeedbackEnabledInteractor
 		takeScreenshotInteractor.output = self
 		triggerFeedbackInteractor.output = self
+		checkFeedbackEnabledInteractor.output = self
+		showFeedbackStatusInteractor.output = self
 	}
 	
 	deinit {
 		if let obs = didBecomeActiveObserver {
-			NotificationCenter.default.removeObserver(obs)
-		}
-		if let obs = willResignActiveObserver {
 			NotificationCenter.default.removeObserver(obs)
 		}
 	}
@@ -49,24 +50,31 @@ class FeedbackManager: AppUtility {
 	
 	func start() {
 		Logger.log("Starting Feedback service...", level: .info)
-		triggerFeedbackInteractor.start()
-		if !showUserHowToGiveFeedbackInteractor.wasShown {
-			showUserHowToGiveFeedbackInteractor.show(in: Constants.showFeedbackDelay)
-		}
+		checkFeedbackEnabledInteractor.checkIfEnabled()
 		subscribeToAppDidBecomeActive()
-		subscribeToAppWillResignActive()
 	}
 	
 	func subscribeToAppDidBecomeActive() {
 		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
-			self?.triggerFeedbackInteractor.start()
+			self?.checkFeedbackEnabledInteractor.checkIfEnabled()
 		})
 	}
-		
-	func subscribeToAppWillResignActive() {
-		willResignActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil, using: { [weak self] (_) in
-			self?.triggerFeedbackInteractor.stop()
-		})
+}
+
+// MARK: - CheckFeedbackEnabledInteractorOutput
+
+extension FeedbackManager: CheckFeedbackEnabledInteractorOutput {
+	func checkFeedbackEnabled(_ sender: CheckFeedbackEnabledInteractor, isEnabled: Bool) {
+		if isEnabled {
+			if !triggerFeedbackInteractor.isActive { triggerFeedbackInteractor.start() }
+			guard showFeedbackStatusInteractor.lastShown != .enabled else { return }
+			showFeedbackStatusInteractor.show(for: .enabled, in: Constants.showFeedbackStatusDelay)
+		} else {
+			if triggerFeedbackInteractor.isActive { triggerFeedbackInteractor.stop() }
+			guard showFeedbackStatusInteractor.lastShown == .enabled else { return }
+			let delay = feedbackPresenter.isVisible ? 0 : Constants.showFeedbackStatusDelay
+			showFeedbackStatusInteractor.show(for: .disabled, in: delay)
+		}
 	}
 }
 
@@ -76,6 +84,7 @@ extension FeedbackManager: TakeScreenshotInteractorOutput {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage) {
 		let feedbackContext = FeedbackContextModel(buildVersion: buildVersion, navigationStack: controllersStack, systemVersion: systemVersion, modelName: modelName, deviceUuid: deviceUuid)
 		feedbackPresenter.present(with: image, context: feedbackContext)
+		checkFeedbackEnabledInteractor.checkIfEnabled()
 	}
 }
 
@@ -85,5 +94,14 @@ extension FeedbackManager: TriggerFeedbackInteractorOutput {
 	func triggerFeedbackInteractorUserDidTakeScreenshot(_ sender: TriggerFeedbackInteractor) {
 		Logger.log("User triggered Feedback overlay", level: .info)
 		takeScreenshotInteractor.takeScreenshot()
+	}
+}
+
+// MARK: - ShowFeedbackStatusInteractorOutput
+
+extension FeedbackManager: ShowFeedbackStatusInteractorOutput {
+	func showFeedbackStatusInteractorUserDidConfirm(_ sender: ShowFeedbackStatusInteractor, statusType: ShowFeedbackStatusInteractor.FeedbackStatusType?) {
+		guard statusType == .disabled else { return }
+		if feedbackPresenter.isVisible { feedbackPresenter.dismiss() }
 	}
 }

@@ -37,13 +37,15 @@ final public class Updraft: NSObject {
 		
 		let checkUpdateRequest = CheckUpdateRequest(session: apiManager.session)
 		let getUpdateUrlRequest = UpdateUrlRequest(session: apiManager.session)
+		let feedbackEnabledRequest = FeedbackEnabledRequest(session: apiManager.session)
 		let sendFeedbackRequest = SendFeedbackRequest()
 		let sendFeedbackInteractor = SendFeedbackInteractor(settings: settings, sendFeedbackRequest: sendFeedbackRequest)
 		let feedbackPresenter = FeedbackPresenter(sendFeedbackInteractor: sendFeedbackInteractor)
 		let checkUpdateInteractor = CheckUpdateInteractor(settings: settings, checkUpdateRequest: checkUpdateRequest, getUpdateUrlRequest: getUpdateUrlRequest)
+		let checkFeedbackEnabledInteractor = CheckFeedbackEnabledInteractor(settings: settings, feedbackEnabledRequest: feedbackEnabledRequest)
 		let loadFontsInteractor = LoadFontsInteractor()
 		
-		let feedbackManager = FeedbackManager(feedbackPresenter: feedbackPresenter)
+		let feedbackManager = FeedbackManager(checkFeedbackEnabledInteractor: checkFeedbackEnabledInteractor, feedbackPresenter: feedbackPresenter)
 		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
 		self.init(loadFontsInteractor: loadFontsInteractor, autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, feedbackManager: feedbackManager, settings: settings)
 	}

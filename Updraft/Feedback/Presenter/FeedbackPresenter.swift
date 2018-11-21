@@ -15,6 +15,8 @@ protocol FeedbackPresenterInput {
 	///   - image: Image to be displayed
 	///   - context: The context of the feedback
 	func present(with image: UIImage, context: FeedbackContextModel)
+	var isVisible: Bool {get}
+	func dismiss()
 }
 
 enum FeedbackState {
@@ -49,6 +51,14 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 	}
 	
 	// MARK: FeedbackPresenterInput
+	
+	var isVisible: Bool {
+		return feedbackViewController?.viewIfLoaded?.window != nil
+	}
+	
+	func dismiss() {
+		feedbackViewController?.dismiss(animated: true, completion: nil)
+	}
 	
 	func present(with image: UIImage, context: FeedbackContextModel) {
 		

@@ -11,11 +11,17 @@ import Foundation
 
 class TriggerFeedbackInteractorSpy: TriggerFeedbackInteractor {
 	var startWasCalled = false
+	var stopWasCalled = false
 	var observeUserDidTakeScreenshotWasCalled = false
 	
 	override func start() {
 		super.start()
 		startWasCalled = true
+	}
+	
+	override func stop() {
+		super.stop()
+		stopWasCalled = true
 	}
 	
 	override func observeUserDidTakeScreenshot() {
