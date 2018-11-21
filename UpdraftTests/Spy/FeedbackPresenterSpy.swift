@@ -11,11 +11,21 @@ import Foundation
 
 class FeedbackPresenterSpy: FeedbackPresenter {
 	
+	var dismissWasCalled = false
+	var visible: Bool = false
 	var presentWasCalled: Bool = false
 	var sendWasTappedWasCalled: Bool = false
 	var cancelWasTappedWasCalled: Bool = false
 	var imageToPresent: UIImage?
 	var feedbackModel: FeedbackViewModel?
+	
+	override var isVisible: Bool {
+		return visible
+	}
+	
+	override func dismiss() {
+		dismissWasCalled = true
+	}
 	
 	override func present(with image: UIImage, context: FeedbackContextModel) {
 		presentWasCalled = true

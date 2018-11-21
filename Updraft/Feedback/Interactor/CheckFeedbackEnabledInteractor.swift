@@ -22,7 +22,7 @@ protocol CheckFeedbackEnabledInteractorOutput: class {
 	func checkFeedbackEnabled(_ sender: CheckFeedbackEnabledInteractor, isEnabled: Bool)
 }
 
-class CheckFeedbackEnabledInteractor {
+class CheckFeedbackEnabledInteractor: CheckFeedbackEnabledInteractorInput {
 	weak var output: CheckFeedbackEnabledInteractorOutput?
 	
 	private var settings: Settings
@@ -35,9 +35,7 @@ class CheckFeedbackEnabledInteractor {
 		self.settings = settings
 		self.feedbackEnabledRequest = feedbackEnabledRequest
 	}
-}
-
-extension CheckFeedbackEnabledInteractor: CheckFeedbackEnabledInteractorInput {
+	
 	func checkIfEnabled() {
 		let parameters = [
 			"sdk_key": settings.sdkKey,

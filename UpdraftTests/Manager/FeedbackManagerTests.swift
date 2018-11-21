@@ -15,13 +15,15 @@ class FeedbackManagerTests: XCTestCase {
 		//Given
 		let takeScreenshotInteractor = TakeScreenshotInteractor()
 		let triggerFeedackInteractor = TriggerFeedbackInteractor()
+		let showFeedbackStatusInteractor = ShowFeedbackStatusInteractor()
 		
 		//When
-		let manager = FeedbackManager(takeScreenshotInteractor: takeScreenshotInteractor, triggerFeedbackInteractor: triggerFeedackInteractor)
+		let manager = FeedbackManager(takeScreenshotInteractor: takeScreenshotInteractor, triggerFeedbackInteractor: triggerFeedackInteractor, showFeedbackStatusInteractor: showFeedbackStatusInteractor)
 		
 		//Then
 		XCTAssertTrue(takeScreenshotInteractor.output === manager)
 		XCTAssertTrue(triggerFeedackInteractor.output === manager)
+		XCTAssertTrue(showFeedbackStatusInteractor.output === manager)
 	}
 	
 	func testTriggerFeedbackInteractorStartIsCalledWhenFeedbackEnabled() {
@@ -153,5 +155,30 @@ class FeedbackManagerTests: XCTestCase {
 		//Then
 		XCTAssertFalse(spy1.showWasCalled)
 		XCTAssertFalse(spy2.showWasCalled)
+	}
+	
+	func testCheckIfEnabledWasCalledWhenUserDidTakeScreenshot() {
+		//Given
+		let spy = CheckFeedbackEnabledInteractorSpy()
+		let manager = FeedbackManager(checkFeedbackEnabledInteractor: spy)
+		
+		//When
+		manager.takeScreenshotInteractor(TakeScreenshotInteractor(), didTakeScreenshot: UIImage())
+		
+		//Then
+		XCTAssertTrue(spy.checkIfEnabledWasCalled)
+	}
+	
+	func testDismissWasCalledWhenUserDidConfirmAlertAndFeedbackIsVisibleAndStatusIsDisabled() {
+		//Given
+		let spy = FeedbackPresenterSpy()
+		spy.visible = true
+		let manager = FeedbackManager(feedbackPresenter: spy)
+		
+		//When
+		manager.showFeedbackStatusInteractorUserDidConfirm(ShowFeedbackStatusInteractor(), statusType: .disabled)
+		
+		//Then
+		XCTAssertTrue(spy.dismissWasCalled)
 	}
 }

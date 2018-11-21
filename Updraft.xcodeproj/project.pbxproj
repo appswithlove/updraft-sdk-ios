@@ -25,6 +25,7 @@
 		F6292025203D7FE700EB694C /* DisplayAlertInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */; };
 		F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */; };
 		F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */; };
+		F6344A3021A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344A2F21A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift */; };
 		F63564CF212FF60C0094200E /* URLRequest+logMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */; };
 		F63B136A2073946400A96C0A /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B13692073946400A96C0A /* FeedbackManager.swift */; };
 		F63B136C20739C5A00A96C0A /* TakeScreenshotInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63B136B20739C5A00A96C0A /* TakeScreenshotInteractor.swift */; };
@@ -144,6 +145,7 @@
 		F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorSpy.swift; sourceTree = "<group>"; };
 		F6292026203D805400EB694C /* DisplayAlertInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorTests.swift; sourceTree = "<group>"; };
 		F6292028203D874200EB694C /* DisplayAlertInteractorInputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAlertInteractorInputSpy.swift; sourceTree = "<group>"; };
+		F6344A2F21A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFeedbackEnabledInteractorSpy.swift; sourceTree = "<group>"; };
 		F63564CE212FF60C0094200E /* URLRequest+logMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+logMessage.swift"; sourceTree = "<group>"; };
 		F636928B204545C50075F080 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F63B13692073946400A96C0A /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F6831820185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift */,
+				F6344A2F21A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift */,
 				F6F6831A2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift */,
 				F68088D920188C0E008DE368 /* CheckUpdateInteractorOutputSpy.swift */,
 				F6292024203D7FE700EB694C /* DisplayAlertInteractorSpy.swift */,
@@ -864,6 +867,7 @@
 				F6292027203D805400EB694C /* DisplayAlertInteractorTests.swift in Sources */,
 				F6F6831B2018853C00EF5CE3 /* CheckUpdateInteractorInputSpy.swift in Sources */,
 				F6F6831920185BCC00EF5CE3 /* AutoUpdateManagerSpy.swift in Sources */,
+				F6344A3021A58989008346AD /* CheckFeedbackEnabledInteractorSpy.swift in Sources */,
 				F6C5B7972074CA740034B38D /* FeedbackManagerSpy.swift in Sources */,
 				F6292029203D874200EB694C /* DisplayAlertInteractorInputSpy.swift in Sources */,
 				F68088EC2018B6B1008DE368 /* DownloadUpdateInteractorOutputSpy.swift in Sources */,
