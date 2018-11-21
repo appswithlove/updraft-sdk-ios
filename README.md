@@ -97,6 +97,7 @@ In your application targets “General” tab under the “Linked Frameworks and
 - <b>appKey</b>: You app key obtained on [Updraft](https://getupdraft.com)
 
 ## AutoUpdate
+Auto Update functionality can be enabled/disabled on [getupdraft.com](https://getupdraft.com/) in your app edit menu.
 
 AutoUpdate work by comparing the build number of the app installed on the user's device and the app uploaded on GetUpdraft.
 
@@ -107,8 +108,11 @@ Micro version comparison is supported, for example version 1.2.3.2018080**4** is
 
 ## Feedback
 
-A prompt is displayed to the user after first launch to explain him how he can give feedback. Displayed only once.
+Feedback functionality can be enabled/disabled on [getupdraft.com](https://getupdraft.com/) in your app edit menu.
 
+A prompt is shown to the user to inform him of the change of state of the feedback functionality.
+
+If enabled, the user is explained how he can give feedback.
 User can take a screenshot to give a feedback.
 
 ## Advanced setup:  Logging
