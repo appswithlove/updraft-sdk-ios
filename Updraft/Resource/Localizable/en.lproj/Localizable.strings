@@ -18,6 +18,8 @@
 // !!!: FEEDBACK
 "updraft_feedback_alert_howToGiveFeedback_title" = "Give Feedback";
 "updraft_feedback_alert_howToGiveFeedback_message" = "Take a screenshot to give a feedback or report a bug.";
+"updraft_feedback_alert_feedbackDisabled_title" = "Feedback Disabled";
+"updraft_feedback_alert_feedbackDisabled_message" = "Feedback functionality has been disabled. You can no longer send a feedback or report a bug by taking a screenshot.";
 
 "updraft_feedback_title" = "Give Feedback";
 "updraft_feedback_button_next" = "next";

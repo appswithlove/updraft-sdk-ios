@@ -36,7 +36,7 @@ class ShowFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput {
 			case .enabled:
 				return "updraft_feedback_alert_howToGiveFeedback_message".localized
 			case .disabled:
-				return "updraft_feedback_alert_feedackDisabled_message".localized
+				return "updraft_feedback_alert_feedbackDisabled_message".localized
 			}
 		}
 	}
