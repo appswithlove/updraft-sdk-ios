@@ -87,4 +87,9 @@ final public class Updraft: NSObject {
 			Logger.logLevel = logLevel
 		}
 	}
+	
+	/// If you have your own instance of Updraft, set this to the baseUrl of your instance.
+	/// Should be set before starting the SDK.
+	/// Default `https://getupdraft.com/`
+	@objc public var baseUrl: String? 
 }

@@ -26,7 +26,7 @@ protocol ApiResource {
 extension ApiResource {
 	
 	var base: String {
-		return "https://getupdraft.com/api" // Staging: https://u2.mqd.me/api Prod: https://getupdraft.com/api
+		return Updraft.shared.baseUrl ?? "https://getupdraft.com/" // Staging: https://u2.mqd.me/api Prod: https://getupdraft.com/api
 	}
 	
 	var basePath: String {

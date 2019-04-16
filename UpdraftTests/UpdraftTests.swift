@@ -125,4 +125,18 @@ class UpdraftTests: XCTestCase {
 		//Teardown
 		Logger.logLevel = currentLogLevel
 	}
+	
+	func testSetBaseUrl() {
+		let baseUrl = "https://test.url/"
+		
+		//Given
+		let updraft = Updraft.shared
+		updraft.baseUrl = baseUrl
+		
+		//When
+		let resource = CheckUpdateResource.checkUpdate(params: nil)
+		
+		//Then
+		XCTAssertEqual(resource.base, updraft.baseUrl)
+	}
 }

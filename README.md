@@ -115,20 +115,39 @@ A prompt is shown to the user to inform him of the change of state of the feedba
 If enabled, the user is explained how he can give feedback.
 User can take a screenshot to give a feedback.
 
-## Advanced setup:  Logging
+## Advanced setup
+
+### Logging
 
 To check if data is send properly to Updraft and also see some additional SDK log data in the console, you can set different log levels.
 
 To change the log level, add the following line before starting the SDK:
 
-### Swift
+#### Swift
 ```Swift
 Updraft.shared.logLevel = .info
 ```
 	
-### Objective-C
+#### Objective-C
 ```Objective-C
 [Updraft shared].logLevel = LogLevelInfo;
 ```
 
 Default level: <b>warning</b> => Only warnings and errors will be printed.
+
+
+### Base URL 
+
+If you have your own instance of Updraft, set this property to the base URL of your instance, before starting the SDK.
+
+#### Swift
+```Swift
+Updraft.shared.baseUrl = "https://your_base_url/"
+```
+
+#### Objective-C
+```Objective-C
+[Updraft shared].baseUrl = @"https://your_base_url/";
+```
+
+Default <b>https://getupdraft.com/</b>
