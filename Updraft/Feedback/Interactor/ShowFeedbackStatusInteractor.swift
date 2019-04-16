@@ -79,7 +79,7 @@ class ShowFeedbackStatusInteractor: ShowFeedbackStatusInteractorInput {
 		timer = nil
 		timer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false, block: { (_) in
 			self.showingStatus = status
-			self.displayAlertInteractor.displayAlert(with: status.message, title: status.title, cancelButton: false)
+			self.displayAlertInteractor.displayAlert(with: status.message, title: status.title, okButtonTitle: nil, cancelButton: false)
 		})
 	}
 }

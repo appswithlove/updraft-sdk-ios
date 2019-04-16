@@ -15,8 +15,9 @@ protocol DisplayAlertInteractorInput {
 	/// - Parameters:
 	///   - message: The message of the alert
 	///   - title: The title of the alert
+	///   - okButtonTitle: Custom title for `ok` button
 	///   - cancelButton: Boolean indicating if a cancel button should added to the alert
-	func displayAlert(with message: String, title: String, cancelButton: Bool)
+	func displayAlert(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool)
 	
 	/// Clear any currently displayed message
 	func clearMessages()
@@ -58,15 +59,9 @@ class DisplayAlertInteractor: AppUtility {
 // MARK: - DisplayAlertInteractorInput
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
-	func displayAlert(with message: String, title: String, cancelButton: Bool) {
+	func displayAlert(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
 		
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		let okAction = 	UIAlertAction(title: "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
-			guard let strongSelf = self else {return}
-			strongSelf.displayedAlert = nil
-			strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
-		}
-		alert.addAction(okAction)
 		
 		if cancelButton {
 			let cancelAction = UIAlertAction(title: "updraft_alert_button_cancel".localized, style: .default) { [weak self] (_) in
@@ -76,7 +71,13 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 			}
 			alert.addAction(cancelAction)
 		}
-
+		let okAction = 	UIAlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
+			guard let strongSelf = self else {return}
+			strongSelf.displayedAlert = nil
+			strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
+		}
+		alert.addAction(okAction)
+		alert.preferredAction = okAction
 		self.showAlert(alert: alert)
 	}
 	

@@ -14,6 +14,7 @@
 // !!!: AUTO UPDATE
 "updraft_autoUpdate_alert_newVersionAvailable_title" = "New version available";
 "updraft_autoUpdate_alert_newVersionAvailable_message" = "You will be redirected to download the new version";
+"updraft_autoUpdate_alert_newVersionAvailable_update" = "Update";
 
 // !!!: FEEDBACK
 "updraft_feedback_alert_howToGiveFeedback_title" = "Give Feedback";

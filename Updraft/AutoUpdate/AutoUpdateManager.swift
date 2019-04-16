@@ -89,6 +89,7 @@ class AutoUpdateManager {
 		displayAlertInteractor.displayAlert(
 			with: "updraft_autoUpdate_alert_newVersionAvailable_message".localized,
 			title: "updraft_autoUpdate_alert_newVersionAvailable_title".localized,
+			okButtonTitle: "updraft_autoUpdate_alert_newVersionAvailable_update".localized,
 			cancelButton: true
 		)
 	}

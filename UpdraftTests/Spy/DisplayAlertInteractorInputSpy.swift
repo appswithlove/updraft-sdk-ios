@@ -13,7 +13,7 @@ class DisplayAlertInteractorInputSpy: DisplayAlertInteractorInput {
 
 	var displayAlertWasCalled = false
 	
-	func displayAlert(with message: String, title: String, cancelButton: Bool) {
+	func displayAlert(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
 		displayAlertWasCalled = true
 	}
 	
