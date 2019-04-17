@@ -68,6 +68,8 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 		}
 		let email = userEmailInteractor.email
 		self.feedbackViewController = FeedbackViewController(email: email, image: image)
+        feedbackViewController?.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        feedbackViewController?.modalPresentationStyle = UIModalPresentationStyle.custom
 		self.context = context
 		self.topMostController?.present(feedbackViewController!, animated: true, completion: nil)
 	}
