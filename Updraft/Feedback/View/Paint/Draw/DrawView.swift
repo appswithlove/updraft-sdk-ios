@@ -39,6 +39,7 @@ class DrawView: UIView {
 	// MARK: Setup
 	
 	private func setup() {
+		backgroundColor = .clear
 		autoresizesSubviews = true
 		addSubview(backgroundImageView)
 		backgroundImageView.stickToView(self)
