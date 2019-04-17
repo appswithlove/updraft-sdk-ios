@@ -47,8 +47,8 @@ class LoadFontsInteractor: LoadFontsInteractorInput {
 			return
 		}
 		
-		var errorRef: Unmanaged<CFError>? = nil
-		if (CTFontManagerRegisterGraphicsFont(fontRef, &errorRef) == false) {
+		var errorRef: Unmanaged<CFError>?
+		if CTFontManagerRegisterGraphicsFont(fontRef, &errorRef) == false {
 			Logger.log("UIFont+:  Failed to register font \(filenameString) - register graphics font failed - this font may have already been registered in the main bundle.", level: .warning)
 		}
 	}
