@@ -94,8 +94,8 @@ class FeedbackDescriptionViewController: UIViewController {
 		arrowButton.setImage(arrow, for: .normal)
 		
 		let notificationCenter = NotificationCenter.default
-		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 		
 		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
 		feedbackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showPicker)))
@@ -152,13 +152,13 @@ class FeedbackDescriptionViewController: UIViewController {
 	@objc func adjustForKeyboard(notification: Notification) {
 		let userInfo = notification.userInfo!
 		
-		let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+		let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
 		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
 		let keyboardHeight = keyboardViewEndFrame.height
 		
-		let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
+		let animationDuration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
 		
-		if notification.name == Notification.Name.UIKeyboardWillHide {
+		if notification.name == UIResponder.keyboardWillHideNotification {
 			sendButtonBottomConstraint.constant = Constants.minBottomSpacing
 			hidePicker(hide: false)
 		} else {

@@ -56,7 +56,7 @@ class AutoUpdateManager {
 	}
 	
 	func subscribeToAppDidBecomeActive() {
-		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
+		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil, using: { [weak self] (_) in
 			self?.updateTimer?.invalidate()
 			//Wait a few seconds to check update
 			//to allow main app to set root view (eg. after splash screen)
@@ -67,7 +67,7 @@ class AutoUpdateManager {
 	}
 	
 	func subscribeToAppWillResignActive() {
-		willResignActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil, using: { [weak self] (_) in
+		willResignActiveObserver = NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil, using: { [weak self] (_) in
 			self?.clearMessages()
 		})
 	}

@@ -17,9 +17,9 @@ extension UIViewController {
 	///   - child: The controller to add
 	///   - view: The view in which the controller will be added
 	func add(_ child: UIViewController, to view: UIView) {
-		addChildViewController(child)
+		addChild(child)
 		view.addSubview(child.view)
-		child.didMove(toParentViewController: self)
+		child.didMove(toParent: self)
 	}
 	
 	/// Remove from parent UIViewController
@@ -28,8 +28,8 @@ extension UIViewController {
 			return
 		}
 		
-		willMove(toParentViewController: nil)
-		removeFromParentViewController()
+		willMove(toParent: nil)
+		removeFromParent()
 		view.removeFromSuperview()
 	}
 }

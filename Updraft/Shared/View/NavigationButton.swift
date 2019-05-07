@@ -10,9 +10,9 @@ import UIKit
 
 class NavigationButton: UIButton {
 	
-	private let underlinedTitleAttributes: [NSAttributedStringKey: Any] = [
-		NSAttributedStringKey.font: UIFont.regular,
-		NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue
+	private let underlinedTitleAttributes: [NSAttributedString.Key: Any] = [
+		NSAttributedString.Key.font: UIFont.regular,
+		NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
 	]
 	
 	// MARK: - Public Interface
