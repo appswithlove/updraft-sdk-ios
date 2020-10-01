@@ -55,7 +55,7 @@ class FeedbackManager: AppUtility {
 	}
 	
 	func subscribeToAppDidBecomeActive() {
-		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { [weak self] (_) in
+		didBecomeActiveObserver = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil, using: { [weak self] (_) in
 			self?.checkFeedbackEnabledInteractor.checkIfEnabled()
 		})
 	}

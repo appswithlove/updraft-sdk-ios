@@ -56,7 +56,7 @@ class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	/// Observe when the user takes a screenshot
 	func observeUserDidTakeScreenshot() {
 		removeScreenshotObserver()
-		screenshotObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: nil, using: { [weak self] (_) in
+		screenshotObserver = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: nil, using: { [weak self] (_) in
 			guard let strongSelf = self else {return}
 			strongSelf.output?.triggerFeedbackInteractorUserDidTakeScreenshot(strongSelf)
 		})

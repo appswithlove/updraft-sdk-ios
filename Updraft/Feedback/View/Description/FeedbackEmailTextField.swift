@@ -12,23 +12,23 @@ class FeedbackEmailTextField: UITextField {
 	
 	private struct Constants {
 		static let edgeInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
-		static let placeholderAttributes: [NSAttributedStringKey: Any] = [
-			NSAttributedStringKey.foregroundColor: UIColor.greyish,
-			NSAttributedStringKey.font: UIFont.italic]
+		static let placeholderAttributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.foregroundColor: UIColor.greyish,
+			NSAttributedString.Key.font: UIFont.italic]
 	}
 	
 	// MARK: - Overrides
 	
 	override func textRect(forBounds bounds: CGRect) -> CGRect {
-		return UIEdgeInsetsInsetRect(bounds, Constants.edgeInsets)
+		return bounds.inset(by: Constants.edgeInsets)
 	}
 
 	override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-		return UIEdgeInsetsInsetRect(bounds, Constants.edgeInsets)
+		return bounds.inset(by: Constants.edgeInsets)
 	}
 	
 	override func editingRect(forBounds bounds: CGRect) -> CGRect {
-		return UIEdgeInsetsInsetRect(bounds, Constants.edgeInsets)
+		return bounds.inset(by: Constants.edgeInsets)
 	}
 	
 	// MARK: - Init

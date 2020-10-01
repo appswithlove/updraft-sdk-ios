@@ -71,7 +71,7 @@ extension AppUtility {
 			controllers.append(shownController)
 			switch shownController {
 			case let navigationController as UINavigationController:
-				if navigationController.childViewControllers.count > 1 {
+				if navigationController.children.count > 1 {
 					navigationController.viewControllers.dropLast().forEach({controllers.append($0)})
 				}
 				shownController = navigationController.viewControllers.last
