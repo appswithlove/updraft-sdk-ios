@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Handle the user generated feedback process.
 class FeedbackManager: AppUtility {

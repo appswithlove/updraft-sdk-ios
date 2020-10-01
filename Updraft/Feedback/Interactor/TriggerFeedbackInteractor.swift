@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreMotion
+import UIKit
 
 protocol TriggerFeedbackInteractorInput {
 	
