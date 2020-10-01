@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SendFeedbackInteractorInput {
 	func sendFeedback(_ feedback: FeedbackModel)
