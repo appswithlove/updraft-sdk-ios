@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TakeScreenshotInteractorInput {
 	/// Take a screenshot of the screen as it is currently visible to the user

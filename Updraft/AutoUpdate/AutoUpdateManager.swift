@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Handle the autoupdate process.
 class AutoUpdateManager {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol FeedbackPresenterInput {
 	/// Present the feedback overlay with given image
