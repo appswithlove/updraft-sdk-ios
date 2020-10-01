@@ -17,8 +17,8 @@ Updraft is built by App Agencies [Apps with love](https://appswithlove.com/) and
 ## Requirements
 
 - iOS 10.0+
-- Xcode 9.0+
-- Swift 4.0+
+- Xcode 11.0+
+- Swift 5.0+
 
 ## Installation
 
