@@ -25,10 +25,10 @@ let package = Package(
         .target(
             name: "Updraft",
             dependencies: [],
+            path: "Updraft",
             resources: [
                 .process("Resources")
-            ],
-            path: "Updraft"),
+            ]),
         .testTarget(
             name: "UpdraftTests",
             dependencies: ["Updraft"],
