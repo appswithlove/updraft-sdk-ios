@@ -52,7 +52,7 @@ class SendFeedbackInteractor: NSObject {
 	}
 	
 	private func jpegRepresentationFrom(_ image: UIImage) -> Data {
-		return UIImageJPEGRepresentation(image, 1.0) ?? Data()
+		return image.jpegData(compressionQuality: 1.0) ?? Data()
 	}
 	
 	private func interpretError(_ error: Error) {

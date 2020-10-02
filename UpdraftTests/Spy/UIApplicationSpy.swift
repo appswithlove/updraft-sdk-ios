@@ -16,10 +16,10 @@ struct UIApplicationSpy: URLOpener {
 	func canOpenURL(_ url: URL) -> Bool {
 		return canOpen
 	}
-	
-	func open(_ url: URL, options: [String: Any], completionHandler completion: ((Bool) -> Void)?) {
-		if canOpen {
-			completion?(true)
-		}
-	}
+
+    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler completion: ((Bool) -> Void)?) {
+        if canOpen {
+            completion?(true)
+        }
+    }
 }

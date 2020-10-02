@@ -46,7 +46,7 @@ class DimView: UIView {
 		isUserInteractionEnabled = false
 		setupLabel()
 		setupDimmedView()
-		bringSubview(toFront: label)
+		bringSubviewToFront(label)
 	}
 	
 	private func setupLabel() {
