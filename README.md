@@ -1,5 +1,5 @@
 ![Updraft: Mobile App Distribution](updraft.png)
-![Build Status](https://github.com/appswithlove/updraft-sdk-ios/workflows/Updraft%20CI/badge.svg?branch=master)(https://github.com/appswithlove/updraft-sdk-ios/actions)
+[![Build Status](https://github.com/appswithlove/updraft-sdk-ios/workflows/Updraft%20CI/badge.svg?branch=master)](https://github.com/appswithlove/updraft-sdk-ios/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/appswithlove/updraft-sdk-ios/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/UpdraftSDK.svg)](https://img.shields.io/cocoapods/v/UpdraftSDK.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
