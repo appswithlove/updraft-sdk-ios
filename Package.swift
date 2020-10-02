@@ -27,7 +27,7 @@ let package = Package(
             dependencies: [],
             path: "Updraft",
             resources: [
-                .process("Resources")
+                .process("Resource")
             ]),
         .testTarget(
             name: "UpdraftTests",
