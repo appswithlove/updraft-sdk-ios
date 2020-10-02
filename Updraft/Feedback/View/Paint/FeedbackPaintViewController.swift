@@ -35,7 +35,8 @@ class FeedbackPaintViewController: UIViewController {
 			return drawViewController.editedImage
 		}
 		set {
-			drawViewController.backgroundImage = image
+//			drawViewController.backgroundImage = image
+			drawViewController.backgroundImage = newValue
 		}
 	}
 	
