@@ -24,10 +24,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Updraft",
+            dependencies: [],
             resources: [
                 .process("Resources")
             ],
-            dependencies: [],
             path: "Updraft"),
         .testTarget(
             name: "UpdraftTests",
