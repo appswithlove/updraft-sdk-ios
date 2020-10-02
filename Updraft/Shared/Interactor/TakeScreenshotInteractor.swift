@@ -6,7 +6,6 @@
 //  Copyright © 2018 Apps with love AG. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol TakeScreenshotInteractorInput {
