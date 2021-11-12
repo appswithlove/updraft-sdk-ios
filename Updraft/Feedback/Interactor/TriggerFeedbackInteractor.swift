@@ -22,7 +22,7 @@ protocol TriggerFeedbackInteractorInput {
 	func stop()
 }
 
-protocol TriggerFeedbackInteractorOutput: class {
+protocol TriggerFeedbackInteractorOutput: AnyObject {
 	func triggerFeedbackInteractorUserDidTakeScreenshot(_ sender: TriggerFeedbackInteractor)
 }
 

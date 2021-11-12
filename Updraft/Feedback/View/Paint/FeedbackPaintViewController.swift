@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FeedbackPaintViewControllerDelegate: class {
+protocol FeedbackPaintViewControllerDelegate: AnyObject {
 	func paintViewControllerNextWasTapped(sender _: FeedbackPaintViewController)
 }
 
@@ -77,7 +77,7 @@ class FeedbackPaintViewController: UIViewController {
 		add(drawViewController, to: drawingContainer)
 		drawViewController.view.stickToView(drawingContainer)
 		
-		//Set default color
+		// Set default color
 		brushPickerViewController.macaroniAndCheeseButton.isSelected = true
 		drawViewController.brush = Brush.brush(UIColor.macaroniAndCheese.cgColor)
 	}

@@ -16,7 +16,7 @@ protocol ShowFeedbackStatusInteractorInput {
 	func show(for status: ShowFeedbackStatusInteractor.FeedbackStatusType, in seconds: TimeInterval)
 }
 
-protocol ShowFeedbackStatusInteractorOutput: class {
+protocol ShowFeedbackStatusInteractorOutput: AnyObject {
 	func showFeedbackStatusInteractorUserDidConfirm(_ sender: ShowFeedbackStatusInteractor, statusType: ShowFeedbackStatusInteractor.FeedbackStatusType?)
 }
 

@@ -12,25 +12,25 @@ import XCTest
 class FeedbackPresenterTests: XCTestCase {
 	
 	func testOutputAreSetOnInit() {
-		//Given
+		// Given
 		let sendFeedbackInteractor = SendFeedbackInteractor()
 		
-		//When
+		// When
 		let presenter = FeedbackPresenter(sendFeedbackInteractor: sendFeedbackInteractor)
 		
-		//Then
+		// Then
 		XCTAssertTrue(sendFeedbackInteractor.output === presenter)
 	}
 	
 	func testFeedbackViewControllerIsInitiliazedWhenPresentItCalled() {
-		//Given
+		// Given
 		let feedbackPresenter = FeedbackPresenter()
 		feedbackPresenter.feedbackViewController = nil
 		
-		//When
+		// When
 		feedbackPresenter.present(with: UIImage(), context: FeedbackContextModel(buildVersion: "", navigationStack: "", systemVersion: "", modelName: "", deviceUuid: ""))
 		
-		//Then
+		// Then
 		XCTAssertTrue(feedbackPresenter.feedbackViewController != nil)
 		XCTAssertTrue(feedbackPresenter.feedbackViewController?.delegate === feedbackPresenter)
 	}

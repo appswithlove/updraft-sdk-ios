@@ -9,7 +9,7 @@
 import Foundation
 @testable import Updraft
 
-//class FeedbackViewControllerSpy: FeedbackViewController {
+// class FeedbackViewControllerSpy: FeedbackViewController {
 //	
 //	var updateWasCalled = false
 //	var setupWasCalled = false
@@ -21,4 +21,4 @@ import Foundation
 //	override func setup() {
 //		setupWasCalled = true
 //	}
-//}
+// }

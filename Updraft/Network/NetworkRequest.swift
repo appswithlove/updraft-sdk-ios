@@ -15,7 +15,7 @@ enum NetworkResult<T> {
 
 enum NetworkError: Error {
 	case invalidData
-	case unsuccessfulResponse(Int) //Status code
+	case unsuccessfulResponse(Int) // Status code
 	case requestFailed
 	
 	var localizedDescription: String {
@@ -39,8 +39,8 @@ enum NetworkMethod: String {
 	case post = "POST"
 }
 
-protocol NetworkRequest: class {
-	///Result Model that must conform to Decodable
+protocol NetworkRequest: AnyObject {
+	/// Result Model that must conform to Decodable
 	associatedtype Model where Model: Decodable
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void)
 	func load(_ urlRequest: URLRequest)
@@ -61,7 +61,7 @@ extension NetworkRequest {
 			strongSelf.logResponse(request: urlRequest, data: data, response: response, error: error)
 			let result = strongSelf.responseHandler(data: data, response: response, error: error)
 			
-			//Dispatch result to main queue
+			// Dispatch result to main queue
 			dispatchToMainThread {
 				completion(result)
 			}

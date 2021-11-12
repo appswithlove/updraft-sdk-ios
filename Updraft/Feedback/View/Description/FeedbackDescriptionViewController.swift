@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FeedbackDescriptionViewControllerDelegate: class {
+protocol FeedbackDescriptionViewControllerDelegate: AnyObject {
 	func descriptionViewControllerPreviousWasTapped(_ sender: FeedbackDescriptionViewController)
 	func descriptionViewControllerSendWasTapped(_ sender: FeedbackDescriptionViewController)
 }

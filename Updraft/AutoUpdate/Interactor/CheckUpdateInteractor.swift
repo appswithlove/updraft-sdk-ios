@@ -13,7 +13,7 @@ protocol CheckUpdateInteractorInput {
 	func checkUpdate()
 }
 
-protocol CheckUpdateInteractorOutput: class {
+protocol CheckUpdateInteractorOutput: AnyObject {
 	/// Tells the delegate that a new update is available at the corresponding URL.
 	///
 	/// - Parameters:

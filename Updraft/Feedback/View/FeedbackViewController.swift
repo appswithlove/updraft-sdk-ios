@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FeedbackViewControllerDelegate: class {
+protocol FeedbackViewControllerDelegate: AnyObject {
 	func feedbackViewControllerDismissWasTapped(_ sender: FeedbackViewController)
 	func feedbackViewControllerCancelledSending(_ sender: FeedbackViewController)
 	func feedbackViewControllerSendWasTapped(_ sender: FeedbackViewController, model: FeedbackViewModel)

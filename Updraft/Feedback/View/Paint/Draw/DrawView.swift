@@ -165,16 +165,16 @@ class DrawView: UIView {
 		points[pointIndex] = currentPoint
 		
 		if pointIndex == 4 {
-			//1. Move the endpoint to the middle of the line joining the second control point of the first Bezier segment
+			// 1. Move the endpoint to the middle of the line joining the second control point of the first Bezier segment
 			// and the first control point of the second Bezier segment
 			points[3] = CGPoint(x: (points[2].x + points[4].x)/2.0, y: (points[2].y + points[4].y) / 2.0)
 			
-			//2. draw
+			// 2. draw
 			if let currentPath = lines.last {
 				addSubPath(to: currentPath.path, fromPoint: points[0], toPoint: points[3], controlPoint1: points[1], controlPoint2: points[2])
 			}
 			
-			//3. replace points and get ready to handle the next segment
+			// 3. replace points and get ready to handle the next segment
 			points[0] = points[3]
 			points[1] = points[4]
 			pointIndex = 1
@@ -187,9 +187,9 @@ class DrawView: UIView {
 		let previousLocation = touch.previousLocation(in: drawImageView)
 		let hitTestPoints = hitPoints(fromPoint: previousLocation, toPoint: location, distance: Constants.Stroke.width)
 		for point in hitTestPoints {
-			//Reverse array to be able to safely remove lines during iteration
+			// Reverse array to be able to safely remove lines during iteration
 			for (index, line) in lines.enumerated().reversed() {
-				//Create a stroked copy, for hit testing
+				// Create a stroked copy, for hit testing
 				let pathCopy = line.path.copy(strokingWithWidth: Constants.Stroke.width * 2, lineCap: .round, lineJoin: .round, miterLimit: 1)
 				if pathCopy.contains(point) {
 					lines.remove(at: index)

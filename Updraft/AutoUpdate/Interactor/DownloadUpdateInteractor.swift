@@ -16,7 +16,7 @@ protocol DownloadUpdateInteractorInput {
 	func redirectUserForDownload(to url: URL)
 }
 
-protocol DownloadUpdateInteractorOutput: class {
+protocol DownloadUpdateInteractorOutput: AnyObject {
 	
 	/// Tells the delegate whether a specified URL was opened successfully.
 	///
@@ -41,10 +41,6 @@ class DownloadUpdateInteractor {
 	///
 	/// - Parameter url: The URL to be opened
 	func openUrl(_ url: URL) {
-		guard self.application.canOpenURL(url) else {
-			self.output?.downloadUpdateInteractor(self, url: url, didOpen: false)
-			return
-		}
 		self.application.open(url, options: [:]) { (success) in
 			self.output?.downloadUpdateInteractor(self, url: url, didOpen: success)
 		}

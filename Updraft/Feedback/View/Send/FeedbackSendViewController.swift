@@ -13,7 +13,7 @@ protocol FeedbackSendViewControllerInterface {
 	func showError(_ message: String)
 }
 
-protocol FeedbackSendViewControllerDelegate: class {
+protocol FeedbackSendViewControllerDelegate: AnyObject {
 	func feedbackSendViewControllerPreviousWasTapped(_ sender: FeedbackSendViewController)
 }
 

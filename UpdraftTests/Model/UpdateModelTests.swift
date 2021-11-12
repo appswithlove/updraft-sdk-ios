@@ -22,13 +22,13 @@ class UpdateModelTests: XCTestCase {
     }
 	
 	func testInit() {
-		//Given
+		// Given
 		let updateUrl = "www.update.com"
 		
-		//When
+		// When
 		let sut = UpdateUrlModel(updateUrl: updateUrl)
 		
-		//Then
+		// Then
 		XCTAssertEqual(sut.updateUrl, updateUrl)
 	}
 }

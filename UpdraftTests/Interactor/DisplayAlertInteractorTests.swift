@@ -27,17 +27,17 @@ class DisplayAlertInteractorTests: XCTestCase {
     }
 	
 	func testShowAlert() {
-		//Given
+		// Given
 		let sut = DisplayAlertInteractorSpy()
 		let title = "My Title"
 		let message = "My Message"
 		let okButtonTitle = "Ok Button"
 		let hasCancelButton = true
 		
-		//When
+		// When
 		sut.displayAlert(with: message, title: title, okButtonTitle: okButtonTitle, cancelButton: hasCancelButton)
 		
-		//Then
+		// Then
 		XCTAssertTrue(sut.wasShowAlertCalled)
 		XCTAssertEqual(title, sut.shownAlert?.title)
 		XCTAssertEqual(okButtonTitle, sut.shownAlert?.actions.last?.title)
