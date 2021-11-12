@@ -12,10 +12,6 @@ import Foundation
 struct UIApplicationSpy: URLOpener {
 	
 	var canOpen: Bool
-	
-	func canOpenURL(_ url: URL) -> Bool {
-		return canOpen
-	}
 
     func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler completion: ((Bool) -> Void)?) {
         if canOpen {
