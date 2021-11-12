@@ -22,7 +22,7 @@ class DownloadUpdateInteractorTests: XCTestCase {
     }
 	
 	func testCanOpenUrl() {
-		//Given
+		// Given
 		let canOpen = true
 		let outputSpy = DownloadUpdateInteractorOutputSpy()
 		let applicationSpy = UIApplicationSpy(canOpen: canOpen)
@@ -30,10 +30,10 @@ class DownloadUpdateInteractorTests: XCTestCase {
 		sut.output = outputSpy
 		let url = URL(string: "www.apple.ch")!
 		
-		//When
+		// When
 		sut.openUrl(url)
 		
-		//Then
+		// Then
 		XCTAssertEqual(outputSpy.didOpen, canOpen)
 		XCTAssertTrue(outputSpy.urlDidOpenWasCalled, "urlDidOpen was not called")
 	}

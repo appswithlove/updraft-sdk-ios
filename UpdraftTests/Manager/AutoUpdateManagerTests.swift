@@ -12,153 +12,153 @@ import XCTest
 class AutoUpdateManagerTests: XCTestCase {
 	
 	func testOutputAreSetOnInit() {
-		//Given
+		// Given
 		let downloadUpdateInteractor = DownloadUpdateInteractor()
 		let checkUpdateInteractor = CheckUpdateInteractor()
 		let displayAlertInteractor = DisplayAlertInteractor()
 		let settings = Settings()
 		
-		//When
+		// When
 		let manager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, downloadUpdateInteractor: downloadUpdateInteractor, displayAlertInteractor: displayAlertInteractor, settings: settings)
 		
-		//Then
+		// Then
 		XCTAssertTrue(downloadUpdateInteractor.output === manager)
 		XCTAssertTrue(checkUpdateInteractor.output === manager)
 		XCTAssertTrue(displayAlertInteractor.output === manager)
 	}
 	
 	func testSubscribeToAppDidBecomeActiveOnStart() {
-		//Given
+		// Given
 		let spy = AutoUpdateManagerSpy()
 		
-		//When
+		// When
 		spy.start()
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.subscribeToAppDidBecomeActiveWasCalled)
 	}
 	
 	func testSubscribeToAppWillResignActiveOnStart() {
-		//Given
+		// Given
 		let spy = AutoUpdateManagerSpy()
 		
-		//When
+		// When
 		spy.start()
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.subscriveToAppWillResignActiveWasCalled)
 	}
 	
 	func testObserveDidBecomeActiveNotification() {
-		//Given
+		// Given
 		let manager = AutoUpdateManager()
 		
-		//When
+		// When
 		manager.subscribeToAppDidBecomeActive()
 		
-		//Then
+		// Then
 		XCTAssertNotNil(manager.didBecomeActiveObserver)
 	}
 	
 	func testObserveWillResignActiveNotification() {
-		//Given
+		// Given
 		let manager = AutoUpdateManager()
 		
-		//When
+		// When
 		manager.subscribeToAppWillResignActive()
 		
-		//Then
+		// Then
 		XCTAssertNotNil(manager.willResignActiveObserver)
 	}
 	
 	func testInformUserIsCalledAndUrlSetWhenNewUpdateUrlAvailable() {
-		//Given
+		// Given
 		let checkUpdateInteractor = CheckUpdateInteractor()
 		let spy = AutoUpdateManagerSpy(checkUpdateInteractor: checkUpdateInteractor)
 		let stubUrl = URL(fileURLWithPath: "123")
 		
-		//When
+		// When
 		checkUpdateInteractor.output?.checkUpdateInteractor(checkUpdateInteractor, newUpdateAvailableAt: stubUrl)
 		
-		//Then
+		// Then
 		XCTAssertEqual(spy.updateUrl, stubUrl)
 		XCTAssertTrue(spy.informUserOfNewVersionAvailablewasCalled)
 	}
 	
 	func testRedirectUserIsCalledWhenUserAcknowledgedAlert() {
-		//Given
+		// Given
 		let displayAlertInteractor = DisplayAlertInteractor()
 		let manager = AutoUpdateManagerSpy(displayAlertInteractor: displayAlertInteractor)
 		manager.updateUrl = URL(fileURLWithPath: "123")
 		
-		//When
+		// When
 		displayAlertInteractor.output?.displayAlertInteractorUserDidConfirm(displayAlertInteractor)
 		
-		//Then
+		// Then
 		XCTAssertTrue(manager.redirectUserForUpdateWasCalled)
 	}
 	
 	func testSubscribeToAppDidBecomeActive() {
 		
-		//Given
+		// Given
 		let manager = AutoUpdateManagerSpy()
 		
-		//When
+		// When
 		manager.subscribeToAppDidBecomeActive()
 		
-		//Then
+		// Then
 		XCTAssertNotNil(manager.didBecomeActiveObserver, "checkUpdate not called")
 	}
 	
 	func testSubscribeToAppWillResignActive() {
 		
-		//Given
+		// Given
 		let manager = AutoUpdateManagerSpy()
 		
-		//When
+		// When
 		manager.subscribeToAppWillResignActive()
 		
-		//Then
+		// Then
 		XCTAssertNotNil(manager.willResignActiveObserver, "checkUpdate not called")
 	}
 	
 	func testCheckUpdateIsCalledWhenUpdateIsCalled() {
-		//Given
+		// Given
 		let spy = CheckUpdateInteractorInputSpy()
 		let manager = AutoUpdateManager()
 		manager.checkUpdateInteractor = spy
 		
-		//When
+		// When
 		manager.checkUpdate()
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.checkUpdateWasCalled, "checkUpdate not called")
 	}
 	
 	func testDisplayAlertIsCalledWhenInformUserOfNewVersionAvailableIsCalled() {
-		//Given
+		// Given
 		let spy = DisplayAlertInteractorInputSpy()
 		let manager = AutoUpdateManager()
 		manager.displayAlertInteractor = spy
 		
-		//When
+		// When
 		manager.informUserOfNewVersionAvailable()
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.displayAlertWasCalled)
 	}
 	
 	func testRedirectUserToUrl() {
-		//Given
+		// Given
 		let spy = DownloadUpdateInteractorInputSpy()
 		let manager = AutoUpdateManager()
 		manager.downloadUpdateInteractor = spy
 		let dumURL = URL(string: "www.apple.ch")!
 		
-		//When
+		// When
 		manager.redirectUserForUpdate(to: dumURL)
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.redirectUserForDownloadWasCalled, "Redirect user for download was not called")
 	}
 }

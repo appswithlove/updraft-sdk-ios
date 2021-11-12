@@ -22,7 +22,7 @@ class CheckUpdateRequestTests: XCTestCase {
     }
     
     func testSuccessCheckUpdateModel() {
-		//Given
+		// Given
 		let sessionSpy = NetworkSessionSpy()
 		
 		let jsonString =
@@ -43,11 +43,11 @@ class CheckUpdateRequestTests: XCTestCase {
 		
 		let sut = CheckUpdateRequest(session: sessionSpy)
 		
-		//When
+		// When
 		sut.load(with: .checkUpdate(params: nil)) { (result) in
 			switch result {
 			case .success(let model):
-				//Then
+				// Then
 				XCTAssertEqual("2018-03-07T13:41:04.699669Z", model.lastBuildDate)
 				XCTAssertEqual("Bugfixes", model.releaseNotes)
 				XCTAssertEqual("1.5", model.updraftVersion)

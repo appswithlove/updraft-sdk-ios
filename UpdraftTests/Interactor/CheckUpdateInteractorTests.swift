@@ -22,17 +22,17 @@ class CheckUpdateInteractorTests: XCTestCase {
     }
 	
 	func testNewUpdateUrl() {
-		//Given
+		// Given
 		let interactor = CheckUpdateInteractor()
 		let spy = CheckUpdateInteractorOutputSpy()
 		interactor.output = spy
 		
 		let stubUrl = URL(string: "www.apple.ch")!
 	
-		//When
+		// When
 		interactor.output?.checkUpdateInteractor(interactor, newUpdateAvailableAt: stubUrl)
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.checkUpdateInteractorWasCalled)
 	}
 }

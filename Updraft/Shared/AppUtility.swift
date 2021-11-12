@@ -19,7 +19,7 @@ protocol AppUtility {
 
 extension AppUtility {
 	
-	///Returns the build version
+	/// Returns the build version
 	var buildVersion: String {
 		let dictionary = Bundle.main.infoDictionary
 		guard let buildVersion = dictionary?["CFBundleVersion"] as? String else {
@@ -28,7 +28,7 @@ extension AppUtility {
 		return buildVersion
 	}
 	
-	///Returns the topmost presented UIViewController
+	/// Returns the topmost presented UIViewController
 	var topMostController: UIViewController? {
 		var topController = UIApplication.shared.keyWindow?.rootViewController
 		while topController?.presentedViewController != nil {
@@ -37,7 +37,7 @@ extension AppUtility {
 		return topController
 	}
 	
-	///Returns the current controllers stack
+	/// Returns the current controllers stack
 	var controllersStack: String {
 		var controllers = [String]()
 		

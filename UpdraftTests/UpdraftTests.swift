@@ -23,17 +23,17 @@ class UpdraftTests: XCTestCase {
 	
 	func testInit() {
 		
-		//Given
+		// Given
 		let loadFontsInteractor = LoadFontsInteractor()
 		let apiSessionManager = ApiSessionManager()
 		let autoUpdateManager = AutoUpdateManager()
 		let feedbackManager = FeedbackManager()
 		let settings = Settings()
 		
-		//When
+		// When
 		let updraft = Updraft(loadFontsInteractor: loadFontsInteractor, autoUpdateManager: autoUpdateManager, apiSessionManager: apiSessionManager, feedbackManager: feedbackManager, settings: settings)
 		
-		//Then
+		// Then
 		XCTAssertTrue(loadFontsInteractor === updraft.loadFontsInteractor)
 		XCTAssertTrue(apiSessionManager === updraft.apiSessionManager)
 		XCTAssertTrue(autoUpdateManager === updraft.autoUpdateManager)
@@ -43,67 +43,67 @@ class UpdraftTests: XCTestCase {
 	
 	func testKeysOnStartUpdraft() {
 		
-		//Given
+		// Given
 		let appKey = "1234567890"
 		let sdkKey = "0987654321"
 		let updraft = Updraft()
 		
-		//When
+		// When
 		updraft.start(sdkKey: sdkKey, appKey: appKey)
 		
-		//Then
+		// Then
 		XCTAssertEqual(appKey, updraft.settings.appKey)
 		XCTAssertEqual(sdkKey, updraft.settings.sdkKey)
 	}
 	
 	func testStartFeedbackManagerOnUpdraftStart() {
 		
-		//Given
+		// Given
 		let spy = FeedbackManagerSpy()
 		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: spy, settings: Settings())
 		
-		//When
+		// When
 		updraft.start(sdkKey: "", appKey: "")
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.startWasCalled)
 	}
 	
 	func testStartAutoUpdateManagerOnUpdraftStart() {
 		
-		//Given
+		// Given
 		let spy = AutoUpdateManagerSpy()
 		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: spy, apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		
-		//When
+		// When
 		updraft.start(sdkKey: "", appKey: "")
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.startWasCalled)
 	}
 
 	func testLoadFontsOnUpdraftStart() {
 		
-		//Given
+		// Given
 		let spy = LoadFontsInteractorSpy()
 		let updraft = Updraft(loadFontsInteractor: spy, autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		
-		//When
+		// When
 		updraft.start(sdkKey: "", appKey: "")
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.loadAllWasCalled)
 	}
 	
 	func testWarningLogLevelOnInit() {
 		
-		//Given
+		// Given
 		let defaultLogLevel = LogLevel.warning
 		
-		//When
+		// When
 		_ = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		
-		//Then
+		// Then
 		XCTAssert(Logger.logLevel == defaultLogLevel)
 
 	}
@@ -112,31 +112,31 @@ class UpdraftTests: XCTestCase {
 		
 		let currentLogLevel = Logger.logLevel
 		
-		//Given
+		// Given
 		let errorLevel = LogLevel.error
 		let updraft = Updraft(loadFontsInteractor: LoadFontsInteractor(), autoUpdateManager: AutoUpdateManager(), apiSessionManager: ApiSessionManager(), feedbackManager: FeedbackManager(), settings: Settings())
 		
-		//When
+		// When
 		updraft.logLevel = errorLevel
 		
-		//Then
+		// Then
 		XCTAssert(Logger.logLevel == errorLevel)
 		
-		//Teardown
+		// Teardown
 		Logger.logLevel = currentLogLevel
 	}
 	
 	func testSetBaseUrl() {
 		let baseUrl = "https://test.url/"
 		
-		//Given
+		// Given
 		let updraft = Updraft.shared
 		updraft.baseUrl = baseUrl
 		
-		//When
+		// When
 		let resource = CheckUpdateResource.checkUpdate(params: nil)
 		
-		//Then
+		// Then
 		XCTAssertEqual(resource.base, updraft.baseUrl)
 	}
 }

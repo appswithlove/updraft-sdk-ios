@@ -13,25 +13,25 @@ import CoreMotion
 class TriggerFeedbackInteractorTests: XCTestCase {
 	
 	func testObserveUserDidTakeScreenshotIsCalledOnStart() {
-		//Given
+		// Given
 		let spy = TriggerFeedbackInteractorSpy()
 		
-		//When
+		// When
 		spy.start()
 		
-		//Then
+		// Then
 		XCTAssertTrue(spy.observeUserDidTakeScreenshotWasCalled, "ObserveUserDidTakeScreenshot was not called on start")
 	}
 	
 	func testObserveUserDidTakeScreenshot() {
 		
-		//Given
+		// Given
 		let spy = TriggerFeedbackInteractor()
 		
-		//When
+		// When
 		spy.observeUserDidTakeScreenshot()
 		
-		//Then
+		// Then
 		XCTAssertNotNil(spy.screenshotObserver)
 	}
 }

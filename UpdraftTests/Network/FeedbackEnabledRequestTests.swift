@@ -20,7 +20,7 @@ class FeedbackEnabledRequestTests: XCTestCase {
     }
 	
 	func testSuccessFeedbackEnabled() {
-		//Given
+		// Given
 		let sessionSpy = NetworkSessionSpy()
 		
 		let jsonString =
@@ -36,7 +36,7 @@ class FeedbackEnabledRequestTests: XCTestCase {
 		
 		let sut = FeedbackEnabledRequest(session: sessionSpy)
 		
-		//When
+		// When
 		sut.load(with: .isEnabled(params: nil)) { (result) in
 			switch result {
 			case .success(let model):

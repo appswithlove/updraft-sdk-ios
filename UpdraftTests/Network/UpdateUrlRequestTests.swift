@@ -22,7 +22,7 @@ class UpdateUrlRequestTests: XCTestCase {
     }
     
 	func testSuccessGetUpdateUrl() {
-		//Given
+		// Given
 		let sessionSpy = NetworkSessionSpy()
 		
 		let jsonString =
@@ -38,11 +38,11 @@ class UpdateUrlRequestTests: XCTestCase {
 		
 		let sut = UpdateUrlRequest(session: sessionSpy)
 		
-		//When
+		// When
 		sut.load(with: .getUpdateUrl(params: nil)) { (result) in
 			switch result {
 			case .success(let model):
-				//Then
+				// Then
 				XCTAssertEqual("www.updraft.com", model.updateUrl)
 			default:
 				XCTAssertTrue(false, "error")

@@ -22,7 +22,7 @@ class NetworkRequestTests: XCTestCase {
     }
     
     func testSuccessfulResponse() {
-		//Given
+		// Given
 		
 		let sessionSpy = NetworkSessionSpy()
 		
@@ -41,11 +41,11 @@ class NetworkRequestTests: XCTestCase {
 		
 		let sut = NetworkRequestSpy(session: sessionSpy)
 		
-		//When
+		// When
 		sut.load(URLRequest(url: stubURL)) { (result) in
 			switch result {
 			case .success(let model):
-				//Then
+				// Then
 				XCTAssertEqual(1, model.identifier)
 			default:
 				XCTAssertTrue(false, "Error")
@@ -55,7 +55,7 @@ class NetworkRequestTests: XCTestCase {
     }
     
     func testInvalidResponse() {
-		//Given
+		// Given
 		
 		let sessionSpy = NetworkSessionSpy()
 		let stubURL = URL(fileURLWithPath: "url")
@@ -66,11 +66,11 @@ class NetworkRequestTests: XCTestCase {
 		
 		let sut = NetworkRequestSpy(session: sessionSpy)
 		
-		//When
+		// When
 		sut.load(URLRequest(url: stubURL)) { (result) in
 			switch result {
 			case .error:
-				//Then
+				// Then
 				XCTAssertTrue(true)
 			default:
 				XCTAssertTrue(false, "Error")
@@ -79,7 +79,7 @@ class NetworkRequestTests: XCTestCase {
     }
 	
 	func testErrorResponse() {
-		//Given
+		// Given
 		
 		let sessionSpy = NetworkSessionSpy()
 		let stubURL = URL(fileURLWithPath: "url")
@@ -90,11 +90,11 @@ class NetworkRequestTests: XCTestCase {
 		
 		let sut = NetworkRequestSpy(session: sessionSpy)
 		
-		//When
+		// When
 		sut.load(URLRequest(url: stubURL)) { (result) in
 			if case .error(let error as NetworkError) = result {
 				if case .invalidData = error {
-					//Then
+					// Then
 					XCTAssertTrue(true)
 				} else {
 					XCTAssertTrue(false, "Error")
