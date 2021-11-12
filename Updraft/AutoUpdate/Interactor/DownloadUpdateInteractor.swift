@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DownloadUpdateInteractorInput {
 	
@@ -29,19 +30,14 @@ protocol DownloadUpdateInteractorOutput: AnyObject {
 
 /// Handle the redirection of the user to the app update download page.
 class DownloadUpdateInteractor {
-	
-	private let application: URLOpener
+
 	weak var output: DownloadUpdateInteractorOutput?
-	
-	init(application: URLOpener = UIApplication.shared) {
-		self.application = application
-	}
 
 	/// Opens Safari with the provided URL
 	///
 	/// - Parameter url: The URL to be opened
 	func openUrl(_ url: URL) {
-		self.application.open(url, options: [:]) { (success) in
+        UIApplication.shared.open(url, options: [:]) { (success) in
 			self.output?.downloadUpdateInteractor(self, url: url, didOpen: success)
 		}
 	}
