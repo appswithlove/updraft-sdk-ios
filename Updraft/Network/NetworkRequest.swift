@@ -39,7 +39,7 @@ enum NetworkMethod: String {
 	case post = "POST"
 }
 
-protocol NetworkRequest: class {
+protocol NetworkRequest: AnyObject {
 	///Result Model that must conform to Decodable
 	associatedtype Model where Model: Decodable
 	func load(_ urlRequest: URLRequest, withCompletion completion: @escaping (NetworkResult<Model>) -> Void)

@@ -14,7 +14,7 @@ protocol SendFeedbackInteractorInput {
 	func cancel()
 }
 
-protocol SendFeedbackInteractorOuput: class {
+protocol SendFeedbackInteractorOuput: AnyObject {
 	func sendFeedbackInteractorSending(_ sender: SendFeedbackInteractor, progress: Double)
 	func sendFeedbackInteractorDidSend(_ sender: SendFeedbackInteractor)
 	func sendFeedbackInteractorDidFail(_ sender: SendFeedbackInteractor, error: Error)

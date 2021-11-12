@@ -13,7 +13,7 @@ protocol CheckFeedbackEnabledInteractorInput {
 	func checkIfEnabled()
 }
 
-protocol CheckFeedbackEnabledInteractorOutput: class {
+protocol CheckFeedbackEnabledInteractorOutput: AnyObject {
 	/// Tells the delegate if feedback is enabled
 	///
 	/// - Parameters:

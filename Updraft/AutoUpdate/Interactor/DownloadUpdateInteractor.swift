@@ -16,7 +16,7 @@ protocol DownloadUpdateInteractorInput {
 	func redirectUserForDownload(to url: URL)
 }
 
-protocol DownloadUpdateInteractorOutput: class {
+protocol DownloadUpdateInteractorOutput: AnyObject {
 	
 	/// Tells the delegate whether a specified URL was opened successfully.
 	///

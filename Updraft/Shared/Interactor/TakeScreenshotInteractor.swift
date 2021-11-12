@@ -13,7 +13,7 @@ protocol TakeScreenshotInteractorInput {
 	func takeScreenshot()
 }
 
-protocol TakeScreenshotInteractorOutput: class {
+protocol TakeScreenshotInteractorOutput: AnyObject {
 	func takeScreenshotInteractor(_ sender: TakeScreenshotInteractor, didTakeScreenshot image: UIImage)
 }
 

@@ -23,7 +23,7 @@ protocol DisplayAlertInteractorInput {
 	func clearMessages()
 }
 
-protocol DisplayAlertInteractorOuput: class {
+protocol DisplayAlertInteractorOuput: AnyObject {
 	func displayAlertInteractorUserDidConfirm(_ sender: DisplayAlertInteractor)
 	func displayAlertInteractorUserDidCancel(_ sender: DisplayAlertInteractor)
 }

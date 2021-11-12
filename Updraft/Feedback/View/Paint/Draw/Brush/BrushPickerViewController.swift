@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BrushPickerViewControllerDelegate: class {
+protocol BrushPickerViewControllerDelegate: AnyObject {
 	func brushPicker(_ sender: BrushPickerViewController, didPick brush: Brush)
 }
 

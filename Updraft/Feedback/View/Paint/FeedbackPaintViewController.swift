@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FeedbackPaintViewControllerDelegate: class {
+protocol FeedbackPaintViewControllerDelegate: AnyObject {
 	func paintViewControllerNextWasTapped(sender _: FeedbackPaintViewController)
 }
 
