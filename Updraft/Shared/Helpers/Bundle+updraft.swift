@@ -10,9 +10,11 @@ import Foundation
 
 extension Bundle {
 	static var updraft: Bundle {
-		//TODO: how to detect if integrated using SPM or not (cocoapods, carthage), i.e. if Bundle.module or Updraft.self needs to be used ?
-		// currently using a separate branch...
-//		return Bundle(for: Updraft.self)
-		return .module
+        #if SWIFT_PACKAGE
+        let bundle = Bundle.module
+        #else
+        let bundle = Bundle(Upraft.self)
+        #endif
+		return bundle
 	}
 }
