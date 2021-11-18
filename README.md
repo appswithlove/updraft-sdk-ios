@@ -24,9 +24,10 @@ Updraft is built by App Agencies [Apps with love](https://appswithlove.com/) and
 ## Installation
 
 ### Swift Package Manager (SPM) Support
-- iOS 12.0+
+In Xcode:
 
-A first version is available on branch `swift-package-manager`
+File ⭢ Swift Packages ⭢ Add Package Dependency...
+Use the URL https://github.com/appswithlove/updraft-sdk-ios
 
 ### CocoaPods
 
