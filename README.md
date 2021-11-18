@@ -1,4 +1,4 @@
-![Updraft: Mobile App Distribution](updraft.png)
+![Updraft: Mobile App Distribution](https://raw.githubusercontent.com/appswithlove/updraft-sdk-ios/master/updraft.png)
 [![Build Status](https://github.com/appswithlove/updraft-sdk-ios/workflows/Updraft%20CI/badge.svg?branch=master)](https://github.com/appswithlove/updraft-sdk-ios/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/appswithlove/updraft-sdk-ios/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/UpdraftSDK.svg)](https://img.shields.io/cocoapods/v/UpdraftSDK.svg)
