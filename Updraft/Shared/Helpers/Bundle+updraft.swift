@@ -13,7 +13,7 @@ extension Bundle {
         #if SWIFT_PACKAGE
         let bundle = Bundle.module
         #else
-        let bundle = Bundle(Upraft.self)
+        let bundle = Bundle(for: Updraft.self)
         #endif
 		return bundle
 	}
