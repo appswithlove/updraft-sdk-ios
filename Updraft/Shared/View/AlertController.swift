@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available (iOS 13, *)
 class AlertAction: UIButton {
     
     let title: String
@@ -33,6 +34,7 @@ class AlertAction: UIButton {
         setTitleColor(.black, for: .normal)
         isUserInteractionEnabled = true
         titleLabel?.font = .boldSystemFont(ofSize: 16)
+        setTitleColor(.label, for: .normal)
         let seperator = UIView(frame: .zero)
         seperator.backgroundColor = .lightGray
         seperator.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +54,7 @@ class AlertAction: UIButton {
 
 }
 
-@available (iOS 11, *)
+@available (iOS 13, *)
 class AlertController: UIView {
 //frame: CGRect(x: 0, y: UIScreen.main.bounds.height-300, width: UIScreen.main.bounds.width, height: 300)
     let bottomView = UIView()
@@ -90,9 +92,12 @@ class AlertController: UIView {
         
         titleView.text = title
         titleView.font = .boldSystemFont(ofSize: 16)
+        titleView.textAlignment = .center
+        titleView.textColor = .label
         messageView.text = message
         messageView.numberOfLines = 0
         messageView.textAlignment = .center
+        messageView.textColor = .label
         
         let stackView = UIStackView()
         stackView.axis = .vertical

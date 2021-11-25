@@ -60,14 +60,14 @@ class DisplayAlertInteractor: AppUtility {
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
-        if #available (iOS 11, *) {
+        if #available (iOS 13, *) {
             configureBottomSheet(with: message, title: title, okButtonTitle: okButtonTitle, cancelButton: cancelButton)
         } else {
             configureAlert(with: message, title: title, okButtonTitle: okButtonTitle, cancelButton: cancelButton)
         }
 	}
     
-    @available (iOS 11, *)
+    @available (iOS 13, *)
     private func configureBottomSheet(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
         guard let rootViewWindow = UIApplication.shared.windows.filter({$0.isKeyWindow}).first,
                 let rootViewController = rootViewWindow.rootViewController else {
