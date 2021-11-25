@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4D6CB2F274FC16E00E93C7D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D6CB2E274FC16E00E93C7D /* AlertController.swift */; };
 		F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F600EADC203ADC3600E7AB93 /* AppUtility.swift */; };
 		F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionSpy.swift */; };
 		F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105922035E39E004D8431 /* CheckUpdateModel.swift */; };
@@ -123,6 +124,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4D6CB2E274FC16E00E93C7D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		F600EADC203ADC3600E7AB93 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		F601058C2035C601004D8431 /* NetworkSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionSpy.swift; sourceTree = "<group>"; };
 		F60105922035E39E004D8431 /* CheckUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateModel.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 			children = (
 				F6D641CD20F49EDE003AA01D /* ActionButton.swift */,
 				F6D641CC20F49EDE003AA01D /* NavigationButton.swift */,
+				C4D6CB2E274FC16E00E93C7D /* AlertController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				F6632BF6203573970098FA77 /* NetworkSession.swift in Sources */,
 				F6D641BB20F49DDB003AA01D /* DrawViewController.swift in Sources */,
 				F6E9F5612056C48900206FAE /* DispatchToMainThread.swift in Sources */,
+				C4D6CB2F274FC16E00E93C7D /* AlertController.swift in Sources */,
 				F67B495C207B601400272C09 /* FeedbackPresenter.swift in Sources */,
 				F644BD1E207C9169003126F1 /* SendFeedbackResource.swift in Sources */,
 				F63564CF212FF60C0094200E /* URLRequest+logMessage.swift in Sources */,

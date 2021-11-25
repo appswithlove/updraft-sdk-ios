@@ -60,27 +60,66 @@ class DisplayAlertInteractor: AppUtility {
 
 extension DisplayAlertInteractor: DisplayAlertInteractorInput {
 	func displayAlert(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
-		
-		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		
-		if cancelButton {
-			let cancelAction = UIAlertAction(title: "updraft_alert_button_cancel".localized, style: .default) { [weak self] (_) in
-				guard let strongSelf = self else {return}
-				strongSelf.displayedAlert = nil
-				strongSelf.output?.displayAlertInteractorUserDidCancel(strongSelf)
-			}
-			alert.addAction(cancelAction)
-		}
-		let okAction = 	UIAlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
-			guard let strongSelf = self else {return}
-			strongSelf.displayedAlert = nil
-			strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
-		}
-		alert.addAction(okAction)
-		alert.preferredAction = okAction
-		self.showAlert(alert: alert)
+        if #available (iOS 11, *) {
+            configureBottomSheet(with: message, title: title, okButtonTitle: okButtonTitle, cancelButton: cancelButton)
+        } else {
+            configureAlert(with: message, title: title, okButtonTitle: okButtonTitle, cancelButton: cancelButton)
+        }
 	}
-	
+    
+    @available (iOS 11, *)
+    private func configureBottomSheet(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
+        guard let rootViewWindow = UIApplication.shared.windows.filter({$0.isKeyWindow}).first,
+                let rootViewController = rootViewWindow.rootViewController else {
+            return
+        }
+        
+        let vc = UIViewController()
+        let okButtonTitle = okButtonTitle ?? "updraft_alert_button_ok".localized
+        let cancelButtonTitle = "Cancel"
+        
+        let okAction = AlertAction(title: okButtonTitle) {
+            self.displayedAlert = nil
+            self.output?.displayAlertInteractorUserDidConfirm(self)
+        }
+        
+        var actions: [AlertAction] = [okAction]
+        if cancelButton {
+            let cancelAction = AlertAction(title: cancelButtonTitle) {
+                vc.dismiss(animated: true, completion: nil)
+                self.output?.displayAlertInteractorUserDidCancel(self)
+            }
+            actions.append(cancelAction)
+        }
+
+        let alertView = AlertController(title: title, message: message, actions: actions)
+        
+        vc.view = alertView
+        rootViewController.present(vc, animated: true)
+    }
+    
+    // For use with iOS 11 and prior
+    private func configureAlert(with message: String, title: String, okButtonTitle: String?, cancelButton: Bool) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        if cancelButton {
+            let cancelAction = UIAlertAction(title: "updraft_alert_button_cancel".localized, style: .default) { [weak self] (_) in
+                guard let strongSelf = self else {return}
+                strongSelf.displayedAlert = nil
+                strongSelf.output?.displayAlertInteractorUserDidCancel(strongSelf)
+            }
+            alert.addAction(cancelAction)
+        }
+        let okAction =     UIAlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
+            guard let strongSelf = self else {return}
+            strongSelf.displayedAlert = nil
+            strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
+        }
+        alert.addAction(okAction)
+        alert.preferredAction = okAction
+        self.showAlert(alert: alert)
+    }
+    
 	func clearMessages() {
 		clear()
 	}
