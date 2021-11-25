@@ -73,19 +73,16 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
                 let rootViewController = rootViewWindow.rootViewController else {
             return
         }
-        
         let vc = UIViewController()
-        let okButtonTitle = okButtonTitle ?? "updraft_alert_button_ok".localized
-        let cancelButtonTitle = "Cancel"
         
-        let okAction = AlertAction(title: okButtonTitle) {
+        let okAction = AlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized) {
             self.displayedAlert = nil
             self.output?.displayAlertInteractorUserDidConfirm(self)
         }
         
         var actions: [AlertAction] = [okAction]
         if cancelButton {
-            let cancelAction = AlertAction(title: cancelButtonTitle) {
+            let cancelAction = AlertAction(title: "updraft_alert_button_cancel".localized) {
                 vc.dismiss(animated: true, completion: nil)
                 self.output?.displayAlertInteractorUserDidCancel(self)
             }
@@ -110,7 +107,7 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
             }
             alert.addAction(cancelAction)
         }
-        let okAction =     UIAlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
+        let okAction =  UIAlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized, style: .default) { [weak self] (_) in
             guard let strongSelf = self else {return}
             strongSelf.displayedAlert = nil
             strongSelf.output?.displayAlertInteractorUserDidConfirm(strongSelf)
