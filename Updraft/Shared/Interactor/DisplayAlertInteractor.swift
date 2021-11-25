@@ -76,15 +76,17 @@ extension DisplayAlertInteractor: DisplayAlertInteractorInput {
         let vc = UIViewController()
         
         let okAction = AlertAction(title: okButtonTitle ?? "updraft_alert_button_ok".localized) {
-            self.displayedAlert = nil
-            self.output?.displayAlertInteractorUserDidConfirm(self)
+            vc.dismiss(animated: true) {
+                self.output?.displayAlertInteractorUserDidConfirm(self)
+            }
         }
         
         var actions: [AlertAction] = [okAction]
         if cancelButton {
             let cancelAction = AlertAction(title: "updraft_alert_button_cancel".localized) {
-                vc.dismiss(animated: true, completion: nil)
-                self.output?.displayAlertInteractorUserDidCancel(self)
+                vc.dismiss(animated: true) {
+                    self.output?.displayAlertInteractorUserDidCancel(self)
+                }
             }
             actions.append(cancelAction)
         }

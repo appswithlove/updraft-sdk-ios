@@ -91,6 +91,8 @@ class AlertController: UIView {
         titleView.text = title
         titleView.font = .boldSystemFont(ofSize: 16)
         messageView.text = message
+        messageView.numberOfLines = 0
+        messageView.textAlignment = .center
         
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -119,6 +121,8 @@ class AlertController: UIView {
                 handleView.heightAnchor.constraint(equalToConstant: 5),
                 handleView.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 20),
                 handleView.centerXAnchor.constraint(equalTo: bottomView.centerXAnchor),
+                titleView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40),
+                messageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40),
                 stackView.widthAnchor.constraint(equalTo: bottomView.widthAnchor),
                 stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
                 stackView.topAnchor.constraint(equalTo: handleView.bottomAnchor, constant: 20)
