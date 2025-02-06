@@ -27,17 +27,24 @@ class TakeScreenshotInteractor {
 extension TakeScreenshotInteractor: TakeScreenshotInteractorInput {
 	
 	@objc func takeScreenshot() {
-		
-		var screenshotImage: UIImage?
-		let layer = UIApplication.shared.keyWindow!.layer
-		let scale = UIScreen.main.scale
-		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
-		guard let context = UIGraphicsGetCurrentContext() else {return}
-		layer.render(in: context)
-		screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-		UIGraphicsEndImageContext()
-		guard let screenshot = screenshotImage else {return}
-		
-		output?.takeScreenshotInteractor(self, didTakeScreenshot: screenshot)
-	}
+        var screenshotImage: UIImage?
+        
+        let scale = UIScreen.main.scale
+
+        if let view = UIApplication.shared.keyWindow?.rootViewController?.view {
+            UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, scale)
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        } else {
+            let layer = UIApplication.shared.keyWindow!.layer
+            UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
+            guard let context = UIGraphicsGetCurrentContext() else {return}
+            layer.render(in: context)
+        }
+
+        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        guard let screenshot = screenshotImage else {return}
+        
+        output?.takeScreenshotInteractor(self, didTakeScreenshot: screenshot)	}
 }
