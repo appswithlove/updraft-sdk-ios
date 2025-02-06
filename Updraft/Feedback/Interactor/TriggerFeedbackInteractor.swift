@@ -29,7 +29,7 @@ protocol TriggerFeedbackInteractorOutput: AnyObject {
 /// Handle the detection of feedback triggers
 class TriggerFeedbackInteractor: TriggerFeedbackInteractorInput {
 	
-	private (set) var screenshotObserver: NSObjectProtocol?
+	private(set) var screenshotObserver: NSObjectProtocol?
 	weak var output: TriggerFeedbackInteractorOutput?
 	var isActive: Bool = false
 	
