@@ -31,16 +31,9 @@ extension TakeScreenshotInteractor: TakeScreenshotInteractorInput {
         
         let scale = UIScreen.main.scale
 
-        if let view = UIApplication.shared.keyWindow?.rootViewController?.view {
-            UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, scale)
-            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        } else {
-            let layer = UIApplication.shared.keyWindow!.layer
-            UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
-            guard let context = UIGraphicsGetCurrentContext() else {return}
-            layer.render(in: context)
-        }
-
+        guard let window = UIApplication.shared.keyWindow else { return }
+        UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, scale)
+        window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
         screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
