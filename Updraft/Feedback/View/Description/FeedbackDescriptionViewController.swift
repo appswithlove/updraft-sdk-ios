@@ -211,10 +211,10 @@ extension FeedbackDescriptionViewController: UIPickerViewDataSource {
 
 extension FeedbackDescriptionViewController: UIPickerViewDelegate {
 	
-	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		let title = tags[row]?.localized ?? ""
-		return title
-	}
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let title = tags[row]?.localized ?? ""
+        return NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+    }
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		guard let tag = tags[row] else { return }
