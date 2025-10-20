@@ -51,10 +51,6 @@ class SendFeedbackInteractor: NSObject {
 		return parameters
 	}
 	
-	private func jpegRepresentationFrom(_ image: UIImage) -> Data {
-		return image.jpegData(compressionQuality: 1.0) ?? Data()
-	}
-	
 	private func interpretError(_ error: Error) {
 		if (error as NSError).code == NSURLErrorCancelled {
 			Logger.log("Feedback sending was cancelled: \(error.localizedDescription)", level: .info)
@@ -68,10 +64,10 @@ class SendFeedbackInteractor: NSObject {
 
 extension SendFeedbackInteractor: SendFeedbackInteractorInput {
 	func sendFeedback(_ feedback: FeedbackModel) {
-		let imageData = jpegRepresentationFrom(feedback.viewModel.image)
+		let sendingData = feedback.viewModel.sendingData
 		let parameters = createParametersFrom(feedback)
 		
-		sendFeedbackRequest.load(with: .send(params: parameters, imageData: imageData), progress: { [weak self] progress in
+		sendFeedbackRequest.load(with: .send(params: parameters, imageData: sendingData), progress: { [weak self] progress in
 			guard let strongSelf = self else { return }
 			strongSelf.output?.sendFeedbackInteractorSending(strongSelf, progress: progress)
 		}, completion: { [weak self] result in

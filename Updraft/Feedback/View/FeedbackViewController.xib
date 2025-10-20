@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,6 +13,7 @@
                 <outlet property="closeButton" destination="77n-MR-qka" id="x2Y-hH-Ai8"/>
                 <outlet property="containerView" destination="zX0-lj-b4t" id="nCC-Sf-TO8"/>
                 <outlet property="logoImageView" destination="aqj-Yc-gid" id="ctx-cV-pCQ"/>
+                <outlet property="modeSegmentControl" destination="JR0-dJ-qzf" id="lnG-l8-MHR"/>
                 <outlet property="titleLabel" destination="23l-Tk-adP" id="Ptj-Kr-lAy"/>
                 <outlet property="topConstraint" destination="ILS-cQ-KT7" id="xog-v6-0Xy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,20 +25,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23l-Tk-adP">
-                    <rect key="frame" x="130" y="30" width="114" height="20.5"/>
+                    <rect key="frame" x="131" y="30" width="113" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aqj-Yc-gid">
-                    <rect key="frame" x="10" y="31" width="70" height="22.5"/>
+                    <rect key="frame" x="10" y="31.5" width="70" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="jiW-F1-cUh"/>
                         <constraint firstAttribute="width" constant="70" id="pBZ-se-Cgs"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zX0-lj-b4t">
-                    <rect key="frame" x="0.0" y="60.5" width="375" height="606.5"/>
+                    <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                     <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77n-MR-qka">
@@ -48,26 +47,45 @@
                         <constraint firstAttribute="width" constant="30" id="BDI-O1-cfu"/>
                         <constraint firstAttribute="height" constant="30" id="LI2-lH-j22"/>
                     </constraints>
+                    <state key="normal" image="iconButtonClose"/>
                     <connections>
                         <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="YX5-wl-SX3"/>
                     </connections>
                 </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JR0-dJ-qzf">
+                    <rect key="frame" x="122" y="58" width="130" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="KoF-Bj-4X3"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <connections>
+                        <action selector="modeChangedAction:" destination="-1" eventType="valueChanged" id="5WO-9S-XN0"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
-            <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="dIZ-Wa-qmd"/>
+            <color key="backgroundColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="77n-MR-qka" secondAttribute="trailing" constant="6" id="66j-sV-oRL"/>
-                <constraint firstItem="zX0-lj-b4t" firstAttribute="top" secondItem="23l-Tk-adP" secondAttribute="bottom" constant="10" id="8Dh-Oe-wqD"/>
+                <constraint firstItem="zX0-lj-b4t" firstAttribute="top" secondItem="JR0-dJ-qzf" secondAttribute="bottom" constant="8" symbolic="YES" id="7sB-t9-r9W"/>
                 <constraint firstItem="23l-Tk-adP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Byn-YE-LcL"/>
                 <constraint firstAttribute="bottom" secondItem="zX0-lj-b4t" secondAttribute="bottom" id="Cjb-Fq-R2y"/>
                 <constraint firstItem="aqj-Yc-gid" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="GiA-r8-Bfc"/>
                 <constraint firstItem="23l-Tk-adP" firstAttribute="top" secondItem="dIZ-Wa-qmd" secondAttribute="top" constant="10" id="ILS-cQ-KT7"/>
                 <constraint firstItem="aqj-Yc-gid" firstAttribute="centerY" secondItem="23l-Tk-adP" secondAttribute="centerY" constant="2" id="ddR-X3-Ilj"/>
+                <constraint firstItem="JR0-dJ-qzf" firstAttribute="centerX" secondItem="23l-Tk-adP" secondAttribute="centerX" id="iaX-d5-wGm"/>
+                <constraint firstItem="JR0-dJ-qzf" firstAttribute="top" secondItem="23l-Tk-adP" secondAttribute="bottom" constant="7.5" id="l95-kH-hqZ"/>
                 <constraint firstItem="zX0-lj-b4t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mwJ-m5-dpk"/>
                 <constraint firstItem="77n-MR-qka" firstAttribute="centerY" secondItem="23l-Tk-adP" secondAttribute="centerY" id="oyg-RU-Jc0"/>
                 <constraint firstAttribute="trailing" secondItem="zX0-lj-b4t" secondAttribute="trailing" id="q1i-lA-a3Y"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="dIZ-Wa-qmd"/>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
+    <resources>
+        <image name="iconButtonClose" width="30" height="30"/>
+    </resources>
 </document>

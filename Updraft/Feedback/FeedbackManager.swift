@@ -27,8 +27,8 @@ class FeedbackManager: AppUtility {
 		triggerFeedbackInteractor: TriggerFeedbackInteractor = TriggerFeedbackInteractor(),
 		showFeedbackStatusInteractor: ShowFeedbackStatusInteractor = ShowFeedbackStatusInteractor(),
 		checkFeedbackEnabledInteractor: CheckFeedbackEnabledInteractor = CheckFeedbackEnabledInteractor(),
-		feedbackPresenter: FeedbackPresenter = FeedbackPresenter()) {
-		
+		feedbackPresenter: FeedbackPresenter = FeedbackPresenter()
+    ) {
 		self.takeScreenshotInteractor = takeScreenshotInteractor
 		self.triggerFeedbackInteractor = triggerFeedbackInteractor
 		self.feedbackPresenter = feedbackPresenter

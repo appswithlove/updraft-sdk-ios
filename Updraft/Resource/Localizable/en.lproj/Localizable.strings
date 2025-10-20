@@ -39,3 +39,7 @@
 "updraft_feedback_send_success" = "Thank you for the feedback";
 "updraft_feedback_send_failure_title" = "Failed to send feedback";
 "updraft_feedback_send_failure_subtitle" = "An error occured while sending the feedback.";
+
+"updraft_mode_screenshot" = "Screenshot";
+"updraft_mode_screenRecording" = "Screen recording";
+"updraft_screen_recording" = "Screen recording";

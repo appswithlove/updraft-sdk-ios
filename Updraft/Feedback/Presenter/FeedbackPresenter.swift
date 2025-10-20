@@ -61,7 +61,6 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 	}
 	
 	func present(with image: UIImage, context: FeedbackContextModel) {
-		
 		if let fbvc = feedbackViewController {
 			guard !fbvc.isBeingDismissed && !fbvc.isBeingPresented && fbvc.viewIfLoaded?.window == nil else {return}
 			feedbackViewController = nil
@@ -89,6 +88,7 @@ class FeedbackPresenter: FeedbackPresenterInput, AppUtility, FeedbackViewControl
 	func feedbackViewControllerDismissWasTapped(_ sender: FeedbackViewController) {
 		sendFeedbackInteractor.cancel()
 		sender.dismiss(animated: true, completion: nil)
+        feedbackViewController = nil
 	}
 }
 

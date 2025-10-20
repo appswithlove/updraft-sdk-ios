@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098DFB602EA677C100FFEDC5 /* ScreenRecorder+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB592EA677C100FFEDC5 /* ScreenRecorder+UIWindow.swift */; };
+		098DFB612EA677C100FFEDC5 /* UIApplication+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB552EA677C100FFEDC5 /* UIApplication+KeyWindow.swift */; };
+		098DFB622EA677C100FFEDC5 /* VideoFullscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB5E2EA677C100FFEDC5 /* VideoFullscreenView.swift */; };
+		098DFB632EA677C100FFEDC5 /* ScreenRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB5A2EA677C100FFEDC5 /* ScreenRecordingManager.swift */; };
+		098DFB642EA677C100FFEDC5 /* UIImage+DrawCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB562EA677C100FFEDC5 /* UIImage+DrawCircle.swift */; };
+		098DFB652EA677C100FFEDC5 /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB582EA677C100FFEDC5 /* ScreenRecorder.swift */; };
+		098DFB662EA677C100FFEDC5 /* ImagesToVideoExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB542EA677C100FFEDC5 /* ImagesToVideoExport.swift */; };
+		098DFB672EA677C100FFEDC5 /* ScreenRecordingManager+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB5B2EA677C100FFEDC5 /* ScreenRecordingManager+Constants.swift */; };
+		098DFB682EA677C100FFEDC5 /* ScreenRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB5D2EA677C100FFEDC5 /* ScreenRecordingViewController.swift */; };
+		098DFB692EA677C100FFEDC5 /* ScreenRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098DFB5C2EA677C100FFEDC5 /* ScreenRecordingView.swift */; };
 		F600EADD203ADC3600E7AB93 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F600EADC203ADC3600E7AB93 /* AppUtility.swift */; };
 		F601058D2035C601004D8431 /* NetworkSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601058C2035C601004D8431 /* NetworkSessionSpy.swift */; };
 		F60105932035E39E004D8431 /* CheckUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60105922035E39E004D8431 /* CheckUpdateModel.swift */; };
@@ -123,6 +133,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		098DFB542EA677C100FFEDC5 /* ImagesToVideoExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesToVideoExport.swift; sourceTree = "<group>"; };
+		098DFB552EA677C100FFEDC5 /* UIApplication+KeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+KeyWindow.swift"; sourceTree = "<group>"; };
+		098DFB562EA677C100FFEDC5 /* UIImage+DrawCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DrawCircle.swift"; sourceTree = "<group>"; };
+		098DFB582EA677C100FFEDC5 /* ScreenRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
+		098DFB592EA677C100FFEDC5 /* ScreenRecorder+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenRecorder+UIWindow.swift"; sourceTree = "<group>"; };
+		098DFB5A2EA677C100FFEDC5 /* ScreenRecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingManager.swift; sourceTree = "<group>"; };
+		098DFB5B2EA677C100FFEDC5 /* ScreenRecordingManager+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenRecordingManager+Constants.swift"; sourceTree = "<group>"; };
+		098DFB5C2EA677C100FFEDC5 /* ScreenRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingView.swift; sourceTree = "<group>"; };
+		098DFB5D2EA677C100FFEDC5 /* ScreenRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingViewController.swift; sourceTree = "<group>"; };
+		098DFB5E2EA677C100FFEDC5 /* VideoFullscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFullscreenView.swift; sourceTree = "<group>"; };
 		F600EADC203ADC3600E7AB93 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		F601058C2035C601004D8431 /* NetworkSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionSpy.swift; sourceTree = "<group>"; };
 		F60105922035E39E004D8431 /* CheckUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUpdateModel.swift; sourceTree = "<group>"; };
@@ -251,6 +271,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		098DFB572EA677C100FFEDC5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				098DFB542EA677C100FFEDC5 /* ImagesToVideoExport.swift */,
+				098DFB552EA677C100FFEDC5 /* UIApplication+KeyWindow.swift */,
+				098DFB562EA677C100FFEDC5 /* UIImage+DrawCircle.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		098DFB5F2EA677C100FFEDC5 /* ScreenRecording */ = {
+			isa = PBXGroup;
+			children = (
+				098DFB572EA677C100FFEDC5 /* Helpers */,
+				098DFB582EA677C100FFEDC5 /* ScreenRecorder.swift */,
+				098DFB592EA677C100FFEDC5 /* ScreenRecorder+UIWindow.swift */,
+				098DFB5A2EA677C100FFEDC5 /* ScreenRecordingManager.swift */,
+				098DFB5B2EA677C100FFEDC5 /* ScreenRecordingManager+Constants.swift */,
+				098DFB5C2EA677C100FFEDC5 /* ScreenRecordingView.swift */,
+				098DFB5D2EA677C100FFEDC5 /* ScreenRecordingViewController.swift */,
+				098DFB5E2EA677C100FFEDC5 /* VideoFullscreenView.swift */,
+			);
+			path = ScreenRecording;
+			sourceTree = "<group>";
+		};
 		F60541D22178844A00DA16F6 /* FeedbackEnabled */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F5A6C72015EEE6009AFF2B /* Updraft.swift */,
+				098DFB5F2EA677C100FFEDC5 /* ScreenRecording */,
 				F644BD2E207CDAD4003126F1 /* AutoUpdate */,
 				F68088DB20189430008DE368 /* Shared */,
 				F644BD2D207CDACE003126F1 /* Feedback */,
@@ -837,6 +883,16 @@
 				F6D641CE20F49EDE003AA01D /* NavigationButton.swift in Sources */,
 				F644BD1C207C915B003126F1 /* SendFeedbackRequest.swift in Sources */,
 				F6D03F14203AC29E003FE65B /* ApiSessionManager.swift in Sources */,
+				098DFB602EA677C100FFEDC5 /* ScreenRecorder+UIWindow.swift in Sources */,
+				098DFB612EA677C100FFEDC5 /* UIApplication+KeyWindow.swift in Sources */,
+				098DFB622EA677C100FFEDC5 /* VideoFullscreenView.swift in Sources */,
+				098DFB632EA677C100FFEDC5 /* ScreenRecordingManager.swift in Sources */,
+				098DFB642EA677C100FFEDC5 /* UIImage+DrawCircle.swift in Sources */,
+				098DFB652EA677C100FFEDC5 /* ScreenRecorder.swift in Sources */,
+				098DFB662EA677C100FFEDC5 /* ImagesToVideoExport.swift in Sources */,
+				098DFB672EA677C100FFEDC5 /* ScreenRecordingManager+Constants.swift in Sources */,
+				098DFB682EA677C100FFEDC5 /* ScreenRecordingViewController.swift in Sources */,
+				098DFB692EA677C100FFEDC5 /* ScreenRecordingView.swift in Sources */,
 				F67B09372051639400FE4B1C /* UpdateUrlRequest.swift in Sources */,
 				F6D641B720F49DDB003AA01D /* FeedbackPaintViewController.swift in Sources */,
 				F6B558B0202061D7006ADB14 /* ApiResource.swift in Sources */,
@@ -1036,7 +1092,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Updraft/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Raph.Updraft;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1060,7 +1116,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Updraft/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Raph.Updraft;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1077,6 +1133,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EMM22S2YK;
 				INFOPLIST_FILE = UpdraftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Raph.UpdraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1092,6 +1149,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EMM22S2YK;
 				INFOPLIST_FILE = UpdraftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Raph.UpdraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

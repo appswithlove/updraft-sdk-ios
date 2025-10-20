@@ -48,6 +48,7 @@ final public class Updraft: NSObject {
 		let feedbackManager = FeedbackManager(checkFeedbackEnabledInteractor: checkFeedbackEnabledInteractor, feedbackPresenter: feedbackPresenter)
 		let autoUpdateManager = AutoUpdateManager(checkUpdateInteractor: checkUpdateInteractor, settings: settings)
 		self.init(loadFontsInteractor: loadFontsInteractor, autoUpdateManager: autoUpdateManager, apiSessionManager: apiManager, feedbackManager: feedbackManager, settings: settings)
+        ScreenRecordingManager.shared.initialise()
 	}
 	
 	private static let sharedInstance = Updraft()

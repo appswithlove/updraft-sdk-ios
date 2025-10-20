@@ -14,7 +14,7 @@ struct FeedbackModel {
 }
 
 struct FeedbackViewModel {
-	let image: UIImage
+	let sendingData: Data
 	let email: String
 	let description: String
 	let tag: Tag

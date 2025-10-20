@@ -17,7 +17,8 @@ protocol FeedbackViewControllerDelegate: AnyObject {
 class FeedbackViewController: UIViewController {
 
 	@IBOutlet weak var closeButton: UIButton!
-	@IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var modeSegmentControl: UISegmentedControl!
+    @IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -34,6 +35,12 @@ class FeedbackViewController: UIViewController {
 		fpvc.delegate = self
 		return fpvc
 	}()
+    
+    lazy var videoViewController: ScreenRecordingViewController = {
+        let vc = ScreenRecordingViewController()
+        vc.delegate = self
+        return vc
+    }()
 	
 	lazy var feedbackDescriptionViewController: FeedbackDescriptionViewController = {
 		let fdvc = FeedbackDescriptionViewController(email: email, tags: FeedbackViewModel.Tag.all())
@@ -56,11 +63,18 @@ class FeedbackViewController: UIViewController {
 	}
 	
 	private func feedbackViewModel() -> FeedbackViewModel {
-		let image = feedbackPaintViewController.image
+        let sendingData: Data = {
+            if navigationViewController.viewControllers.first == feedbackPaintViewController {
+                return feedbackPaintViewController.image.jpegData(compressionQuality: 1.0) ?? Data()
+            } else {
+                return videoViewController.data ?? Data()
+            }
+        }()
+        
 		let email = feedbackDescriptionViewController.email
 		let message = feedbackDescriptionViewController.text
 		let tag = feedbackDescriptionViewController.selectedTag ?? FeedbackViewModel.Tag.feedback
-		return FeedbackViewModel(image: image, email: email, description: message, tag: tag)
+		return FeedbackViewModel(sendingData: sendingData, email: email, description: message, tag: tag)
 	}
 	
 	// MARK: - Init
@@ -69,11 +83,18 @@ class FeedbackViewController: UIViewController {
 		self.email = email
 		self.image = image
 		super.init(nibName: nil, bundle: Bundle.updraft)
+        ScreenRecordingManager.shared.isFeedbackScreensVisible = true
+        ScreenRecordingManager.shared.stop()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
+    deinit {
+        ScreenRecordingManager.shared.isFeedbackScreensVisible = false
+        ScreenRecordingManager.shared.startIfNeed()
+    }
 	
 	// MARK: - Lifecycle
 	
@@ -98,6 +119,19 @@ class FeedbackViewController: UIViewController {
 		let closeImage = UIImage(named: "iconButtonClose", in: Bundle.updraft, compatibleWith: nil)
 		closeButton.setImage(closeImage, for: .normal)
 		closeButton.setTitle("", for: .normal)
+        
+        modeSegmentControl.removeAllSegments()
+        modeSegmentControl.insertSegment(withTitle: "updraft_mode_screenshot".localized, at: 0, animated: false)
+        modeSegmentControl.insertSegment(withTitle: "updraft_mode_screenRecording".localized, at: 1, animated: false)
+        modeSegmentControl.selectedSegmentIndex = 0
+        modeSegmentControl.setTitleTextAttributes(
+            [.foregroundColor: UIColor.white],
+            for: .normal
+        )
+        modeSegmentControl.setTitleTextAttributes(
+            [.foregroundColor: UIColor.label],
+            for: .selected
+        )
 	}
 	
 	private func setupConstraints() {
@@ -134,6 +168,18 @@ class FeedbackViewController: UIViewController {
 	@IBAction func dismiss(_ sender: UIButton) {
 		delegate?.feedbackViewControllerDismissWasTapped(self)
 	}
+    
+    @IBAction func modeChangedAction(_ sender: Any) {
+        updateModeScreen()
+    }
+    
+    private func updateModeScreen() {
+        if modeSegmentControl.selectedSegmentIndex == 0 {
+            navigationViewController.setViewControllers([feedbackPaintViewController], animated: false)
+        } else {
+            navigationViewController.setViewControllers([videoViewController], animated: false)
+        }
+    }
 }
 
 // MARK: - FeedbackPainViewControllerDelegate
@@ -142,6 +188,14 @@ extension FeedbackViewController: FeedbackPaintViewControllerDelegate {
 	func paintViewControllerNextWasTapped(sender _: FeedbackPaintViewController) {
 		showDescriptionViewController()
 	}
+}
+
+// MARK: - ScreenRecordingViewControllerDelegate
+
+extension FeedbackViewController: ScreenRecordingViewControllerDelegate {
+    func screenRecordingViewControllerNextWasTapped(sender _: ScreenRecordingViewController) {
+        showDescriptionViewController()
+    }
 }
 
 // MARK: - FeedbackDescriptionViewControllerDelegate
